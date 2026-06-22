@@ -1,137 +1,121 @@
 # Conclusion tab
-# Owner: <name>
-#
-# Design: computed key-finding badges, two highlight stats (best country +
-# best processing method), top 5 countries bar chart, and a takeaways
-# section for the team to fill in.
+# --------------
+# Summarises what the dataset is dominated by (most prevalent origin, method,
+# species, year) alongside the quality leaders, then a short set of takeaways.
+# All figures computed from the data.
 
-# ── Highlight card helper ─────────────────────────────────────────────────────
-highlight_card <- function(label, value) {
-  div(
-    style = paste("border-left:3px solid #1D9E75; padding:8px 14px;",
-                  "margin-bottom:10px; border-radius:0 8px 8px 0;",
-                  "background:#f7f7f7;"),
-    tags$p(style = "font-size:12px; color:#888; margin:0 0 2px;", label),
-    tags$p(style = "font-size:16px; font-weight:500; margin:0;", value)
-  )
+# Most frequent non-blank value of a column.
+most_common <- function(x) {
+  x <- x[!is.na(x) & x != ""]
+  if (length(x) == 0) return("—")
+  names(which.max(table(x)))
 }
 
-# ── UI ────────────────────────────────────────────────────────────────────────
 conclusionUI <- function(id) {
   ns <- NS(id)
   tagList(
-    h2("Conclusion"),
-    p("A summary of the key findings from across the dashboard."),
+    h2("Conclusions"),
+    p("What the data is dominated by, and which origins and methods stand out."),
 
-    # Key finding badges
-    uiOutput(ns("badges")),
-
-    hr(),
-
-    # Highlight stats + top countries chart
+    h4("Most prevalent in the dataset"),
     fluidRow(
-      column(4,
-        h4("Highlights"),
-        uiOutput(ns("highlight_country")),
-        uiOutput(ns("highlight_method")),
-        uiOutput(ns("highlight_altitude"))
-      ),
-      column(8,
-        h4("Top 5 countries by average cup score"),
-        plotOutput(ns("topCountriesPlot"), height = "260px")
-      )
+      column(3, uiOutput(ns("prev_country"))),
+      column(3, uiOutput(ns("prev_method"))),
+      column(3, uiOutput(ns("prev_year"))),
+      column(3, uiOutput(ns("prev_species")))
     ),
 
     hr(),
 
-    # Takeaways — team fills these in
+    fluidRow(
+      column(5,
+        h4("Quality leaders"),
+        p(style = "color:#888; font-size:13px;",
+          "Countries with at least 5 graded coffees."),
+        uiOutput(ns("lead_country")),
+        uiOutput(ns("lead_method"))),
+      column(7,
+        h4("Most represented countries"),
+        plotOutput(ns("topCountries"), height = "300px"))
+    ),
+
+    hr(),
+
     h4("Key takeaways"),
-    tags$ul(
-      tags$li("Replace with your main finding about flavor drivers."),
-      tags$li("Replace with your main finding about geography / altitude."),
-      tags$li("Replace with your main finding about production / processing.")
-    )
+    uiOutput(ns("takeaways"))
   )
 }
 
-# ── Server ────────────────────────────────────────────────────────────────────
 conclusionServer <- function(id, data) {
   moduleServer(id, function(input, output, session) {
 
-    clean <- data[!is.na(data$Total.Cup.Points) & data$Total.Cup.Points > 0, ]
+    scored <- data[!is.na(data$Total.Cup.Points) & data$Total.Cup.Points > 0, ]
 
-    # Average score per country (min 5 samples)
+    # Average score per country, restricted to >= 5 samples for fairness.
     country_avg <- reactive({
-      avg <- tapply(clean$Total.Cup.Points, clean$Country.of.Origin, mean)
-      n   <- table(clean$Country.of.Origin)
-      sort(avg[n >= 5], decreasing = TRUE)
+      tab <- summarise_by(scored, "Country.of.Origin")
+      tab <- tab[tab$n_coffees >= 5, ]
+      tab[order(-tab$avg_score), ]
     })
-
-    # Best processing method by avg score (min 5 samples)
     best_method <- reactive({
-      m   <- trimws(clean$Processing.Method)
-      avg <- tapply(clean$Total.Cup.Points, m, mean)
-      n   <- table(m)
-      avg <- sort(avg[n >= 5], decreasing = TRUE)
-      names(avg)[1]
+      tab <- summarise_by(scored, "Processing.Method")
+      tab <- tab[tab$n_coffees >= 5, ]
+      tab$group[which.max(tab$avg_score)]
     })
 
-    # ── Computed badges ───────────────────────────────────────────────────────
-    output$badges <- renderUI({
-      avg    <- country_avg()
-      top_c  <- names(avg)[1]
-      top_m  <- best_method()
-      alt_ok <- !all(is.na(clean$altitude_mean_meters))
+    # ── Most prevalent ─────────────────────────────────────────────────────────
+    output$prev_country <- renderUI(
+      stat_card("Most coffees from", most_common(data$Country.of.Origin),
+                COFFEE_COLS$blue))
+    output$prev_method <- renderUI(
+      stat_card("Most common processing", most_common(data$Processing.Method),
+                COFFEE_COLS$orange))
+    output$prev_year <- renderUI(
+      stat_card("Most common harvest year",
+                most_common(as.character(data$harvest_year)), COFFEE_COLS$purple))
+    output$prev_species <- renderUI(
+      stat_card("Dominant species", most_common(data$Species), COFFEE_COLS$green))
 
-      badge_style <- function(bg, col) {
-        sprintf("display:inline-block; background:%s; color:%s;
-                 border-radius:6px; padding:4px 12px; font-size:13px;
-                 margin:0 6px 8px 0;", bg, col)
-      }
+    # ── Quality leaders ────────────────────────────────────────────────────────
+    output$lead_country <- renderUI({
+      ca <- country_avg()
+      stat_card("Highest average score",
+                paste0(ca$group[1], " — ", sprintf("%.1f", ca$avg_score[1])),
+                COFFEE_COLS$green)
+    })
+    output$lead_method <- renderUI(
+      stat_card("Best-scoring processing method", best_method(), COFFEE_COLS$blue))
 
-      div(
-        tags$span(style = badge_style("#E1F5EE", "#0F6E56"),
-                  paste("↑ Altitude correlates with quality")),
-        tags$span(style = badge_style("#E6F1FB", "#185FA5"),
-                  paste("\U0001F4CD", top_c, "leads in avg score")),
-        tags$span(style = badge_style("#EEEDFE", "#534AB7"),
-                  paste("\U0001F4A7", top_m, "= most consistent"))
+    # ── Most represented countries (by coffees graded) ─────────────────────────
+    output$topCountries <- renderPlot({
+      tab <- summarise_by(data, "Country.of.Origin")
+      tab <- head(tab[order(-tab$n_coffees), ], 8)
+      tab$group <- factor(tab$group, levels = rev(tab$group))
+      ggplot(tab, aes(n_coffees, group)) +
+        geom_col(fill = COFFEE_COLS$blue, width = 0.72) +
+        geom_text(aes(label = n_coffees), hjust = -0.2, size = 3.4, colour = "#333") +
+        scale_x_continuous(expand = expansion(mult = c(0, 0.1))) +
+        labs(x = "Number of coffees graded", y = NULL) +
+        theme_coffee()
+    })
+
+    # ── Takeaways (computed sentences) ──────────────────────────────────────────
+    output$takeaways <- renderUI({
+      ca   <- country_avg()
+      top  <- most_common(data$Country.of.Origin)
+      meth <- most_common(data$Processing.Method)
+      tags$ul(style = "font-size:14px; line-height:1.8; max-width:820px;",
+        tags$li(HTML(sprintf(
+          "The dataset leans heavily on a few origins — <b>%s</b> contributes the most graded coffees, so country averages elsewhere rest on smaller samples.",
+          top))),
+        tags$li(HTML(sprintf(
+          "<b>%s</b> is by far the most common processing method, and processing method shows only small differences in average cup score.",
+          meth))),
+        tags$li(HTML(sprintf(
+          "On quality, <b>%s</b> leads among well-sampled countries (avg %.1f), and scores cluster tightly in the low-to-mid 80s overall.",
+          ca$group[1], ca$avg_score[1]))),
+        tags$li("Higher growing altitude is associated with modestly higher cup scores (see the Analysis tab).")
       )
-    })
-
-    # ── Highlight stats ───────────────────────────────────────────────────────
-    output$highlight_country <- renderUI({
-      avg   <- country_avg()
-      label <- paste0(names(avg)[1], " — ", round(avg[1], 1))
-      highlight_card("Highest avg score", label)
-    })
-
-    output$highlight_method <- renderUI({
-      highlight_card("Best processing method", best_method())
-    })
-
-    output$highlight_altitude <- renderUI({
-      sub <- clean[!is.na(clean$altitude_mean_meters) &
-                   clean$altitude_mean_meters > 0, ]
-      if (nrow(sub) < 5) return(highlight_card("Altitude finding", "Insufficient data"))
-      r <- round(cor(sub$altitude_mean_meters, sub$Total.Cup.Points,
-                     use = "complete.obs"), 2)
-      highlight_card("Altitude vs score (r)", as.character(r))
-    })
-
-    # ── Top 5 countries bar chart ─────────────────────────────────────────────
-    output$topCountriesPlot <- renderPlot({
-      avg <- country_avg()
-      top <- rev(head(avg, 5))
-      pal <- colorRampPalette(c("#9FE1CB", "#085041"))(5)
-      par(mar = c(4, 10, 1, 3))
-      bp <- barplot(top, horiz = TRUE, col = pal, border = NA,
-                    las = 1, cex.names = 0.9,
-                    xlim = c(min(top) - 2, max(top) + 1),
-                    xlab = "Average Total Cup Points")
-      text(x = top + 0.1, y = bp,
-           labels = sprintf("%.1f", top),
-           cex = 0.8, adj = 0, col = "#333333")
     })
   })
 }
