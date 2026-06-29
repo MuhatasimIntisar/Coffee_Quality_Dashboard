@@ -23,6 +23,13 @@ MAP_METRIC_CHOICES <- c(
   "Average score"            = "avg_score"
 )
 
+# What the Rankings section can rank (moved here from the Analysis tab). Ranks
+# across all origins, scoped only by the year range — no single-country filter.
+ENTITY_COLS <- c("Country"           = "Country.of.Origin",
+                 "Region"            = "Region",
+                 "Producer"          = "Producer",
+                 "Processing method" = "Processing.Method")
+
 # Format a metric value for display according to which metric it is.
 fmt_metric <- function(value, metric) {
   if (length(value) == 0 || all(is.na(value))) return("—")
@@ -87,6 +94,26 @@ locationUI <- function(id) {
       column(3, uiOutput(ns("kpi_avgscore"))),
       column(3, uiOutput(ns("kpi_top"))),
       column(3, uiOutput(ns("kpi_bottom")))
+    ),
+
+    hr(),
+
+    h4("Rankings"),
+    p("Rank countries, regions, producers, or processing methods by a chosen ",
+      "metric, across the selected harvest years."),
+    fluidRow(
+      column(4,
+        wellPanel(
+          selectInput(ns("rank_entity"), "Rank",
+                      choices = ENTITY_COLS, selected = "Country.of.Origin"),
+          selectInput(ns("rank_metric"), "By metric",
+                      choices = METRIC_CHOICES, selected = "avg_score"),
+          sliderInput(ns("rank_min"), "Min coffees per group",
+                      min = 1, max = 30, value = 5, step = 1),
+          p(style = "color:#7B4F2E; font-size:13px;",
+            "Top 15 groups; the minimum keeps tiny samples off the chart."))),
+      column(8,
+        plotOutput(ns("ranking"), height = "420px"))
     )
   )
 }
@@ -227,6 +254,21 @@ locationServer <- function(id, data, nav) {
         paste0(ca$group[which.min(ca$avg_score)], " — ",
                sprintf("%.1f", min(ca$avg_score)))
       stat_card("Lowest avg score (≥5 coffees)", v, COFFEE_COLS$purple)
+    })
+
+    # ── Rankings (moved from Analysis): top 15 groups by a chosen metric ─────────
+    # Uses in_range() so the year slider scopes it; ranks across all countries.
+    output$ranking <- renderPlot({
+      req(input$rank_entity, input$rank_metric %in% names(METRIC_LABELS))
+      a <- summarise_by(in_range(), input$rank_entity)
+      a <- a[a$n_coffees >= input$rank_min & !is.na(a[[input$rank_metric]]), ]
+      if (nrow(a) == 0) return(gg_no_data("No groups meet the minimum sample size."))
+      a <- head(a[order(-a[[input$rank_metric]]), ], 15)
+      a$group <- factor(a$group, levels = rev(a$group))
+      ggplot(a, aes(.data[[input$rank_metric]], group)) +
+        geom_col(fill = COFFEE_COLS$green, width = 0.72) +
+        scale_x_continuous(expand = expansion(mult = c(0, 0.08))) +
+        labs(x = METRIC_LABELS[[input$rank_metric]], y = NULL) + theme_coffee()
     })
   })
 }

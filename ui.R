@@ -114,19 +114,14 @@ ui <- fluidPage(
     hr{ border-top:1px solid var(--line); opacity:1; margin:26px 0; }
   "))),
 
-  # Custom header (replaces titlePanel for a kicker + display title).
-  div(class = "app-header",
-      div(class = "app-kicker", "Data Analytics \u00B7 Mini Project"),
-      h1("Coffee Quality Dashboard", class = "app-title")),
-
   tabsetPanel(
     id = "tabs",
     type = "tabs",
 
-    tabPanel("Introduction", introductionUI("introduction")),
-    tabPanel("Global",       locationUI("location")),
-    tabPanel("Profile",      profileUI("profile")),
-    tabPanel("Analysis",     analysisUI("analysis")),
-    tabPanel("Conclusion",   conclusionUI("conclusion"))
+    tabPanel("Overview", introductionUI("introduction")),
+    tabPanel("Global",   locationUI("location")),
+    tabPanel("Profile",  profileUI("profile")),
+    tabPanel("Analysis", analysisUI("analysis")),
+    tabPanel("Summary",  conclusionUI("conclusion"))
   )
 )

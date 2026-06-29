@@ -23,18 +23,24 @@ COFFEE_COLS <- list(
 LATTE <- list(base = "#F7F1E7", mantle = "#F1E4CE", surface = "#FFFFFF",
               line = "#EADDCB", text = "#2B2018", subtext = "#6F5C49")
 
-# Distinct categorical hues for multi-slice charts. Warm-led but spread across
-# the wheel so methods/regions are actually TELL-APART on the scatter & pie.
-# Last colour ("#9C8F7E") is the muted grey used for "Other".
-CAT_COLS <- c("#8A5A2B",  # roast
-              "#2E8B74",  # green
-              "#C68642",  # caramel
-              "#3E5C76",  # slate blue
-              "#B5651D",  # clay
-              "#7A6F9B",  # muted plum
-              "#5C8D7B",  # sage
-              "#A23E48",  # brick
-              "#9C8F7E")  # grey (Other)
+# Categorical hues for multi-series charts. Okabe–Ito colour-blind-safe palette
+# (stays distinct under deuteranopia / protanopia / tritanopia), ordered most-
+# contrasting first so 2–3-series charts are maximally legible.
+CAT_COLS <- c("#0072B2",  # blue
+              "#D55E00",  # vermillion
+              "#009E73",  # bluish green
+              "#CC79A7",  # reddish purple
+              "#E69F00",  # orange
+              "#56B4E9",  # sky blue
+              "#F0E442",  # yellow
+              "#000000")  # black
+
+# Pick n distinct categorical colours: take them straight from CAT_COLS when
+# there are enough (keeps them maximally distinct), only interpolating when more
+# than the palette length are needed.
+cat_cols <- function(n) {
+  if (n <= length(CAT_COLS)) CAT_COLS[seq_len(n)] else colorRampPalette(CAT_COLS)(n)
+}
 
 # ── Stat / KPI card ─────────────────────────────────────────────────────────
 # Redesigned: a clean white card with a short accent rule on top, mono label,

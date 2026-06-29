@@ -1,33 +1,26 @@
-# Analysis tab  — bslib sidebar + stacked card sections
-# ------------------------------------------------------
+# Analysis tab  — bslib sidebar + collapsible accordion sections
+# --------------------------------------------------------------
 # Global filters (country / method / years) are pinned in the left sidebar.
-# The body is four sections that flow downwards — Timeline, Correlation,
-# Heatmap, Ranking — each a row with the chart card on the LEFT and its own
-# selection card on the RIGHT. A full-width Coffee finder closes the tab (it
-# needs no right-hand selection).
+# The body is an accordion of three discovery sections — Flavour profile &
+# quality drivers (paired side by side), Method, and Altitude × moisture — all
+# expanded on load. Controls sit beneath each chart. (Ranking now lives on the
+# Global tab; the Coffee finder on the Summary tab.)
 
-library(DT)
 library(bslib)
+library(fmsb)   # radar / spider charts (replaces the hand-coded base-R radar)
 
-# Scatter x-axis options (continuous factors) and heatmap layouts.
-XVAR_CHOICES <- c("Altitude (m)" = "altitude_mean_meters",
-                  "Moisture (%)" = "Moisture")
-HEAT_CHOICES <- c("Altitude × Moisture" = "alt_moist",
-                  "Altitude × Method"   = "alt_method")
-# What the Ranking section can rank.
-ENTITY_COLS <- c("Country"           = "Country.of.Origin",
-                 "Region"            = "Region",
-                 "Producer"          = "Producer",
-                 "Processing method" = "Processing.Method")
+# Grouping factors for the Flavour-profile radar overlay.
+RADAR_GROUPS <- c("Altitude band"     = "altband",
+                  "Processing method" = "method",
+                  "Moisture band"     = "moband")
 
 analysisUI <- function(id) {
   ns <- NS(id)
   tagList(
-    h2("Analysis: trends, factors, ranking & finder"),
+    h2("Analysis: trends, factors & drivers"),
     p("Explore how where and how coffee is grown relates to quality and flavour. ",
       "The filters on the left scope every section; each section below has its ",
-      "own controls on the right. Use the finder at the bottom to pull out the ",
-      "specific coffees that match a category."),
+      "own controls on the right."),
 
     layout_sidebar(
       fillable = FALSE,
@@ -43,79 +36,72 @@ analysisUI <- function(id) {
                     value = YEAR_RANGE, step = 1, sep = "", width = "100%")
       ),
 
-      # ── 1. Timeline ─────────────────────────────────────────────────────────
-      layout_columns(
-        col_widths = c(8, 4),
-        card(full_screen = TRUE,
-             card_header(textOutput(ns("timeline_title"))),
-             plotOutput(ns("timeline"), height = "320px")),
-        card(card_header("Timeline options"),
-             card_body(
-               selectInput(ns("measure_tl"), "Measure (y)",
-                           choices = MEASURE_CHOICES, selected = "Total.Cup.Points"),
-               p(class = "card-note",
-                 "Mean of the chosen measure across harvest years.")))
-      ),
+      # ── Collapsible sections ────────────────────────────────────────────────
+      # accordion() stacks the sections; open = TRUE expands them all on load,
+      # and the user can collapse any header to fold a section away. Controls sit
+      # beneath each chart; the first section pairs two charts side by side.
+      accordion(
+        open = TRUE,
 
-      # ── 2. Correlation ──────────────────────────────────────────────────────
-      layout_columns(
-        col_widths = c(8, 4),
-        card(full_screen = TRUE,
-             card_header(textOutput(ns("scatter_title"))),
-             plotOutput(ns("scatter"), height = "340px")),
-        card(card_header("Correlation options"),
-             card_body(
-               selectInput(ns("xvar_corr"), "X variable",
-                           choices = XVAR_CHOICES, selected = "altitude_mean_meters"),
-               selectInput(ns("measure_corr"), "Y measure",
-                           choices = MEASURE_CHOICES, selected = "Total.Cup.Points"),
-               p(class = "card-note",
-                 "Each point is a coffee, coloured by method; the dashed line is a linear fit.")))
-      ),
+        # ── 1. Flavour profile + Quality drivers, side by side ─────────────────
+        accordion_panel(
+          "Flavour profile & quality drivers",
+          layout_columns(
+            col_widths = c(6, 6),
+            card(full_screen = TRUE,
+                 card_header(textOutput(ns("radar_title"))),
+                 card_body(
+                   plotOutput(ns("radar"), height = "380px"),
+                   selectInput(ns("radar_group"), "Compare by",
+                               choices = RADAR_GROUPS, selected = "altband"),
+                   radioButtons(ns("radar_scale"), "Scale",
+                                choices = c("Relative" = "rel", "Absolute" = "abs"),
+                                selected = "rel", inline = TRUE),
+                   p(class = "card-note",
+                     "Mean score on each attribute, one polygon per group (groups ",
+                     "under 5 coffees dropped). Relative zooms each axis to the ",
+                     "groups' range; Absolute uses a fixed 6–10 scale."))),
+            card(full_screen = TRUE,
+                 card_header(textOutput(ns("driver_title"))),
+                 card_body(
+                   plotOutput(ns("drivers"), height = "380px"),
+                   checkboxGroupInput(ns("driver_attrs"), "Sensory attributes",
+                               choices = setNames(FLAVOR_ATTRS,
+                                                  gsub("\\.", " ", FLAVOR_ATTRS)),
+                               selected = c("Aroma", "Acidity"), inline = TRUE),
+                   p(class = "card-note",
+                     "Each line fits one attribute against the overall score; its r ",
+                     "is in the legend — steeper, higher-r lines track quality most. ",
+                     "(Point clouds show when 3 or fewer are selected.)"))))
+        ),
 
-      # ── 3. Heatmap ──────────────────────────────────────────────────────────
-      layout_columns(
-        col_widths = c(8, 4),
-        card(full_screen = TRUE,
-             card_header(textOutput(ns("heat_title"))),
-             plotOutput(ns("heat"), height = "360px")),
-        card(card_header("Heatmap options"),
-             card_body(
-               selectInput(ns("measure_heat"), "Measure (fill)",
-                           choices = MEASURE_CHOICES, selected = "Total.Cup.Points"),
-               selectInput(ns("heat"), "Layout",
-                           choices = HEAT_CHOICES, selected = "alt_moist"),
-               p(class = "card-note",
-                 "Mean of the measure in each cell; blank cells have no coffees.")))
-      ),
+        # ── 2. Method: a chosen measure by processing method ───────────────────
+        accordion_panel(
+          "Method",
+          card(full_screen = TRUE,
+               card_header(textOutput(ns("method_title"))),
+               card_body(
+                 plotOutput(ns("method_box"), height = "340px"),
+                 selectInput(ns("method_measure"), "Measure",
+                             choices = MEASURE_CHOICES, selected = "Total.Cup.Points"),
+                 p(class = "card-note",
+                   "Distribution of the chosen measure for each processing method ",
+                   "(methods with at least 5 coffees in the current slice).")))
+        ),
 
-      # ── 4. Ranking ──────────────────────────────────────────────────────────
-      layout_columns(
-        col_widths = c(8, 4),
-        card(full_screen = TRUE,
-             card_header(textOutput(ns("rank_title"))),
-             plotOutput(ns("ranking"), height = "380px")),
-        card(card_header("Ranking options"),
-             card_body(
-               selectInput(ns("rank_entity"), "Rank",
-                           choices = ENTITY_COLS, selected = "Country.of.Origin"),
-               selectInput(ns("rank_metric"), "By metric",
-                           choices = METRIC_CHOICES, selected = "avg_score"),
-               sliderInput(ns("rank_min"), "Min coffees per group",
-                           min = 1, max = 30, value = 5, step = 1),
-               p(class = "card-note",
-                 "Top 15 groups; the minimum keeps tiny samples off the chart.")))
-      ),
-
-      # ── Coffee finder (full width, no right-hand card) ──────────────────────
-      card(
-        card_header("Coffee finder"),
-        card_body(
-          p(class = "card-note",
-            "Every coffee in the current slice. Use the column filters to narrow ",
-            "to a specific category — country, region, method, or an altitude / ",
-            "moisture / score range."),
-          DTOutput(ns("finder")))
+        # ── 3. Altitude × moisture: heatmap of the mean measure per band ───────
+        accordion_panel(
+          "Altitude × moisture",
+          card(full_screen = TRUE,
+               card_header(textOutput(ns("am_title"))),
+               card_body(
+                 plotOutput(ns("altmoist"), height = "360px"),
+                 selectInput(ns("am_measure"), "Fill by",
+                             choices = MEASURE_CHOICES, selected = "Total.Cup.Points"),
+                 p(class = "card-note",
+                   "Mean of the chosen measure in each altitude × moisture cell; ",
+                   "brighter cells are higher. Blank cells have no coffees.")))
+        )
       )
     )
   )
@@ -140,123 +126,148 @@ analysisServer <- function(id, data) {
         d$harvest_year >= input$years[1] & d$harvest_year <= input$years[2], ]
     })
 
-    # Altitude band helper (shared by the heatmap).
-    alt_band <- function(x) {
-      cut(x, c(0, 1000, 1250, 1500, 1750, 2000, Inf),
-          c("<1000", "1000–1250", "1250–1500", "1500–1750", "1750–2000", "2000+"),
-          right = FALSE)
-    }
-
-    # ── 1. Timeline: mean measure per harvest year ──────────────────────────────
-    output$timeline_title <- renderText(
-      sprintf("%s over time", measure_label(input$measure_tl)))
-    output$timeline <- renderPlot({
-      m <- input$measure_tl
-      d <- base(); d <- d[!is.na(d[[m]]), ]
-      if (nrow(d) == 0) return(gg_no_data())
-      ag <- aggregate(d[[m]], list(year = d$harvest_year), mean, na.rm = TRUE)
-      names(ag) <- c("year", "val")
-      ggplot(ag, aes(year, val)) +
-        geom_line(colour = COFFEE_COLS$blue, linewidth = 1) +
-        geom_point(colour = COFFEE_COLS$blue, size = 2.6) +
-        scale_x_continuous(breaks = ag$year) +
-        labs(x = "Harvest year", y = paste("Mean", measure_label(m))) + theme_coffee()
+    # ── 3. Method: distribution of a chosen measure per processing method ───────
+    output$method_title <- renderText(
+      sprintf("%s by processing method", measure_label(input$method_measure)))
+    output$method_box <- renderPlot({
+      m <- input$method_measure
+      d <- base(); d <- d[d$Processing.Method != "" & !is.na(d[[m]]), ]
+      if (m == "Total.Cup.Points") d <- d[d[[m]] > 0, ]
+      if (nrow(d) == 0) return(gg_no_data("Not enough data for this slice."))
+      # Keep methods with at least 5 coffees so a single coffee isn't a "box".
+      keep <- names(which(table(d$Processing.Method) >= 5))
+      d <- d[d$Processing.Method %in% keep, ]
+      if (nrow(d) == 0) return(gg_no_data("Groups too small to compare."))
+      ggplot(d, aes(reorder(Processing.Method, .data[[m]], FUN = median),
+                    .data[[m]], fill = Processing.Method)) +
+        geom_boxplot(alpha = 0.85, width = 0.5, outlier.size = 0.7,
+                     outlier.alpha = 0.4, linewidth = 0.4) +
+        scale_fill_manual(values = cat_cols(length(unique(d$Processing.Method))),
+                          guide = "none") +
+        labs(x = NULL, y = measure_label(m)) + theme_coffee() + coord_flip()
     })
 
-    # ── 2. Correlation: x variable vs measure, coloured by method ───────────────
-    output$scatter_title <- renderText({
-      xl <- names(XVAR_CHOICES)[XVAR_CHOICES == input$xvar_corr]
-      sprintf("%s vs %s", measure_label(input$measure_corr), xl)
+    # ── 1. Flavour profile: mean of the 9 attributes per group, overlaid (fmsb) ─
+    output$radar_title <- renderText({
+      lab <- names(RADAR_GROUPS)[RADAR_GROUPS == input$radar_group]
+      sprintf("Flavour profile by %s", tolower(lab))
     })
-    output$scatter <- renderPlot({
-      m <- input$measure_corr; xv <- input$xvar_corr
-      d <- base(); d <- d[!is.na(d[[m]]) & !is.na(d[[xv]]), ]
-      if (xv == "altitude_mean_meters")
-        d <- d[d[[xv]] > 0 & d[[xv]] < 4000, ]
-      else
-        d <- d[d[[xv]] > 0, ]
-      if (nrow(d) < 2) return(gg_no_data("Not enough data for this slice."))
-      d$xplot  <- if (xv == "Moisture") d[[xv]] * 100 else d[[xv]]
-      d$method <- ifelse(d$Processing.Method == "", "Unknown", d$Processing.Method)
-      xl  <- names(XVAR_CHOICES)[XVAR_CHOICES == xv]
-      pal <- colorRampPalette(CAT_COLS)(length(unique(d$method)))
-      ggplot(d, aes(xplot, .data[[m]])) +
-        geom_point(aes(colour = method), alpha = 0.55, size = 2) +
-        geom_smooth(method = "lm", se = TRUE, colour = COFFEE_COLS$purple,
-                    fill = COFFEE_COLS$purple, alpha = 0.12, linetype = "dashed") +
-        scale_colour_manual(values = pal) +
-        labs(x = xl, y = measure_label(m), colour = "Method") + theme_coffee()
-    })
-
-    # ── 3. Heatmap: altitude band × (moisture band | method), filled by measure ─
-    output$heat_title <- renderText(
-      if (input$heat == "alt_method")
-        sprintf("%s by altitude × method", measure_label(input$measure_heat))
-      else
-        sprintf("%s by altitude × moisture", measure_label(input$measure_heat)))
-    output$heat <- renderPlot({
-      m <- input$measure_heat
-      d <- base(); d <- d[!is.na(d[[m]]), ]
-      d <- d[!is.na(d$altitude_mean_meters) & d$altitude_mean_meters > 0 &
-             d$altitude_mean_meters < 4000, ]
-      if (nrow(d) == 0) return(gg_no_data())
-      d$altband <- alt_band(d$altitude_mean_meters)
-
-      if (input$heat == "alt_method") {
-        d <- d[d$Processing.Method != "", ]
-        if (nrow(d) == 0) return(gg_no_data())
-        ag <- aggregate(d[[m]], list(x = d$altband, y = d$Processing.Method),
-                        mean, na.rm = TRUE)
-        ylab <- "Processing method"
-      } else {
-        d <- d[!is.na(d$Moisture) & d$Moisture > 0, ]
-        if (nrow(d) == 0) return(gg_no_data())
-        d$moband <- cut(d$Moisture, c(0, 0.10, 0.11, 0.12, 0.13, Inf),
-                        c("<10%", "10–11%", "11–12%", "12–13%", "13%+"), right = FALSE)
-        ag <- aggregate(d[[m]], list(x = d$altband, y = d$moband), mean, na.rm = TRUE)
-        ylab <- "Moisture"
-      }
-      names(ag) <- c("x", "y", "val")
-      ggplot(ag, aes(x, y, fill = val)) +
-        geom_tile(colour = "white") +
-        geom_text(aes(label = sprintf("%.1f", val)), size = 3, colour = "#333333") +
-        scale_fill_gradient(low = "#F1E4CE", high = COFFEE_COLS$blue) +
-        labs(x = "Altitude band (m)", y = ylab, fill = measure_label(m)) +
-        theme_coffee() + theme(axis.text.x = element_text(angle = 25, hjust = 1))
-    })
-
-    # ── 4. Ranking: top groups by a chosen metric ───────────────────────────────
-    output$rank_title <- renderText({
-      el <- names(ENTITY_COLS)[ENTITY_COLS == input$rank_entity]
-      sprintf("%s ranked by %s", el, tolower(METRIC_LABELS[[input$rank_metric]]))
-    })
-    output$ranking <- renderPlot({
-      req(input$rank_entity, input$rank_metric %in% names(METRIC_LABELS))
-      a <- summarise_by(base(), input$rank_entity)
-      a <- a[a$n_coffees >= input$rank_min & !is.na(a[[input$rank_metric]]), ]
-      if (nrow(a) == 0) return(gg_no_data("No groups meet the minimum sample size."))
-      a <- head(a[order(-a[[input$rank_metric]]), ], 15)
-      a$group <- factor(a$group, levels = rev(a$group))
-      ggplot(a, aes(.data[[input$rank_metric]], group)) +
-        geom_col(fill = COFFEE_COLS$green, width = 0.72) +
-        scale_x_continuous(expand = expansion(mult = c(0, 0.08))) +
-        labs(x = METRIC_LABELS[[input$rank_metric]], y = NULL) + theme_coffee()
-    })
-
-    # ── Coffee finder (per-column filters) ──────────────────────────────────────
-    output$finder <- renderDT({
+    output$radar <- renderPlot({
+      g <- input$radar_group
       d <- base()
-      tab <- data.frame(
-        Country  = d$Country.of.Origin, Region = d$Region, Producer = d$Producer,
-        Year     = d$harvest_year, Method = d$Processing.Method,
-        Altitude = round(d$altitude_mean_meters),
-        Moisture = round(d$Moisture * 100, 1),
-        Score    = round(d$Total.Cup.Points, 2),
-        Aroma    = d$Aroma, Flavor = d$Flavor, Acidity = d$Acidity, Body = d$Body,
-        stringsAsFactors = FALSE, check.names = FALSE)
-      datatable(tab, rownames = FALSE, filter = "top",
-                options = list(pageLength = 10, order = list()),
-                class = "stripe hover compact")
+      if (g == "altband") {
+        d <- d[!is.na(d$altitude_mean_meters) & d$altitude_mean_meters > 0 &
+               d$altitude_mean_meters < 4000, ]
+        d$grp <- cut(d$altitude_mean_meters, c(0, 1200, 1600, Inf),
+                     c("Low <1200m", "Mid 1200–1600m", "High >1600m"), right = FALSE)
+      } else if (g == "moband") {
+        d <- d[!is.na(d$Moisture) & d$Moisture > 0, ]
+        d$grp <- cut(d$Moisture, c(0, 0.11, 0.12, Inf),
+                     c("Dry <11%", "Mid 11–12%", "Damp 12%+"), right = FALSE)
+      } else {
+        d <- d[d$Processing.Method != "", ]
+        d$grp <- d$Processing.Method
+      }
+      d <- d[!is.na(d$grp), ]
+      if (nrow(d) < 3) return(gg_no_data("Not enough data for this slice."))
+
+      # Mean profile per group; keep only groups with at least 5 coffees.
+      grps <- split(d, d$grp)
+      grps <- grps[vapply(grps, nrow, integer(1)) >= 5]
+      if (length(grps) < 1) return(gg_no_data("Groups too small to compare."))
+      mat <- t(vapply(grps, function(p) colMeans(p[FLAVOR_ATTRS], na.rm = TRUE),
+                      numeric(length(FLAVOR_ATTRS))))
+      colnames(mat) <- gsub("\\.", " ", FLAVOR_ATTRS)
+
+      # Absolute = fixed 6–10 on every axis; Relative = zoom each axis to the
+      # group range (+20% padding) so small between-group gaps become visible.
+      # fmsb wants row 1 = per-axis max, row 2 = per-axis min, then one row/series.
+      if ((input$radar_scale %||% "rel") == "abs") {
+        radar_df <- as.data.frame(rbind(rep(10, ncol(mat)), rep(6, ncol(mat)), mat))
+        axt <- 1; caxis <- c("6", "7", "8", "9", "10")
+      } else {
+        mins <- apply(mat, 2, min); maxs <- apply(mat, 2, max)
+        rng  <- maxs - mins
+        pad  <- ifelse(rng < 1e-6, 0.5, rng * 0.20)
+        radar_df <- as.data.frame(rbind(maxs + pad, mins - pad, mat))
+        axt <- 0; caxis <- NULL
+      }
+      cols <- cat_cols(nrow(mat))
+
+      op <- par(mar = c(1, 1, 1, 1)); on.exit(par(op))
+      radarchart(radar_df, axistype = axt, seg = 4,
+                 pcol = cols, pfcol = adjustcolor(cols, alpha.f = 0.18),
+                 plwd = 2.5, plty = 1, pty = 16,
+                 cglcol = COFFEE_COLS$grid, cglty = 1, cglwd = 0.8,
+                 axislabcol = "#B9A88F", caxislabels = caxis, vlcex = 0.85)
+      legend("topright", legend = rownames(mat), col = cols, lwd = 2,
+             pch = 19, bty = "n", cex = 0.85)
+    })
+
+    # ── 2. Quality drivers: overlay chosen attributes vs Total Cup Points ───────
+    output$driver_title <- renderText("Sensory attributes vs Total Cup Points")
+    output$drivers <- renderPlot({
+      attrs <- input$driver_attrs
+      if (is.null(attrs) || length(attrs) == 0)
+        return(gg_no_data("Tick at least one attribute to compare."))
+      d <- base(); d <- d[!is.na(d$Total.Cup.Points), ]
+      if (nrow(d) < 3) return(gg_no_data("Not enough data for this slice."))
+
+      # Long format: one labelled series per attribute, label carries its r.
+      long <- do.call(rbind, lapply(attrs, function(a) {
+        sub <- d[!is.na(d[[a]]), ]
+        if (nrow(sub) < 3) return(NULL)
+        r <- suppressWarnings(cor(sub[[a]], sub$Total.Cup.Points))
+        data.frame(score = sub[[a]], total = sub$Total.Cup.Points,
+                   attr = sprintf("%s  (r = %.2f)", gsub("\\.", " ", a), r),
+                   stringsAsFactors = FALSE)
+      }))
+      if (is.null(long) || nrow(long) == 0) return(gg_no_data())
+
+      # Order the legend by r (strongest driver first).
+      ord <- order(-as.numeric(sub(".*r = ([0-9.]+).*", "\\1", unique(long$attr))))
+      long$attr <- factor(long$attr, levels = unique(long$attr)[ord])
+      pal <- cat_cols(nlevels(long$attr))
+
+      p <- ggplot(long, aes(score, total, colour = attr))
+      if (length(attrs) <= 3)
+        p <- p + geom_point(alpha = 0.3, size = 1.6)
+      p +
+        geom_smooth(method = "lm", se = FALSE, linewidth = 1.1) +
+        scale_colour_manual(values = pal) +
+        labs(x = "Attribute score (0–10)", y = "Total Cup Points", colour = NULL) +
+        theme_coffee()
+    })
+
+    # ── 4. Altitude × moisture: heatmap of the mean measure per band ────────────
+    output$am_title <- renderText(
+      sprintf("%s by altitude × moisture", measure_label(input$am_measure)))
+    output$altmoist <- renderPlot({
+      m <- input$am_measure
+      d <- base()
+      d <- d[!is.na(d$altitude_mean_meters) & d$altitude_mean_meters > 0 &
+             d$altitude_mean_meters < 4000 &
+             !is.na(d$Moisture) & d$Moisture > 0 & !is.na(d[[m]]), ]
+      if (nrow(d) == 0) return(gg_no_data("Not enough data for this slice."))
+      d$altband <- cut(d$altitude_mean_meters,
+                       c(0, 1000, 1250, 1500, 1750, 2000, Inf),
+                       c("<1000", "1000–1250", "1250–1500", "1500–1750",
+                         "1750–2000", "2000+"), right = FALSE)
+      d$moband  <- cut(d$Moisture, c(0, 0.10, 0.11, 0.12, 0.13, Inf),
+                       c("<10%", "10–11%", "11–12%", "12–13%", "13%+"), right = FALSE)
+      ag <- aggregate(d[[m]], list(alt = d$altband, mo = d$moband), mean, na.rm = TRUE)
+      names(ag) <- c("alt", "mo", "val")
+
+      # Label colour flips with cell brightness so text stays legible on viridis.
+      mid <- mean(range(ag$val))
+      ggplot(ag, aes(alt, mo, fill = val)) +
+        geom_tile(colour = "white") +
+        geom_text(aes(label = sprintf("%.1f", val), colour = val > mid),
+                  size = 3, show.legend = FALSE) +
+        scale_colour_manual(values = c(`TRUE` = "#222222", `FALSE` = "white")) +
+        scale_fill_viridis_c(name = measure_label(m)) +
+        labs(x = "Altitude band (m)", y = "Moisture") + theme_coffee() +
+        theme(axis.text.x = element_text(angle = 25, hjust = 1))
     })
   })
 }

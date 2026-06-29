@@ -21,6 +21,30 @@ for (col in c("Country.of.Origin", "Region", "Producer", "Processing.Method")) {
   coffee[[col]] <- trimws(coffee[[col]])
 }
 
+# Some values are entered with inconsistent capitalisation (e.g. "LA PLATA" vs
+# "La Plata", "SEVERAL"/"Several"/"several"), which would otherwise split one
+# producer into several groups in the treemap / ranking / finder. Collapse
+# case-variants of the same value onto a single canonical spelling: the most
+# frequent original, preferring a mixed-case form over ALL-CAPS or all-lower.
+canonicalize_case <- function(x) {
+  keep <- !is.na(x) & x != ""
+  key  <- tolower(x)
+  pick <- function(variants) {
+    tab   <- sort(table(variants), decreasing = TRUE)
+    cands <- names(tab)[tab == max(tab)]            # most frequent spelling(s)
+    mixed <- cands[cands != toupper(cands) & cands != tolower(cands)]
+    if (length(mixed)) mixed[1] else cands[1]
+  }
+  canon <- tapply(x[keep], key[keep], pick)         # named by lowercased key
+  x[keep] <- canon[key[keep]]
+  x
+}
+
+# Country feeds the map's coordinate lookup (fixed spellings), so leave it as is.
+for (col in c("Region", "Producer", "Processing.Method")) {
+  coffee[[col]] <- canonicalize_case(coffee[[col]])
+}
+
 # Harvest.Year is sometimes messy ("2013/2014", "Myanmar"): pull the first
 # 4-digit year. The dataset spans 2011–2018.
 coffee$harvest_year <- suppressWarnings(

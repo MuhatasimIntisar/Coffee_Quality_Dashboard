@@ -1,8 +1,12 @@
-# Conclusion tab
-# --------------
-# Summarises what the dataset is dominated by (most prevalent origin, method,
-# species, year) alongside the quality leaders, then a short set of takeaways.
-# All figures computed from the data.
+# Summary tab
+# -----------
+# The headline discoveries: what dominates the dataset (biggest producing
+# country, most productive year, most used method), which perform best (highest-
+# scoring country, year and method), then a written round-up of the deeper
+# findings (altitude, moisture, flavour drivers, defects). Figures computed from
+# the data; the five top-scoring coffees close the tab.
+
+library(DT)
 
 # Most frequent non-blank value of a column.
 most_common <- function(x) {
@@ -14,35 +18,39 @@ most_common <- function(x) {
 conclusionUI <- function(id) {
   ns <- NS(id)
   tagList(
-    h2("Conclusions"),
-    p("What the data is dominated by, and which origins and methods stand out."),
+    h2("Summary"),
 
-    h4("Most prevalent in the dataset"),
+    h4("Biggest and most common"),
     fluidRow(
-      column(3, uiOutput(ns("prev_country"))),
-      column(3, uiOutput(ns("prev_method"))),
-      column(3, uiOutput(ns("prev_year"))),
-      column(3, uiOutput(ns("prev_species")))
+      column(4, uiOutput(ns("prev_country"))),
+      column(4, uiOutput(ns("prev_year"))),
+      column(4, uiOutput(ns("prev_method")))
     ),
 
     hr(),
 
+    h4("Highest performing"),
+    p(style = "color:#888; font-size:13px;",
+      "By average cup score, among groups with enough graded coffees to be fair."),
     fluidRow(
-      column(5,
-        h4("Quality leaders"),
-        p(style = "color:#888; font-size:13px;",
-          "Countries with at least 5 graded coffees."),
-        uiOutput(ns("lead_country")),
-        uiOutput(ns("lead_method"))),
-      column(7,
-        h4("Most represented countries"),
-        plotOutput(ns("topCountries"), height = "300px"))
+      column(4, uiOutput(ns("lead_country"))),
+      column(4, uiOutput(ns("lead_year"))),
+      column(4, uiOutput(ns("lead_method")))
     ),
 
     hr(),
 
-    h4("Key takeaways"),
-    uiOutput(ns("takeaways"))
+    h4("What we found"),
+    uiOutput(ns("takeaways")),
+
+    hr(),
+
+    h4("Coffee finder"),
+    p(style = "color:#7B4F2E; font-size:13px;",
+      "Find a specific subset of coffees — use the search box or the per-column ",
+      "filters to narrow by country, region, method, or an altitude / moisture / ",
+      "score range."),
+    DTOutput(ns("finder"))
   )
 }
 
@@ -51,71 +59,91 @@ conclusionServer <- function(id, data) {
 
     scored <- data[!is.na(data$Total.Cup.Points) & data$Total.Cup.Points > 0, ]
 
-    # Average score per country, restricted to >= 5 samples for fairness.
+    # Average score per country (>= 5 coffees for fairness).
     country_avg <- reactive({
       tab <- summarise_by(scored, "Country.of.Origin")
       tab <- tab[tab$n_coffees >= 5, ]
       tab[order(-tab$avg_score), ]
     })
+    # Best-scoring processing method (>= 5 coffees).
     best_method <- reactive({
       tab <- summarise_by(scored, "Processing.Method")
       tab <- tab[tab$n_coffees >= 5, ]
       tab$group[which.max(tab$avg_score)]
     })
+    # Highest-scoring harvest year (years with >= 20 graded coffees, to be fair).
+    best_year <- reactive({
+      s <- scored[!is.na(scored$harvest_year), ]
+      m <- tapply(s$Total.Cup.Points, s$harvest_year, mean)
+      n <- table(s$harvest_year)
+      keep <- names(n)[n >= 20]
+      if (length(keep) == 0) return(NULL)
+      m <- m[keep]
+      list(year = names(which.max(m)), score = max(m))
+    })
 
-    # ── Most prevalent ─────────────────────────────────────────────────────────
+    # ── Biggest / most common ──────────────────────────────────────────────────
     output$prev_country <- renderUI(
-      stat_card("Most coffees from", most_common(data$Country.of.Origin),
+      stat_card("Biggest producing country", most_common(data$Country.of.Origin),
                 COFFEE_COLS$blue))
-    output$prev_method <- renderUI(
-      stat_card("Most common processing", most_common(data$Processing.Method),
-                COFFEE_COLS$orange))
     output$prev_year <- renderUI(
-      stat_card("Most common harvest year",
-                most_common(as.character(data$harvest_year)), COFFEE_COLS$purple))
-    output$prev_species <- renderUI(
-      stat_card("Dominant species", most_common(data$Species), COFFEE_COLS$green))
+      stat_card("Most productive year",
+                most_common(as.character(data$harvest_year)), COFFEE_COLS$orange))
+    output$prev_method <- renderUI(
+      stat_card("Most used method", most_common(data$Processing.Method),
+                COFFEE_COLS$purple))
 
-    # ── Quality leaders ────────────────────────────────────────────────────────
+    # ── Highest performing ─────────────────────────────────────────────────────
     output$lead_country <- renderUI({
       ca <- country_avg()
-      stat_card("Highest average score",
+      stat_card("Highest-scoring country",
                 paste0(ca$group[1], " — ", sprintf("%.1f", ca$avg_score[1])),
                 COFFEE_COLS$green)
     })
-    output$lead_method <- renderUI(
-      stat_card("Best-scoring processing method", best_method(), COFFEE_COLS$blue))
-
-    # ── Most represented countries (by coffees graded) ─────────────────────────
-    output$topCountries <- renderPlot({
-      tab <- summarise_by(data, "Country.of.Origin")
-      tab <- head(tab[order(-tab$n_coffees), ], 8)
-      tab$group <- factor(tab$group, levels = rev(tab$group))
-      ggplot(tab, aes(n_coffees, group)) +
-        geom_col(fill = COFFEE_COLS$blue, width = 0.72) +
-        geom_text(aes(label = n_coffees), hjust = -0.2, size = 3.4, colour = "#333") +
-        scale_x_continuous(expand = expansion(mult = c(0, 0.1))) +
-        labs(x = "Number of coffees graded", y = NULL) +
-        theme_coffee()
+    output$lead_year <- renderUI({
+      by <- best_year()
+      v  <- if (is.null(by)) "—" else paste0(by$year, " — ", sprintf("%.1f", by$score))
+      stat_card("Highest-scoring year", v, COFFEE_COLS$green)
     })
+    output$lead_method <- renderUI(
+      stat_card("Best-scoring method", best_method(), COFFEE_COLS$green))
 
-    # ── Takeaways (computed sentences) ──────────────────────────────────────────
+    # ── Findings round-up (the deeper discoveries) ──────────────────────────────
     output$takeaways <- renderUI({
       ca   <- country_avg()
-      top  <- most_common(data$Country.of.Origin)
       meth <- most_common(data$Processing.Method)
-      tags$ul(style = "font-size:14px; line-height:1.8; max-width:820px;",
+      tags$ul(style = "font-size:14px; line-height:1.8; max-width:880px;",
         tags$li(HTML(sprintf(
-          "The dataset leans heavily on a few origins — <b>%s</b> contributes the most graded coffees, so country averages elsewhere rest on smaller samples.",
-          top))),
-        tags$li(HTML(sprintf(
-          "<b>%s</b> is by far the most common processing method, and processing method shows only small differences in average cup score.",
-          meth))),
-        tags$li(HTML(sprintf(
-          "On quality, <b>%s</b> leads among well-sampled countries (avg %.1f), and scores cluster tightly in the low-to-mid 80s overall.",
+          "<b>Altitude lifts quality.</b> Higher-grown coffees score modestly but consistently better across nearly every attribute — strongest on acidity and flavour. %s leads the well-sampled countries (avg %.1f) and is among the highest-altitude origins.",
           ca$group[1], ca$avg_score[1]))),
-        tags$li("Higher growing altitude is associated with modestly higher cup scores (see the Analysis tab).")
+        tags$li(HTML(
+          "<b>Altitude and moisture interact.</b> The best scores sit at high altitude with mid-range moisture (~11–13%); the worst are low-altitude, very wet beans. So it isn't altitude alone — there's a sweet spot.")),
+        tags$li(HTML(
+          "<b>Aftertaste and flavour drive the score.</b> Of the nine attributes, aftertaste and flavour correlate most strongly with the total; sweetness, clean cup and uniformity least — because almost every coffee scores near-perfect on those, so they don't separate the field.")),
+        tags$li(HTML(
+          "<b>Quality crashes, it doesn't drift.</b> Low totals come from a single category collapsing — a clean-cup or sweetness defect — rather than gradually worse taste. Those three attributes act as pass/fail switches.")),
+        tags$li(HTML(sprintf(
+          "<b>Processing matters little.</b> <b>%s</b> is by far the most common method, and average scores differ only slightly across methods.",
+          meth))),
+        tags$li(HTML(
+          "<b>Mind the sample.</b> The data leans on a few origins and older harvest years, so averages elsewhere rest on smaller samples."))
       )
+    })
+
+    # ── Coffee finder: per-column filterable table for picking a subset ─────────
+    output$finder <- renderDT({
+      d <- scored
+      tab <- data.frame(
+        Country  = d$Country.of.Origin, Region = d$Region, Producer = d$Producer,
+        Year     = d$harvest_year, Method = d$Processing.Method,
+        Altitude = round(d$altitude_mean_meters),
+        Moisture = round(d$Moisture * 100, 1),
+        Score    = round(d$Total.Cup.Points, 2),
+        Aroma    = d$Aroma, Flavor = d$Flavor, Acidity = d$Acidity, Body = d$Body,
+        stringsAsFactors = FALSE, check.names = FALSE)
+      datatable(tab, rownames = FALSE, filter = "top",
+                options = list(pageLength = 10, order = list()),
+                class = "stripe hover compact")
     })
   })
 }
