@@ -7,7 +7,7 @@
 # RESTYLE NOTES: only the *aesthetic* pieces changed — COFFEE_COLS, LATTE,
 # CAT_COLS, stat_card(), theme_coffee(), gg_no_data(). All keys/signatures are
 # unchanged, so the modules need NO edits. Logic (summarise_by, METRIC_*,
-# MEASURE_*, draw_radar, prod_radar_compare) is untouched.
+# MEASURE_*) is untouched.
 
 # ── Brand palette (Coffee) ────────────────────────────────────────────────────
 # Keys kept (blue/green/purple/orange/grey/grid) so modules need no changes —
@@ -23,39 +23,105 @@ COFFEE_COLS <- list(
 LATTE <- list(base = "#F7F1E7", mantle = "#F1E4CE", surface = "#FFFFFF",
               line = "#EADDCB", text = "#2B2018", subtext = "#6F5C49")
 
-# Categorical hues for multi-series charts. Okabe–Ito colour-blind-safe palette
-# (stays distinct under deuteranopia / protanopia / tritanopia), ordered most-
-# contrasting first so 2–3-series charts are maximally legible.
-CAT_COLS <- c("#0072B2",  # blue
-              "#D55E00",  # vermillion
-              "#009E73",  # bluish green
-              "#CC79A7",  # reddish purple
-              "#E69F00",  # orange
-              "#56B4E9",  # sky blue
-              "#F0E442",  # yellow
-              "#000000")  # black
+# Categorical hues for multi-series charts — a unified warm coffee palette.
+CAT_COLS <- c("#8A5A2B",  # roast
+              "#C68642",  # caramel
+              "#2E8B74",  # green
+              "#B5654A",  # clay
+              "#D8B26A",  # tan
+              "#3A2417")  # espresso
 
-# Pick n distinct categorical colours: take them straight from CAT_COLS when
-# there are enough (keeps them maximally distinct), only interpolating when more
-# than the palette length are needed.
+# Pick n distinct categorical colours: straight from CAT_COLS when there are
+# enough, only interpolating when more than the palette length are needed.
 cat_cols <- function(n) {
   if (n <= length(CAT_COLS)) CAT_COLS[seq_len(n)] else colorRampPalette(CAT_COLS)(n)
+}
+
+# Shared warm sequential fill for heatmaps / choropleths (cream -> espresso).
+# A function, so each plot gets a fresh scale (a reused scale object trains its
+# colour range across plots and mis-maps). Pass the legend title in `name`.
+warm_fill <- function(name = waiver()) {
+  scale_fill_gradientn(
+    colours  = c("#F7F1E7", "#E8C99A", "#C68642", "#8A5A2B", "#3A2417"),
+    na.value = "#EAE0D0", name = name)
+}
+
+# ── Average scorecard (ring + progress-bar legend) ──────────────────────────
+# Shared by Overview and Profile. Build the ten-component means from a set of
+# scored coffees, then render a clean ring (total in the middle) and a legend
+# with a colour swatch, name, /10 progress bar and value for each component.
+scorecard_df <- function(scored) {
+  comps  <- c(FLAVOR_ATTRS, "Cupper.Points")
+  vals   <- vapply(comps, function(c) mean(scored[[c]], na.rm = TRUE), numeric(1))
+  labels <- ifelse(comps == "Cupper.Points", "Grader overall", gsub("\\.", " ", comps))
+  data.frame(label = factor(labels, levels = labels), val = as.numeric(vals),
+             col = cat_cols(length(comps)), stringsAsFactors = FALSE)
+}
+
+scorecard_ring <- function(df) {
+  df$ymax <- cumsum(df$val); df$ymin <- c(0, head(df$ymax, -1))
+  total <- sum(df$val)
+  ggplot(df) +
+    geom_rect(aes(ymin = ymin, ymax = ymax, xmin = 3, xmax = 4, fill = label),
+              colour = "white", linewidth = 0.6) +
+    annotate("text", x = 0, y = 0, label = sprintf("%.0f", total),
+             size = 16, fontface = "bold", colour = LATTE$text) +
+    annotate("text", x = 1.15, y = total / 2, label = "out of 100",
+             size = 4.4, colour = LATTE$subtext) +
+    coord_polar(theta = "y") + xlim(c(0, 4)) +
+    scale_fill_manual(values = setNames(df$col, levels(df$label)), guide = "none") +
+    theme_void()
+}
+
+scorecard_legend <- function(df) {
+  fmt <- function(v) sub("\\.0$", "", sprintf("%.1f", v))
+  rows <- lapply(seq_len(nrow(df)), function(i) {
+    pct <- max(0, min(100, df$val[i] / 10 * 100))
+    div(style = "display:flex; align-items:center; gap:10px; margin-bottom:9px;",
+        tags$span(style = paste0("width:14px; height:14px; border-radius:3px; flex:none;",
+                                 " background:", df$col[i], ";")),
+        tags$span(style = "width:120px; flex:none; font-size:15px; color:#2B2018;",
+                  as.character(df$label[i])),
+        div(style = "flex:1; height:10px; border-radius:5px; background:#EFE4D2;",
+            div(style = paste0("width:", pct, "%; height:100%; border-radius:5px;",
+                               " background:", df$col[i], ";"))),
+        tags$span(style = "width:40px; text-align:right; flex:none; font-size:15px; color:#2B2018;",
+                  fmt(df$val[i])))
+  })
+  div(rows)
+}
+
+scorecard_card <- function(ring, legend) {
+  card(
+    card_header(
+      div(style = "display:flex; justify-content:space-between; align-items:baseline; gap:12px;",
+          tags$span("Average scorecard"),
+          tags$span(style = "font-weight:400; color:#6F5C49; font-size:14px;",
+                    "Total out of 100, split into its ten components"))),
+    card_body(
+      layout_columns(
+        col_widths = c(5, 7),
+        div(style = "display:flex; align-items:center; justify-content:center;", ring),
+        legend))
+  )
 }
 
 # ── Stat / KPI card ─────────────────────────────────────────────────────────
 # Redesigned: a clean white card with a short accent rule on top, mono label,
 # and a large display-font value — instead of the old left-border tan tab.
-stat_card <- function(label, value, accent = COFFEE_COLS$blue) {
+stat_card <- function(label, value, accent = COFFEE_COLS$blue, height = NULL) {
   div(
     style = paste0("background:", LATTE$surface, "; border:1px solid ", LATTE$line, ";",
                    "border-radius:14px; padding:16px 18px; margin-bottom:14px;",
-                   "box-shadow:0 1px 2px rgba(58,36,23,.05);"),
+                   "box-shadow:0 1px 2px rgba(58,36,23,.05);",
+                   if (!is.null(height))
+                     paste0("height:", height, "; box-sizing:border-box;")),
     tags$span(style = paste0("display:block; width:26px; height:3px; border-radius:2px;",
                              "background:", accent, "; margin-bottom:12px;")),
-    tags$p(style = paste0("font-family:'IBM Plex Mono',monospace; font-size:11px;",
+    tags$p(style = paste0("font-family:ui-monospace,Consolas,'Liberation Mono',monospace; font-size:11px;",
                           "letter-spacing:.08em; text-transform:uppercase;",
                           "color:", LATTE$subtext, "; margin:0 0 6px;"), label),
-    tags$p(style = paste0("font-family:'Space Grotesk',sans-serif; font-size:26px;",
+    tags$p(style = paste0("font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:26px;",
                           "font-weight:600; line-height:1; margin:0; color:", LATTE$text, ";"),
            value)
   )
@@ -63,10 +129,9 @@ stat_card <- function(label, value, accent = COFFEE_COLS$blue) {
 
 # ── Shared ggplot2 theme ────────────────────────────────────────────────────
 # Tighter, less generic: drop x gridlines, lighten y gridlines, kill ticks,
-# stronger title hierarchy, more breathing room. The Google fonts are registered
-# for plots in global.R (showtext), so we default to "IBM Plex Sans" here to keep
-# chart text consistent with the UI; pass family = NULL to fall back to default.
-theme_coffee <- function(base_size = 13, family = "IBM Plex Sans") {
+# stronger title hierarchy, more breathing room. Chart text uses the device's
+# default (system) font — no font needs to be downloaded or registered.
+theme_coffee <- function(base_size = 15, family = "") {
   theme_minimal(base_size = base_size, base_family = family %||% "") +
     theme(
       text             = element_text(colour = LATTE$text),
@@ -146,78 +211,6 @@ MEASURE_CHOICES <- setNames(c("Total.Cup.Points", FLAVOR_ATTRS),
                             c("Total Cup Points", gsub("\\.", " ", FLAVOR_ATTRS)))
 measure_label <- function(m) names(MEASURE_CHOICES)[match(m, MEASURE_CHOICES)]
 
-# ── Radar charts (base graphics) ────────────────────────────────────────────
-# A radar is awkward in ggplot2, so we keep these hand-drawn base-R helpers as
-# the dashboard's "we went beyond ggplot2" piece. draw_radar() plots one
-# profile; prod_radar_compare() overlays several for direct comparison.
-# (Colours come from COFFEE_COLS, so they restyle automatically.)
-
-draw_radar <- function(scores, title = "") {
-  n       <- length(scores)
-  angles  <- seq(0, 2 * pi, length.out = n + 1)[-(n + 1)]
-  min_val <- 6; max_val <- 10
-  norm    <- pmax(0, pmin(1, (scores - min_val) / (max_val - min_val)))
-  px <- norm * cos(angles - pi/2); py <- norm * sin(angles - pi/2)
-
-  par(mar = c(1, 1, 2, 1))
-  plot(0, 0, type = "n", xlim = c(-1.6, 1.6), ylim = c(-1.6, 1.6), asp = 1,
-       axes = FALSE, xlab = "", ylab = "", main = title, cex.main = 0.95)
-  for (r in c(0.25, 0.5, 0.75, 1.0)) {
-    gx <- r * cos(seq(0, 2*pi, length.out = 200) - pi/2)
-    gy <- r * sin(seq(0, 2*pi, length.out = 200) - pi/2)
-    lines(gx, gy, col = COFFEE_COLS$grid, lwd = 0.8)
-    text(0, r + 0.03, sprintf("%.1f", min_val + r * (max_val - min_val)),
-         cex = 0.5, col = "#B9A88F")
-  }
-  for (i in seq_len(n))
-    lines(c(0, cos(angles[i] - pi/2)), c(0, sin(angles[i] - pi/2)),
-          col = COFFEE_COLS$grid, lwd = 0.8)
-  polygon(c(px, px[1]), c(py, py[1]),
-          col = adjustcolor(COFFEE_COLS$green, 0.2),
-          border = COFFEE_COLS$green, lwd = 2)
-  points(px, py, pch = 21, bg = COFFEE_COLS$green, col = "white", cex = 1.6, lwd = 1.5)
-  for (i in seq_len(n)) {
-    lab <- gsub("\\.", " ", names(scores)[i])
-    cx  <- cos(angles[i] - pi/2)
-    adj_x <- if (cx < -0.1) 1 else if (cx > 0.1) 0 else 0.5
-    text(1.32 * cos(angles[i] - pi/2), 1.32 * sin(angles[i] - pi/2),
-         lab, cex = 0.72, col = LATTE$text, adj = c(adj_x, 0.5))
-  }
-}
-
-prod_radar_compare <- function(series, cols) {
-  attrs   <- names(series[[1]])
-  n       <- length(attrs)
-  angles  <- seq(0, 2 * pi, length.out = n + 1)[-(n + 1)]
-  min_val <- 6; max_val <- 10
-
-  par(mar = c(1, 1, 2, 1))
-  plot(0, 0, type = "n", xlim = c(-1.7, 1.7), ylim = c(-1.7, 1.7), asp = 1,
-       axes = FALSE, xlab = "", ylab = "")
-  for (r in c(0.25, 0.5, 0.75, 1.0)) {
-    gx <- r * cos(seq(0, 2*pi, length.out = 200) - pi/2)
-    gy <- r * sin(seq(0, 2*pi, length.out = 200) - pi/2)
-    lines(gx, gy, col = COFFEE_COLS$grid, lwd = 0.8)
-    text(0, r + 0.03, sprintf("%.1f", min_val + r * (max_val - min_val)),
-         cex = 0.5, col = "#B9A88F")
-  }
-  for (i in seq_len(n))
-    lines(c(0, cos(angles[i] - pi/2)), c(0, sin(angles[i] - pi/2)),
-          col = COFFEE_COLS$grid, lwd = 0.8)
-  for (s in seq_along(series)) {
-    norm <- pmax(0, pmin(1, (series[[s]] - min_val) / (max_val - min_val)))
-    px <- norm * cos(angles - pi/2); py <- norm * sin(angles - pi/2)
-    polygon(c(px, px[1]), c(py, py[1]),
-            col = adjustcolor(cols[s], 0.18), border = cols[s], lwd = 2)
-    points(px, py, pch = 21, bg = cols[s], col = "white", cex = 1.3, lwd = 1.2)
-  }
-  for (i in seq_len(n)) {
-    lab   <- gsub("\\.", " ", attrs[i])
-    cx    <- cos(angles[i] - pi/2)
-    adj_x <- if (cx < -0.1) 1 else if (cx > 0.1) 0 else 0.5
-    text(1.32 * cos(angles[i] - pi/2), 1.32 * sin(angles[i] - pi/2),
-         lab, cex = 0.72, col = LATTE$text, adj = c(adj_x, 0.5))
-  }
-  legend("topright", legend = names(series), col = cols,
-         lwd = 2, pch = 19, bty = "n", cex = 0.85)
-}
+# Radar charts are drawn with the fmsb package directly inside the Attributing-
+# Factors and Profile modules, so the old hand-drawn base-R radar helpers that
+# used to live here have been removed.
