@@ -1,0 +1,773 @@
+Species,Country.of.Origin,Region,Producer,Number.of.Bags,In.Country.Partner,Harvest.Year,Grading.Date,Processing.Method,Aroma,Flavor,Aftertaste,Acidity,Body,Balance,Uniformity,Clean.Cup,Sweetness,Cupper.Points,Total.Cup.Points,Moisture,altitude_low_meters,altitude_high_meters,altitude_mean_meters
+Arabica,Ethiopia,guji-hambela,METAD PLC,300,METAD Agricultural Development plc,2014,"April 4th, 2015",Washed / Wet,8.67,8.83,8.67,8.75,8.5,8.42,10,10,10,8.75,90.58,0.12,1950,2200,2075
+Arabica,Ethiopia,guji-hambela,METAD PLC,300,METAD Agricultural Development plc,2014,"April 4th, 2015",Washed / Wet,8.75,8.67,8.5,8.58,8.42,8.42,10,10,10,8.58,89.92,0.12,1950,2200,2075
+Arabica,Ethiopia,oromia,Yidnekachew Dabessa Coffee Plantation,320,METAD Agricultural Development plc,2014,"March 26th, 2015",Natural / Dry,8.17,8.58,8.42,8.42,8.5,8.25,10,10,10,8.67,89,0.11,1800,2200,2000
+Arabica,Ethiopia,guji-hambela,METAD PLC,300,METAD Agricultural Development plc,2014,"April 4th, 2015",Washed / Wet,8.25,8.5,8.25,8.5,8.42,8.33,10,10,10,8.58,88.83,0.12,1950,2200,2075
+Arabica,Ethiopia,"snnp/kaffa zone,gimbowereda",Diamond Enterprise Plc,50,METAD Agricultural Development plc,2014,"March 30th, 2015",Natural / Dry,8.08,8.58,8.5,8.5,7.67,8.42,10,10,10,8.5,88.25,0.1,1795,1850,1822.5
+Arabica,Ethiopia,oromia,Fahem Coffee Plantation,300,METAD Agricultural Development plc,2014,"March 27th, 2015",Natural / Dry,8.17,8.67,8.25,8.5,7.75,8.17,10,10,10,8.58,88.08,0.1,1855,1955,1905
+Arabica,United States,antioquia,Jorge Walter Restrepo,10,Almcafe,2014,"March 13th, 2015",Washed / Wet,8.08,8.67,8.33,8.42,8,8.08,10,10,10,8.33,87.92,0,1943,1943,1943
+Arabica,China,yunnan,Echo Coffee,3,Yunnan Coffee Exchange,2015,"April 7th, 2016",Washed / Wet,8.42,8.25,8.08,8.17,7.92,8,10,10,10,8.42,87.25,0.1,1450,1450,1450
+Arabica,Ethiopia,gedio,LevelUp,250,Blossom Valley International,2014,"March 25th, 2015",Natural / Dry,8.17,8.17,8,8.17,8.08,8.33,10,10,10,8.33,87.25,0,1700,2000,1850
+Arabica,Costa Rica,san ramon,SEVERAL,250,Specialty Coffee Association,2014,"April 2nd, 2014",Washed / Wet,8.08,8.25,8,8.17,8,8.33,10,10,10,8.33,87.17,0.11,1300,1300,1300
+Arabica,Mexico,xalapa,ROBERTO LICONA FRANCO,14,AMECAFE,2012,"July 26th, 2012",Washed / Wet,8.17,8.25,8.17,8,7.83,8.17,10,10,10,8.58,87.17,0.13,1320,1320,1320
+Arabica,United States,antioquia,Silvia Elena Higuita,10,Almcafe,2014,"March 13th, 2015",Washed / Wet,8.25,8.33,8.17,8.17,7.83,8.17,10,10,10,8.17,87.08,0,2112,2112,2112
+Arabica,Brazil,south of minas,Ralph Junqueira,3,NUCOFFEE,2011,"December 3rd, 2011",Natural / Dry,8.5,8.5,8,8,8,8,10,10,10,7.92,86.92,0.12,1250,1250,1250
+Arabica,Uganda,kapchorwa eastern,Kabum trading company,100,Uganda Coffee Development Authority,2013,"June 26th, 2014",Washed / Wet,8.42,8.17,8.17,8.17,7.83,7.92,10,10,10,8.17,86.83,0.12,1950,1950,1950
+Arabica,Brazil,vale da grama,Homero Texeira de Macedo Junior,29,NUCOFFEE,2011,"December 3rd, 2011",Natural / Dry,8.5,8.17,8,7.75,8,8,10,10,10,8,86.42,0.12,1300,1300,1300
+Arabica,Ethiopia,oromia,Haider Abamecha Abadiko,320,METAD Agricultural Development plc,2014,"March 27th, 2015",Natural / Dry,8,8.08,7.92,8,8.08,8.08,10,10,10,8.08,86.25,0.1,1750,1800,1775
+Arabica,Kenya,muranga,Kangunu,320,Kenya Coffee Traders Association,2013,"May 30th, 2014",Washed / Wet,8.08,8,8,8.25,7.92,7.92,10,10,10,8.08,86.25,0.12,1800,1800,1800
+Arabica,Thailand,chiang rai,ITDP,53,Specialty Coffee Association,2012,"April 12th, 2012",Washed / Wet,7.83,8.33,7.83,8.25,7.58,7.92,10,10,10,8.42,86.17,0.1,1300,1300,1300
+Arabica,Kenya,nyeri,JUNGLE ESTATE,12,Kenya Coffee Traders Association,2014,"January 29th, 2015",Natural / Dry,8.08,8.08,8,8,7.83,8.08,10,10,10,8,86.08,0.11,1754,1754,1754
+Arabica,Brazil,south of minas,Ralph Junqueira,7,NUCOFFEE,2011,"December 3rd, 2011",Semi-washed / Semi-pulped,8.33,8,8,8,7.75,8,10,10,10,8,86.08,0.11,1250,1250,1250
+Arabica,Uganda,"sipi, mt elgon",Kawacom,1,Africa Fine Coffee Association,2012,"February 13th, 2012",Washed / Wet,8.25,8,7.83,8.08,8,7.92,10,10,10,7.92,86,0.1,1400,1900,1650
+Arabica,Uganda,eastern,Kawacom (U)Ltd,1,Uganda Coffee Development Authority,2013,"June 30th, 2014",Natural / Dry,8.17,8.17,7.92,8.08,7.83,7.75,10,10,10,8,85.92,0.12,1400,1900,1650
+Arabica,Panama,boquete,Plinio Ruiz,37,Specialty Coffee Association of Costa Rica,2017,"October 9th, 2017",Washed / Wet,8,8,7.92,8.08,7.83,8,10,10,10,8,85.83,0.08,1600,1600,1600
+Arabica,Ethiopia,oromia,Ibrahim Hussien Specialty Coffee Producer and Exporter,320,METAD Agricultural Development plc,2014,"April 4th, 2015",Washed / Wet,7.83,8.08,7.92,8.08,8,7.92,10,10,10,8,85.83,0.1,1800,2000,1900
+Arabica,Guatemala,acatenango,SERTRASA,150,Asociacion Nacional Del Café,2012,"July 3rd, 2012",Washed / Wet,7.83,8,8,8.17,7.83,8,10,10,10,8,85.83,0.12,1524,1524,1524
+Arabica,Guatemala,nuevo oriente,WILLIAM ESTUARDO MARTINEZ PACHECO,275,Asociacion Nacional Del Café,2012,"June 5th, 2012",Washed / Wet,8,8,7.83,8.33,7.83,7.83,10,10,10,8,85.83,0.1,1417.32,1417.32,1417.32
+Arabica,Papua New Guinea,eastern highlands province,"Colbran CoffeeLands, Ltd.",7,Specialty Coffee Association,2012,"October 25th, 2012",Washed / Wet,8.33,8.42,7.83,8.33,8,8.25,9.33,9.33,10,7.92,85.75,0.12,1700,1700,1700
+Arabica,El Salvador,apaneca,Aida Batlle,275,Specialty Coffee Association,2013,"March 18th, 2013",Washed / Wet,7.92,8.17,8,7.92,7.75,7.83,10,10,10,8,85.58,0.1,1500,1500,1500
+Arabica,El Salvador,"ataco, apaneca - ilamatepec mountain range",Oscar Roberto Murgas Linares,19,Specialty Coffee Association,2012,"January 12th, 2013",Semi-washed / Semi-pulped,7.83,8,8,7.75,7.92,8.17,10,10,10,7.92,85.58,0.11,1300,1400,1350
+Arabica,Panama,boquete,Lamastus,100,Blossom Valley International,2014,"May 23rd, 2015",Natural / Dry,8,7.75,7.83,7.83,7.67,8.58,10,10,10,7.83,85.5,0.09,1680,1680,1680
+Arabica,Ethiopia,oromia,Assefa Belay Coffee Producer,320,METAD Agricultural Development plc,2015,"March 31st, 2015",Natural / Dry,7.83,8,7.83,7.92,7.83,8.08,10,10,10,8,85.5,0.12,1800,2000,1900
+Arabica,Uganda,bulambuli eastern region,Kyagalanyi coffee Ltd,320,Uganda Coffee Development Authority,2013,"June 26th, 2014",Washed / Wet,8.33,7.92,7.67,7.92,7.67,7.92,10,10,10,8.08,85.5,0.12,1600,1600,1600
+Arabica,Guatemala,huehuetenango,ASOCIACION DE PERMACULTORES DE CUILCO (SANTOS LOPEZ MEJIA),250,Asociacion Nacional Del Café,2013,"February 26th, 2013",Washed / Wet,8,7.83,7.67,8.33,7.83,8,10,10,10,7.83,85.5,0.11,1706.88,1755.648,1731.264
+Arabica,Ethiopia,oromia,Assefa Belay Coffee Producer,320,METAD Agricultural Development plc,2015,"March 31st, 2015",Washed / Wet,7.75,7.83,7.83,8.17,7.92,7.83,10,10,10,8.08,85.42,0.1,1800,2000,1900
+Arabica,Uganda,kapchorwa,Chesiyo Farmer group,150,Uganda Coffee Development Authority,2013,"June 26th, 2014",Washed / Wet,8.08,8,7.83,7.67,8,7.83,10,10,10,8,85.42,0.12,1950,1950,1950
+Arabica,China,yunnan,Pu'er City Longke Coffee Co.Ltd,3,Yunnan Coffee Exchange,2015,"April 6th, 2016",Natural / Dry,8,8,8,7.83,7.83,7.75,10,10,10,7.92,85.33,0.1,1700,1700,1700
+Arabica,Guatemala,huehuetenango,Arturo Aguirre,36,Blossom Valley International,2014,"May 23rd, 2015",Natural / Dry,7.83,7.75,7.83,7.67,7.83,8.58,10,10,10,7.83,85.33,0.11,1770,1770,1770
+Arabica,Costa Rica,west valley,Cafe Altura de San Ramon,250,Specialty Coffee Association,2014,"May 1st, 2014",Washed / Wet,7.92,8.08,8,7.92,8,8.08,10,10,9.33,8,85.33,0,1300,1300,1300
+Arabica,Costa Rica,san ramon,SEVERAL,250,Specialty Coffee Association,2014,"May 1st, 2014",Washed / Wet,8,7.58,7.58,7.67,8.08,8.5,10,10,10,7.92,85.33,0.1,1300,1300,1300
+Arabica,Kenya,central kenya,Kianjogu - Rutuma F.C.S. Ltd.,20,Kenya Coffee Traders Association,2012,"April 19th, 2013",Washed / Wet,7.83,8.08,7.75,8.08,7.92,7.75,10,10,10,7.92,85.33,0,1600,1600,1600
+Arabica,Kenya,central kenya,Blend from various Producers,300,Kenya Coffee Traders Association,2012,"March 12th, 2013",Washed / Wet,8,7.92,7.92,8.08,7.83,7.75,10,10,10,7.83,85.33,0,1200,1200,1200
+Arabica,Colombia,santander,varios,275,Almcafe,2015,"April 8th, 2015",Washed / Wet,8.17,7.92,7.83,8,7.58,7.83,10,10,10,7.92,85.25,0.11,1550,1550,1550
+Arabica,Guatemala,huehuetenango,Coop. Hoja Blanca - Fedecocagua,250,Specialty Coffee Association,2012,"January 18th, 2012",Washed / Wet,8.25,8,7.67,7.92,7.75,7.67,10,10,10,7.92,85.17,0,1400,1400,1400
+Arabica,Colombia,pasto,JOSE ALBEIRO GOMEZ / LUIS JABER REALPE,250,Almcafe,2015,"August 18th, 2015",Natural / Dry,8.17,7.83,7.58,8.08,8,7.75,10,10,10,7.67,85.08,0,2560,2560,2560
+Arabica,Ethiopia,aricha,BNT,100,Specialty Coffee Association,2014,"October 7th, 2014",Natural / Dry,8.42,8,7.42,8,7.92,7.92,9.33,10,10,8.08,85.08,0.1,1700,1700,1700
+Arabica,Colombia,cundinamarca,ORLANDO ORTIZ /WILSON ORTIZ/GILBERTO ACOSTA,250,Almcafe,2012,"March 16th, 2012",Natural / Dry,7.83,8,7.75,7.75,7.83,7.83,10,10,10,8.08,85.08,0.11,2136,2136,2136
+Arabica,Uganda,eastern uganda,Kyagalanyi Coffee Ltd,200,Uganda Coffee Development Authority,2016,"July 24th, 2017",Washed / Wet,8.17,7.92,7.75,7.75,7.67,7.75,10,10,10,8,85,0.11,1800,1800,1800
+Arabica,Costa Rica,tarrazu,Manuel Montero,36,Specialty Coffee Association,2016,"January 30th, 2017",Washed / Wet,7.83,8,7.58,7.92,7.92,7.83,10,10,10,7.92,85,0.12,1900,1900,1900
+Arabica,Mexico,veracruz,Varios productores minifundistas,1,Centro Agroecolegico del Cafe A.C.,2015,"September 21st, 2016",Washed / Wet,7.83,8,7.83,7.75,7.67,7.83,10,10,10,8.08,85,0.09,1300,1300,1300
+Arabica,Brazil,grama valley,Idalina M. De Andrade Ferreira,31,NUCOFFEE,2012,"February 29th, 2012",Natural / Dry,8,8,7.83,7.83,7.67,7.67,10,10,10,8,85,0.12,1100,1100,1100
+Arabica,Colombia,huila,La Plata,252,Almcafe,2015,"October 26th, 2015",Washed / Wet,7.92,7.83,7.75,7.83,7.75,8,10,10,10,7.83,84.92,0.12,1600,1950,1775
+Arabica,"Tanzania, United Republic Of",mbeya,Hasambo AMCOS,134,Africa Fine Coffee Association,2014,"December 12th, 2014",Washed / Wet,8,7.83,7.83,7.92,7.75,7.75,10,10,10,7.83,84.92,0.12,1620,1620,1620
+Arabica,Colombia,huila,LA PLATA,50,Almcafe,2012,"December 11th, 2012",Washed / Wet,7.75,7.92,7.83,7.75,7.75,8,10,10,10,7.92,84.92,0.11,1600,1950,1775
+Arabica,Mexico,coatepec,ARTEMIO ZAPATA TEJEDA,25,AMECAFE,2012,"July 11th, 2012",Semi-washed / Semi-pulped,7.75,8,7.75,7.83,7.5,7.92,10,10,10,8.17,84.92,0.11,1200,1200,1200
+Arabica,Brazil,south of minas,Glaucio Carneiro Pinto,4,NUCOFFEE,2011,"December 23rd, 2011",Natural / Dry,8,7.92,7.75,7.75,8,7.75,10,10,10,7.75,84.92,0.11,1200,1200,1200
+Arabica,Brazil,south of minas,Ricardo Luiz Ferreira,10,NUCOFFEE,2011,"December 3rd, 2011",Natural / Dry,8,8,7.75,8,7.5,7.75,10,10,10,7.92,84.92,0.12,1000,1000,1000
+Arabica,Taiwan,"dongshan dist., tainan city 臺南市東山區",Wang Chao Yung 王超永,10,Specialty Coffee Association,2016,"May 18th, 2016",Natural / Dry,7.92,7.58,7.83,7.83,7.83,7.83,10,10,10,8,84.83,0,350,350,350
+Arabica,Uganda,eastern,Sipi organic coffee project,1,Uganda Coffee Development Authority,2013,"June 30th, 2014",Natural / Dry,7.75,7.92,7.67,7.67,8.25,7.75,10,10,10,7.83,84.83,0.12,1400,1900,1650
+Arabica,Kenya,nyeri,KARATINA,150,Kenya Coffee Traders Association,2014,"June 2nd, 2015",Washed / Wet,7.92,7.83,7.58,7.92,7.75,7.83,10,10,10,7.92,84.75,0.13,1800,1800,1800
+Arabica,Honduras,marcala,Omar Acosta,275,Instituto Hondureno del Cafe,2014,"April 25th, 2014",Washed / Wet,7.83,7.75,8,7.67,7.67,7.67,10,10,10,8.17,84.75,0.11,1450,1450,1450
+Arabica,El Salvador,apaneca,J.J. Borja Nathan,150,Salvadoran Coffee Council,2016,"June 26th, 2017",Washed / Wet,7.83,7.83,7.5,8,7.83,7.67,10,10,10,8,84.67,0,1350,1350,1350
+Arabica,Indonesia,"temanggung, indonesia",PT. Shriya Artha Nusantara,2,Specialty Coffee Association of Indonesia,2016,"November 24th, 2016",Washed / Wet,7.92,7.83,7.75,7.75,7.75,7.75,10,10,10,7.92,84.67,0.12,1200,1200,1200
+Arabica,Costa Rica,tarrazu,Johanna,15,Specialty Coffee Association of Costa Rica,2015,"October 4th, 2016",Washed / Wet,8.08,7.75,7.67,7.83,7.5,7.92,10,10,10,7.92,84.67,0.1,1150,1150,1150
+Arabica,Guatemala,acatenango,JUAN BOCK,120,Asociacion Nacional Del Café,2015,"June 1st, 2016",Washed / Wet,7.75,7.83,7.58,8,7.92,7.75,10,10,10,7.83,84.67,0.1,1600,1600,1600
+Arabica,Ethiopia,yirgacheffe,Moplaco,250,Blossom Valley International,2014,"May 23rd, 2015",Washed / Wet,8.08,7.83,7.75,7.83,7.58,7.67,10,10,10,7.92,84.67,0.1,1900,1900,1900
+Arabica,Costa Rica,costa rica,Maria Elena Castro,20,Blossom Valley International,2014,"May 23rd, 2015",Other,7.67,7.58,7.75,7.75,7.67,8.58,10,10,10,7.67,84.67,0.08,1750,1750,1750
+Arabica,Costa Rica,west valley,CORICAFE BLEND,275,Specialty Coffee Association of Costa Rica,2014,"March 5th, 2014",Washed / Wet,8,7.58,7.83,7.75,7.75,7.75,10,10,10,8,84.67,0.11,1200,1200,1200
+Arabica,Costa Rica,west and central valley,Exclusive Coffees S.A.,250,Specialty Coffee Association of Costa Rica,2015,"December 3rd, 2015",Washed / Wet,8.17,7.83,8,8.08,7.83,8,10,10,10,8.42,86.33,0,1300,1300,1300
+Arabica,Kenya,nyeri,Sasini,235,Specialty Coffee Institute of Asia,2012,"September 16th, 2012",Washed / Wet,7.75,7.92,7.83,8,7.58,7.75,10,10,10,7.83,84.67,0.11,2000,2000,2000
+Arabica,Guatemala,oriente,AGROPECUARIA QUIAGRAL,250,Asociacion Nacional Del Café,2012,"July 17th, 2012",Washed / Wet,8,7.83,7.67,7.83,7.67,8,10,10,10,7.67,84.67,0.11,1310.64,1310.64,1310.64
+Arabica,Guatemala,acatenango,SERTRASA,125,Asociacion Nacional Del Café,2012,"July 3rd, 2012",Washed / Wet,7.67,7.83,7.67,8,7.67,7.83,10,10,10,8,84.67,0.12,1524,1524,1524
+Arabica,Mexico,el remudadero,"JORGE TORRES BELTRAN, VICENTE HERNANDEZ OCHOA, IGNACIO TORRES",80,AMECAFE,2012,"July 2nd, 2012",Washed / Wet,7.83,7.58,7.67,7.92,7.92,7.83,10,10,10,7.92,84.67,0.13,1200,1200,1200
+Arabica,Kenya,nyeri,BLEND,100,Kenya Coffee Traders Association,2013,"July 21st, 2014",Washed / Wet,7.83,7.83,7.83,7.75,7.58,7.83,10,10,10,7.92,84.58,0.1,1800,1800,1800
+Arabica,Guatemala,jalapa,ROBERTO MONTERROSO,250,Asociacion Nacional Del Café,2014,"May 29th, 2014",Washed / Wet,7.75,7.83,7.67,7.92,7.75,7.83,10,10,10,7.83,84.58,0.11,1524,1524,1524
+Arabica,Guatemala,oriente,AMILCAR LAPOLA,250,Asociacion Nacional Del Café,2014,"March 24th, 2014",Washed / Wet,8,7.92,7.67,7.58,7.58,7.67,10,10,10,8.17,84.58,0.09,1219.2,1219.2,1219.2
+Arabica,Colombia,huila,La Plata,75,Almcafe,2013,"December 6th, 2013",Washed / Wet,7.75,7.75,7.83,7.75,7.58,8,10,10,10,7.92,84.58,0,1600,1900,1750
+Arabica,Colombia,huila,varios,250,Almcafe,2012,"October 9th, 2012",Washed / Wet,7.42,7.67,7.75,7.75,8.08,7.83,10,10,10,8.08,84.58,0.11,1800,1800,1800
+Arabica,Brazil,vale da grama,Homero Texeira de Macedo Junior,37,NUCOFFEE,2011,"December 23rd, 2011",Semi-washed / Semi-pulped,8,8,7.75,7.75,7.58,7.75,10,10,10,7.75,84.58,0.12,1300,1300,1300
+Arabica,Costa Rica,valle central,Various,275,Specialty Coffee Association of Costa Rica,2017,"November 28th, 2017",Washed / Wet,7.92,7.67,7.92,7.75,7.67,7.58,10,10,10,8,84.5,0.1,1200,1200,1200
+Arabica,Uganda,eastern uganda,Kawacom Uganda Ltd,200,Uganda Coffee Development Authority,2016,"March 14th, 2017",Washed / Wet,7.92,7.75,7.67,7.75,7.83,7.75,10,10,10,7.83,84.5,0.11,1750,1750,1750
+Arabica,China,yunnan,Menglian Ban’an Coffee Processing Factory,3,Yunnan Coffee Exchange,2015,"April 6th, 2016",Washed / Wet,7.75,7.92,7.67,7.83,7.75,7.67,10,10,10,7.92,84.5,0.1,1680,1680,1680
+Arabica,China,yunnan,"PUER JIANGCHENG FUWANG COFFEE BIOTECHNOLOGY CO., LTD",1,Specialty Coffee Association,2013,"June 16th, 2014",Washed / Wet,7.67,8,7.75,7.83,7.75,7.58,10,10,10,7.92,84.5,0,1100,1100,1100
+Arabica,Guatemala,oriente,LUIS RODRIGUEZ,250,Asociacion Nacional Del Café,2013,"February 26th, 2013",Washed / Wet,8.17,7.83,7.67,7.83,7.67,7.83,10,10,10,7.5,84.5,0.11,1310.64,1310.64,1310.64
+Arabica,Mexico,hustusco,MARIA IMELDA USCANGA MARTINEZ,56,AMECAFE,2012,"July 11th, 2012",Washed / Wet,8,7.92,7.42,8.08,7.5,7.67,10,10,10,7.92,84.5,0.12,1350,1350,1350
+Arabica,Mexico,jaltenango,SANTIAGO JOSE ARGUELLO CAMPOS,250,AMECAFE,2012,"June 6th, 2012",Washed / Wet,7.92,7.83,7.75,7.75,7.75,7.83,10,10,10,7.67,84.5,0.11,1500,1500,1500
+Arabica,Costa Rica,tarrazu,Beneficio San Diego,275,Specialty Coffee Association of Costa Rica,2016,"March 23rd, 2017",Washed / Wet,7.58,7.83,7.83,8,7.67,7.58,10,10,10,7.92,84.42,0.1,1300,1300,1300
+Arabica,Indonesia,sumatra brastagi,Surbakti,200,Specialty Coffee Association,2017,"March 14th, 2017",Other,7.67,7.67,7.83,7.58,7.83,7.83,10,10,10,8,84.42,0,1400,1400,1400
+Arabica,Colombia,huila,La Plata,275,Almcafe,2014,"July 9th, 2014",Washed / Wet,7.92,7.75,7.67,7.92,7.67,7.75,10,10,10,7.75,84.42,0,1600,1950,1775
+Arabica,Taiwan,"mountain ali, taiwan",Kao Ming Lee,2,Specialty Coffee Association,2012,"July 10th, 2013",Washed / Wet,7.83,7.83,7.75,8,7.5,7.75,10,10,10,7.75,84.42,0.11,1200,1200,1200
+Arabica,Mexico,tapachula,MARIA AMALIA GUADALUPE TORIELLO ELORZA,69,AMECAFE,2012,"June 6th, 2012",Washed / Wet,7.75,7.92,7.75,7.67,7.83,7.67,10,10,10,7.83,84.42,0.12,900,900,900
+Arabica,Kenya,nyeri,mutheka,150,Kenya Coffee Traders Association,2017,"August 3rd, 2017",Washed / Wet,7.33,7.58,7.83,7.75,7.75,7.92,10,10,10,8.17,84.33,0.11,1800,1800,1800
+Arabica,Honduras,central region,Reinerio Zepeda,275,Instituto Hondureno del Cafe,2016,"April 4th, 2016",Washed / Wet,7.58,7.92,7.58,7.75,7.92,7.75,10,10,10,7.83,84.33,0.11,1500,1500,1500
+Arabica,Colombia,huila,FRANKLIN DUSSAN / ANDRES RODRIGUEZ/HIPOLITO TORRES,250,Almcafe,2015,"April 29th, 2015",Natural / Dry,7.75,7.67,8,7.67,8.08,7.83,10,10,10,7.33,84.33,0.11,442,442,442
+Arabica,Mexico,tuxtla gutierrez,VICTOR HUGO MELCHOR CORDOVA,100,AMECAFE,2012,"July 27th, 2012",Washed / Wet,8,7.75,7.75,7.83,7.5,7.67,10,10,10,7.83,84.33,0.12,1700,1700,1700
+Arabica,Thailand,chiang rai thailand,Matsuzawa Coffee,20,Specialty Coffee Institute of Asia,2015,"November 2nd, 2016",Natural / Dry,7.83,7.75,7.75,7.42,7.83,7.67,10,10,10,8,84.25,0.12,1200,1200,1200
+Arabica,Guatemala,antigua,FINCA MEDINA,230,Asociacion Nacional Del Café,2016,"May 23rd, 2016",Washed / Wet,7.75,7.75,7.58,7.92,7.75,7.75,10,10,10,7.75,84.25,0.11,1500,1500,1500
+Arabica,Guatemala,huehuetenango,HORACIO CIFUENTES MARTINEZ,275,Asociacion Nacional Del Café,2015,"April 6th, 2016",Washed / Wet,7.75,7.92,7.5,8.08,7.58,7.67,10,10,10,7.75,84.25,0.1,1099.4136,1099.4136,1099.4136
+Arabica,China,yunnan,Menglian County Nayun Town Mangzhang Coffee Farm,3,Yunnan Coffee Exchange,2015,"April 6th, 2016",Natural / Dry,7.83,7.83,7.58,7.75,7.75,7.75,10,10,10,7.75,84.25,0.1,1400,1400,1400
+Arabica,Colombia,huila,La Plata,275,Almcafe,2015,"November 19th, 2015",Washed / Wet,7.67,7.67,7.75,7.75,7.67,7.92,10,10,10,7.83,84.25,0.11,1600,1950,1775
+Arabica,Colombia,huila,La Plata,248,Almcafe,2015,"October 26th, 2015",Washed / Wet,7.83,7.67,7.75,7.58,7.92,7.75,10,10,10,7.75,84.25,0.12,1600,1950,1775
+Arabica,Colombia,huila,FRANKLIN DUSSAN/ANDRES RODRIGUEZ/HIPOLITO TORRES,250,Almcafe,2015,"April 29th, 2015",Natural / Dry,7.42,7.67,7.83,7.75,7.92,7.83,10,10,10,7.83,84.25,0.12,442,442,442
+Arabica,"Tanzania, United Republic Of",shizingo village,Tembo Coffee Company Ltd,10,Africa Fine Coffee Association,2014,"December 12th, 2014",Washed / Wet,7.83,7.67,7.75,7.83,7.67,7.67,10,10,10,7.83,84.25,0.12,1620,1620,1620
+Arabica,"Tanzania, United Republic Of",mbeya,Taylor Winch (T) ltd,65,Africa Fine Coffee Association,2014,"December 12th, 2014",Washed / Wet,7.83,7.75,7.75,7.75,7.67,7.75,10,10,10,7.75,84.25,0.12,1600,1600,1600
+Arabica,Guatemala,oriente,AMILCAR LAPOLA,250,Asociacion Nacional Del Café,2014,"August 21st, 2014",Other,7.83,7.83,7.5,7.92,7.58,7.75,10,10,10,7.83,84.25,0.1,1219.2,1219.2,1219.2
+Arabica,Mexico,san pedro cotzilnam,JESUS SALAZAR VELASCO,10,AMECAFE,2012,"September 11th, 2012",Semi-washed / Semi-pulped,7.83,7.92,7.67,7.83,7.5,7.75,10,10,10,7.75,84.25,0.12,1450,1450,1450
+Arabica,Mexico,veracruz,MANUEL HERRERA JUAREZ,20,AMECAFE,2012,"April 9th, 2012",Washed / Wet,7.83,7.83,7.75,7.67,7.83,7.58,10,10,10,7.75,84.25,0.12,1170,1170,1170
+Arabica,Mexico,"la concordia, chiapas",ERNST POHLENZ AGUILAR,250,AMECAFE,2012,"April 2nd, 2012",Washed / Wet,7.83,7.92,7.67,7.75,7.5,7.75,10,10,10,7.83,84.25,0.1,1400,1400,1400
+Arabica,Guatemala,san marcos,JORGE LEAL,50,Asociacion Nacional Del Café,2017,"June 1st, 2017",Washed / Wet,7.75,7.83,7.58,7.83,7.67,7.75,10,10,10,7.75,84.17,0.13,1700,1700,1700
+Arabica,Costa Rica,tarrazu,Los Angeles Micro-Mill (Ricardo Calderón),150,Specialty Coffee Association of Costa Rica,2016,"August 19th, 2016",Washed / Wet,7.92,7.75,7.67,7.67,7.5,7.67,10,10,10,8,84.17,0.09,1700,1700,1700
+Arabica,Guatemala,huehuetenango,DARY COLMAN ALVARADO VILLATORO,275,Asociacion Nacional Del Café,2016,"June 23rd, 2016",Washed / Wet,7.75,7.75,7.58,8,7.67,7.83,10,10,10,7.58,84.17,0.11,1116.7872,1116.7872,1116.7872
+Arabica,Guatemala,solola,FERNANDO FAHSEN,377,Asociacion Nacional Del Café,2016,"June 1st, 2016",Washed / Wet,7.75,7.92,7.58,7.92,7.67,7.67,10,10,10,7.67,84.17,0.1,1565,1565,1565
+Arabica,Guatemala,norte,CHAPULTEPEC,130,Asociacion Nacional Del Café,2016,"June 1st, 2016",Washed / Wet,7.58,7.83,7.58,7.83,7.83,7.67,10,10,10,7.83,84.17,0.1,3280,3280,3280
+Arabica,Colombia,huila,La Plata,275,Almcafe,2015,"August 18th, 2015",Washed / Wet,8,7.5,7.5,7.67,8,7.83,10,10,10,7.67,84.17,0,1600,1950,1775
+Arabica,Nicaragua,jinotega,COOPERATIVA EL GORRION RL,275,Specialty Coffee Association of Costa Rica,2015,"August 3rd, 2015",Natural / Dry,7.67,7.83,7.83,7.5,7.67,7.83,10,10,10,7.83,84.17,0.12,900,1100,1000
+Arabica,Brazil,cerrado,MAURO GALHERI,305,Brazil Specialty Coffee Association,2015,"April 24th, 2015",Natural / Dry,7.67,7.75,7.75,7.67,7.83,7.75,10,10,10,7.75,84.17,0,1150,1150,1150
+Arabica,Costa Rica,tarrazu,Martin Gutierrez,320,Specialty Coffee Ass,2014,"April 10th, 2015",Washed / Wet,7.67,7.75,7.67,7.75,7.5,8,10,10,10,7.83,84.17,0,1850,1850,1850
+Arabica,Ethiopia,snnprg; kafa; telo woreda; shada kebele,Tariku Oljira,320,METAD Agricultural Development plc,2014,"March 26th, 2015",Natural / Dry,7.5,7.92,7.58,7.83,7.75,7.83,10,10,10,7.75,84.17,0.1,1545,1668,1606.5
+Arabica,"Tanzania, United Republic Of",arusha,Selian Coffee Estate,10,Africa Fine Coffee Association,2014,"December 12th, 2014",Washed / Wet,7.92,7.75,7.75,7.75,7.75,7.58,10,10,10,7.67,84.17,0.13,1400,1400,1400
+Arabica,Guatemala,oriente,"AGRICOLA MONTE VERDE, S.A.",250,Asociacion Nacional Del Café,2013,"May 9th, 2013",Washed / Wet,7.92,7.75,7.67,7.67,7.83,7.92,10,10,10,7.42,84.17,0.11,1310.64,1310.64,1310.64
+Arabica,El Salvador,apaneca,Aida Batlle,275,Specialty Coffee Association,2013,"March 18th, 2013",Natural / Dry,8.42,8.08,7.5,7.17,7.58,8.17,9.33,10,10,7.92,84.17,0.11,1500,1500,1500
+Arabica,Colombia,huila,FRANKLIN DUSSAN / HIPOLITO TORRES,275,Almcafe,2017,"November 9th, 2017",Washed / Wet,7.83,7.5,7.42,7.5,7.83,8.5,10,10,10,7.5,84.08,0,442,442,442
+Arabica,Colombia,huila,La Plata,200,Almcafe,2014,"November 5th, 2014",Washed / Wet,7.92,7.75,7.67,7.75,7.67,7.67,10,10,10,7.67,84.08,0,1600,1950,1775
+Arabica,Guatemala,"aldea xeucalvitz, ixil region, quiche department",Asociacion de Productores de Cafe de la Region Ixil,1,Specialty Coffee Association,2014,"June 16th, 2014",Washed / Wet,7.58,7.75,7.67,8,7.75,7.67,10,10,10,7.67,84.08,0.1,1550,1550,1550
+Arabica,Mexico,santo domingo cacalotepec,ANDRES MARTINEZ LEON,300,AMECAFE,2012,"September 4th, 2012",Washed / Wet,7.67,7.75,7.67,7.75,7.67,7.75,10,10,10,7.83,84.08,0.11,1480,1480,1480
+Arabica,Ethiopia,sidamo,Kerchanshe Trading P.L.C,320,Uganda Coffee Development Authority,2017,"June 5th, 2017",Natural / Dry,7.83,7.75,7.67,7.75,7.33,7.75,10,10,10,7.92,84,0.11,1800,1800,1800
+Arabica,Honduras,comayagua,Nahun Maldonado,275,Instituto Hondureno del Cafe,2017,"May 11th, 2017",Washed / Wet,7.42,7.83,7.75,7.92,7.75,7.58,10,10,10,7.75,84,0.1,1500,1500,1500
+Arabica,Guatemala,huehuetenango,OTONIEL VILLATORO LOPEZ,275,Asociacion Nacional Del Café,2015,"June 10th, 2015",Washed / Wet,7.67,7.83,7.58,7.92,7.75,7.67,10,10,10,7.58,84,0.12,1658.112,1755.648,1706.88
+Arabica,Guatemala,oriente,AMILCAR LAPOLA,250,Asociacion Nacional Del Café,2014,"August 8th, 2014",Natural / Dry,7.92,7.67,7.42,7.92,7.75,7.83,10,10,10,7.5,84,0.1,1219.2,1219.2,1219.2
+Arabica,Guatemala,oriente,AMILCAR LAPOLA,250,Asociacion Nacional Del Café,2014,"June 27th, 2014",Other,7.75,7.83,7.5,7.83,7.58,7.67,10,10,10,7.83,84,0.1,1219.2,1219.2,1219.2
+Arabica,Colombia,huila,La Plata,138,Almcafe,2014,"April 8th, 2014",Washed / Wet,7.67,7.67,7.5,7.5,7.67,7.67,10,10,10,8.33,84,0.12,1600,1950,1775
+Arabica,Brazil,south of minas,Ipanema Agricola S.A,320,Brazil Specialty Coffee Association,2017,"October 20th, 2017",Natural / Dry,7.5,7.75,7.58,7.5,7.58,7.5,10,10,10,8.5,83.92,0,890,890,890
+Arabica,Kenya,blend,Blend of various producers,300,Kenya Coffee Traders Association,2012,"March 8th, 2013",Washed / Wet,7.67,7.83,7.5,7.75,7.92,7.67,10,10,10,7.67,84,0,1200,1200,1200
+Arabica,Brazil,south of minas,Ipanema Agricola S.A,320,Brazil Specialty Coffee Association,2017,"October 20th, 2017",Natural / Dry,7.67,7.67,7.58,7.75,7.67,7.67,10,10,10,7.75,83.75,0.11,890,890,890
+Arabica,Mexico,veracruz,CAFES TOMARI SA DE CV,200,Centro Agroecolegico del Cafe A.C.,2017,"July 3rd, 2017",Washed / Wet,7.83,7.83,7.58,7.92,7.42,7.5,10,10,10,7.83,83.92,0.11,1300,1300,1300
+Arabica,Thailand,chiangrai,"Phatang, Saveg",45,Specialty Coffee Association,2015,"October 18th, 2016",Natural / Dry,7.67,7.75,7.5,7.67,7.67,7.83,10,10,10,7.83,83.92,0.1,1350,1350,1350
+Arabica,Brazil,south of minas,Ipanema Agricola,320,Brazil Specialty Coffee Association,2016,"August 16th, 2016",Natural / Dry,7.58,7.67,7.67,7.75,7.58,7.83,10,10,10,7.83,83.92,0.11,934,934,934
+Arabica,Colombia,huila,La Plata,275,Almcafe,2014,"December 12th, 2014",Washed / Wet,7.75,7.58,7.67,7.83,7.83,7.67,10,10,10,7.58,83.92,0,1600,1950,1775
+Arabica,Mexico,xicotepec de juarez,OSCAR ORTEGA CARBALLO,48,AMECAFE,2012,"July 3rd, 2012",Washed / Wet,7.67,7.75,7.58,7.67,7.75,7.83,10,10,10,7.67,83.92,0.12,900,900,900
+Arabica,Mexico,la concordia,ARTURO LIEVANO MORENO,250,AMECAFE,2012,"June 6th, 2012",Washed / Wet,7.5,7.67,7.58,7.83,7.75,7.75,10,10,10,7.83,83.92,0.11,1500,1500,1500
+Arabica,Mexico,la yerbabuena,coop,20,AMECAFE,2012,"April 2nd, 2012",Washed / Wet,7.75,7.92,7.83,7.92,7.75,7.67,9.33,10,10,7.75,83.92,0,1400,1400,1400
+Arabica,Costa Rica,tarrazu,Martin Gutierrez,275,Specialty Coffee Association of Costa Rica,2015,"June 6th, 2016",Washed / Wet,7.67,7.67,7.75,7.67,7.5,7.75,10,10,10,7.83,83.83,0,1850,1850,1850
+Arabica,Guatemala,antigua,FINCA MEDINA,100,Asociacion Nacional Del Café,2016,"May 23rd, 2016",Washed / Wet,7.75,7.75,7.5,7.75,7.83,7.58,10,10,10,7.67,83.83,0.11,1500,1500,1500
+Arabica,Brazil,south of minas,Ipanema Agricola S.A,320,Brazil Specialty Coffee Association,2017,"October 20th, 2017",Natural / Dry,7.67,7.83,7.5,7.67,7.67,7.5,10,10,10,7.83,83.67,0.11,890,890,890
+Arabica,Ethiopia,oromia,Sumeya Yasin,320,METAD Agricultural Development plc,2014,"March 31st, 2015",Natural / Dry,7.75,7.75,7.67,7.67,7.58,7.67,10,10,10,7.75,83.83,0.12,1650,1703,1676.5
+Arabica,Brazil,carmo de minas,Nazareth Dias Pereira,300,NUCOFFEE,2011,"December 21st, 2011",Semi-washed / Semi-pulped,7.83,7.83,7.58,7.67,7.5,7.58,10,10,10,7.83,83.83,0.12,1250,1250,1250
+Arabica,Costa Rica,central valley,VARIOS,250,Specialty Coffee Association of Costa Rica,2013,"June 9th, 2014",Washed / Wet,7.83,7.42,7.5,7.83,7.75,7.83,10,10,10,7.67,83.83,0.1,1200,1400,1300
+Arabica,Guatemala,oriente,AMILCAR LAPOLA,250,Asociacion Nacional Del Café,2014,"May 22nd, 2014",Washed / Wet,7.58,7.83,7.33,8,7.58,7.75,10,10,10,7.75,83.83,0.1,1219.2,1219.2,1219.2
+Arabica,Brazil,south of minas,Ipanema Coffees,320,Specialty Coffee Association,2013,"January 2nd, 2014",Natural / Dry,7.58,7.83,7.67,7.25,8,7.75,10,10,10,7.92,84,0.1,1260,1260,1260
+Arabica,Guatemala,oriente,ROBERTO MONTERROSO,250,Asociacion Nacional Del Café,2013,"April 26th, 2013",Washed / Wet,7.5,7.83,7.5,7.83,7.83,7.67,10,10,10,7.67,83.83,0.11,1310.64,1310.64,1310.64
+Arabica,Mexico,petatlan,FILEMON MENDOZA CAMPOS,20,AMECAFE,2012,"July 26th, 2012",Natural / Dry,7.67,8,7.67,7.42,7.67,7.5,10,10,10,7.92,83.83,0.1,1218,1218,1218
+Arabica,Mexico,"la concordia, chiapas",ERNST POHLENZ AGUILAR,250,AMECAFE,2012,"June 6th, 2012",Natural / Dry,7.67,7.58,7.5,7.75,7.75,7.75,10,10,10,7.83,83.83,0.11,1300,1300,1300
+Arabica,Brazil,south of minas,Ipanema Coffees,320,Specialty Coffee Association,2013,"December 26th, 2013",Natural / Dry,7.92,7.5,7.33,7.67,8.17,7.5,10,10,10,7.75,83.83,0.1,1260,1260,1260
+Arabica,Colombia,huila,FRANKLIN DUSSAN / HIPOLITO TORRES,275,Almcafe,2017,"September 28th, 2017",Washed / Wet,7.83,7.83,7.58,7.58,7.58,7.58,10,10,10,7.75,83.75,0.11,442,442,442
+Arabica,China,yunnan,Pu’er Specialty Coffee Cupping Center,3,Yunnan Coffee Exchange,2015,"April 6th, 2016",Washed / Wet,7.83,7.75,7.67,7.5,7.58,7.67,10,10,10,7.75,83.75,0.1,1650,1650,1650
+Arabica,Uganda,west nile,Nile Highland Arabica Coffee Farmers,320,Uganda Coffee Development Authority,2013,"June 30th, 2014",Natural / Dry,8,7.92,7.58,7.75,7.33,7.5,10,10,10,7.67,83.75,0.12,1400,1400,1400
+Arabica,United States (Puerto Rico),yauco region,Hacienda Alto Grande,18,Specialty Coffee Association,2013,"June 9th, 2014",Washed / Wet,7.83,7.83,7.83,7.67,8,8.17,9.33,9.33,10,7.75,83.75,0.12,853.44,853.44,853.44
+Arabica,Colombia,huila,La Plata,100,Almcafe,2014,"February 5th, 2014",Washed / Wet,7.67,7.67,7.67,7.92,7.5,7.67,10,10,10,7.67,83.75,0,1600,1950,1775
+Arabica,Mexico,"huazalingo, hidalgo","MARTINEZ MAGDALENA, AGAPITA",10,AMECAFE,2012,"September 27th, 2012",Natural / Dry,7.83,7.58,7.58,7.5,7.75,7.67,10,10,10,7.83,83.75,0.13,700,700,700
+Arabica,Guatemala,quetzaltenango,Several producres,250,Specialty Coffee Association,2012,"May 24th, 2012",Washed / Wet,7.67,7.58,7.58,7.67,7.75,7.75,10,10,10,7.75,83.75,0.11,1300,1300,1300
+Arabica,Brazil,sul de minas,NAZARETH DIAS PEREIRA,250,Specialty Coffee Association,2013,"January 2nd, 2014",Semi-washed / Semi-pulped,7.75,7.58,7.42,7.67,7.42,7.67,10,10,10,7.5,83,0.12,1250,1250,1250
+Arabica,Kenya,meru county,NCHOROIBORO / KIRIANI FACTORY,200,Kenya Coffee Traders Association,2017,"September 1st, 2017",Washed / Wet,8.08,7.67,7.67,7.58,7.25,7.67,10,10,10,7.75,83.67,0.11,1700,1700,1700
+Arabica,Honduras,comayagua,Reinerio Zepeda,285,Instituto Hondureno del Cafe,2016,"May 11th, 2017",Washed / Wet,7.5,7.5,7.67,7.67,8,8,10,10,10,7.33,83.67,0.1,1400,1400,1400
+Arabica,Nicaragua,jinotega,RONALDO LACAYO CARDENAL,275,Instituto Hondureno del Cafe,2016,"May 11th, 2017",Washed / Wet,7.67,7.75,7.67,7.67,7.83,7.58,10,10,10,7.5,83.67,0.1,1250,1250,1250
+Arabica,Brazil,south of minas,Ipanema Agricola,320,Brazil Specialty Coffee Association,2016,"August 16th, 2016",Natural / Dry,7.58,7.75,7.58,7.75,7.58,7.58,10,10,10,7.83,83.67,0.11,934,934,934
+Arabica,Thailand,thailand,Doi Tung Development Project,1,Specialty Coffee Association,2014,"June 9th, 2015",Washed / Wet,7.5,7.75,7.58,7.83,7.67,7.58,10,10,10,7.75,83.67,0.12,800,800,800
+Arabica,Guatemala,huehuetenango,FRANCISCO LUIS MARTINEZ LOPEZ,275,Asociacion Nacional Del Café,2014,"February 27th, 2014",Washed / Wet,8,7.5,7.33,8,8,8,9.33,10,10,7.5,83.67,0.1,1356.6648,1356.6648,1356.6648
+Arabica,Colombia,huila,Huila,250,Almcafe,2013,"August 16th, 2013",Washed / Wet,7.67,7.67,7.67,7.67,7.33,7.75,10,10,10,7.92,83.67,0,1800,2000,1900
+Arabica,Guatemala,oriente,"AGRICOLA MONTE VERDE, S.A.",250,Asociacion Nacional Del Café,2013,"May 30th, 2013",Washed / Wet,7.67,7.67,7.42,7.67,8,7.75,10,10,10,7.5,83.67,0.12,1310.64,1310.64,1310.64
+Arabica,Guatemala,oriente,LUIS RODRIGUEZ,250,Asociacion Nacional Del Café,2013,"February 26th, 2013",Washed / Wet,7.83,7.67,7.33,7.67,7.67,7.83,10,10,10,7.67,83.67,0.11,1310.64,1310.64,1310.64
+Arabica,Guatemala,oriente,Finca Quequesquez,250,Specialty Coffee Association,2012,"August 23rd, 2012",Natural / Dry,8.17,8.17,7.83,7.67,8.08,7.75,9.33,9.33,9.33,8,83.67,0.11,1450,1450,1450
+Arabica,Guatemala,oriente,AGROPECUARIA QUIAGRAL,250,Asociacion Nacional Del Café,2012,"July 9th, 2012",Washed / Wet,7.67,8.17,7.5,7.42,7.58,7.83,10,10,10,7.5,83.67,0.11,1310.64,1310.64,1310.64
+Arabica,Mexico,xicotepec de juarez,JUAN LUIS ORTEGA CARBALLO,48,AMECAFE,2012,"July 2nd, 2012",Washed / Wet,7.67,7.5,7.5,7.33,7.83,8.25,10,10,10,7.58,83.67,0.12,1100,1100,1100
+Arabica,Indonesia,east java,PT. Perkebunan Nusantara XII,10,Specialty Coffee Association of Indonesia,2012,"May 23rd, 2012",Washed / Wet,8.17,7.67,7.58,7.58,7.42,7.67,10,10,10,7.58,83.67,0.12,1200,1600,1400
+Arabica,Guatemala,"sacatepequez, guatemala","SIEMBRAS VISION, S.A",250,Asociacion Nacional Del Café,2012,"April 30th, 2012",Washed / Wet,7.67,7.5,7.33,8,7.67,7.67,10,10,10,7.83,83.67,0.1,1524,1524,1524
+Arabica,Brazil,south of minas,Ipanema Coffees,69,Specialty Coffee Association,2013,"January 14th, 2014",Semi-washed / Semi-pulped,7.42,7.5,7.67,7.33,7.42,7.67,10,10,10,7.5,82.5,0.11,1260,1260,1260
+Arabica,Guatemala,huehuetenango,JUAN RAMIREZ MORALES,275,Asociacion Nacional Del Café,2016,"July 5th, 2016",Washed / Wet,7.75,7.75,7.5,7.83,7.58,7.58,10,10,10,7.58,83.58,0.11,1128.3696,1128.3696,1128.3696
+Arabica,China,yunnan,Menglian Mang Pan Professional Cooperative,3,Yunnan Coffee Exchange,2015,"April 6th, 2016",Washed / Wet,7.67,7.58,7.58,7.58,7.67,7.75,10,10,10,7.75,83.58,0.1,1100,1100,1100
+Arabica,Colombia,huila,La Plata,275,Almcafe,2015,"November 19th, 2015",Washed / Wet,7.67,7.75,7.58,7.67,7.75,7.58,10,10,10,7.58,83.58,0.12,1600,1950,1775
+Arabica,Ethiopia,yirgacheffe,LevelUp,250,Blossom Valley International,2014,"March 25th, 2015",Washed / Wet,7.75,7.67,7.58,7.67,7.5,7.67,10,10,10,7.75,83.58,0,1700,2000,1850
+Arabica,Uganda,eastern,Bulamburi coffee farmers association,100,Uganda Coffee Development Authority,2013,"June 27th, 2014",Washed / Wet,7.67,7.67,7.42,7.75,7.75,7.67,10,10,10,7.67,83.58,0.12,1800,1800,1800
+Arabica,Brazil,south of minas,Ipanema Coffees,220,Specialty Coffee Association,2013,"December 30th, 2013",Natural / Dry,7.25,7.33,7.25,7.5,7.42,7.5,10,10,10,8.17,82.42,0,1260,1260,1260
+Arabica,Colombia,huila,LA PLATA,275,Almcafe,2012,"August 31st, 2012",Washed / Wet,7.67,7.67,7.58,7.67,7.75,7.58,10,10,10,7.67,83.58,0.11,1600,1950,1775
+Arabica,Mexico,xalapa,JULIAN ALBERTO URRUTIA MOYA,250,AMECAFE,2012,"June 6th, 2012",Washed / Wet,7.83,7.67,7.58,7.58,7.67,7.58,10,10,10,7.67,83.58,0.12,1000,1000,1000
+Arabica,Colombia,cundinamarca,ORLANDO ORTIZ/WILSON SANCHEZ/GILBERTO ACOSTA,250,Almcafe,2012,"April 2nd, 2012",Natural / Dry,7.67,7.58,7.58,7.58,7.67,7.75,10,10,10,7.75,83.58,0.11,2136,2136,2136
+Arabica,Brazil,south of minas,Alvaro Resende Aguiar,33,NUCOFFEE,2012,"January 23rd, 2012",Semi-washed / Semi-pulped,7.83,7.75,7.5,7.75,7.5,7.58,10,10,10,7.67,83.58,0.12,1100,1100,1100
+Arabica,Colombia,cundinamarca,Orlando Moreno / Willson Sanchez,50,Almcafe,2016,"February 20th, 2017",Washed / Wet,7.75,7.58,7.58,7.75,7.75,7.5,10,10,10,7.58,83.5,0,1799,1799,1799
+Arabica,Costa Rica,tarrazu,Martin Gutierrez,245,Specialty Coffee Association of Costa Rica,2015,"June 6th, 2016",Washed / Wet,7.92,7.42,7.5,7.67,7.5,7.67,10,10,10,7.83,83.5,0,1850,1850,1850
+Arabica,Colombia,pitalito,Mecias Urbano / Yaniver Alvarez,250,Almcafe,2016,"April 7th, 2016",Natural / Dry,7.75,7.58,7.58,7.5,7.75,7.75,10,10,10,7.58,83.5,0,1000,1000,1000
+Arabica,Guatemala,oriente,MARGARITA AVILA DE NUYENS,250,Asociacion Nacional Del Café,2016,"March 16th, 2016",Washed / Wet,7.67,7.75,7.5,7.83,7.58,7.58,10,10,10,7.58,83.5,0.1,1219.2,1219.2,1219.2
+Arabica,Colombia,huila,La Plata,180,Almcafe,2015,"November 19th, 2015",Washed / Wet,7.58,7.58,7.58,7.58,7.75,7.67,10,10,10,7.75,83.5,0.12,1600,1950,1775
+Arabica,"Tanzania, United Republic Of",nkure- meru,Mr & Mrs Damari Absalome,5,Africa Fine Coffee Association,2015,"November 16th, 2015",Washed / Wet,7.75,7.67,7.58,7.67,7.67,7.58,10,10,10,7.58,83.5,0.13,1400,1400,1400
+Arabica,Indonesia,bener meriah,Yusrin,200,Specialty Coffee Association,2015,"September 14th, 2015",Semi-washed / Semi-pulped,7.25,7.67,7.58,7.92,7.83,7.58,10,10,10,7.67,83.5,0.13,1500,1500,1500
+Arabica,Ethiopia,oromia,Debesa,320,METAD Agricultural Development plc,2014,"March 31st, 2015",Natural / Dry,7.67,7.75,7.5,7.58,7.75,7.67,10,10,10,7.58,83.5,0.1,1600,1600,1600
+Arabica,Guatemala,atitlan,UNEX,250,Specialty Coffee Association of Costa Rica,2013,"December 18th, 2014",Washed / Wet,7.58,7.75,7.5,7.83,7.42,7.67,10,10,10,7.75,83.5,0.1,1400,1400,1400
+Arabica,Mexico,xalapa,MANUEL HERRERA JUAREZ,10,AMECAFE,2012,"August 31st, 2012",Natural / Dry,7.83,7.58,7.25,7.5,7.5,7.42,10,10,10,8.42,83.5,0.13,1170,1170,1170
+Arabica,Mexico,totutla,GABRIEL BERNARD RIVAS ROSS,15,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.75,7.67,7.67,7.75,7.33,7.5,10,10,10,7.83,83.5,0.12,1400,1400,1400
+Arabica,Guatemala,atitlan,RNP SANTO TOMAS PACHUJ / KANEMATSU CORPORATION,275,Asociacion Nacional Del Café,2012,"April 30th, 2012",Washed / Wet,7.83,7.5,7.5,8,7.67,7.5,10,10,10,7.5,83.5,0.1,1524,1524,1524
+Arabica,Colombia,huila,La Plata,175,Almcafe,2012,"February 9th, 2012",Washed / Wet,7.67,7.58,7.58,7.67,7.67,7.67,10,10,10,7.67,83.5,0.11,1600,1950,1775
+Arabica,Guatemala,oriente,ConquistaMorito,250,Specialty Coffee Association,2012,"February 1st, 2012",Washed / Wet,7.5,7.5,7.75,7.5,8,7.67,10,10,10,7.58,83.5,0,1402.08,1402.08,1402.08
+Arabica,Guatemala,san marcos,JORGE LEAL,50,Asociacion Nacional Del Café,2017,"August 23rd, 2017",Washed / Wet,7.67,7.75,7.5,7.58,7.58,7.67,10,10,10,7.67,83.42,0.1,1700,1700,1700
+Arabica,Colombia,huila,FRANKLIN DUSSAN / HIPOLOTO TORRES,600,Almcafe,2016,"May 10th, 2017",Washed / Wet,7.67,7.67,7.5,7.67,7.67,7.58,10,10,10,7.67,83.42,0.11,442,442,442
+Arabica,Costa Rica,tarrazu,Martin Gutierrez,275,Specialty Coffee Association of Costa Rica,2016,"February 17th, 2017",Washed / Wet,7.58,7.5,7.42,7.92,7.5,7.67,10,10,10,7.83,83.42,0.09,1850,1850,1850
+Arabica,Uganda,eastern,Bulago & Buginyanya,20,Uganda Coffee Development Authority,2015,"July 21st, 2016",Washed / Wet,7.58,7.75,7.33,7.75,7.67,7.58,10,10,10,7.75,83.42,0.11,1800,1800,1800
+Arabica,Thailand,thailand,Matsuzawa Coffee,500,Specialty Coffee Institute of Asia,2015,"June 27th, 2016",Washed / Wet,7.5,7.58,7.75,7.5,7.75,7.67,10,10,10,7.67,83.42,0.13,1200,1200,1200
+Arabica,El Salvador,apaneca,"Ibero El Salvador, S.A. de C.V.",275,Salvadoran Coffee Council,2016,"April 25th, 2016",Washed / Wet,7.58,7.5,7.75,7.58,7.75,7.67,10,10,10,7.58,83.42,0.11,1330,1330,1330
+Arabica,Colombia,huila,FRANKLIN DUSSAN/ANDRES RODRIGUEZ/HIPOLITO TORRES,275,Almcafe,2015,"April 29th, 2015",Natural / Dry,7.58,7.67,7.58,7.67,7.58,7.67,10,10,10,7.67,83.42,0.12,442,442,442
+Arabica,"Tanzania, United Republic Of",karatu northern,Ngila Estate Ltd,39,Africa Fine Coffee Association,2014,"December 12th, 2014",Washed / Wet,7.75,7.67,7.58,7.67,7.58,7.58,10,10,10,7.58,83.42,0.13,1600,1600,1600
+Arabica,Guatemala,oriente,AMILCAR LAPOLA,250,Asociacion Nacional Del Café,2013,"August 21st, 2014",Natural / Dry,7.75,7.83,7.33,7.83,7.5,7.67,10,10,10,7.5,83.42,0.1,1219.2,1219.2,1219.2
+Arabica,Guatemala,oriente,ROBERTO MONTERROSO,250,Asociacion Nacional Del Café,2013,"July 16th, 2013",Washed / Wet,7.67,7.5,7.75,7.42,7.75,7.75,10,10,10,7.58,83.42,0.11,1310.64,1310.64,1310.64
+Arabica,Colombia,cundinamarca,Exportadora de cafe condor,250,Almcafe,2012,"June 26th, 2012",Washed / Wet,7.5,7.75,7.58,7.5,7.67,7.75,10,10,10,7.67,83.42,0.11,1450,1450,1450
+Arabica,Colombia,huila,various,275,Almcafe,2016,"November 8th, 2016",Washed / Wet,7.75,7.5,7.75,7.58,7.58,7.58,10,10,10,7.58,83.33,0,1650,1650,1650
+Arabica,Mexico,chiapas,ECC,275,Asociacion Mexicana De Cafes y Cafeterias De Especialidad A.C.,2014,"July 14th, 2015",Washed / Wet,7.75,7.75,7.5,7.67,7.5,7.58,10,10,10,7.58,83.33,0.12,1200,1200,1200
+Arabica,Colombia,santander,varios,275,Almcafe,2015,"April 8th, 2015",Washed / Wet,7.67,7.75,7.42,7.83,7.83,7.42,10,10,10,7.42,83.33,0.11,1650,1650,1650
+Arabica,"Tanzania, United Republic Of",arusha,Mondul Coffee Estate,10,Africa Fine Coffee Association,2014,"December 12th, 2014",Semi-washed / Semi-pulped,7.75,7.58,7.67,7.58,7.58,7.58,10,10,10,7.58,83.33,0.12,1700,1700,1700
+Arabica,Costa Rica,san ramon,SEVERAL,250,Specialty Coffee Association,2014,"April 7th, 2014",Washed / Wet,7.67,7.67,7.42,7.67,7.67,7.67,10,10,10,7.58,83.33,0.12,1300,1300,1300
+Arabica,Costa Rica,central valley,CORICAFE BLEND,250,Specialty Coffee Association of Costa Rica,2013,"February 14th, 2014",Washed / Wet,7.5,7.67,7.67,7.5,7.83,7.17,10,10,10,8,83.33,0.11,1100,1300,1200
+Arabica,Haiti,"thiotte, haiti",COOPCAB,2,Specialty Coffee Association,2012,"October 3rd, 2013",Washed / Wet,7.58,7.5,7.67,7.5,7.83,7.42,10,10,10,7.83,83.33,0.11,1280.16,1280.16,1280.16
+Arabica,Colombia,pitalito,ORLANDO ORTIZ / HIPOLITO TORRES,250,Almcafe,2013,"April 26th, 2013",Natural / Dry,7.67,7.67,7.5,7.67,7.92,7.42,10,10,10,7.5,83.33,0.11,1000,1000,1000
+Arabica,Guatemala,oriente,LUIS RODRIGUEZ,250,Asociacion Nacional Del Café,2013,"February 26th, 2013",Washed / Wet,7.83,7.67,7.17,7.67,7.67,7.67,10,10,10,7.67,83.33,0.11,1310.64,1310.64,1310.64
+Arabica,Colombia,huila,condor,250,Almcafe,2012,"May 30th, 2012",Washed / Wet,7.5,7.67,7.67,7.58,7.67,7.58,10,10,10,7.67,83.33,0,1750,1750,1750
+Arabica,Mexico,sierra madre occidental,BALBINO RAMIREZ FLORES,50,Centro Agroecolegico del Cafe A.C.,2017,"March 7th, 2017",Washed / Wet,7.67,7.83,7.42,7.83,7.33,7.5,10,10,10,7.67,83.25,0.11,1600,1600,1600
+Arabica,Costa Rica,tarrazu,Manuel Montero,29,Specialty Coffee Association,2016,"January 30th, 2017",Pulped natural / honey,7.5,7.5,7.83,7.5,7.67,7.67,10,10,10,7.58,83.25,0.11,1900,1900,1900
+Arabica,Guatemala,nuevo oriente,PABLO CHUY,275,Asociacion Nacional Del Café,2016,"August 12th, 2016",Washed / Wet,7.5,7.58,7.42,7.83,7.67,7.58,10,10,10,7.67,83.25,0.11,2100,2100,2100
+Arabica,Mexico,chiapas,VRIOS PRODUCTORES,200,AMECAFE,2013,"March 29th, 2013",Washed / Wet,7.58,7.75,7.5,7.5,7.58,7.58,10,10,10,7.75,83.25,0.12,1300,1300,1300
+Arabica,Guatemala,oriente,AGROPECUARIA QUIAGRAL,250,Asociacion Nacional Del Café,2012,"July 9th, 2012",Washed / Wet,7.83,7.58,7.08,7.83,7.42,8.08,10,10,10,7.42,83.25,0.11,1310.64,1310.64,1310.64
+Arabica,Brazil,grama valley,Eliane de Andrade Cyrino Noqueira,30,NUCOFFEE,2012,"February 23rd, 2012",Semi-washed / Semi-pulped,7.75,7.67,7.5,7.58,7.58,7.58,10,10,10,7.58,83.25,0.11,1200,1200,1200
+Arabica,Colombia,la plata,La Plata,175,Almcafe,2012,"February 9th, 2012",Washed / Wet,7.67,7.67,7.5,7.5,7.58,7.67,10,10,10,7.67,83.25,0.11,1600,1950,1775
+Arabica,Guatemala,oriente,AGROINDUSTRIAS CAFETALERAS,275,Asociacion Nacional Del Café,2017,"August 24th, 2017",Washed / Wet,7.58,7.58,7.33,7.67,7.75,7.58,10,10,10,7.67,83.17,0.1,1901,1901,1901
+Arabica,"Tanzania, United Republic Of",moshi,Mamsera,320,Tanzanian Coffee Board,2016,"June 20th, 2017",Washed / Wet,7.67,7.58,7.42,7.67,7.67,7.58,10,10,10,7.58,83.17,0.12,168,168,168
+Arabica,Vietnam,dala,"Yeh, Li Chuan",1,Specialty Coffee Association,2017,"May 8th, 2017",Natural / Dry,7.58,7.42,7.08,7.33,7.58,8.58,10,10,10,7.58,83.17,0.07,1550,1550,1550
+Arabica,Guatemala,antigua,FINCA MEDINA,250,Asociacion Nacional Del Café,2016,"May 23rd, 2016",Washed / Wet,7.67,7.75,7.42,7.75,7.58,7.5,10,10,10,7.5,83.17,0.11,1500,1500,1500
+Arabica,Honduras,marcala,JOSE OMAR ACOSTA,275,Instituto Hondureno del Cafe,2016,"May 2nd, 2016",Washed / Wet,7.67,7.67,7.5,7.67,7.5,7.67,10,10,10,7.5,83.17,0.11,1450,1450,1450
+Arabica,China,yunnan,Mojiang Jinggong Estate Speciality Development Co.Ltd,3,Yunnan Coffee Exchange,2015,"April 6th, 2016",Washed / Wet,7.5,7.67,7.33,7.67,7.67,7.67,10,10,10,7.67,83.17,0.11,1200,1200,1200
+Arabica,China,dehong prefecture,Yunnan Success Trade Co.Ltd,3,Yunnan Coffee Exchange,2015,"April 5th, 2016",Washed / Wet,7.67,7.67,7.5,7.67,7.42,7.58,10,10,10,7.67,83.17,0.1,1600,1600,1600
+Arabica,El Salvador,apaneca,Ecom Agroindustrial Corp. Ltd.,275,Salvadoran Coffee Council,2016,"March 29th, 2016",Washed / Wet,7.5,7.5,7.33,7.67,8,7.67,10,10,10,7.5,83.17,0,1350,1350,1350
+Arabica,Guatemala,antigua,FINCA MEDINA,150,Asociacion Nacional Del Café,2015,"October 29th, 2015",Washed / Wet,7.5,7.75,7.5,7.83,7.58,7.5,10,10,10,7.5,83.17,0.11,1500,1500,1500
+Arabica,Guatemala,oriente,PAPATURRO,100,Asociacion Nacional Del Café,2015,"September 29th, 2015",Washed / Wet,7.92,7.67,7.42,7.75,7.5,7.5,10,10,10,7.42,83.17,0.12,1400,1900,1650
+Arabica,Thailand,thailand,Doi Tung Development Project,1,Specialty Coffee Association,2014,"June 9th, 2015",Washed / Wet,7.67,7.58,7.58,7.75,7.42,7.67,10,10,10,7.5,83.17,0.12,800,800,800
+Arabica,"Tanzania, United Republic Of",mbinga,Tutunze Kahawa Ltd,180,Africa Fine Coffee Association,2014,"December 12th, 2014",Washed / Wet,7.58,7.67,7.67,7.58,7.42,7.58,10,10,10,7.67,83.17,0.13,1653,1653,1653
+Arabica,Colombia,huila,La Plata,232,Almcafe,2014,"November 5th, 2014",Washed / Wet,7.58,7.5,7.5,7.67,7.5,7.67,10,10,10,7.75,83.17,0,1600,1950,1775
+Arabica,Uganda,eastern,Kabum Trading Company,84,Uganda Coffee Development Authority,2014,"October 28th, 2014",Washed / Wet,8,7.67,7.5,7.42,7.33,7.58,10,10,10,7.67,83.17,0.1,1800,1800,1800
+Arabica,Honduras,san marcos,Nelson Melgar Melgar,275,Instituto Hondureno del Cafe,2013,"April 12th, 2014",Natural / Dry,7.5,7.5,7.5,7.67,7.67,7.67,10,10,10,7.67,83.17,0.1,1450,1450,1450
+Arabica,Guatemala,san marcos,"AGRICOLA NUEVA GRANADA, S.A.",200,Asociacion Nacional Del Café,2014,"March 27th, 2014",Washed / Wet,7.33,7.83,7.17,8.17,7.33,7.67,10,10,10,7.67,83.17,0.09,1524,1524,1524
+Arabica,Guatemala,oriente,ROBERTO MONTERROSO,250,Asociacion Nacional Del Café,2013,"April 26th, 2013",Washed / Wet,7.67,7.83,7.33,7.67,7.5,7.67,10,10,10,7.5,83.17,0.11,1310.64,1310.64,1310.64
+Arabica,Mexico,chiapas,MARGARITO ROBLERO VAZQUEZ,45,AMECAFE,2013,"March 29th, 2013",Washed / Wet,7.75,7.58,7.58,7.58,7.5,7.42,10,10,10,7.75,83.17,0.11,1500,1500,1500
+Arabica,Mexico,"tlanchinol, hidalgo",AMADOR HERNANDEZ DIONICIO,10,AMECAFE,2012,"September 27th, 2012",Washed / Wet,7.75,7.67,7.58,7.5,7.42,7.58,10,10,10,7.67,83.17,0.12,532,532,532
+Arabica,Mexico,san bartolo tutotepec,"TREJO VELASCO, ROMAN",10,AMECAFE,2012,"September 27th, 2012",Washed / Wet,7.58,7.75,7.42,7.67,7.5,7.58,10,10,10,7.67,83.17,0.14,1089,1089,1089
+Arabica,Colombia,huila,LA PLATA,275,Almcafe,2012,"August 31st, 2012",Washed / Wet,7.67,7.5,7.5,7.5,7.58,8.17,10,10,10,7.25,83.17,0.11,1600,1950,1775
+Arabica,Mexico,san isidro,FERNANDO MENDOZA APARICIO,15,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.75,7.5,7.42,7.75,7.58,7.58,10,10,10,7.58,83.17,0.13,700,700,700
+Arabica,Mexico,la concordia,OCTAVIO MOGUEL FARRERA,250,AMECAFE,2012,"June 6th, 2012",Washed / Wet,7.5,7.75,7.58,7.58,7.67,7.5,10,10,10,7.58,83.17,0.11,1380,1380,1380
+Arabica,Brazil,south of minas,Giovane Senna Bonacorssi,50,NUCOFFEE,2012,"March 19th, 2012",Natural / Dry,7.75,7.67,7.58,7.5,7.58,7.58,10,10,10,7.5,83.17,0.12,1000,1000,1000
+Arabica,Brazil,mogiana,Maria Aparecida Ferreira Azevedo,100,NUCOFFEE,2012,"February 17th, 2012",Natural / Dry,7.92,7.58,7.5,7.58,7.42,7.5,10,10,10,7.67,83.17,0.11,950,950,950
+Arabica,Guatemala,oriente,Conquista / Morito,250,Specialty Coffee Association,2012,"February 1st, 2012",Washed / Wet,7.75,7.5,7.67,7.5,7.92,8,10,10,9.33,7.5,83.17,0,1402.08,1402.08,1402.08
+Arabica,Colombia,cundinamarca,Orlando Moreno / Willson Sanchez,275,Almcafe,2016,"February 20th, 2017",Washed / Wet,7.58,7.67,7.33,7.67,7.75,7.58,10,10,10,7.5,83.08,0,1799,1799,1799
+Arabica,Brazil,south of minas,Ipanema Agricola,320,Brazil Specialty Coffee Association,2015,"April 25th, 2016",Pulped natural / honey,7.58,7.58,7.58,7.5,7.67,7.58,10,10,10,7.58,83.08,0.11,905,905,905
+Arabica,Brazil,south of minas,Ipanema Coffees,300,NUCOFFEE,2013,"November 6th, 2013",Washed / Wet,7.42,7.42,7.33,7.33,7.5,7.25,10,10,10,7.33,81.58,0.12,1260,1260,1260
+Arabica,Taiwan,"dongshan dist., tainan city 臺南市東山區",Tseng ju feng / Kuo jun hong 曾如楓 / 郭俊宏,20,Specialty Coffee Association,2015,"May 19th, 2015",Natural / Dry,7.83,7.92,7.5,7.83,7.67,7.25,9.33,10,10,7.75,83.08,0,700,800,750
+Arabica,Costa Rica,central valley,VARIOS,250,Specialty Coffee Association of Costa Rica,2014,"July 15th, 2014",Washed / Wet,7.83,7.33,7.5,7.67,7.58,7.67,10,10,10,7.5,83.08,0.1,1200,1400,1300
+Arabica,Mexico,santa catarina juquila,MARIA LUISA DEL CARMEN ROJAS NARVAEZ,10,AMECAFE,2012,"June 6th, 2012",Washed / Wet,7.75,7.67,7.42,7.75,7.5,7.5,10,10,10,7.5,83.08,0.1,1400,1400,1400
+Arabica,Brazil,south of minas,Ipanema Agricola,320,Brazil Specialty Coffee Association,2016,"August 16th, 2016",Natural / Dry,7.5,7.58,7.58,7.67,7.58,7.5,10,10,10,7.58,83,0.11,894,894,894
+Arabica,Brazil,south of minas,Ipanema Agricola,320,Brazil Specialty Coffee Association,2016,"August 16th, 2016",Natural / Dry,7.5,7.67,7.58,7.67,7.58,7.42,10,10,10,7.58,83,0.11,872,872,872
+Arabica,Uganda,"kasese, mt. rwenzori",Xavier Baluku,310,Uganda Coffee Development Authority,2015,"July 18th, 2016",Washed / Wet,7.67,7.58,7.42,7.42,7.83,7.5,10,10,10,7.58,83,0.12,1473,1473,1473
+Arabica,Uganda,"kasese, mt. rwenzori",Emmanuel Munaaba,325,Uganda Coffee Development Authority,2015,"July 18th, 2016",Natural / Dry,7.67,7.67,7.5,7.58,7.42,7.5,10,10,10,7.67,83,0.12,1645,1645,1645
+Arabica,Vietnam,vietnam cau dat,"Yeh, Li Chuan.",2,Specialty Coffee Association,2014,"December 28th, 2015",Other,7.75,7.67,7.58,7.58,7.42,7.67,9.33,10,10,8,83,0,1550,1550,1550
+Arabica,Guatemala,nuevo oriente,OVIDIO CARDONA,275,Asociacion Nacional Del Café,2015,"July 8th, 2015",Washed / Wet,7.67,7.75,7.33,7.92,7.42,7.5,10,10,10,7.42,83,0.11,1300,1800,1550
+Arabica,Guatemala,"el tumbador, san marcos","Agricola Nueva Granada, S. A.",200,Asociacion Nacional Del Café,2015,"June 5th, 2015",Washed / Wet,7.75,7.67,7.33,7.75,7.5,7.42,10,10,10,7.58,83,0.11,1371.6,1371.6,1371.6
+Arabica,Guatemala,antigua,FINCA MEDINA,250,Asociacion Nacional Del Café,2015,"April 23rd, 2015",Washed / Wet,7.83,7.67,7.25,7.67,7.75,7.5,10,10,10,7.33,83,0.11,1500,1500,1500
+Arabica,Uganda,kapchorwa,Kucofa farmers group,300,Uganda Coffee Development Authority,2013,"June 26th, 2014",Washed / Wet,7.83,7.58,7.5,7.5,7.58,7.5,10,10,10,7.5,83,0.12,1800,1800,1800
+Arabica,United States (Puerto Rico),yauco region,Hacienda Alto Grande,17,Specialty Coffee Association,2013,"June 9th, 2014",Washed / Wet,7.67,7.5,7.67,7.83,7.75,7.83,10,10,9.33,7.42,83,0,853.44,853.44,853.44
+Arabica,Guatemala,antigua,GRUPO MEDINA,26,Asociacion Nacional Del Café,2014,"March 7th, 2014",Washed / Wet,7.67,7.67,7.42,7.83,7.5,7.5,10,10,10,7.42,83,0.1,1500,1500,1500
+Arabica,Costa Rica,central valley,CORICAFE BLEND,250,Specialty Coffee Association of Costa Rica,2013,"February 14th, 2014",Washed / Wet,7.67,7.58,7.5,7.58,7.5,7.5,10,10,10,7.67,83,0.11,1100,1300,1200
+Arabica,Colombia,huila,La Plata,120,Almcafe,2013,"November 7th, 2013",Washed / Wet,7.75,7.42,7.33,7.5,7.58,7.17,10,10,10,8.25,83,0.11,1600,1950,1775
+Arabica,Colombia,pitalito,COFFEE COMPANY / CAFECOL,250,Almcafe,2013,"March 15th, 2013",Natural / Dry,7.33,7.67,7.75,7.42,7.75,7.58,10,10,10,7.5,83,0.11,1000,1000,1000
+Arabica,Colombia,pitalito,ORLANDO ORTOZ / HIPOLITO TORRES,250,Almcafe,2013,"April 26th, 2013",Natural / Dry,7.58,7.75,7.42,7.67,7.58,7.42,10,10,10,7.58,83,0,1000,1000,1000
+Arabica,Colombia,huila,LA PLATA,275,Almcafe,2012,"October 23rd, 2012",Washed / Wet,7.5,7.5,7.42,7.58,7.75,7.58,10,10,10,7.67,83,0.11,1600,1950,1775
+Arabica,Mexico,coatepec,GONZALO RIVERO PUERTO,15,AMECAFE,2012,"July 26th, 2012",Washed / Wet,7.67,7.58,7.42,7.5,7.67,7.58,10,10,10,7.58,83,0.11,750,750,750
+Arabica,Mexico,atoyac de alvarez,SANTIAGO SOLIS AYERDI,20,AMECAFE,2012,"July 26th, 2012",Semi-washed / Semi-pulped,7.67,7.83,7.5,7.58,7.58,7.67,9.33,10,10,7.83,83,0.11,1200,1200,1200
+Arabica,Mexico,coatepec,FRANCO COLORADO DOMINGUEZ,250,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.5,7.67,7.5,7.5,7.58,7.58,10,10,10,7.67,83,0.11,1200,1200,1200
+Arabica,Colombia,huila,varios,250,Almcafe,2012,"May 11th, 2012",Washed / Wet,7.75,7.58,7.5,7.67,7.83,7.75,9.33,10,10,7.58,83,0,1500,1750,1625
+Arabica,Guatemala,"la reforma, san marcos","NUEVOS MERCADOS, S.A.",275,Asociacion Nacional Del Café,2012,"April 27th, 2012",Washed / Wet,7.5,7.67,7.5,7.67,7.5,7.83,10,10,10,7.33,83,0.1,1371.6,1371.6,1371.6
+Arabica,Colombia,la plata,LA PLATA,121,Almcafe,2011,"December 2nd, 2011",Washed / Wet,7.67,7.67,7.58,7.5,7.67,7.42,10,10,10,7.5,83,0.12,1600,1950,1775
+Arabica,El Salvador,apaneca,"Balcanes Coffee Estates, S.A. de C.V.",100,Salvadoran Coffee Council,2017,"August 28th, 2017",Washed / Wet,7.5,7.5,7.75,7.58,7.92,7.83,10,10,9.33,7.5,82.92,0,1350,1350,1350
+Arabica,Taiwan,"dongshan dist., tainan city 臺南市東山區",Wang Chao Yung 王超永,10,Specialty Coffee Association,2016,"June 28th, 2016",Natural / Dry,7.17,7.83,7.25,7.67,7.67,7.58,10,10,10,7.75,82.92,0.09,350,350,350
+Arabica,Philippines,"bukidnon, mindanao, philppines",Hineleban Foundation,250,Torch Coffee Lab Yunnan,2015,"July 31st, 2015",Washed / Wet,7.58,7.58,7.67,7.58,7.5,7.5,10,10,10,7.5,82.92,0.11,1200,1200,1200
+Arabica,Philippines,asia pacific,Ephemera Traders,4,Specialty Coffee Association,2014,"July 21st, 2015",Washed / Wet,8.08,7.5,7.67,7.42,7.33,7.5,10,10,10,7.42,82.92,0,1600,1600,1600
+Arabica,Mexico,chiapas,FIECH,275,Specialty Coffee Association,2015,"June 11th, 2015",Washed / Wet,7.75,7.67,7.42,7.42,7.75,7.5,10,10,10,7.42,82.92,0.12,1300,1300,1300
+Arabica,Uganda,eastern,Sipi organic coffee project,1,Uganda Coffee Development Authority,2013,"June 27th, 2014",Washed / Wet,8,7.5,7.5,7.58,7.33,7.42,10,10,10,7.58,82.92,0.12,1400,1900,1650
+Arabica,Uganda,west nile,Nyapea coffee farmers association,1,Uganda Coffee Development Authority,2013,"June 27th, 2014",Washed / Wet,7.75,7.58,7.58,7.5,7.5,7.5,10,10,10,7.5,82.92,0.12,1400,1400,1400
+Arabica,Guatemala,antigua,"SIEMBRAS VISION, S.A.",250,Asociacion Nacional Del Café,2014,"April 3rd, 2014",Washed / Wet,7.75,7.5,7.42,7.58,7.67,7.5,10,10,10,7.5,82.92,0.1,1500,1500,1500
+Arabica,Guatemala,huehuetenango,OTTONIEL VILLATORO LOPEZ,250,Asociacion Nacional Del Café,2013,"March 11th, 2013",Washed / Wet,7.83,7.75,7.25,7.92,7.5,7.17,10,10,10,7.5,82.92,0.11,1658.112,1755.648,1706.88
+Arabica,Mexico,petatlan,MARIA GUADALUPE GOMEZ ANZO,15,AMECAFE,2012,"July 26th, 2012",Natural / Dry,7.58,7.58,7.33,7.25,7.58,7.75,10,10,10,7.83,82.92,0.1,1248,1248,1248
+Arabica,Vietnam,don duong,"Apollo Co., Ltd.",1,Specialty Coffee Association,2012,"July 20th, 2012",Natural / Dry,7.67,7.33,7.17,7.58,8.08,7.42,10,10,10,7.67,82.92,0,1040,1040,1040
+Arabica,Mexico,la cumbre,WERCLEIN HERNANDEZ SERRANO ID.-1506728641,100,AMECAFE,2012,"March 5th, 2012",Washed / Wet,8,7.92,7.67,7.17,7.67,7.42,9.33,10,10,7.75,82.92,0.14,1400,1400,1400
+Arabica,Kenya,nyeri,KEREMARA LIMITED,27,Kenya Coffee Traders Association,2017,"October 13th, 2017",Washed / Wet,7.75,7.58,7.42,7.58,7.5,7.5,10,10,10,7.5,82.83,0.1,1754,1754,1754
+Arabica,Guatemala,san marcos,JORGE LEAL,50,Asociacion Nacional Del Café,2017,"June 22nd, 2017",Washed / Wet,7.5,7.58,7.33,7.67,7.58,7.58,10,10,10,7.58,82.83,0.11,1700,1700,1700
+Arabica,Brazil,south of minas,Ipanema Agricola,320,Brazil Specialty Coffee Association,2015,"February 6th, 2017",Pulped natural / honey,7.67,7.58,7.58,7.5,7.5,7.42,10,10,10,7.58,82.83,0.11,905,905,905
+Arabica,El Salvador,"el balsamo, quezaltepec","El Barbaro, S.A. de C.V.",275,Salvadoran Coffee Council,2016,"April 8th, 2016",Washed / Wet,7.33,7.67,7.67,7.83,7.33,7.67,10,10,10,7.33,82.83,0,1250,1250,1250
+Arabica,Rwanda,gicumbi,Bufcoffee_Gicumbi,150,Specialty Coffee Association,2015,"March 25th, 2016",Washed / Wet,7.83,7.92,7.75,7.83,7.75,7.75,9.33,9.33,9.33,8,82.83,0.11,1900,1900,1900
+Arabica,Vietnam,vietnam tutra,"Yeh, Li Chuan",3,Specialty Coffee Association,2014,"January 19th, 2016",Other,7.25,7.58,7.5,7.42,7.75,7.42,10,10,10,7.92,82.83,0.11,1040,1040,1040
+Arabica,Guatemala,oriente,AMILCAR LAPOLA,80,Asociacion Nacional Del Café,2015,"July 20th, 2015",Washed / Wet,7.58,7.58,7.33,7.67,7.67,7.5,10,10,10,7.5,82.83,0.11,1219.2,1219.2,1219.2
+Arabica,Brazil,cerrado,Antonio Batista Francisquine,300,Brazil Specialty Coffee Association,2015,"May 26th, 2015",Natural / Dry,7.58,7.83,7.33,7.67,7.42,7.33,10,10,10,7.67,82.83,0.12,900,900,900
+Arabica,Colombia,huila,Mercedes Narvaez,100,Blossom Valley International,2014,"March 21st, 2015",Washed / Wet,7.83,7.67,7.5,7.58,7.5,7.67,10,10,10,7.08,82.83,0,1200,2000,1600
+Arabica,United States,berastagi,PT. Olam Indonesia,300,Specialty Coffee Association,2014,"February 20th, 2015",Other,7.42,7.58,7.25,7.5,7.75,7.75,10,10,10,7.58,82.83,0,1200,1200,1200
+Arabica,Colombia,santander,Mrs. Galeano,40,Almcafe,2013,"January 20th, 2014",Natural / Dry,7.5,7.42,7.58,7.5,7.58,7.58,10,10,10,7.67,82.83,0,1800,1800,1800
+Arabica,Colombia,huila,La Plata,125,Almcafe,2013,"May 10th, 2013",Washed / Wet,7.83,7.5,7.5,7.42,7.5,7.5,10,10,10,7.58,82.83,0.11,1600,1950,1775
+Arabica,"Tanzania, United Republic Of",arusha,BURKA COFFEE ESTATE,300,Tanzanian Coffee Board,2012,"April 19th, 2013",Washed / Wet,7.67,7.5,7.33,7.25,7.58,7.75,10,10,10,7.75,82.83,0.11,1400,1400,1400
+Arabica,Mexico,la concordia,ARMANDO LUIS POHLENZ MARTINEZ,250,AMECAFE,2012,"August 30th, 2012",Washed / Wet,7.58,7.67,7.5,7.58,7.5,7.5,10,10,10,7.5,82.83,0.12,1550,1550,1550
+Arabica,Mexico,veracruz,OLIVIA HERNANDEZ VIRUES,250,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.67,7.58,7.42,7.75,7.42,7.42,10,10,10,7.58,82.83,0.12,1250,1250,1250
+Arabica,Guatemala,oriente,AGROPECUARIA QUIAGRAL,250,Asociacion Nacional Del Café,2012,"July 9th, 2012",Washed / Wet,7.67,7.67,7.33,7.5,7.33,7.92,10,10,10,7.42,82.83,0.11,1310.64,1310.64,1310.64
+Arabica,Mexico,la concordia,OCTAVIO MOGUEL FARRERA,250,AMECAFE,2012,"June 6th, 2012",Washed / Wet,7.58,7.58,7.5,7.42,7.67,7.58,10,10,10,7.5,82.83,0.11,1380,1380,1380
+Arabica,Guatemala,santa rosa,PABLO ARTURO CHUY FLORES,275,Asociacion Nacional Del Café,2017,"October 17th, 2017",Washed / Wet,7.58,7.67,7.5,7.58,7.5,7.42,10,10,10,7.5,82.75,0.11,1800,1800,1800
+Arabica,Guatemala,san marcos,ANGEL DE LEON,50,Asociacion Nacional Del Café,2017,"September 19th, 2017",Washed / Wet,7.5,7.67,7.17,7.67,7.67,7.58,10,10,10,7.5,82.75,0.11,1700,1700,1700
+Arabica,Guatemala,santa rosa,OTTO BECKER,50,Asociacion Nacional Del Café,2017,"September 8th, 2017",Washed / Wet,7.5,7.5,7.42,7.58,7.67,7.5,10,10,10,7.58,82.75,0.1,1219.2,1219.2,1219.2
+Arabica,Guatemala,oriente,JESUS RAMIREZ,25,Asociacion Nacional Del Café,2017,"August 22nd, 2017",Washed / Wet,7.42,7.58,7.42,7.67,7.5,7.5,10,10,10,7.67,82.75,0.1,1219.2,1219.2,1219.2
+Arabica,Indonesia,sapan toraja,vary farm,2,Specialty Coffee Association of Indonesia,2017,"August 8th, 2017",Other,7.5,7.58,7.42,7.58,7.58,7.5,10,10,10,7.58,82.75,0.12,1500,1500,1500
+Arabica,Guatemala,el progreso,JESUS RAMIREZ,25,Asociacion Nacional Del Café,2017,"June 1st, 2017",Washed / Wet,7.58,7.58,7.33,7.58,7.33,7.67,10,10,10,7.67,82.75,0.12,157.8864,157.8864,157.8864
+Arabica,El Salvador,cacahuatique,Soc. Coop. de Caf. de Ciudad Barrios de R.L.,275,Salvadoran Coffee Council,2017,"May 8th, 2017",Washed / Wet,7.67,7.67,7.17,7.33,7.58,7.67,10,10,10,7.67,82.75,0,1250,1250,1250
+Arabica,Costa Rica,tarrazu,Martin Gutierrez,250,Specialty Coffee Association of Costa Rica,2016,"April 28th, 2017",Washed / Wet,7.58,7.5,7.42,7.67,7.42,7.5,10,10,10,7.67,82.75,0.09,1850,1850,1850
+Arabica,Honduras,comayagua,Reinerio Zepeda,275,Instituto Hondureno del Cafe,2017,"April 6th, 2017",Natural / Dry,7.58,7.5,7.42,7.58,7.5,7.5,10,10,10,7.67,82.75,0.09,1400,1400,1400
+Arabica,Brazil,south of minas,Ipanema Agricola,320,Brazil Specialty Coffee Association,2015,"April 25th, 2016",Pulped natural / honey,7.5,7.5,7.58,7.5,7.58,7.58,10,10,10,7.5,82.75,0.11,905,905,905
+Arabica,China,yunnan,"Puwen Lvyou Coffee Co.,Ltd",3,Yunnan Coffee Exchange,2015,"April 6th, 2016",Natural / Dry,7.67,7.5,7.33,7.33,7.67,7.67,10,10,10,7.58,82.75,0.1,1100,1100,1100
+Arabica,China,menglian,Pu'er Lingdu Yunlin Coffee Co.LTD,3,Yunnan Coffee Exchange,2015,"April 5th, 2016",Washed / Wet,7.5,7.67,7.42,7.67,7.5,7.5,10,10,10,7.5,82.75,0.11,1500,1500,1500
+Arabica,Colombia,huila,La Plata,250,Almcafe,2014,"November 7th, 2014",Washed / Wet,7.5,7.58,7.58,7.75,7.33,7.5,10,10,10,7.5,82.75,0,1600,1950,1775
+Arabica,Malawi,mzuzu,Mzuzu Coffee Planters Coop Union,29,Africa Fine Coffee Association,2014,"November 4th, 2014",Washed / Wet,7.75,7.58,7.42,7.5,7.33,7.5,10,10,10,7.67,82.75,0.12,1442,1442,1442
+Arabica,Guatemala,jalapa,ROBERTO MONTERROSO,250,Asociacion Nacional Del Café,2014,"June 16th, 2014",Washed / Wet,7.75,7.42,7.25,7.75,7.5,7.67,10,10,10,7.42,82.75,0.13,1524,1524,1524
+Arabica,Colombia,antioquia,several,250,Specialty Coffee Association of Costa Rica,2013,"January 21st, 2014",Washed / Wet,7.58,7.33,7.17,7.33,7.25,8.58,10,10,10,7.5,82.75,0.1,1300,1300,1300
+Arabica,Mexico,chiapas,CARLOS O. VELAZCO LOPEZ,32,AMECAFE,2013,"March 29th, 2013",Washed / Wet,7.58,7.58,7.5,7.5,7.5,7.5,10,10,10,7.58,82.75,0.12,1550,1550,1550
+Arabica,Mexico,veracruz,FRANCISCO R. DE LA VEQUIA BERNARDI,250,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.58,7.58,7.33,7.75,7.25,7.58,10,10,10,7.67,82.75,0.12,1200,1200,1200
+Arabica,Mexico,atoyac de alvarez,ROMULO BELLO FLORES,21,AMECAFE,2012,"June 6th, 2012",Natural / Dry,8.08,8.17,8,8,7.83,7.92,6.67,10,10,8.08,82.75,0.12,1200,1200,1200
+Arabica,Colombia,south huila,Supply Chain ECOM CCA S.A.,250,Almcafe,2012,"April 11th, 2012",Washed / Wet,7.5,7.58,7.42,7.67,7.5,7.58,10,10,10,7.5,82.75,0,1400,1850,1625
+Arabica,Colombia,huila,LA PLATA,100,Almcafe,2012,"March 5th, 2012",Washed / Wet,7.67,7.58,7.58,7.58,7.5,7.42,10,10,10,7.42,82.75,0.11,1600,1950,1775
+Arabica,Panama,boquete,Price Peterson,300,Specialty Coffee Association,2012,"February 23rd, 2012",Washed / Wet,7.42,7.42,7.5,7.58,7.5,7.75,10,10,10,7.58,82.75,0,1100,1100,1100
+Arabica,Brazil,south of minas,Ipanema Agricola,320,Brazil Specialty Coffee Association,2016,"August 16th, 2016",Natural / Dry,7.5,7.58,7.5,7.67,7.5,7.42,10,10,10,7.5,82.67,0.11,934,934,934
+Arabica,Laos,"paksong,laos","Paksong,Laos",60,Blossom Valley International,2015,"June 2nd, 2016",Washed / Wet,7.67,7.67,7.42,7.42,7.42,7.5,10,10,10,7.58,82.67,0.13,1300,1300,1300
+Arabica,El Salvador,"el balsamo, quezaltepec","El Barbaro, S.A. de C.V.",275,Salvadoran Coffee Council,2016,"March 29th, 2016",Washed / Wet,7.67,7.67,7.67,7.67,7.5,7.67,10,10,9.33,7.5,82.67,0,1200,1200,1200
+Arabica,"Tanzania, United Republic Of",karatu arusha,Nitin Coffee Estate,93,Africa Fine Coffee Association,2014,"December 18th, 2014",Washed / Wet,7.5,7.5,7.5,7.5,7.5,7.58,10,10,10,7.58,82.67,0.12,1700,1700,1700
+Arabica,"Tanzania, United Republic Of",mbinga,Taylor Winch (T) ltd,77,Africa Fine Coffee Association,2014,"December 15th, 2014",Washed / Wet,7.58,7.5,7.5,7.58,7.33,7.58,10,10,10,7.58,82.67,0.12,1550,1550,1550
+Arabica,Mexico,la yerba,AVELINO CHAVEZ REYNA,11,AMECAFE,2014,"August 15th, 2014",Natural / Dry,7.67,7.58,7.42,7.5,7.42,7.5,10,10,10,7.58,82.67,0.11,1296,1296,1296
+Arabica,Uganda,mt elgon,Kawacom Uganda Ltd,1,Uganda Coffee Development Authority,2013,"June 25th, 2014",Washed / Wet,7.67,7.5,7.33,7.67,7.5,7.5,10,10,10,7.5,82.67,0.12,1400,1900,1650
+Arabica,Thailand,phahi,Koju Matsuzawa,300,Specialty Coffee Institute of Asia,2013,"September 3rd, 2013",Washed / Wet,7.42,7.5,7.5,7.67,7.58,7.5,10,10,10,7.5,82.67,0.11,1500,1500,1500
+Arabica,Mexico,mahuixtlan,MARIA DE LOURDES ANCIRA ELIZONDO,23,AMECAFE,2012,"June 6th, 2012",Washed / Wet,7.5,7.58,7.58,7.58,7.42,7.42,10,10,10,7.58,82.67,0.12,950,950,950
+Arabica,Guatemala,oriente,JESUS RAMIREZ,25,Asociacion Nacional Del Café,2017,"September 8th, 2017",Washed / Wet,7.5,7.42,7.42,7.75,7.5,7.5,10,10,10,7.5,82.58,0.1,1219.2,1219.2,1219.2
+Arabica,Indonesia,aceh,SMALL HOLDERS FARMER,150,Torch Coffee Lab Yunnan,2015,"September 15th, 2015",Semi-washed / Semi-pulped,7.83,7.58,7.42,7.33,7.42,7.5,10,10,10,7.5,82.58,0.13,1200,1300,1250
+Arabica,Thailand,thailand,Doi Tung Development Project,1,Specialty Coffee Association,2014,"June 9th, 2015",Washed / Wet,7.75,7.33,7.42,7.67,7.42,7.5,10,10,10,7.5,82.58,0.12,800,800,800
+Arabica,Thailand,chiangrai,"Coffeas Co., Ltd.",50,Specialty Coffee Institute of Asia,2014,"February 15th, 2015",Washed / Wet,7.42,7.58,7.58,7.42,7.58,7.5,10,10,10,7.5,82.58,0.12,1400,1500,1450
+Arabica,"Tanzania, United Republic Of",ikand village,Tembo Coffee Company Ltd,10,Africa Fine Coffee Association,2014,"December 12th, 2014",Washed / Wet,7.75,7.42,7.33,7.5,7.58,7.5,10,10,10,7.5,82.58,0.12,1317,1317,1317
+Arabica,Uganda,eastern,Sipi organic coffee project,1,Uganda Coffee Development Authority,2013,"June 30th, 2014",Natural / Dry,7.83,7.5,7.42,7.58,7.42,7.42,10,10,10,7.42,82.58,0.12,1400,1900,1650
+Arabica,Costa Rica,central valley,VARIOS,250,Specialty Coffee Association of Costa Rica,2013,"May 9th, 2014",Washed / Wet,7.67,7.42,7.5,7.67,7,7.75,10,10,10,7.58,82.58,0.11,1200,1400,1300
+Arabica,Colombia,huila,varios,250,Almcafe,2013,"April 16th, 2013",Washed / Wet,7.75,7.25,7.33,7.42,7.5,7.83,10,10,10,7.5,82.58,0.11,1750,1750,1750
+Arabica,Colombia,huila,varios,250,Almcafe,2012,"October 9th, 2012",Washed / Wet,7.75,7.5,7.75,7.25,7.33,7.58,10,10,10,7.42,82.58,0.11,1750,1750,1750
+Arabica,Mexico,oaxaca,GUILLERMO ROJAS SALDAÑA,50,AMECAFE,2012,"September 4th, 2012",Washed / Wet,7.5,7.58,7.5,7.5,7.42,7.5,10,10,10,7.58,82.58,0.1,1250,1250,1250
+Arabica,Mexico,colima,FEDERICO ENCISO MICHEL; LEODAN ENCISO FIGUEROA; JAIME LOPEZ LOPEZ,70,AMECAFE,2012,"July 2nd, 2012",Washed / Wet,7.67,7.58,7.58,7.75,7.67,6.83,10,10,10,7.5,82.58,0.12,1150,1150,1150
+Arabica,Colombia,huila,LA PLATA,275,Almcafe,2012,"June 13th, 2012",Washed / Wet,7.33,7.42,7.58,7.42,7.67,7.5,10,10,10,7.67,82.58,0.11,1600,1950,1775
+Arabica,Indonesia,bali,vary,2,Specialty Coffee Association of Indonesia,2017,"September 4th, 2017",Washed / Wet,7.83,7.75,7.25,7.5,7.42,7.33,10,10,10,7.42,82.5,0.11,1250,1250,1250
+Arabica,Honduras,comayagua,Nahun Maldonado,275,Instituto Hondureno del Cafe,2017,"June 3rd, 2017",Washed / Wet,7.58,7.58,7.33,7.5,7.5,7.5,10,10,10,7.5,82.5,0.1,1400,1400,1400
+Arabica,Guatemala,oriente,MARGARITA AVILA DE NUYENS,50,Asociacion Nacional Del Café,2016,"March 16th, 2016",Washed / Wet,7.5,7.5,7.33,7.5,7.67,7.5,10,10,10,7.5,82.5,0.1,1219.2,1219.2,1219.2
+Arabica,Thailand,thailand,Doi Tung Development Project,1,Specialty Coffee Association,2014,"June 9th, 2015",Washed / Wet,7.5,7.83,7.5,7.75,7.33,7.42,9.33,10,10,7.83,82.5,0.12,800,800,800
+Arabica,Thailand,chiangrai,"Coffeas Co., Ltd.",50,Specialty Coffee Institute of Asia,2014,"February 15th, 2015",Washed / Wet,7.33,7.5,7.5,7.5,7.67,7.5,10,10,10,7.5,82.5,0.11,1400,1500,1450
+Arabica,"Tanzania, United Republic Of",karatu arusha,Shah Plantations,37,Africa Fine Coffee Association,2014,"December 18th, 2014",Washed / Wet,7.67,7.42,7.33,7.58,7.5,7.5,10,10,10,7.5,82.5,0.12,1600,1600,1600
+Arabica,Mexico,chiapas,Santiago & Rosaura Arguello Campos,2,Specialty Coffee Association,2013,"April 14th, 2014",Washed / Wet,7.42,7.58,7.5,7.67,7.25,7.5,10,10,10,7.58,82.5,0,1500,1700,1600
+Arabica,Guatemala,oriente,"AGRICOLA MONTE VERDE, S.A.",250,Asociacion Nacional Del Café,2013,"May 30th, 2013",Washed / Wet,7.83,7.42,7.33,7.67,7.42,7.5,10,10,10,7.33,82.5,0.12,1310.64,1310.64,1310.64
+Arabica,Guatemala,oriente,MARGARITA DE NUYENS,250,Asociacion Nacional Del Café,2013,"February 26th, 2013",Washed / Wet,7.83,7.67,7.17,7.33,7.5,7.67,10,10,10,7.33,82.5,0.11,1310.64,1310.64,1310.64
+Arabica,Mexico,san bartolo tutotepec,"VELASCO SAN AGUSTIN, NAZARIO",10,AMECAFE,2012,"September 27th, 2012",Washed / Wet,7.5,7.58,7.5,7.5,7.42,7.42,10,10,10,7.58,82.5,0.13,1679,1679,1679
+Arabica,Mexico,zapotitlan de mendez,ENRIQUE MITRE LOPEZ,10,AMECAFE,2012,"July 26th, 2012",Washed / Wet,7.67,7.5,7.33,7.67,7.5,7.33,10,10,10,7.5,82.5,0.12,1100,1100,1100
+Arabica,Mexico,la concordia,SUSANA LETICIA LOPEZ AGUILAR,28,AMECAFE,2012,"June 7th, 2012",Semi-washed / Semi-pulped,7.92,7.5,7.33,7.58,7.25,7.42,10,10,10,7.5,82.5,0.11,1650,1650,1650
+Arabica,Brazil,carmo de minas,Nazareth Dias Pereira,300,NUCOFFEE,2012,"March 16th, 2012",Semi-washed / Semi-pulped,7.67,7.42,7.33,7.67,7.5,7.5,10,10,10,7.42,82.5,0,1250,1250,1250
+Arabica,Colombia,huila,LA PLATA,275,Almcafe,2012,"March 5th, 2012",Washed / Wet,7.67,7.5,7.33,7.5,7.25,7.67,10,10,10,7.58,82.5,0.11,1600,1950,1775
+Arabica,Honduras,"comayagua, honduras",Danilo Carrillo,1,Specialty Coffee Association,2017,"September 27th, 2017",Washed / Wet,7.42,7.67,7.17,7.58,7.58,7.5,10,10,10,7.5,82.42,0.12,1500,1500,1500
+Arabica,Guatemala,san marcos,JORGE LEAL,50,Asociacion Nacional Del Café,2017,"September 8th, 2017",Washed / Wet,7.58,7.5,7.33,7.75,7.33,7.5,10,10,10,7.42,82.42,0.1,1700,1700,1700
+Arabica,Guatemala,san marcos,ANGEL DE LEON,50,Asociacion Nacional Del Café,2016,"June 1st, 2017",Washed / Wet,7.67,7.58,7.25,7.67,7.42,7.33,10,10,10,7.5,82.42,0.12,1700,1700,1700
+Arabica,Guatemala,el progreso,JESUS RAMIREZ,20,Asociacion Nacional Del Café,2017,"June 1st, 2017",Washed / Wet,7.58,7.5,7.25,7.67,7.5,7.5,10,10,10,7.42,82.42,0.12,157.8864,157.8864,157.8864
+Arabica,China,yunnan,Menglian Gao Sanlin Coffee Factory,3,Yunnan Coffee Exchange,2015,"April 6th, 2016",Washed / Wet,7.67,7.42,7.42,7.5,7.42,7.42,10,10,10,7.58,82.42,0.1,1600,1600,1600
+Arabica,Guatemala,atitlan,UNEX,250,Specialty Coffee Association of Costa Rica,2013,"December 18th, 2014",Washed / Wet,7.5,7.5,7.5,7.67,7.42,7.5,10,10,10,7.33,82.42,0.1,1400,1400,1400
+Arabica,Mexico,la yerba,AVELINO CHAVEZ REYNA,10,AMECAFE,2014,"August 14th, 2014",Washed / Wet,7.42,7.5,7.42,7.58,7.42,7.5,10,10,10,7.58,82.42,0.11,1296,1296,1296
+Arabica,Brazil,south of minas,Betina Vilela Reis,39,NUCOFFEE,2012,"May 8th, 2014",Semi-washed / Semi-pulped,7.58,7.67,7.33,7.5,7.5,7.42,10,10,10,7.42,82.42,0.12,1000,1000,1000
+Arabica,Mexico,veracruz,MANUEL HERRERA JUAREZ,10,AMECAFE,2013,"December 12th, 2013",Washed / Wet,7.5,7.58,7.5,7.92,7.42,7.67,9.33,10,10,7.5,82.42,0.12,1170,1170,1170
+Arabica,Mexico,san pedro cotzilnam,VICTOR MANUEL LOPEZ VAZQUEZ,20,AMECAFE,2012,"September 11th, 2012",Semi-washed / Semi-pulped,7.42,7.58,7.5,7.42,7.58,7.5,10,10,10,7.42,82.42,0.13,1400,1400,1400
+Arabica,Mexico,coatepec,GIBRAN LEONARDO CERVANTES COVARRUBIAS,35,AMECAFE,2012,"September 10th, 2012",Washed / Wet,7.42,7.58,7.33,7.58,7.5,7.5,10,10,10,7.5,82.42,0.14,1300,1300,1300
+Arabica,Mexico,xalapa,MANUEL HERRERA JUAREZ,10,AMECAFE,2012,"August 31st, 2012",Washed / Wet,7.75,7.33,7.25,7.58,7.58,7.33,10,10,10,7.58,82.42,0.13,1170,1170,1170
+Arabica,Mexico,zihuatanejo de azueta,DARIO FRANCISCO GALEANA SOLIS,74,AMECAFE,2012,"July 25th, 2012",Washed / Wet,7.5,7.58,7.33,7.5,7.5,7.5,10,10,10,7.5,82.42,0.11,1300,1300,1300
+Arabica,Mexico,veracruz,JOSE DANIEL COBILT CASTRO,26,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.58,7.58,7.17,7.5,7.5,7.5,10,10,10,7.58,82.42,0.14,1350,1350,1350
+Arabica,Mexico,xicotepec de juarez,"ALVARO QUIROS PEREZ, MIGUEL QUIROZ PEREZ",10,AMECAFE,2012,"July 3rd, 2012",Washed / Wet,7.58,7.33,7.33,7.58,7.5,7.5,10,10,10,7.58,82.42,0.11,1150,1150,1150
+Arabica,Mexico,progreso santa rosa teocelo,OLIVIA HERNANDEZ VIRVES,1,AMECAFE,2012,"June 6th, 2012",Washed / Wet,7.67,7.58,7.33,7.42,7.58,7.33,10,10,10,7.5,82.42,0.13,1250,1250,1250
+Arabica,Mexico,fln mirador,ROBIN CLEAVER,10,AMECAFE,2012,"April 9th, 2012",Washed / Wet,7.83,7.5,7.42,7.67,7.17,7.33,10,10,10,7.5,82.42,0.12,1450,1450,1450
+Arabica,Colombia,huila,JAIME PULIDO / ALBINO MAHECHA / FREDDY MENDEZ,250,Almcafe,2012,"January 31st, 2012",Natural / Dry,7.67,7.33,7.25,7.42,7.5,7.67,10,10,10,7.58,82.42,0,442,442,442
+Arabica,Honduras,comayagua,Reinerio Zepeda,275,Instituto Hondureno del Cafe,2017,"April 6th, 2017",Washed / Wet,7.5,7.58,7.33,7.5,7.42,7.42,10,10,10,7.58,82.33,0.1,1396,1396,1396
+Arabica,Brazil,cerrado,Tulio Taft Bovaretto,320,Brazil Specialty Coffee Association,2016,"February 9th, 2017",Natural / Dry,7.33,7.5,7.5,7.33,7.5,7.5,10,10,10,7.67,82.33,0.11,982,982,982
+Arabica,Brazil,south of minas,Ipanema Agricola,320,Brazil Specialty Coffee Association,2016,"August 16th, 2016",Natural / Dry,7.5,7.5,7.42,7.5,7.42,7.5,10,10,10,7.5,82.33,0.11,934,934,934
+Arabica,Costa Rica,tarrazu,Martin Gutierrez,100,Specialty Coffee Association of Costa Rica,2015,"July 15th, 2016",Washed / Wet,7.75,7.5,7.25,7.25,7.42,7.67,10,10,10,7.5,82.33,0.1,1850,1850,1850
+Arabica,Costa Rica,tarrazu,Johanna,130,Specialty Coffee Association of Costa Rica,2015,"May 17th, 2016",Washed / Wet,7.75,7.33,7.5,7.5,7.33,7.58,10,10,10,7.33,82.33,0,1550,1550,1550
+Arabica,China,xishuangbanna prefecture,Yun Lan Coffee Co. Ltd,3,Yunnan Coffee Exchange,2015,"April 5th, 2016",Pulped natural / honey,7.5,7.58,7.42,7.5,7.42,7.42,10,10,10,7.5,82.33,0.12,1580,1580,1580
+Arabica,Colombia,huila,Agrotello Coop,100,Specialty Coffee Association,2014,"November 21st, 2014",Washed / Wet,7.5,7.75,7.5,7.75,7.67,7.67,10,10,10,7.83,83.67,0.11,1550,1700,1625
+Arabica,Guatemala,huehuetenango,AMANCIO DEL VALLE CARRILLO,275,Asociacion Nacional Del Café,2015,"March 10th, 2015",Washed / Wet,7.5,7.42,7.17,7.83,7.5,7.5,10,10,10,7.42,82.33,0.1,1676.4,1676.4,1676.4
+Arabica,Malawi,mzuzu,Mzuzu Coffee Planters Coop Union,10,Africa Fine Coffee Association,2014,"November 4th, 2014",Washed / Wet,7.33,7.58,7.42,7.58,7.33,7.5,10,10,10,7.58,82.33,0.12,1450,1450,1450
+Arabica,Honduras,comayagua,Reynerio Zepeda,275,Instituto Hondureno del Cafe,2014,"April 8th, 2014",Natural / Dry,7.67,7.5,7.67,7.5,7.67,7.67,10,10,10,7.83,83.5,0.1,1350,1350,1350
+Arabica,Guatemala,jalapa,ROBERTO MONTERROSO,250,Asociacion Nacional Del Café,2014,"June 10th, 2014",Washed / Wet,7.58,7.67,7.5,7.58,7.75,7.5,9.33,10,10,7.42,82.33,0.12,1524,1524,1524
+Arabica,Colombia,antioquia,SEVERAL,250,Specialty Coffee Association of Costa Rica,2013,"January 21st, 2014",Washed / Wet,7.42,7.33,7.5,7.17,7.08,8.33,10,10,10,7.5,82.33,0.1,1300,1300,1300
+Arabica,Honduras,comayagua,Reynerio Zepeda,275,Instituto Hondureno del Cafe,2014,"April 8th, 2014",Natural / Dry,7.67,7.67,7.5,7.67,7.5,7.67,10,10,10,7.5,83.17,0.11,1350,1350,1350
+Arabica,Guatemala,oriente,ROBERTO MONTERROSO,250,Asociacion Nacional Del Café,2013,"July 16th, 2013",Washed / Wet,7.5,7.42,7.58,7.5,7.5,7.58,10,10,10,7.25,82.33,0.12,1310.64,1310.64,1310.64
+Arabica,Mexico,"la concordia, chiapas",AGROINDUSTRIAS UNIDAS DE MEXICO SA DE CV,250,AMECAFE,2013,"March 15th, 2013",Washed / Wet,7.67,7.5,7.42,7.5,7.42,7.42,10,10,10,7.42,82.33,0.12,1300,1300,1300
+Arabica,Guatemala,jalapa,"CAFE MOLINO MONTERROSO P,J. ROBERTO",275,Asociacion Nacional Del Café,2012,"October 5th, 2012",Washed / Wet,7.67,7.5,7.33,7.67,7.5,7.33,10,10,10,7.33,82.33,0.11,1676.4,1828.8,1752.6
+Arabica,Mexico,"jaltocan, hidalgo","SALAZAR HERNANDEZ, ROBERTO",10,AMECAFE,2012,"September 27th, 2012",Natural / Dry,7.58,7.67,7.58,7.33,7,7.58,10,10,10,7.58,82.33,0.15,441,441,441
+Arabica,Mexico,veracruz,MANUEL HERRERA JUAREZ,10,AMECAFE,2012,"August 31st, 2012",Washed / Wet,7.67,7.58,7.5,7.58,7.5,7.5,10,10,10,7,82.33,0.13,1170,1170,1170
+Arabica,Guatemala,oriente,AGROPECUARIA QUIAGRAL,250,Asociacion Nacional Del Café,2012,"May 23rd, 2012",Washed / Wet,7.5,7.67,7.33,7.5,7.33,7.5,10,10,10,7.5,82.33,0.1,1310.64,1310.64,1310.64
+Arabica,Mexico,santa catarina juquila,MARIA LUISA DELCARMEN ROJAS NARVAEZ,10,AMECAFE,2012,"March 5th, 2012",Washed / Wet,8,7.75,7.33,7.33,7.08,7.67,9.33,10,10,7.83,82.33,0.11,1200,1400,1300
+Arabica,Colombia,huila,JAIME PULIDO / ERMILSON RAMOS,250,Almcafe,2012,"January 31st, 2012",Natural / Dry,7.83,7.58,7.33,7.25,7.58,7.42,10,10,10,7.33,82.33,0,442,442,442
+Arabica,Guatemala,nuevo oriente,PABLO CHUY,275,Asociacion Nacional Del Café,2016,"August 31st, 2016",Washed / Wet,7.67,7.5,7.25,7.67,7.42,7.42,10,10,10,7.33,82.25,0.11,1450,1450,1450
+Arabica,Brazil,cerrado,GERSON NAIMEG,300,Brazil Specialty Coffee Association,2014,"August 15th, 2014",Semi-washed / Semi-pulped,7.08,7.5,7.5,7.83,7.75,7.67,10,10,10,7.58,82.92,0.11,11000,11000,11000
+Arabica,El Salvador,apaneca,"Tropical Farm Management El Salvador, S.A. de C.V.",275,Salvadoran Coffee Council,2014,"July 8th, 2015",Washed / Wet,7.58,7.67,7.5,7.67,7.83,8.42,9.33,9.33,9.33,7.58,82.25,0.12,1500,1500,1500
+Arabica,Honduras,marcala,Omar Acosta,275,Instituto Hondureno del Cafe,2015,"April 15th, 2015",Washed / Wet,7.58,7.5,7.42,7.58,7.42,7.42,10,10,10,7.33,82.25,0.11,1350,1350,1350
+Arabica,Malawi,mzuzu,Mzuzu Coffee Coop Union,10,Africa Fine Coffee Association,2014,"November 4th, 2014",Washed / Wet,7.58,7.42,7.33,7.42,7.58,7.5,10,10,10,7.42,82.25,0.13,1180,1180,1180
+Arabica,Mexico,veracruz,MARIA DEL ROSARIO IRAIS VALDIVIA ORTIZ,150,AMECAFE,2013,"July 19th, 2013",Washed / Wet,7.58,7.58,7.42,7.42,7.42,7.42,10,10,10,7.42,82.25,0.12,1338,1338,1338
+Arabica,Mexico,"calnali, hidalgo",FELIX DE LA CRUZ CASIMIRO,10,AMECAFE,2012,"September 27th, 2012",Washed / Wet,7.58,7.58,7.5,7.17,7.42,7.42,10,10,10,7.58,82.25,0.16,533,533,533
+Arabica,Guatemala,antigua,"SIEMBRAS VISION, S.A.",275,Asociacion Nacional Del Café,2012,"September 19th, 2012",Washed / Wet,7.5,7.5,7.33,7.58,7.67,7.33,10,10,10,7.33,82.25,0.11,1390.8024,1390.8024,1390.8024
+Arabica,Mexico,veracruz,MANUEL HERRERA JUAREZ,10,AMECAFE,2012,"August 31st, 2012",Washed / Wet,7.5,7.58,7.42,7.67,7.33,7.42,10,10,10,7.33,82.25,0.13,1170,1170,1170
+Arabica,Mexico,juquila,GUILLERMO ROJAS SALDAÑA,40,AMECAFE,2012,"August 30th, 2012",Washed / Wet,7.67,7.58,7.33,7.5,7.42,7.42,10,10,10,7.33,82.25,0.12,1250,1250,1250
+Arabica,Mexico,veracruz,SERGIO DE LA VEQUIA BERNARDI,250,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.33,7.58,7.42,7.67,7.33,7.5,10,10,10,7.42,82.25,0.11,1100,1100,1100
+Arabica,Mexico,canoas,COOP,250,AMECAFE,2012,"April 2nd, 2012",Washed / Wet,7.42,7.5,7.42,7.58,7.42,7.5,10,10,10,7.42,82.25,0.1,900,900,900
+Arabica,Colombia,huila,La Plata,100,Almcafe,2012,"February 9th, 2012",Washed / Wet,7.67,7.33,7.33,7.33,7.5,7.5,10,10,10,7.58,82.25,0.11,1600,1950,1775
+Arabica,Brazil,south of minas,Ipanema Agricola,320,Brazil Specialty Coffee Association,2016,"August 16th, 2016",Natural / Dry,7.42,7.42,7.5,7.42,7.42,7.5,10,10,10,7.5,82.17,0.11,934,934,934
+Arabica,Honduras,comayagua,Nahun Maldonado,200,Instituto Hondureno del Cafe,2015,"June 9th, 2016",Washed / Wet,7.5,7.5,7.17,7.42,7.5,7.5,10,10,10,7.58,82.17,0.11,1500,1500,1500
+Arabica,"Tanzania, United Republic Of",ruvuma,Langiro farm group,30,Africa Fine Coffee Association,2015,"November 16th, 2015",Washed / Wet,7.58,7.42,7.42,7.33,7.5,7.42,10,10,10,7.5,82.17,0.13,1500,1800,1650
+Arabica,Thailand,thailand,Doi Tung Development Project,1,Specialty Coffee Association,2014,"June 9th, 2015",Washed / Wet,7.42,7.42,7.17,7.75,7.25,7.67,10,10,10,7.5,82.17,0.12,800,800,800
+Arabica,Honduras,marcala,Omar Acosta,275,Instituto Hondureno del Cafe,2015,"April 15th, 2015",Washed / Wet,7.67,7.5,7.25,7.42,7.58,7.42,10,10,10,7.33,82.17,0.11,1350,1350,1350
+Arabica,"Tanzania, United Republic Of","ilomba vilage, mbozi",Tembo Coffee Company Ltd,10,Africa Fine Coffee Association,2014,"December 15th, 2014",Washed / Wet,7.75,7.42,7.42,7.58,7.33,7.42,10,10,10,7.25,82.17,0.12,1700,1700,1700
+Arabica,Mexico,"la concordia, chiapas",Union Ramal Santa Cruz,2,Specialty Coffee Association,2013,"April 10th, 2014",Washed / Wet,7.5,7.5,7.33,7.42,7.5,7.42,10,10,10,7.5,82.17,0.1,1200,1600,1400
+Arabica,Taiwan,"dongshan dist., tainan city 臺南市東山區",Jufeng-Tseng 曾如楓,80,Specialty Coffee Association,2012,"May 29th, 2013",Washed / Wet,7.67,7.5,7.5,7.17,7.17,7.58,10,10,10,7.58,82.17,0,800,800,800
+Arabica,Mexico,san bartolo tutotepec,AVILA MARTINEZ ADOLFO,10,AMECAFE,2012,"September 27th, 2012",Washed / Wet,7.5,7.67,7,7.5,7.33,7.5,10,10,10,7.67,82.17,0.15,1144,1144,1144
+Arabica,Guatemala,oriente,Several producers,250,Specialty Coffee Association,2012,"August 2nd, 2012",Washed / Wet,7.25,7.75,7,7.75,8.17,7.75,10,10,9.33,7.17,82.17,0.12,1350,1350,1350
+Arabica,Mexico,altotonga,SALVADOR CARO CARRION,200,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.5,7.58,7.25,7.5,7.5,7.33,10,10,10,7.5,82.17,0.12,1000,1000,1000
+Arabica,Mexico,colima,"OSCAR TORRES OCHOCA, GENARO MATA CAMBEROS, MANUEL DUARTE MUNGUIA",60,AMECAFE,2012,"July 2nd, 2012",Washed / Wet,7,7.67,7.5,7.5,7.42,7.5,10,10,10,7.58,82.17,0.1,1200,1200,1200
+Arabica,Indonesia,aceh gayo,Various Farms,2,Specialty Coffee Association of Indonesia,2017,"August 3rd, 2017",Washed / Wet,7.5,7.5,7.42,7.42,7.5,7.42,10,10,10,7.33,82.08,0.15,1300,1300,1300
+Arabica,Brazil,south of minas,Ipanema Agricola,320,Brazil Specialty Coffee Association,2016,"August 16th, 2016",Natural / Dry,7.42,7.58,7.42,7.5,7.42,7.25,10,10,10,7.5,82.08,0.11,894,894,894
+Arabica,Costa Rica,tres rios,JOSE FRANCISCO GONZALEZ,275,Specialty Coffee Association of Costa Rica,2015,"April 10th, 2015",Washed / Wet,7.75,7.42,7.42,7.25,7.17,7.42,10,10,10,7.67,82.08,0,1200,1400,1300
+Arabica,"Tanzania, United Republic Of",kilimanjaro,AMPCG,300,Tanzanian Coffee Board,2014,"March 25th, 2015",Washed / Wet,7.42,7.33,7.42,7.42,7.5,7.58,10,10,10,7.42,82.08,0.12,1500,1500,1500
+Arabica,"Tanzania, United Republic Of",ngorogoro,Ngorogoro Convenant Estate,1,Africa Fine Coffee Association,2014,"January 8th, 2015",Washed / Wet,7.42,7.5,7.5,7.33,7.33,7.5,10,10,10,7.5,82.08,0.12,1500,1700,1600
+Arabica,Costa Rica,turrialba,Cafetalera Aquiares,150,Specialty Coffee Association of Costa Rica,2013,"March 21st, 2014",Washed / Wet,7.58,7.33,7.33,7.33,7.5,7.67,10,10,10,7.33,82.08,0.11,13,13,13
+Arabica,Mexico,coatepec,GIBRAN LEONARDO CERVANTES COVARRUBIAS,35,AMECAFE,2012,"September 10th, 2012",Washed / Wet,7.42,7.58,7.5,7.33,7.42,7.42,10,10,10,7.42,82.08,0.13,1300,1300,1300
+Arabica,Mexico,tapachula,ISMAM SAN ISIDRO LABRADOR S. DE S.S.,250,AMECAFE,2012,"August 30th, 2012",Washed / Wet,7.5,7.42,7.42,7.5,7.25,7.5,10,10,10,7.5,82.08,0.13,1800,1800,1800
+Arabica,Mexico,coatepec,ROSA AURORA FALCON FERNANDEZ,15,AMECAFE,2012,"July 26th, 2012",Washed / Wet,7.67,7.5,7.25,7.58,7.42,7.33,10,10,10,7.33,82.08,0.11,1250,1250,1250
+Arabica,Vietnam,don duong,"Apollo Co., LTd.",1,Specialty Coffee Association,2012,"July 23rd, 2012",Natural / Dry,7.67,8,7.17,7.08,7.67,7.08,10,10,10,7.42,82.08,0.12,1040,1040,1040
+Arabica,Mexico,veracruz,RAMIRO DE LA VEQUIA BERNARDI,250,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.58,7.42,7.25,7.75,7.33,7.42,10,10,10,7.33,82.08,0.11,1250,1250,1250
+Arabica,Brazil,south of minas,Ipanema Agricola,230,Brazil Specialty Coffee Association,2016,"August 16th, 2016",Natural / Dry,7.5,7.33,7.42,7.5,7.33,7.42,10,10,10,7.5,82,0.11,944,944,944
+Arabica,"Tanzania, United Republic Of",kilimanjaro,Mr & Mrs Didas Mallya,2,Africa Fine Coffee Association,2015,"November 16th, 2015",Washed / Wet,7.67,7.33,7.33,7.42,7.42,7.42,10,10,10,7.42,82,0.13,1500,1800,1650
+Arabica,Laos,lao p.d.r.,HanYong Choi,1,Specialty Coffee Institute of Asia,2015,"November 5th, 2015",Washed / Wet,7.42,7.5,7.25,7.33,7.5,7.5,10,10,10,7.5,82,0.12,1250,1250,1250
+Arabica,"Tanzania, United Republic Of",meru,Finca Estate,1,Africa Fine Coffee Association,2014,"December 18th, 2014",Washed / Wet,7.42,7.42,7.33,7.58,7.33,7.42,10,10,10,7.5,82,0.12,1300,1400,1350
+Arabica,Malawi,mzuzu,Mzuzu Coffee Coop Union,16,Africa Fine Coffee Association,2014,"October 31st, 2014",Washed / Wet,7.5,7.42,7.33,7.58,7.33,7.5,10,10,10,7.33,82,0.13,2500,2500,2500
+Arabica,Thailand,thailand,Doi Tung Development Project,1,Specialty Coffee Association,2013,"June 20th, 2014",Washed / Wet,7.58,7.5,7.42,7.42,7.33,7.42,10,10,10,7.33,82,0.11,800,800,800
+Arabica,Costa Rica,central valley,VARIOS,250,Specialty Coffee Association of Costa Rica,2013,"June 9th, 2014",Washed / Wet,7.5,7.25,7.33,7.33,7.75,7.5,10,10,10,7.33,82,0.1,1200,1400,1300
+Arabica,Honduras,occidental,BSR,275,Instituto Hondureno del Cafe,2014,"April 30th, 2014",Washed / Wet,7.33,7.33,7.33,7.5,7.5,7.83,10,10,10,7.17,82,0.11,1400,1400,1400
+Arabica,Mexico,coscomatepec,JORGE OCTAVIO ESCAMILLA PRADO,15,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.67,7.33,7.25,7.5,7.42,7.42,10,10,10,7.42,82,0.12,940,940,940
+Arabica,Brazil,south of minas,Vander Bonaccorsi,50,NUCOFFEE,2012,"June 4th, 2012",Natural / Dry,7.42,7.5,7.33,7.5,7.33,7.5,10,10,10,7.42,82,0.12,1000,1000,1000
+Arabica,Brazil,south of minas,Maria da Gloria Junqueira,53,NUCOFFEE,2012,"February 17th, 2012",Semi-washed / Semi-pulped,7.58,7.5,7.17,7.5,7.5,7.42,10,10,10,7.33,82,0.12,950,950,950
+Arabica,Guatemala,oriente,Conquista/Morito,250,Specialty Coffee Association,2012,"February 1st, 2012",Washed / Wet,7.75,7.33,7.33,7.42,7.75,7.67,10,10,9.33,7.42,82,0,1402.08,1402.08,1402.08
+Arabica,Guatemala,oriente,"AGRICOLA EL PILAR, S.A.",25,Asociacion Nacional Del Café,2017,"August 22nd, 2017",Washed / Wet,7.58,7.5,7.25,7.58,7.58,7.5,9.33,10,10,7.58,81.92,0.1,1901,1901,1901
+Arabica,Guatemala,santa rosa,OTTO BECKER,50,Asociacion Nacional Del Café,2017,"June 22nd, 2017",Washed / Wet,7.5,7.5,7.25,7.42,7.42,7.42,10,10,10,7.42,81.92,0.11,1219.2,1219.2,1219.2
+Arabica,Honduras,comayagua,Reinerio Zepeda,274,Instituto Hondureno del Cafe,2017,"June 1st, 2017",Washed / Wet,7.58,7.5,7.25,7.33,7.42,7.5,10,10,10,7.33,81.92,0.12,1400,1400,1400
+Arabica,Brazil,mantiqueira de minas,NAZARETH DIAS PEREIRA,300,Brazil Specialty Coffee Association,2014,"December 16th, 2014",Other,7.17,7.33,7.42,7.25,7.42,7.33,10,10,10,7.42,81.33,0.12,1200,1200,1200
+Arabica,El Salvador,"el balsamo, quezaltepec","Comercial Exportadora, S.A. de C.V.",275,Salvadoran Coffee Council,2014,"May 5th, 2015",Washed / Wet,7.67,7.58,7.33,7.5,7.5,7.67,10,10,9.33,7.33,81.92,0.11,1250,1250,1250
+Arabica,Guatemala,nuevo oriente,OVIDIO CARDONA,275,Asociacion Nacional Del Café,2015,"April 20th, 2015",Washed / Wet,7.58,7.58,7.17,7.83,7.17,7.33,10,10,10,7.25,81.92,0.11,1300,1800,1550
+Arabica,"Tanzania, United Republic Of",mbeya,Mcomafa,114,Africa Fine Coffee Association,2014,"January 6th, 2015",Washed / Wet,7.33,7.33,7.33,7.42,7.5,7.58,10,10,10,7.42,81.92,0.12,1877,1877,1877
+Arabica,Mexico,chiapas,VARIOS PRODUCTORES,450,AMECAFE,2013,"March 29th, 2013",Washed / Wet,7.58,7.5,7.25,7.58,7.5,7.25,10,10,10,7.25,81.92,0.12,1300,1300,1300
+Arabica,Mexico,"chapulhuacan, hidalgo","PONCE RUBIO, VENANCIO",10,AMECAFE,2012,"September 27th, 2012",Semi-washed / Semi-pulped,7.5,7.5,7.25,7.25,7.5,7.5,10,10,10,7.42,81.92,0.13,981,981,981
+Arabica,Mexico,"huazalingo, hidalgo","FRANCISCO SAENZ, FERNANDO",10,AMECAFE,2012,"September 27th, 2012",Washed / Wet,7.5,7.42,7.25,7.5,7.33,7.33,10,10,10,7.58,81.92,0.14,690,690,690
+Arabica,Mexico,veracruz,JUAN HERMILIO SAMPIERI CARCAMO,30,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.33,7.58,7.17,7.58,7.42,7.33,10,10,10,7.5,81.92,0.12,1650,1650,1650
+Arabica,Brazil,grama valley,Fioravante Malagutti,8,NUCOFFEE,2012,"February 29th, 2012",Natural / Dry,7.42,7.58,7.25,7.5,7.33,7.5,10,10,10,7.33,81.92,0.12,1100,1100,1100
+Arabica,Guatemala,oriente,JESUS RAMIREZ,25,Asociacion Nacional Del Café,2017,"August 22nd, 2017",Washed / Wet,7.42,7.5,7.25,7.5,7.33,7.42,10,10,10,7.42,81.83,0.1,157.8864,157.8864,157.8864
+Arabica,Costa Rica,tarrazu,Manuel Montero,15,Specialty Coffee Association,2016,"February 13th, 2017",Pulped natural / honey,7.25,7.33,7.5,7.33,7.67,7.42,10,10,10,7.33,81.83,0,1900,1900,1900
+Arabica,Brazil,monte carmelo,Helena Pingnatti Ricci,200,Brazil Specialty Coffee Association,2016,"January 20th, 2017",Natural / Dry,7.42,7.5,7.42,7.5,7.42,7.25,10,10,10,7.33,81.83,0.11,973,973,973
+Arabica,Indonesia,bali,MUDAR,166,Specialty Coffee Association,2015,"January 19th, 2017",Other,7.75,7.83,7.58,7.75,7.92,7.83,10,10,10,5.17,81.83,0.11,1250,1250,1250
+Arabica,Guatemala,norte,CHAPULTEPEC,130,Asociacion Nacional Del Café,2015,"August 2nd, 2016",Washed / Wet,7.58,7.5,7.33,7.42,7.58,7.25,10,10,10,7.17,81.83,0.1,3280,3280,3280
+Arabica,Brazil,mantiqueira de minas,NAZARETH DIAS PEREIRA,300,Brazil Specialty Coffee Association,2014,"December 16th, 2014",Natural / Dry,7.25,7.33,7.25,7.25,7.25,7.33,10,10,10,7.25,80.92,0.12,1200,1200,1200
+Arabica,Myanmar,ywar ngan,U Mg Mg,1,Coffee Quality Institute,2015,"July 17th, 2015",Washed / Wet,7.33,7.58,7.5,7.42,7.33,7.33,10,10,10,7.33,81.83,0,4001,4001,4001
+Arabica,Mexico,chiapas,MARTINIANO A. MORENO ALVARADO,250,Asociacion Mexicana De Cafes y Cafeterias De Especialidad A.C.,2015,"June 25th, 2015",Washed / Wet,7.58,7.5,7.33,7.5,7.17,7.33,10,10,10,7.42,81.83,0.11,1350,1500,1425
+Arabica,Honduras,marcala,JOSE OMAR ACOSTA,275,Instituto Hondureno del Cafe,2015,"May 12th, 2015",Washed / Wet,7.5,7.5,7.33,7.5,7.42,7.25,10,10,10,7.33,81.83,0.12,1400,1400,1400
+Arabica,Costa Rica,tres rios,JOSE FRANCISCO GONZALEZ,275,Specialty Coffee Association of Costa Rica,2015,"May 7th, 2015",Washed / Wet,7.67,7.5,7.5,7.25,7.08,7.42,10,10,10,7.42,81.83,0.09,1200,1400,1300
+Arabica,Malawi,kakoma,Mzuzu Coffee Coop Union,24,Africa Fine Coffee Association,2014,"October 31st, 2014",Washed / Wet,7.58,7.42,7.33,7.33,7.33,7.42,10,10,10,7.42,81.83,0.13,1556,1556,1556
+Arabica,Mexico,"siltepec el triunfo, chiapas, mexico",various small producers,280,Specialty Coffee Association,2014,"April 26th, 2014",Washed / Wet,7.42,7.42,7.25,7.5,7.33,7.42,10,10,10,7.5,81.83,0.11,1550,1550,1550
+Arabica,Colombia,huila,LA PLATA,50,Almcafe,2013,"July 19th, 2013",Washed / Wet,7.5,7.5,7,7.42,7.5,7.58,10,10,10,7.33,81.83,0,1600,1950,1775
+Arabica,Brazil,sul de minas,NAZARETH DIAS PEREIRA,300,Specialty Coffee Association,2012,"March 2nd, 2013",Semi-washed / Semi-pulped,7.75,7.75,7.5,7.42,7.83,7.75,9.33,9.33,9.33,7.83,81.83,0.12,1250,1250,1250
+Arabica,Guatemala,oriente,LUIS RODRIGUEZ,250,Asociacion Nacional Del Café,2013,"February 26th, 2013",Washed / Wet,7.83,7.67,7.33,7.33,7.67,7.83,9.33,10,9.33,7.5,81.83,0.11,1310.64,1310.64,1310.64
+Arabica,Mexico,veracruz,MARIA MAGDALENA LUETHJE Y GRIS,302,AMECAFE,2012,"August 31st, 2012",Washed / Wet,7.83,7.33,7.25,7.58,7.25,7.33,10,10,10,7.25,81.83,0.12,1500,1500,1500
+Arabica,Mexico,coatepec,JORGE FRANCISCO MARTINEZ HACHITY,15,AMECAFE,2012,"July 11th, 2012",Semi-washed / Semi-pulped,7.33,7.33,7.25,7.5,7.5,7.5,10,10,10,7.42,81.83,0.12,1250,1250,1250
+Arabica,Guatemala,san marcos,ANGEL DE LEON,50,Asociacion Nacional Del Café,2017,"June 22nd, 2017",Washed / Wet,7.5,7.5,7.25,7.42,7.42,7.33,10,10,10,7.33,81.75,0.11,1700,1700,1700
+Arabica,Vietnam,vietnam,Richard Yeh,1,Specialty Coffee Association,2014,"December 21st, 2015",Washed / Wet,7,7.08,7.33,7.5,7.5,7.33,10,10,10,8,81.75,0.12,1040,1040,1040
+Arabica,"Tanzania, United Republic Of",ngorogoro,Ngorogoro Convenant Estate,1,Africa Fine Coffee Association,2014,"January 8th, 2015",Washed / Wet,7.42,7.42,7.42,7.42,7.33,7.33,10,10,10,7.42,81.75,0.12,1500,1700,1600
+Arabica,Mexico,"tenango de doria, hidalgo","PEREZ LEMUS, FELIX",10,AMECAFE,2012,"September 27th, 2012",Washed / Wet,7.5,7.5,7.33,7.42,7.25,7.25,10,10,10,7.5,81.75,0.13,774,774,774
+Arabica,Mexico,tepictla,SERGIO LANDA ALARCON,100,AMECAFE,2012,"September 10th, 2012",Washed / Wet,7.42,7.5,7.17,7.67,7.33,7.42,10,10,10,7.25,81.75,0.13,1250,1250,1250
+Arabica,Mexico,oaxaca,"CENEN TORRES CORTES, AVELINO TORES CORTES, JUAN VENTURA GUZMAN",42,AMECAFE,2012,"September 4th, 2012",Washed / Wet,7.42,7.5,7.33,7.58,7.33,7.33,10,10,10,7.25,81.75,0.11,1100,1100,1100
+Arabica,Mexico,la concordia,ARMANDO LUIS POHLENZ MARTINEZ,250,AMECAFE,2012,"August 30th, 2012",Washed / Wet,7.33,7.42,7.33,7.67,7.42,7.25,10,10,10,7.33,81.75,0.12,1550,1550,1550
+Arabica,Mexico,la concordia,GRACIELA AGUILAR PERALTA,28,AMECAFE,2012,"June 6th, 2012",Washed / Wet,7.5,7.42,7.25,7.33,7.67,7.25,10,10,10,7.33,81.75,0.12,1650,1650,1650
+Arabica,Guatemala,san marcos,ANGEL DE LEON,50,Asociacion Nacional Del Café,2017,"August 22nd, 2017",Washed / Wet,7.42,7.42,7.08,7.42,7.33,7.42,10,10,10,7.58,81.67,0.1,1700,1700,1700
+Arabica,Guatemala,santa rosa,JESUS RAMIREZ,80,Asociacion Nacional Del Café,2017,"June 5th, 2017",Washed / Wet,7.42,7.33,7.17,7.67,7.33,7.42,10,10,10,7.33,81.67,0.12,1219.2,1219.2,1219.2
+Arabica,Honduras,marcala,JOSE OMAR ACOSTA,275,Instituto Hondureno del Cafe,2016,"May 2nd, 2016",Washed / Wet,7.58,7.5,7.33,7.33,7.42,7.25,10,10,10,7.25,81.67,0.11,1450,1450,1450
+Arabica,Colombia,huila,FRANKLIN DUSSAN,250,Almcafe,2015,"November 27th, 2015",Natural / Dry,7.75,7.67,7.5,7.67,7.58,7.83,10,10,10,7.75,83.75,0,442,442,442
+Arabica,"Tanzania, United Republic Of",mbinga,DAE Ltd,20,Africa Fine Coffee Association,2014,"January 2nd, 2015",Washed / Wet,7.42,7.33,7.25,7.42,7.5,7.42,10,10,10,7.33,81.67,0.12,1200,1800,1500
+Arabica,"Tanzania, United Republic Of","ilomba vilage, mbozi",Tembo Coffee Company Ltd,10,Africa Fine Coffee Association,2013,"December 15th, 2014",Washed / Wet,7.33,7.33,7.5,7.25,7.42,7.33,10,10,10,7.5,81.67,0.12,1700,1700,1700
+Arabica,Costa Rica,tarrazu,Martin Gutierrez,275,Specialty Coffee Association of Costa Rica,2013,"April 26th, 2014",Washed / Wet,7.5,7.17,7.17,7.17,7.5,7.08,10,10,10,8.08,81.67,0.11,1850,1850,1850
+Arabica,Colombia,huila,FRANKLIN DUSSAN,304,Almcafe,2015,"November 27th, 2015",Natural / Dry,7.58,7.67,7.67,7.17,7.75,7.83,10,10,10,7.58,83.25,0,442,442,442
+Arabica,Mexico,"la concordia, chiapas",UNION RAMAL SANTA CRUZ,310,AMECAFE,2013,"March 29th, 2013",Washed / Wet,7.5,7.42,7.08,7.58,7.33,7.33,10,10,10,7.42,81.67,0.12,1400,1400,1400
+Arabica,Guatemala,jalapa,"CAFE MOLINO MONTERROSO P,J. ROBERTO",275,Asociacion Nacional Del Café,2012,"October 5th, 2012",Washed / Wet,7.5,7.67,7.33,7.33,7.33,7.33,10,10,10,7.17,81.67,0.11,1676.4,1828.8,1752.6
+Arabica,Mexico,tuxtla gutierrez,PRODUCTORA AGRICOLA Y GANADERA FINCA LA SUIZA,100,AMECAFE,2012,"September 11th, 2012",Washed / Wet,7.25,7.67,7.58,7.67,7.67,7.58,8.67,10,10,7.58,81.67,0.13,1650,1650,1650
+Arabica,Mexico,yajalon,MAYA BINIK,15,AMECAFE,2012,"August 30th, 2012",Washed / Wet,7.67,7.25,7.17,7.75,7.5,7.25,10,10,10,7.08,81.67,0.11,1400,1400,1400
+Arabica,Mexico,veracruz,CESAR SANTIZ LOPEZ,275,AMECAFE,2012,"July 27th, 2012",Washed / Wet,7.5,7.42,7.33,7.42,7.42,7.42,10,10,10,7.17,81.67,0.11,1200,1200,1200
+Arabica,Mexico,"la concordia, chiapas",OCTAVIO MOGUEL FARRERA,250,AMECAFE,2012,"April 2nd, 2012",Washed / Wet,7.58,7.42,7.25,7.58,7.25,7.17,10,10,10,7.42,81.67,0.11,1400,1400,1400
+Arabica,Honduras,western region,Cafes Finos de Corquin,275,Instituto Hondureno del Cafe,2018,"January 19th, 2018",Washed / Wet,7.5,7.42,7.08,7.42,7.5,7.33,10,10,10,7.33,81.58,0.11,1200,1200,1200
+Arabica,Guatemala,huehuetenango,"AGRICOLA EL PILAR, SA.",25,Asociacion Nacional Del Café,2017,"June 1st, 2017",Washed / Wet,7.42,7.42,7.08,7.5,7.42,7.33,10,10,10,7.42,81.58,0.12,190164,190164,190164
+Arabica,Costa Rica,turrialba,Cafetalera Aquiares,250,Specialty Coffee Association of Costa Rica,2015,"February 3rd, 2015",Washed / Wet,7.58,7.42,7.5,7.17,7.08,7.58,10,10,10,7.25,81.58,0.12,13,13,13
+Arabica,"Tanzania, United Republic Of","oldeani , mongola",Acacia Hills Ltd,100,Africa Fine Coffee Association,2014,"December 18th, 2014",Washed / Wet,7.42,7.42,7.33,7.42,7.42,7.33,10,10,10,7.25,81.58,0.12,1800,1800,1800
+Arabica,Malawi,mzuzu,Mzuzu Coffee Coop Union,10,Africa Fine Coffee Association,2014,"October 31st, 2014",Washed / Wet,7.42,7.42,7.17,7.58,7.33,7.33,10,10,10,7.33,81.58,0.13,1100,1100,1100
+Arabica,Guatemala,oriente,ROBERTO MONTERROSO,250,Asociacion Nacional Del Café,2013,"July 16th, 2013",Washed / Wet,7.42,7.33,7.17,7.58,7.42,7.5,10,10,10,7.17,81.58,0.12,1310.64,1310.64,1310.64
+Arabica,Mexico,"la concordia, chiapas",UNION RAMAL SANTA CRUZ,310,AMECAFE,2013,"March 29th, 2013",Washed / Wet,7.67,7.5,7.42,7.5,6.75,7.42,10,10,10,7.33,81.58,0.12,1400,1400,1400
+Arabica,Mexico,la concordia,LUIS ANTONIO LOPEZ AGUILAR,28,AMECAFE,2012,"June 6th, 2012",Natural / Dry,7.33,7.5,7.25,7.5,7.5,7.17,10,10,10,7.33,81.58,0.11,1600,1600,1600
+Arabica,Mexico,la concordia,ENRIQUE EDUARDO LOPEZ AGUILAR,28,AMECAFE,2012,"June 6th, 2012",Natural / Dry,7.67,7.58,7.42,7.58,7.58,7.42,10,10,8.67,7.67,81.58,0.11,1650,1650,1650
+Arabica,Guatemala,santa rosa,OTTO BECKER,50,Asociacion Nacional Del Café,2017,"August 23rd, 2017",Washed / Wet,7.67,7.58,7.17,7.42,7.33,7.42,9.33,10,10,7.58,81.5,0.1,1219.2,1219.2,1219.2
+Arabica,Honduras,comayagua,NAHUN MALDONADO,275,Instituto Hondureno del Cafe,2017,"June 3rd, 2017",Washed / Wet,7.5,7.5,7.33,7.42,7.17,7.25,10,10,10,7.33,81.5,0.1,1400,1400,1400
+Arabica,Myanmar,ywar ngan township,Genius Coffee Estate,1,Coffee Quality Institute,2015,"July 17th, 2015",Washed / Wet,7.25,7.42,7.25,7.5,7.33,7.33,10,10,10,7.42,81.5,0,1219.2,1219.2,1219.2
+Arabica,Costa Rica,occidental,Beneficio la Eva S.A.,250,Specialty Coffee Association of Costa Rica,2014,"January 7th, 2015",Washed / Wet,7.83,7.33,7.08,7.08,7.33,7.5,10,10,10,7.33,81.5,0.12,1200,1200,1200
+Arabica,Malawi,mzuzu,Mzuzu Coffee Coop Union,15,Africa Fine Coffee Association,2014,"November 4th, 2014",Washed / Wet,7.67,7.42,6.92,7.5,7.5,7.17,10,10,10,7.33,81.5,0.12,1599,1599,1599
+Arabica,Guatemala,oriente,VARIOS,250,Asociacion Nacional Del Café,2014,"September 23rd, 2014",Washed / Wet,7.5,7.42,7.17,7.58,7.25,7.42,10,10,10,7.17,81.5,0.12,1219.2,1219.2,1219.2
+Arabica,Brazil,sul de minas,MARIA ROGERIA COSTA PEREIRA,300,Specialty Coffee Association,2014,"July 29th, 2014",Semi-washed / Semi-pulped,7.58,7.5,7.5,7.67,7.67,7.83,9.33,9.33,9.33,7.75,81.5,0,1200,1200,1200
+Arabica,Haiti,"dondon, haiti",Mixed,300,Specialty Coffee Association,2013,"May 5th, 2014",Washed / Wet,7.42,7.33,7.25,7.42,7.42,7.33,10,10,10,7.33,81.5,0.11,400,1250,825
+Arabica,"Tanzania, United Republic Of",arusha meru,GLADNESS OBED PALLANGYO,10,Africa Fine Coffee Association,2015,"November 16th, 2015",Washed / Wet,7.67,7.25,7.42,7.42,7.67,7.42,10,10,10,7.58,82.42,0.13,2285,2285,2285
+Arabica,Mexico,"la concordia, chiapas",AGROINDUSTRIAS UNIDAS DE MEXICO SA DE CV,250,AMECAFE,2013,"March 11th, 2013",Washed / Wet,7.33,7.33,7.17,7.42,7.5,7.5,10,10,10,7.25,81.5,0.13,1150,1150,1150
+Arabica,Mexico,amatenango de la frontera,JORGE HERNANDEZ MONTEJO,250,AMECAFE,2012,"August 30th, 2012",Washed / Wet,7.58,7.42,7.25,7.42,7.33,7.33,10,10,10,7.17,81.5,0.12,1600,1600,1600
+Arabica,Mexico,temaxcalapa,ZENOBIO MARTINEZ CANO,30,AMECAFE,2012,"August 29th, 2012",Washed / Wet,7.42,7.25,7.17,7.42,7.17,8,10,10,10,7.08,81.5,0.12,1100,1100,1100
+Arabica,Mexico,manzanillo,MANUEL DUARTE MUNGUIA,20,AMECAFE,2012,"August 1st, 2012",Semi-washed / Semi-pulped,7.33,7.5,7.33,7.33,7.33,7.42,10,10,10,7.25,81.5,0.11,1000,1000,1000
+Arabica,Mexico,tapachula,TOMAS EDELMANN BLASS,50,AMECAFE,2012,"July 26th, 2012",Washed / Wet,7.42,7.42,7.33,7.17,7.25,7.42,10,10,10,7.5,81.5,0.13,1250,1250,1250
+Arabica,Mexico,atoyac de alvarez,MARIA DE LA PAZ AGUILAR GUILLEN,15,AMECAFE,2012,"July 26th, 2012",Natural / Dry,7.5,7.5,7.25,7.5,7.42,7.58,9.33,10,10,7.42,81.5,0.11,1100,1100,1100
+Arabica,Indonesia,ijen,PT. Perkebunan Nusantara XII,10,Specialty Coffee Association of Indonesia,2012,"May 24th, 2012",Washed / Wet,7.75,7.17,7.17,7.33,7.58,7.33,10,10,10,7.17,81.5,0.12,1200,1600,1400
+Arabica,Brazil,sul de minas,Nazareth Dias Pereira,300,NUCOFFEE,2012,"April 12th, 2012",Semi-washed / Semi-pulped,7.5,7.42,7.17,7.42,7.5,7.33,10,10,10,7.17,81.5,0.12,125,125,125
+Arabica,Mexico,veracruz,Cafes tomari sa de cv,200,Centro Agroecolegico del Cafe A.C.,2017,"May 12th, 2017",Washed / Wet,7.58,7.33,7.08,7.33,7.5,7.33,10,10,10,7.25,81.42,0.12,1100,1100,1100
+Arabica,Guatemala,san marcos,"AGRICOLA NUEVA GRANADA, S.A.",450,Asociacion Nacional Del Café,2016,"March 17th, 2016",Washed / Wet,7.42,7.33,7.08,7.58,7.33,7.25,10,10,10,7.42,81.42,0.1,1371.6,1371.6,1371.6
+Arabica,Honduras,marcala,Jose Omar Acosta,275,Instituto Hondureno del Cafe,2015,"May 12th, 2015",Washed / Wet,7.5,7.33,7.17,7.25,7.5,7.42,10,10,10,7.25,81.42,0.12,1400,1400,1400
+Arabica,Malawi,mzuzu,Mzuzu Coffee Coop Union,12,Africa Fine Coffee Association,2014,"November 4th, 2014",Washed / Wet,7.58,7.17,7.33,7.42,7.08,7.42,10,10,10,7.42,81.42,0.12,1422,1422,1422
+Arabica,Guatemala,"san lucas toliman, solola","PACHUJ, S. A.",250,Asociacion Nacional Del Café,2014,"May 26th, 2014",Washed / Wet,7.42,7.5,7.17,7.42,7.42,7.42,10,10,10,7.08,81.42,0.1,1550,1550,1550
+Arabica,Mexico,siltepec el triunfo,various small producers,280,Specialty Coffee Association,2014,"May 1st, 2014",Washed / Wet,7.67,7.33,7.25,7.17,7.25,7.42,10,10,10,7.33,81.42,0,1550,1550,1550
+Arabica,Guatemala,oriente,OTTO BECKER,250,Asociacion Nacional Del Café,2013,"October 7th, 2013",Washed / Wet,7.42,7.33,7.25,7.42,7.42,7.5,10,10,10,7.08,81.42,0.12,1310.64,1310.64,1310.64
+Arabica,Mexico,"huazalingo, hidalgo","MARTINEZ BAUTISTA, NICOLAS",10,AMECAFE,2012,"September 27th, 2012",Washed / Wet,7.42,7.33,7.25,7.17,7.25,7.42,10,10,10,7.58,81.42,0.13,763,763,763
+Arabica,Mexico,"coatepec, coatepec",MARIA DE LOUDES ANCIRA ELIZONDO,20,AMECAFE,2012,"June 6th, 2012",Washed / Wet,7.42,7.42,7.25,7.25,7.5,7.33,10,10,10,7.25,81.42,0.13,1100,1100,1100
+Arabica,Colombia,huila,Exportadora de cafe condor s.a,250,Almcafe,2011,"November 11th, 2011",Natural / Dry,7.5,7.42,7.25,7.17,7.17,7.75,10,10,10,7.17,81.42,0.11,1750,1750,1750
+Arabica,Honduras,marcala,Jose Omar Acosta,275,Instituto Hondureno del Cafe,2015,"May 22nd, 2015",Washed / Wet,7.58,7.42,7.17,7.42,7.17,7.17,10,10,10,7.42,81.33,0.09,1350,1350,1350
+Arabica,Philippines,"davao city, region 11","COFFEE FOR PEACE,INC.",2,Specialty Coffee Association,2014,"November 13th, 2014",Washed / Wet,7.08,7.33,7.42,7.33,7.33,7.5,10,10,10,7.33,81.33,0.14,1400,1400,1400
+Arabica,Malawi,mzuzu,Mzuzu Coffee Coop Union,31,Africa Fine Coffee Association,2014,"November 4th, 2014",Washed / Wet,7.75,7.33,7.08,7.33,7.33,7.25,10,10,10,7.25,81.33,0.13,1200,1200,1200
+Arabica,Honduras,san marcos,Nelson Melgar Melgar,275,Instituto Hondureno del Cafe,2014,"January 22nd, 2014",Washed / Wet,7.33,7.33,7.17,7.33,7.5,7.33,10,10,10,7.33,81.33,0.12,1450,1450,1450
+Arabica,Mexico,tapachula,ISMAM SAN ISIDRO LABRADOR S. DE S.S.,250,AMECAFE,2012,"August 30th, 2012",Washed / Wet,7.58,7.42,7.25,7.33,7.25,7.25,10,10,10,7.25,81.33,0.13,1800,1800,1800
+Arabica,Mexico,veracruz,HECTOR GABRIEL BARREDA NADER,70,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.33,7.25,7.17,7.42,7.58,7.33,10,10,10,7.25,81.33,0.12,1000,1000,1000
+Arabica,Nicaragua,jinotega,Rolando Lacayo,275,Asociacion de Cafes Especiales de Nicaragua,2015,"July 6th, 2015",Washed / Wet,7.08,7.5,7.33,7.17,7.42,7.25,10,10,10,7.5,81.25,0.1,1100,1100,1100
+Arabica,Honduras,marcala,JOSE OMAR ACOSTA,275,Instituto Hondureno del Cafe,2015,"May 12th, 2015",Washed / Wet,7.42,7.17,7.17,7.5,7.33,7.25,10,10,10,7.42,81.25,0.12,1400,1400,1400
+Arabica,Guatemala,huehuetenango,El Injerto S.A.,36,Blossom Valley International,2014,"March 21st, 2015",Washed / Wet,7.33,7.42,7.17,7.25,7.42,7.33,10,10,10,7.33,81.25,0.09,1700,1700,1700
+Arabica,"Tanzania, United Republic Of",karatu ngorogoro,Shangrilla Estate,100,Africa Fine Coffee Association,2014,"December 17th, 2014",Washed / Wet,7.33,7.17,7.17,7.5,7.25,7.42,10,10,10,7.42,81.25,0.13,1700,1700,1700
+Arabica,Guatemala,"sacatepequez, guatemala","SIEMBRAS VISION, S.A.",250,Asociacion Nacional Del Café,2013,"March 4th, 2013",Washed / Wet,7.5,7.33,7.5,7.58,7,7.25,10,10,10,7.08,81.25,0.11,1524,1524,1524
+Arabica,Mexico,motozintla,FRANCISCO J. CONTRERAS MARTINEZ DE ESCOBAR,250,AMECAFE,2012,"July 26th, 2012",Washed / Wet,7.42,7.42,7.33,7.33,7.5,7.42,9.33,10,10,7.5,81.25,0.12,1500,1500,1500
+Arabica,Nicaragua,"dipilto, nueva segovia",GONZALO CASTILLO,275,Instituto Hondureno del Cafe,2016,"March 8th, 2017",Washed / Wet,7.33,7.5,7.17,7.17,7.58,7.17,10,10,10,7.25,81.17,0.09,1200,1200,1200
+Arabica,Costa Rica,tres rios,JOSE FRANCISCO GONZALEZ,275,Specialty Coffee Association of Costa Rica,2015,"May 22nd, 2015",Washed / Wet,7.5,7.5,7.33,7.17,7.08,7.17,10,10,10,7.42,81.17,0.11,1200,1400,1300
+Arabica,Honduras,central region,Reinerio Zepeda,275,Instituto Hondureno del Cafe,2015,"March 11th, 2015",Natural / Dry,7.42,7.33,7,7.42,7.33,7.33,10,10,10,7.33,81.17,0.13,1450,1450,1450
+Arabica,Thailand,chiangrai,"Coffeas Co., Ltd.",20,Specialty Coffee Institute of Asia,2014,"February 15th, 2015",Washed / Wet,6.83,7.42,7.42,7.17,7.5,7.42,10,10,10,7.42,81.17,0.12,1400,1500,1450
+Arabica,Philippines,corillera administrative,"COFFEE FOR PEACE,INC.",2,Specialty Coffee Association,2014,"January 8th, 2015",Natural / Dry,7.25,7.25,7.25,7.08,7.58,7.5,10,10,10,7.25,81.17,0,1200,1200,1200
+Arabica,"Tanzania, United Republic Of",mbinga,Taylor Winch (T) ltd,320,Africa Fine Coffee Association,2014,"December 17th, 2014",Washed / Wet,7.58,7.17,7.17,7.33,7.33,7.25,10,10,10,7.33,81.17,0.12,1550,1550,1550
+Arabica,Malawi,southern- zomba,R.W.J. Wallace Ltd,300,Africa Fine Coffee Association,2014,"November 4th, 2014",Washed / Wet,7.58,7.25,7.33,7.08,7.33,7.33,10,10,10,7.25,81.17,0.12,990,1000,995
+Arabica,Costa Rica,central valley,VARIOS,250,Specialty Coffee Association of Costa Rica,2014,"May 9th, 2014",Washed / Wet,7.33,7.08,7.33,7.25,7.33,7.58,10,10,10,7.25,81.17,0.11,1200,1400,1300
+Arabica,Mexico,tapachula,ISMAM SAN ISIDRO LABRADOR S. DE S.S.,250,AMECAFE,2012,"August 30th, 2012",Natural / Dry,7.42,7.25,7.08,7.75,7.42,7.17,10,10,10,7.08,81.17,0.13,1800,1800,1800
+Arabica,Guatemala,oriente,Finca Quequesquez,250,Specialty Coffee Association,2012,"August 20th, 2012",Washed / Wet,7.42,7.25,7.33,7.25,7.25,7.42,10,10,10,7.25,81.17,0.12,1450,1450,1450
+Arabica,Brazil,south of minas,Bruno de Andrade Frota,17,NUCOFFEE,2012,"January 23rd, 2012",Natural / Dry,7.42,7.33,7.25,7.42,7.5,7.17,10,10,10,7.08,81.17,0.12,1000,1000,1000
+Arabica,Nicaragua,jinotega,ROLANDO LACAYO,275,Asociacion de Cafes Especiales de Nicaragua,2015,"March 28th, 2015",Washed / Wet,7.33,7.33,7.33,7.42,7.33,7.33,10,10,10,7,81.08,0.11,1100,1100,1100
+Arabica,United States,central america,JuanAna Coffee Association,1,Specialty Coffee Association,2014,"March 4th, 2015",Natural / Dry,7.42,7.17,7.33,7.42,7.25,7.33,10,10,10,7.17,81.08,0,1706.88,1706.88,1706.88
+Arabica,"Tanzania, United Republic Of","iwala village, mbeya rural",Taylor Winch (T) ltd,54,Africa Fine Coffee Association,2014,"January 2nd, 2015",Washed / Wet,7.42,7.33,7.33,7.25,7.25,7.33,10,10,10,7.17,81.08,0.13,1456,1456,1456
+Arabica,Costa Rica,naranjo,Several,250,Specialty Coffee Association of Costa Rica,2014,"December 18th, 2014",Washed / Wet,7.42,7.25,7.17,7.25,7.25,7.58,10,10,10,7.17,81.08,0.13,1500,1500,1500
+Arabica,United States (Puerto Rico),yauco region,Hacienda Alto Grande,18,Specialty Coffee Association,2013,"May 28th, 2014",Washed / Wet,7.67,7.75,7.67,7.58,7.58,7.67,6.67,10,10,8.5,81.08,0,853.44,853.44,853.44
+Arabica,Mexico,san fernando,MEDINA PEDRERO PRODUCTOS AGRÍCOLAS SA DE CV,100,AMECAFE,2012,"September 14th, 2012",Washed / Wet,7.25,7.42,7.33,7.33,7.17,7.33,10,10,10,7.25,81.08,0.13,1650,1650,1650
+Arabica,Mexico,santo reyes nopala,"DIEGO MANUEL WOOLRICH RAMIREZ, ALFREDO FERNANDO WOOLRICH RAMIREZ",30,AMECAFE,2012,"September 4th, 2012",Washed / Wet,7.33,7.25,7.33,7.42,7.25,7.42,10,10,10,7.08,81.08,0.12,1300,1300,1300
+Arabica,Mexico,santa maria sitepec,ETMAR DIDIER ROBLERO LOPEZ,40,AMECAFE,2012,"August 30th, 2012",Washed / Wet,7.33,7.33,7.25,7.42,7.25,7.25,10,10,10,7.25,81.08,0.11,1642,1642,1642
+Arabica,Mexico,talpa de allende,BALBINO RAMIREZ FLORES,15,AMECAFE,2012,"July 3rd, 2012",Washed / Wet,7.42,7.33,7.25,7.42,7.17,7.25,10,10,10,7.25,81.08,0.1,1200,1200,1200
+Arabica,El Salvador,apaneca,"Balcanes Coffee Estates, S.A. de C.V.",100,Salvadoran Coffee Council,2017,"August 28th, 2017",Washed / Wet,7.42,7.08,7.08,7.33,7.25,7.58,10,10,10,7.25,81,0,1450,1450,1450
+Arabica,Guatemala,norte,CHAPULTEPEC,120,Asociacion Nacional Del Café,2016,"August 2nd, 2016",Washed / Wet,7.42,7.25,7.17,7.5,7.25,7.17,10,10,10,7.25,81,0.09,3280,3280,3280
+Arabica,Guatemala,oriente,AMILCAR LAPOLA,250,Asociacion Nacional Del Café,2015,"July 23rd, 2015",Washed / Wet,7.5,7.25,7,7.25,7.5,7.25,10,10,10,7.25,81,0.11,1219.2,1219.2,1219.2
+Arabica,Honduras,san marcos,NELSON MELGAR & REGINO MELGAL,275,Instituto Hondureno del Cafe,2014,"January 26th, 2015",Natural / Dry,7.42,7.25,7.25,7.33,7.25,7.17,10,10,10,7.33,81,0.12,1350,1350,1350
+Arabica,"Tanzania, United Republic Of",arusha,Mlimani Ngarashi,1,Africa Fine Coffee Association,2014,"December 15th, 2014",Washed / Wet,7.33,7.33,7.08,7.42,7.17,7.33,10,10,10,7.33,81,0.12,1525,1525,1525
+Arabica,Uganda,eastern,Kyagalanyi coffee Ltd,320,Uganda Coffee Development Authority,2013,"June 30th, 2014",Natural / Dry,7.33,6.92,7.17,7.33,7.42,7.42,10,10,10,7.42,81,0.12,1700,1700,1700
+Arabica,Brazil,cerrado,INACIO URBAN,300,Brazil Specialty Coffee Association,2015,"December 3rd, 2015",Natural / Dry,7.33,7.5,7.5,7.33,6.83,7.42,10,10,10,7.5,81.42,0.11,1100,1100,1100
+Arabica,Thailand,thailand,Doi Tung Development Project,2,Specialty Coffee Association,2012,"May 29th, 2013",Washed / Wet,7.33,7.42,7.25,7.42,7.25,7.17,10,10,10,7.17,81,0,800,800,800
+Arabica,Mexico,"motozintla, chiapas",MARTHA PALACIOS,10,AMECAFE,2012,"September 11th, 2012",Washed / Wet,7.08,7.33,7.33,7.33,7.42,7.25,10,10,10,7.25,81,0.12,950,950,950
+Arabica,Mexico,adolfo lopez mateos,COOP,200,AMECAFE,2012,"July 3rd, 2012",Washed / Wet,7.58,7.67,7.5,7.67,7.58,7.5,8,10,10,7.5,81,0,1100,1100,1100
+Arabica,Guatemala,oriente,"AGRICOLA EL PILAR, S.A.",25,Asociacion Nacional Del Café,2017,"August 23rd, 2017",Washed / Wet,7.67,7.67,7.33,7.58,7.67,7.5,9.33,9.33,9.33,7.5,80.92,0.1,1901,1901,1901
+Arabica,Kenya,kiambu,thiririka/Thima,150,Kenya Coffee Traders Association,2017,"July 7th, 2017",Washed / Wet,7.17,7.58,7.5,7.5,8,7.75,10,10,10,5.42,80.92,0.11,1600,1600,1600
+Arabica,Mexico,veracruz,Jose Oscar Garza Sardaneta,240,Centro Agroecolegico del Cafe A.C.,2017,"May 12th, 2017",Washed / Wet,7.5,7.33,7.17,7.42,7.5,7.33,9.33,10,10,7.33,80.92,0.11,1100,1100,1100
+Arabica,Myanmar,pyinoolwin,Min Hlaing,2,Coffee Quality Institute,2015,"July 17th, 2015",Other,7.17,7.42,7,7.58,7.33,7,10,10,10,7.42,80.92,0,1066.8,1066.8,1066.8
+Arabica,"Tanzania, United Republic Of","manyara, karatu",Karatu Estate,250,Africa Fine Coffee Association,2014,"December 18th, 2014",Washed / Wet,7.33,7.17,7.17,7.25,7.42,7.33,10,10,10,7.25,80.92,0.12,1700,1700,1700
+Arabica,Brazil,cerrado,NELSON AZEVEDO FRANÇA,300,Brazil Specialty Coffee Association,2015,"November 20th, 2015",Natural / Dry,7.25,7.33,7.33,7.33,7.33,7.42,10,10,10,7.33,81.33,0.11,1100,1100,1100
+Arabica,Guatemala,jalapa,ROBERTO MONTERROSO,250,Asociacion Nacional Del Café,2014,"June 10th, 2014",Washed / Wet,7.58,7.42,6.92,7.5,7.25,7.17,10,10,10,7.08,80.92,0.12,1524,1524,1524
+Arabica,"Tanzania, United Republic Of","ruvuma, mbinga",Immaculata John,100,Africa Fine Coffee Association,2015,"November 16th, 2015",Washed / Wet,7.67,7.17,7.17,7.33,7.5,7.17,10,10,10,7.17,81.17,0.12,100,2000,1050
+Arabica,Guatemala,antigua,FINCA MEDINA,150,Asociacion Nacional Del Café,2015,"October 23rd, 2015",Washed / Wet,7.67,7.42,6.83,7.17,7.42,7.17,10,10,10,7,80.67,0.11,1500,1500,1500
+Arabica,Brazil,vale da grama,Lindolpho de Carvalho Dias,300,Brazil Specialty Coffee Association,2015,"November 17th, 2015",Semi-washed / Semi-pulped,7.25,7.33,7.17,7.5,7.33,7.25,9.33,10,10,7.33,80.5,0.11,1250,1250,1250
+Arabica,Mexico,ixhuatlan del cafe,EDUARDO LUIS AUGUSTO VELAZQUEZ SOLIS,60,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.58,7.33,7.08,7.5,7.17,7.25,10,10,10,7,80.92,0.13,1186,1186,1186
+Arabica,Laos,"paksong,laos","Paksong,Laos",20,Blossom Valley International,2016,"June 22nd, 2017",Washed / Wet,7.42,7.33,7.17,7.17,7.17,7.25,10,10,10,7.33,80.83,0,1300,1300,1300
+Arabica,Guatemala,orient,several,250,Specialty Coffee Association of Costa Rica,2013,"May 26th, 2014",Washed / Wet,7.67,7.25,7.08,7.33,7.17,7.25,10,10,10,7.08,80.83,0.11,1200,1200,1200
+Arabica,Mexico,motozintla,DOMINGO MUGUIRA REVUELTA,15,AMECAFE,2012,"August 30th, 2012",Semi-washed / Semi-pulped,7.17,7.08,7.25,7.42,7.25,7.33,10,10,10,7.33,80.83,0.13,1210,1210,1210
+Arabica,Mexico,oaxaca,JUAN JOSE CASAS BLANCO,30,AMECAFE,2012,"August 29th, 2012",Washed / Wet,7.33,7.25,7.33,7.33,7.25,7.17,10,10,10,7.17,80.83,0.11,1100,1100,1100
+Arabica,Mexico,veracruz,MOISES GUILLERMO CARRERA MONTES,100,AMECAFE,2012,"July 3rd, 2012",Washed / Wet,7.5,7.17,7.33,7.25,7.17,7.17,10,10,10,7.25,80.83,0.13,100,100,100
+Arabica,Myanmar,ywar ngan,U Soe,1,Coffee Quality Institute,2015,"July 17th, 2015",Washed / Wet,6.92,7.5,7,7.58,7.5,7.08,10,10,10,7.17,80.75,0,3825,3825,3825
+Arabica,Guatemala,huehuetenango,OTTONIEL VILLATORO LOPEZ,275,Asociacion Nacional Del Café,2015,"June 18th, 2015",Washed / Wet,7.5,7.33,7,7.42,7.17,7.17,10,10,10,7.17,80.75,0.12,1658.112,1755.648,1706.88
+Arabica,Nicaragua,jinotega,ROLANDO LACAYO,275,Asociacion de Cafes Especiales de Nicaragua,2015,"May 28th, 2015",Washed / Wet,7.25,7.25,7.17,7.25,7.33,7.25,10,10,10,7.25,80.75,0.12,110000,110000,110000
+Arabica,Honduras,"siguatepeque, comayagua",La Gran Manzana,275,Instituto Hondureno del Cafe,2015,"May 25th, 2015",Natural / Dry,7.5,7.33,7,7.42,7.25,7.17,10,10,10,7.08,80.75,0.11,1450,1450,1450
+Arabica,Panama,boquete,Lamastus,100,Blossom Valley International,2014,"May 23rd, 2015",Other,7.25,7.33,7.17,7.33,7.33,7.17,10,10,10,7.17,80.75,0.11,1680,1680,1680
+Arabica,Honduras,marcala,Jose Omar Acosta,275,Instituto Hondureno del Cafe,2015,"May 22nd, 2015",Washed / Wet,7.42,7.17,7.08,7.42,7.25,7.25,10,10,10,7.17,80.75,0.09,1350,1350,1350
+Arabica,Honduras,central region,Reinerio Zepeda,275,Instituto Hondureno del Cafe,2015,"March 11th, 2015",Natural / Dry,7.25,7.33,7.08,7.5,7.25,7.33,10,10,10,7,80.75,0.13,1450,1450,1450
+Arabica,Costa Rica,san ramon,SEVERAL,250,Specialty Coffee Association,2014,"April 11th, 2014",Washed / Wet,7.33,7.33,7.25,7.25,7.17,7.17,10,10,10,7.25,80.75,0.11,1300,1300,1300
+Arabica,Mexico,oaxaca,"JOSE RIOS LARA, APOLONIA FRANCO TORRES, JENARO GONZALES MENDOZA",30,AMECAFE,2012,"September 4th, 2012",Washed / Wet,7.58,7.33,7.42,7.25,7.5,7.5,9.33,9.33,10,7.5,80.75,0.11,1200,1200,1200
+Arabica,Haiti,haiti,COOPAIMAR Copperative Agro Industriel de Marmelade,1,Specialty Coffee Association,2012,"May 22nd, 2012",Washed / Wet,7.42,7,7.42,7.25,7.08,7.33,10,10,10,7.25,80.75,0.12,1000,1000,1000
+Arabica,Indonesia,sumatra brastagi,Surbakti,200,Specialty Coffee Association,2015,"November 10th, 2015",Semi-washed / Semi-pulped,7.58,7.42,7,7.67,7.5,7.5,9.33,9.33,10,7.33,80.67,0.13,1200,1500,1350
+Arabica,"Tanzania, United Republic Of",mkuu rombo,Delfina Leon Shine,10,Africa Fine Coffee Association,2015,"November 16th, 2015",Washed / Wet,7.25,7.17,7,7.25,7.42,7.08,10,10,10,7.17,80.33,0.13,1700,1700,1700
+Arabica,Costa Rica,tarrazu,Martin Gutierrez,240,Specialty Coffee Association of Costa Rica,2015,"February 27th, 2015",Washed / Wet,7.83,7.5,7.67,7.67,7.83,7.5,6.67,10,10,8,80.67,0.11,185,185,185
+Arabica,Malawi,southern- zomba,R.W.J. Wallace Ltd,100,Africa Fine Coffee Association,2014,"November 4th, 2014",Washed / Wet,7.5,7.25,7.17,7.17,7.25,7.17,10,10,10,7.17,80.67,0.12,990,1000,995
+Arabica,Mexico,"el desmoronado, talpan de allende jalisco",BALBINO RAMIREZ FLORES,20,AMECAFE,2014,"October 23rd, 2014",Washed / Wet,7.25,7.17,7.17,7.25,7.17,7.42,10,10,10,7.25,80.67,0.12,1200,1200,1200
+Arabica,Guatemala,"san lucas toliman, solola","PACHUJ, S.A",250,Asociacion Nacional Del Café,2013,"June 5th, 2013",Washed / Wet,7.67,7.17,7,7.5,7,7,10,10,10,7.33,80.67,0.12,1550,1550,1550
+Arabica,"Tanzania, United Republic Of",arusha,Burka Coffee Estates,10,Africa Fine Coffee Association,2014,"January 6th, 2015",Washed / Wet,7.25,7.08,7.08,7.33,7.33,7.25,10,10,10,7.25,80.58,0.12,1400,1400,1400
+Arabica,Honduras,occidental,BSR,275,Instituto Hondureno del Cafe,2014,"April 30th, 2014",Washed / Wet,7.5,7.17,7,7.42,7.33,7,10,10,10,7.17,80.58,0.11,1400,1400,1400
+Arabica,Guatemala,huehuetenango,BYRON ALONZO SOLIS,275,Asociacion Nacional Del Café,2014,"January 28th, 2014",Natural / Dry,7.17,7.42,6.83,7.5,7.17,7.25,10,10,10,7.25,80.58,0.11,1383.792,1383.792,1383.792
+Arabica,Honduras,ocotepeque,Jorge Alfredo Pinto,15,Instituto Hondureno del Cafe,2017,"August 23rd, 2017",Washed / Wet,7.58,7.33,7,7.17,7.33,7.08,10,10,10,7,80.5,0.11,1650,1650,1650
+Arabica,Honduras,comayagua,Nahun Maldonado,275,Instituto Hondureno del Cafe,2016,"June 9th, 2016",Washed / Wet,7.5,7.5,7,7.17,7.5,7.33,10,10,10,7.33,81.33,0.11,1500,1500,1500
+Arabica,Myanmar,pyin oo lwin,Shwe Yin Mar,1,Coffee Quality Institute,2015,"July 17th, 2015",Washed / Wet,7.17,7.33,7.17,7.42,7.25,7.08,10,10,10,7.08,80.5,0,3800,3800,3800
+Arabica,Guatemala,oriente,VARIOS,275,Asociacion Nacional Del Café,2014,"April 23rd, 2014",Washed / Wet,7.5,7.17,6.83,7.5,7.17,7.17,10,10,10,7.17,80.5,0.11,1219.2,1219.2,1219.2
+Arabica,Brazil,mantiqueira de minas,MARIA ROGERIA COSTA PEREIRA,300,Specialty Coffee Association,2013,"April 17th, 2014",Semi-washed / Semi-pulped,7.42,7.42,7.08,7.33,7.67,7.5,9.33,9.33,10,7.42,80.5,0.1,1250,1250,1250
+Arabica,Guatemala,huehuetenango,IDMAR DE JESUS VELASQUEZ CALDERON,250,Asociacion Nacional Del Café,2013,"February 13th, 2013",Washed / Wet,7.5,7.5,7,7.67,7.17,7,10,10,10,6.67,80.5,0.12,1859.28,1859.28,1859.28
+Arabica,Mexico,zaragoza itundujia,HERAS HERNANDEZ GAUDENCIO,18,AMECAFE,2012,"September 17th, 2012",Washed / Wet,7.25,7.25,7.08,7.33,7.25,7.17,10,10,10,7.17,80.5,0.15,1450,1450,1450
+Arabica,El Salvador,"department of ahuachapan, municipality of apanecallamatepec mountain","Luis, Rafael and Carmen Silva Hoff",2,Specialty Coffee Association,2013,"April 26th, 2014",Washed / Wet,7.33,7.17,7.08,7.08,7.33,7.17,10,10,10,7.25,80.42,0,1450,1450,1450
+Arabica,China,yunnan,Alicia's Farm,1,Specialty Coffee Association,2013,"January 17th, 2014",Washed / Wet,7.25,7.08,7.25,7.17,7.33,7.17,10,10,10,7.17,80.42,0.17,1700,1700,1700
+Arabica,Brazil,south of minas,Ipanema Agricola S.A,320,Brazil Specialty Coffee Association,2016,"October 20th, 2017",Natural / Dry,7.58,7.67,7.58,7.58,7.67,7.58,10,10,10,7.92,83.58,0.11,890,890,890
+Arabica,Mexico,pochutla,CARLOS ALBERTO GOMEZ,250,AMECAFE,2012,"September 4th, 2012",Washed / Wet,6.92,7.17,7.08,7.5,7.33,7.17,10,10,10,7.25,80.42,0.1,1050,1050,1050
+Arabica,Mexico,la concordia,ARMANDO LUIS POHLENZ MARTINEZ,250,AMECAFE,2012,"August 30th, 2012",Washed / Wet,7.42,7.08,7.08,7.33,7.25,7.17,10,10,10,7.08,80.42,0.12,1550,1550,1550
+Arabica,Colombia,huila,FRANKLIN DUSSAN / HIPOLITO TORRES,300,Almcafe,2017,"November 9th, 2017",Washed / Wet,7.5,7.58,7.58,7.5,7.75,7.83,10,10,10,7.67,83.42,0,439,439,439
+Arabica,Brazil,south of minas,Ipanema Agricola S.A,320,Brazil Specialty Coffee Association,2017,"October 20th, 2017",Natural / Dry,7.67,7.42,7.5,7.58,7.67,7.58,10,10,10,7.75,83.17,0.11,890,890,890
+Arabica,Guatemala,oriente,AGRIPEC DE LA VEGA Y CIA.,250,Asociacion Nacional Del Café,2013,"June 6th, 2013",Washed / Wet,7.33,7.33,6.83,7.5,7,7.17,10,10,10,7.17,80.33,0.11,1310.64,1310.64,1310.64
+Arabica,Brazil,south of minas,Ipanema Agricola S.A,320,Brazil Specialty Coffee Association,2017,"October 20th, 2017",Natural / Dry,7.58,7.5,7.5,7.75,7.67,7.5,10,10,10,7.5,83,0,890,890,890
+Arabica,Honduras,comayagua,Yamilet Lope,275,Instituto Hondureno del Cafe,2016,"April 6th, 2017",Natural / Dry,7.25,7.25,7,7,7.42,7,10,10,10,7.33,80.25,0.1,1400,1400,1400
+Arabica,Mexico,sierra madre occidental,Balbino Ramirez Flores,60,Centro Agroecolegico del Cafe A.C.,2016,"April 26th, 2016",Washed / Wet,7.25,7.17,7,7.33,7.33,7,10,10,10,7.17,80.25,0.1,1600,1600,1600
+Arabica,Myanmar,"yauk sauk, shan state","Waylead Co, Ltd",2,Specialty Coffee Association,2015,"August 27th, 2015",Natural / Dry,8,7.08,7,7.33,7.08,6.92,10,10,10,6.83,80.25,0.11,914.4,914.4,914.4
+Arabica,Myanmar,ywar ngan,U Htun Htun,1,Coffee Quality Institute,2014,"July 17th, 2015",Natural / Dry,7.42,7,7.08,7,7.17,7.33,10,10,10,7.25,80.25,0,4287,4287,4287
+Arabica,Nicaragua,matagalpa,GLORIA ANTONIETA ESCOBAR URRUTIA,275,Asociacion de Cafes Especiales de Nicaragua,2015,"February 20th, 2015",Washed / Wet,7.08,6.92,7,7.25,7.5,7.25,10,10,10,7.25,80.25,0.11,900,900,900
+Arabica,Brazil,south of minas,Ipanema Agricola S.A,320,Brazil Specialty Coffee Association,2017,"October 20th, 2017",Natural / Dry,7.67,7.58,7.5,7.58,7.58,7.5,10,10,10,7.5,82.92,0,890,890,890
+Arabica,Guatemala,oriente,UNEX,250,Specialty Coffee Association,2012,"January 9th, 2013",Washed / Wet,7,7.17,7.33,7.33,7,7.17,10,10,10,7.25,80.25,0.11,1400,1400,1400
+Arabica,Mexico,"calnali, hidalgo","HERNANDEZ PACHECO, TIMOTEO",10,AMECAFE,2012,"September 27th, 2012",Washed / Wet,7.58,7.33,7.17,7.25,6.75,7,10,10,10,7.17,80.25,0.11,808,808,808
+Arabica,Vietnam,dala,"Yeh, Li Chuan",1,Specialty Coffee Association,2017,"May 9th, 2017",Other,7.42,7.25,7.25,7.58,7.42,7.33,8.67,10,10,7.25,80.17,0,1550,1550,1550
+Arabica,Nicaragua,jinotega,Sheldom La rue,275,Asociacion de Cafes Especiales de Nicaragua,2015,"April 24th, 2015",Washed / Wet,7.17,7.08,7.08,7.33,7.25,7.08,10,10,10,7.17,80.17,0.11,1100,1275,1187.5
+Arabica,Honduras,marcala,Jose Omar Acosta,275,Instituto Hondureno del Cafe,2015,"January 26th, 2015",Washed / Wet,7.25,7.25,7,7.17,7.08,7.08,10,10,10,7.33,80.17,0.11,1400,1400,1400
+Arabica,Guatemala,oriente,ROBERTO MONTERROSO,250,Asociacion Nacional Del Café,2013,"August 7th, 2013",Washed / Wet,7.33,7.33,7,7.17,7.17,7.17,10,10,10,7,80.17,0.11,1310.64,1310.64,1310.64
+Arabica,Mexico,coatepec,PABLO ENRIQUE MARTINEZ GAMA,20,AMECAFE,2012,"October 9th, 2012",Washed / Wet,7.33,7.08,6.92,7.42,7.25,7.08,10,10,10,7.08,80.17,0.11,1250,1250,1250
+Arabica,Mexico,zaragoza itundujia,CIRILO JOSE JOSE,15,AMECAFE,2012,"September 13th, 2012",Washed / Wet,7.58,7.42,7.33,7.5,7.08,7.17,8.67,10,10,7.42,80.17,0.14,1550,1550,1550
+Arabica,Mexico,veracruz,MARCO VIRGILIO RAMIREZ TELIZ,15,AMECAFE,2012,"September 10th, 2012",Washed / Wet,7.33,7.33,7.17,7.08,7.25,7,10,10,10,7,80.17,0.12,1000,1000,1000
+Arabica,Guatemala,oriente,AGROPECUARIA QUIAGRAL,250,Asociacion Nacional Del Café,2012,"May 24th, 2012",Washed / Wet,7.33,7.33,7,7.33,7,7,10,10,10,7.17,80.17,0.11,1310.64,1310.64,1310.64
+Arabica,Brazil,south of minas,Ipanema Agricola S.A,320,Brazil Specialty Coffee Association,2017,"October 20th, 2017",Natural / Dry,7.5,7.58,7.25,7.75,7.58,7.5,10,10,10,7.5,82.67,0,890,890,890
+Arabica,Brazil,south of minas,Ipanema Agricola S.A,320,Brazil Specialty Coffee Association,2017,"October 20th, 2017",Natural / Dry,7.5,7.5,7.5,7.5,7.58,7.5,10,10,10,7.42,82.5,0.11,890,890,890
+Arabica,Brazil,south of minas,Ipanema Agricola S.A,320,Brazil Specialty Coffee Association,2017,"October 20th, 2017",Natural / Dry,7.42,7.5,7.25,7.5,7.5,7.25,10,10,10,7.25,81.67,0.11,890,890,890
+Arabica,Mexico,zaragoza itundujia,ALBERTA TEODORO ANALCO,13,AMECAFE,2012,"September 14th, 2012",Washed / Wet,7.33,7.17,7.25,7.08,7.08,7.08,10,10,10,7.08,80.08,0.15,1300,1300,1300
+Arabica,Mexico,escuitla,FEDERICO PACHECO PEREZ,10,AMECAFE,2012,"August 30th, 2012",Washed / Wet,7.25,7.08,7,7.17,7.33,7.17,10,10,10,7.08,80.08,0.14,1300,1300,1300
+Arabica,Nicaragua,jinotega,RONALDO LACAYO CARDENAL,275,Instituto Hondureno del Cafe,2017,"June 13th, 2017",Washed / Wet,7.33,7.08,6.92,7.08,7.42,7.17,10,10,10,7,80,0.1,1250,1250,1250
+Arabica,Myanmar,"doe kwin, pyin oo lwin",Ngu Shwe Li Coffee Estate,1,Coffee Quality Institute,2015,"July 17th, 2015",Washed / Wet,7.17,7.33,7,7.42,7.17,7,10,10,10,6.92,80,0,3845,3845,3845
+Arabica,Mexico,"sierra fraylesca, chiapas",various small producers,280,Specialty Coffee Association,2014,"May 1st, 2014",Washed / Wet,7.58,7.75,7.42,7.5,7.5,7.5,8.67,8.67,10,7.42,80,0,1300,1500,1400
+Arabica,Brazil,cerrado - monte carmelo - minas gerais,Luiz Augusto Pereira Moguilod,440,Brazil Specialty Coffee Association,2017,"November 3rd, 2017",Natural / Dry,7.17,7.33,7.42,7.08,7,7,10,10,10,7.25,80.25,0.11,995,995,995
+Arabica,Thailand,thailand,Doi Tung Development Project,2,Specialty Coffee Association,2012,"May 29th, 2013",Washed / Wet,7.33,6.67,7.08,7.42,7.42,7.08,10,10,10,7,80,0,800,800,800
+Arabica,Mexico,coatepec,PABLO ENRIQUE MARTINEZ GAMA,20,AMECAFE,2012,"September 10th, 2012",Washed / Wet,7.25,7.25,7.08,7.17,7.33,7.33,9.33,10,10,7.25,80,0.12,1250,1250,1250
+Arabica,Mexico,san miguel del puerto,SEMIRAMIS CASAS VELAZQUEZ,256,AMECAFE,2012,"September 4th, 2012",Washed / Wet,7.08,7.33,7,7.33,7.08,7,10,10,10,7.17,80,0.11,1100,1100,1100
+Arabica,Mexico,chiapas,VARIOS PRODUCTORES,400,AMECAFE,2013,"March 29th, 2013",Washed / Wet,7.33,7.08,7.08,7.33,7.42,7.17,9.33,10,10,7.17,79.92,0.12,1300,1300,1300
+Arabica,Mexico,"motozintla, chiapas",MARTHA PALACIOS,10,AMECAFE,2012,"September 11th, 2012",Washed / Wet,7.17,7.17,6.92,7.25,7.33,7.08,10,10,10,7,79.92,0.12,1100,1100,1100
+Arabica,Mexico,veracruz,DELMAR MORENO GUILLEN,82,AMECAFE,2012,"August 30th, 2012",Washed / Wet,7.5,7.17,7,7.17,7.25,7.08,10,10,10,6.75,79.92,0,1100,1100,1100
+Arabica,Mexico,jaltenango,MARIA ELENA TERESA FERNANDEZ CEJA,250,AMECAFE,2012,"July 26th, 2012",Washed / Wet,7.17,7.08,7.08,7.08,7.5,7.33,9.33,10,10,7.33,79.92,0.11,1100,1100,1100
+Arabica,Mexico,coatepec,PABLO ENRIQUE MARTINEZ GAMA,100,AMECAFE,2012,"July 11th, 2012",Natural / Dry,7.33,7.25,7,7.42,7.17,7.17,9.33,10,10,7.25,79.92,0.12,1250,1250,1250
+Arabica,Mexico,veracruz,MARIA DEL ROSARIO IRAIS VALDIVIA ORTIZ,209,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.17,7.33,7.08,7.58,7.33,7.08,10,9.33,10,7,79.92,0.11,1250,1250,1250
+Arabica,Kenya,kiambu,YARA / BENVAR,200,Kenya Coffee Traders Association,2017,"August 25th, 2017",Washed / Wet,7,7.08,7,7.17,7.25,7.25,10,10,10,7.08,79.83,0.11,1500,1500,1500
+Arabica,Guatemala,san marcos,JORGE LEAL,50,Asociacion Nacional Del Café,2017,"August 22nd, 2017",Washed / Wet,7.33,7.25,6.92,7.33,7.25,7.33,9.33,10,10,7.08,79.83,0.1,1700,1700,1700
+Arabica,Mexico,veracruz,CIRO DE LA VEQUIA CESSA,250,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.17,7.08,7,7.25,7.5,7,10,10,10,6.83,79.83,0.12,1300,1300,1300
+Arabica,Guatemala,oriente,"AGRICOLA EL PILAR, S.A.",25,Asociacion Nacional Del Café,2016,"June 22nd, 2017",Washed / Wet,7.5,7.42,7.25,7.58,7.33,7.42,9.33,9.33,9.33,7.25,79.75,0.1,190164,190164,190164
+Arabica,Taiwan,"taiwu township , pingtung county 屏東縣泰武鄉",Wei-Chieh ( Jack ) Hua,28,Specialty Coffee Association,2014,"March 21st, 2015",Natural / Dry,7.75,7.33,7.17,7.33,7.67,7.83,9.33,9.33,8.67,7.33,79.75,0,800,1200,1000
+Arabica,Thailand,thailand,Doi Tung Development Project,1,Specialty Coffee Association,2013,"June 16th, 2014",Washed / Wet,7.25,7.08,6.92,7.5,7.08,6.92,10,10,10,7,79.75,0.12,800,800,800
+Arabica,Costa Rica,brunca,Coopeagri,275,Specialty Coffee Association,2013,"September 23rd, 2013",Washed / Wet,7.58,7.5,7.67,7.75,7.67,7.58,8,8,10,8,79.75,0.1,1100,1100,1100
+Arabica,Mexico,"la concordia, chiapas",UNION RAMAL SANTA CRUZ,310,AMECAFE,2013,"March 29th, 2013",Washed / Wet,7.58,7.08,7,7,7.5,6.92,10,10,10,6.67,79.75,0.12,1400,1400,1400
+Arabica,Mexico,chiapas,COMONYAJ NOPTIC S DE SS,275,AMECAFE,2013,"March 29th, 2013",Washed / Wet,7.58,7.08,6.92,7.58,7.5,6.92,10,9.33,10,6.83,79.75,0.13,1022,1022,1022
+Arabica,Mexico,chiapas,VARIOS PRODUCTORES,380,AMECAFE,2013,"March 29th, 2013",Washed / Wet,7.25,7.08,7,7.17,7.17,7.08,10,10,10,7,79.75,0.12,1300,1300,1300
+Arabica,Mexico,pochutla,ANGEL GONZALES,250,AMECAFE,2012,"September 4th, 2012",Washed / Wet,7.33,7.25,7,7.08,7.08,7,10,10,10,7,79.75,0.1,1050,1050,1050
+Arabica,Mexico,tuxtla gutierrez,ALFREDO MOISES CEJA,36,AMECAFE,2012,"June 6th, 2012",Washed / Wet,7.25,6.83,6.92,7.08,7.25,7.08,10,10,10,7.33,79.75,0.12,1100,1100,1100
+Arabica,Guatemala,oriente,JESUS RAMIREZ,25,Asociacion Nacional Del Café,2016,"June 22nd, 2017",Washed / Wet,7.42,7.42,7.25,7.58,7.42,7.33,9.33,9.33,9.33,7.25,79.67,0.1,1219.2,1219.2,1219.2
+Arabica,El Salvador,cacahuatique,Sociedad Cooperativa de Cafetaleros de Ciudad Barrios de R.L.,275,Salvadoran Coffee Council,2016,"March 23rd, 2017",Washed / Wet,7.25,7.08,7,6.83,7.33,7.17,10,10,10,7,79.67,0,1250,1250,1250
+Arabica,Thailand,thailand,Doi Tung Development Project,1,Specialty Coffee Association,2013,"June 16th, 2014",Washed / Wet,6.92,7.17,6.83,7.42,7.17,7.08,10,10,10,7.08,79.67,0.12,800,800,800
+Arabica,Guatemala,oriente,AGRIPEC DE LA VEGA Y CIA.,250,Asociacion Nacional Del Café,2013,"June 27th, 2013",Washed / Wet,7.5,7,6.83,7.08,7.08,7.17,10,10,10,7,79.67,0.11,1310.64,1310.64,1310.64
+Arabica,Mexico,"la concordia, chiapas",UNION RAMAL SANTA CRUZ,310,AMECAFE,2013,"March 29th, 2013",Washed / Wet,7.42,7.25,6.83,7.58,7.17,6.58,10,10,10,6.83,79.67,0.12,1400,1400,1400
+Arabica,Mexico,"tenango de doria, hidalgo","GOMEZ GRANILLO, VERONICO",10,AMECAFE,2012,"September 27th, 2012",Washed / Wet,7.33,7.17,7,6.75,7.08,7,10,10,10,7.33,79.67,0.13,975,975,975
+Arabica,Mexico,"coatepec, coatepec",CECILIA AVILA CAMBEROS,253,AMECAFE,2012,"June 4th, 2012",Washed / Wet,6.92,7.17,7.17,7.17,7.08,7.08,10,10,10,7.08,79.67,0,1264,1264,1264
+Arabica,Mexico,tepetzingo,ROGELIO JACOME MORALES,50,AMECAFE,2012,"September 17th, 2012",Washed / Wet,7.08,7,6.92,7.33,7.25,7.08,10,10,10,6.92,79.58,0.12,1250,1250,1250
+Arabica,Mexico,la concordia,ARMANDO LUIS POHLENZ MARTINEZ,250,AMECAFE,2012,"August 30th, 2012",Washed / Wet,7.25,6.92,6.92,7.33,7.25,7,10,10,10,6.92,79.58,0.13,1550,1550,1550
+Arabica,Mexico,la concordia,ARMANDO LUIS POHLENZ MARTINEZ,250,AMECAFE,2012,"August 1st, 2012",Washed / Wet,7.25,7.08,6.92,7.25,7.58,7.08,9.33,10,10,7,79.5,0.12,1550,1550,1550
+Arabica,Mexico,"coatepec, coatepec",MARIA DE LA LUZ SANCHEZ TODD,127,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.25,7.33,7,7.25,7.17,7.17,9.33,10,10,7,79.5,0.12,1100,1100,1100
+Arabica,Guatemala,oriente,AMILCAR LAPOLA,250,Asociacion Nacional Del Café,2013,"May 13th, 2014",Washed / Wet,7.08,7.33,7.25,7.58,7.33,7.42,9.33,9.33,9.33,7.42,79.42,0.1,1219.2,1219.2,1219.2
+Arabica,Guatemala,oriente,VARIOS,275,Asociacion Nacional Del Café,2014,"March 31st, 2014",Washed / Wet,7.25,7.33,6.83,7,7,7.17,10,10,10,6.83,79.42,0.1,1219.2,1219.2,1219.2
+Arabica,Mexico,xicotepec de juarez,ADRIANA TORRES RICO QUEVEDO,10,AMECAFE,2012,"September 11th, 2012",Washed / Wet,7,6.83,6.83,7.42,7.33,7.17,10,10,10,6.83,79.42,0.13,800,800,800
+Arabica,Cote dIvoire,cnra station of divo,CNRA,2,Specialty Coffee Association,2016,"June 6th, 2017",Washed / Wet,7.42,7.25,6.83,7,7.33,7.08,9.33,10,10,7.08,79.33,0.13,200,200,200
+Arabica,Colombia,pereira,Spot,250,Specialty Coffee Association,2013,"January 8th, 2014",Washed / Wet,7.42,7.25,6.75,7.25,7.42,7.25,9.33,9.33,10,7.33,79.33,0,1200,1200,1200
+Arabica,Mexico,zentla,ERIC JESUS CORDOBA ARROYO,30,AMECAFE,2012,"September 17th, 2012",Washed / Wet,7,7,6.83,7.33,7.42,6.92,10,10,10,6.83,79.33,0.14,950,950,950
+Arabica,Mexico,zentla,ANTONIO CORDOBA MURILLO,50,AMECAFE,2012,"September 10th, 2012",Washed / Wet,7.42,7.17,7.08,7.17,7.08,7.08,9.33,10,10,7,79.33,0.14,750,750,750
+Arabica,Mexico,veracruz,MARCO VIRGILIO RAMIREZ TELIZ,12,AMECAFE,2012,"September 10th, 2012",Washed / Wet,7,7,6.92,7.17,7.17,7.08,10,10,10,6.92,79.25,0.13,1000,1000,1000
+Arabica,Guatemala,santa rosa,OTTO BECKER,50,Asociacion Nacional Del Café,2017,"August 22nd, 2017",Washed / Wet,7.33,7.42,7.33,7.42,7.5,7.42,8.67,9.33,9.33,7.42,79.17,0.1,1219.2,1219.2,1219.2
+Arabica,Honduras,ocotepeque,Jorge Alfredo Pinto,15,Instituto Hondureno del Cafe,2017,"July 27th, 2017",Washed / Wet,7.58,7,6.75,6.92,7,6.92,10,10,10,7,79.17,0.11,1650,1650,1650
+Arabica,Guatemala,occidente,CHAPULTEPEC,250,Asociacion Nacional Del Café,2016,"May 23rd, 2016",Washed / Wet,7.08,7,6.92,7.42,7,6.92,10,10,10,6.83,79.17,0.11,1320,1320,1320
+Arabica,Guatemala,nuevo oriente,OVIDIO CARDONA,275,Asociacion Nacional Del Café,2015,"June 30th, 2015",Washed / Wet,7.25,7.17,6.75,7.25,7,6.92,10,10,10,6.83,79.17,0.11,1300,1800,1550
+Arabica,Mexico,yajalon,SOCIEADAD COOPERATIVA INDUSTRIAL CAFES YAJALON S. C. L.,53,AMECAFE,2012,"August 30th, 2012",Washed / Wet,7.17,6.92,6.92,7.08,7.17,7,10,10,10,6.92,79.17,0.14,1450,1450,1450
+Arabica,Guatemala,san marcos,ANGEL DE LEON,50,Asociacion Nacional Del Café,2017,"August 23rd, 2017",Washed / Wet,7.58,7.67,7.42,7.42,7.67,7.67,8.67,8.67,8.67,7.67,79.08,0.1,1700,1700,1700
+Arabica,United States (Puerto Rico),yauco region,Hacienda Alto Grande,18,Specialty Coffee Association,2013,"June 9th, 2014",Washed / Wet,7.42,7.08,6.75,7.33,7.33,6.92,10,9.33,10,6.92,79.08,0.13,853.44,853.44,853.44
+Arabica,Mexico,zaragoza itundujia,GUADALUPE HERAS HERNANDEZ,13,AMECAFE,2012,"September 13th, 2012",Washed / Wet,7.33,7,6.92,7.25,7.33,7.08,9.33,10,10,6.83,79.08,0.16,1500,1500,1500
+Arabica,Mexico,tlacuilotepec,JUANA RODRIGUEZ GUTIERREZ,10,AMECAFE,2012,"September 12th, 2012",Washed / Wet,7.25,7.08,6.75,7.33,7.42,7,9.33,10,10,6.92,79.08,0.11,1100,1100,1100
+Arabica,Mexico,talpa de allende,BALBINO RAMIREZ FLORES,10,AMECAFE,2012,"July 3rd, 2012",Washed / Wet,7.17,7.25,7.25,7.17,7.25,7.08,9.33,9.33,10,7.25,79.08,0.1,1200,1200,1200
+Arabica,Guatemala,oriente,Varios,250,Asociacion Nacional Del Café,2014,"September 11th, 2014",Washed / Wet,7.33,7.17,6.58,7.42,7.08,6.83,10,10,10,6.58,79,0.12,1219.2,1219.2,1219.2
+Arabica,Honduras,intibuca,Cooperativa Coaquil,275,Instituto Hondureno del Cafe,2014,"April 26th, 2014",Washed / Wet,7,7,7,7,7,7,10,10,10,7,79,0.11,1350,1350,1350
+Arabica,Peru,san ignacio,Frontera,280,Specialty Coffee Association,2012,"January 8th, 2013",Washed / Wet,7.67,7.17,7.08,7.25,8,7.5,8.67,9.33,9.33,7,79,0,1400,1400,1400
+Arabica,Mexico,"iliatenco, guerrero",GONZALO DE AQUINO FLORES,14,AMECAFE,2012,"September 17th, 2012",Natural / Dry,6.75,7.08,6.67,7.25,7.17,7.08,10,10,10,7,79,0.12,1300,1300,1300
+Arabica,Mexico,zaragoza itundujia,JUAN CRUZ RIAÑO,16,AMECAFE,2012,"September 12th, 2012",Semi-washed / Semi-pulped,7.5,7.17,6.92,7.5,7.25,7,8.67,10,10,7,79,0.14,1550,1550,1550
+Arabica,Mexico,amatenango de la frontera,JUAN AVENAMAR RODRIGUEZ FUNEZ,120,AMECAFE,2012,"August 30th, 2012",Washed / Wet,7.17,6.83,6.83,7.25,7.17,6.92,10,10,10,6.83,79,0.14,12,12,12
+Arabica,Mexico,"la concordia, chiapas",AGROINDUSTRIAS UNIDAS DE MEXICO SA DE CV,250,AMECAFE,2013,"March 12th, 2013",Washed / Wet,7.33,7,6.75,7.08,7.17,7.25,9.33,10,10,7,78.92,0.12,1300,1300,1300
+Arabica,Guatemala,oriente,AGRIPEC DE LA VEGA Y CIA.,250,Asociacion Nacional Del Café,2013,"July 5th, 2013",Washed / Wet,7.33,7.08,6.33,7.25,7,7,10,10,10,6.75,78.75,0.12,1310.64,1310.64,1310.64
+Arabica,Mexico,veracruz,"JOSE VAZQUEZ CANTON, JOSE ANTONIO JIMENEZ GONZALEZ, IRENEO GARCIA VALDIVIA",20,AMECAFE,2012,"August 1st, 2012",Washed / Wet,7.25,6.83,6.83,7,7.17,7,10,10,10,6.67,78.75,0.14,1320,1320,1320
+Arabica,Mexico,veracruz,DAMASO MARTINEZ PEREZ,35,AMECAFE,2012,"July 16th, 2012",Semi-washed / Semi-pulped,7.25,7.33,7.17,7.25,7.08,7,8.67,10,10,7,78.75,0.14,1250,1250,1250
+Arabica,Mexico,"ohuapan, tlaltetela","PEDRO HERRERA GUZMAN, AURELIO GABRIEL HERNANDEZ ,MARIA DE LOURDES DERISTAIN TRESS",10,AMECAFE,2012,"June 6th, 2012",Washed / Wet,7.67,7.17,6.83,7.33,7.58,7.17,9.33,10,8.67,7,78.75,0.12,1350,1350,1350
+Arabica,China,yunnan,Yunnan Louis Herbs R&D Center,1,Specialty Coffee Association,2013,"April 26th, 2014",Washed / Wet,7,6.92,6.83,7.17,7.17,7.17,10,10,9.33,7.08,78.67,0,1850,1850,1850
+Arabica,Mexico,yecuatla,JUAN GARCIA HERNANDEZ,20,AMECAFE,2012,"September 17th, 2012",Washed / Wet,6.92,6.92,6.67,7.25,7.17,6.92,10,10,10,6.83,78.67,0.13,1150,1150,1150
+Arabica,Guatemala,oriente,VARIOS,250,Asociacion Nacional Del Café,2014,"September 4th, 2014",Washed / Wet,7.33,7.17,6.92,7.58,7.25,7.17,8.67,9.33,10,7.17,78.58,0.12,1219.2,1219.2,1219.2
+Arabica,Mexico,tapachula,EPIFANIO GARCIA DE MIGUEL,250,AMECAFE,2012,"July 26th, 2012",Washed / Wet,7,7,6.75,7.33,6.92,6.92,10,10,10,6.67,78.58,0.13,1400,1400,1400
+Arabica,Mexico,cofradia de suchitlan,"J. CARMEN GUZMAN CONCEPCION, IGNACIO RAMIREZ BARAJAS, DIONICIO GARCIA RAMIREZ",50,AMECAFE,2012,"July 2nd, 2012",Washed / Wet,7.92,7.58,7.58,7.92,7.92,7.5,8,6.67,10,7.5,78.58,0.1,1300,1300,1300
+Arabica,Mexico,"sierra, chiapas",Various small producers,280,Specialty Coffee Association,2014,"April 26th, 2014",Washed / Wet,7.25,6.75,6.92,6.92,7.25,7.58,9.33,9.33,10,7.17,78.5,0,1600,1600,1600
+Arabica,Mexico,villa talea de castro,REYNALDO OLIVERA RIOS,10,AMECAFE,2012,"September 14th, 2012",Washed / Wet,7.08,6.83,6.83,7,7,6.92,10,10,10,6.83,78.5,0.12,1400,1400,1400
+Arabica,Guatemala,oriente,VARIOS,275,Asociacion Nacional Del Café,2014,"February 27th, 2014",Washed / Wet,7.17,6.5,6.67,7,7.17,7.17,10,10,10,6.67,78.33,0.1,1219.2,1219.2,1219.2
+Arabica,Guatemala,oriente,LUIS RODRIGUEZ,250,Asociacion Nacional Del Café,2012,"February 7th, 2013",Washed / Wet,7.17,7.17,6.5,7.17,7,6.83,10,10,10,6.5,78.33,0.11,1310.64,1310.64,1310.64
+Arabica,Mexico,"xochitonalco, huautla",PABLO CERVANTES MORELOS,100,AMECAFE,2012,"September 11th, 2012",Natural / Dry,7.25,7.25,7,7.5,7.33,7.42,8,9.33,10,7.75,78.33,0.13,1300,1300,1300
+Arabica,Indonesia,ijen,vary farms,2,Specialty Coffee Association of Indonesia,2016,"July 18th, 2017",Washed / Wet,6.92,6.83,6.92,6.92,6.92,6.83,10,10,10,6.83,78.17,0.13,1300,1300,1300
+Arabica,Mexico,cordoba,CONSUELO GONZALEZ GOMEZ,320,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7.08,6.83,6.67,7.25,7.25,6.92,10,9.33,10,6.75,78.08,0.11,1050,1050,1050
+Arabica,Honduras,intibuca,Cooperativa Coaquil,275,Instituto Hondureno del Cafe,2014,"May 15th, 2014",Natural / Dry,6.83,7,6.67,7,7,6.83,10,10,10,6.67,78,0.11,1350,1350,1350
+Arabica,Guatemala,oriente,VARIOS,275,Asociacion Nacional Del Café,2014,"February 7th, 2014",Washed / Wet,7.42,7.25,6.83,7.33,7,6.92,9.33,9.33,9.33,7.25,78,0.1,1219.2,1219.2,1219.2
+Arabica,China,yunnan,GreenHouse Coffee,16,Specialty Coffee Association,2013,"September 5th, 2013",Washed / Wet,7.33,7.17,6.92,7.08,7.33,7,9.33,9.33,9.33,7.17,78,0.1,1200,1200,1200
+Arabica,Guatemala,oriente,"AGRICOLA MONTE VERDE, S.A.",250,Asociacion Nacional Del Café,2013,"April 29th, 2013",Washed / Wet,7,6.83,6.83,7.17,6.67,6.83,10,10,10,6.67,78,0.11,1310.64,1310.64,1310.64
+Arabica,Costa Rica,occidental,Beneficio la Eva S.A.,250,Specialty Coffee Association of Costa Rica,2014,"February 3rd, 2015",Washed / Wet,7.5,7.25,7.42,7,7.08,6.83,8.67,9.33,10,6.83,77.92,0.12,1200,1200,1200
+Arabica,Mexico,petatlan,GUSTAVO ABARCA SOLIS,50,AMECAFE,2012,"July 26th, 2012",Washed / Wet,7.42,7.25,7,7,7.25,7.08,8,10,10,6.92,77.92,0.11,1248,1248,1248
+Arabica,Guatemala,oriente,LUIS RODRIGUEZ,250,Asociacion Nacional Del Café,2013,"February 7th, 2013",Washed / Wet,7,6.83,6.67,7.17,6.83,6.83,10,10,10,6.5,77.83,0.11,1310.64,1310.64,1310.64
+Arabica,Mexico,coatepec,RUBRIA OCHOA BELLO,23,AMECAFE,2012,"September 17th, 2012",Washed / Wet,7.17,6.75,6.58,6.75,6.83,6.75,10,10,10,6.67,77.5,0.13,1300,1300,1300
+Arabica,Guatemala,oriente,MARGARITA DE NUYENS Y/O CARLOS NUYENS,250,Asociacion Nacional Del Café,2013,"January 29th, 2013",Washed / Wet,7.08,6.92,6.33,7,6.92,7,10,10,10,6.17,77.42,0.11,1310.64,1310.64,1310.64
+Arabica,Brazil,south of minas,Ipanema Agricola S.A,320,Brazil Specialty Coffee Association,2017,"October 20th, 2017",Natural / Dry,7.5,7.33,7.42,7.58,7.58,6.92,8,8,10,7,77.33,0,890,890,890
+Arabica,Guatemala,oriente,VARIOS,275,Asociacion Nacional Del Café,2014,"April 8th, 2014",Washed / Wet,7.33,7,6.83,7.17,7.17,7.17,9.33,9.33,9.33,6.67,77.33,0.1,1219.2,1219.2,1219.2
+Arabica,Haiti,"dondon, haiti",Mixed,1,Specialty Coffee Association,2013,"May 5th, 2014",Washed / Wet,6.83,6.83,6.83,6.75,6.92,6.92,9.33,10,10,6.83,77.25,0.1,400,1250,825
+Arabica,Peru,san ignacio,Sol y Cafe,275,Specialty Coffee Association,2014,"June 16th, 2015",Washed / Wet,7.42,7.75,7.42,7.67,7.92,7.83,8.67,5.33,9.33,7.67,77,0,900,1500,1200
+Arabica,Mexico,coatepec,CASTULO GUTIERREZ,10,AMECAFE,2012,"July 26th, 2012",Washed / Wet,7.17,6.58,6.58,7,7.25,6.58,9.33,9.33,10,6.58,76.42,0.13,1100,1100,1100
+Arabica,Guatemala,oriente,AGROPECUARIA QUIAGRAL,250,Asociacion Nacional Del Café,2012,"April 30th, 2012",Washed / Wet,7.5,7,6.83,7.5,7.17,7.33,8.67,8.67,8.67,7,76.33,0.11,1310.64,1310.64,1310.64
+Arabica,Mexico,zaragoza itundujia,ISIDORA HERAS HERNANDEZ,11,AMECAFE,2012,"September 17th, 2012",Washed / Wet,7.42,7,6.83,7.08,6.92,6.83,7.33,10,10,6.75,76.17,0.16,1400,1400,1400
+Arabica,Indonesia,indonesia,1,15,Specialty Coffee Association,2011,"January 18th, 2012",Natural / Dry,7.33,7,6.5,6.08,7.58,6.33,9.33,10,9.33,6.67,76.17,0.12,3500,3500,3500
+Arabica,Mexico,tepictla,GUILLERMO EDUARDO BOBADILLA MUGUIRA,20,AMECAFE,2012,"September 10th, 2012",Washed / Wet,7.08,6.83,6.83,7.17,7.17,7.08,10,7.33,10,6.58,76.08,0.12,1250,1250,1250
+Arabica,Honduras,intibuca,Cooperativa Coaquil,275,Instituto Hondureno del Cafe,2014,"May 15th, 2014",Natural / Dry,6.83,6.83,6.67,6.83,7,6.83,9.33,8.67,10,7,76,0.11,1350,1350,1350
+Arabica,Philippines,"benguet, mountain province",various smallholders,1,Specialty Coffee Association,2012,"May 14th, 2013",Washed / Wet,6.83,6.5,6.5,6.92,6.75,7,9.33,10,9.33,6.67,75.83,0.12,1000,1000,1000
+Arabica,Guatemala,oriente,AGROPECUARIA QUIAGRAL,250,Asociacion Nacional Del Café,2012,"July 9th, 2012",Washed / Wet,7.92,7.58,7.17,7.58,7.33,7.17,8,8,8,6.83,75.58,0.11,1310.64,1310.64,1310.64
+Arabica,Mexico,tlacuilotepec,JUANA RODRIGUEZ GUTIERREZ,10,AMECAFE,2012,"September 12th, 2012",Washed / Wet,7.5,7.25,6.92,7,7.17,6.83,8,8,10,6.83,75.5,0.11,1100,1100,1100
+Arabica,Mexico,ocosingo,SPOSEL S. DE S.S.,100,AMECAFE,2012,"September 12th, 2012",Washed / Wet,7.17,6.92,6.67,6.83,7.25,7.75,10,6,10,6.58,75.17,0.11,1200,1200,1200
+Arabica,Mexico,menglian,MIGUEL LOPEZ TIRZO,43,AMECAFE,2012,"July 11th, 2012",Washed / Wet,7,6.92,6.75,6.92,7.17,6.83,10,6.67,10,6.75,75,0.14,850,850,850
+Arabica,Mexico,coatepec,PABLO ENRIQUE MARTINEZ GAMA,20,AMECAFE,2012,"August 1st, 2012",Washed / Wet,7.33,6.75,6.67,7.25,7.5,7,10,5.33,10,7,74.83,0.12,1250,1250,1250
+Arabica,Mexico,chiapas,CESMACH (VARIOS),275,AMECAFE,2013,"March 29th, 2013",Washed / Wet,7.08,7,6.83,7.5,7.33,6.83,8,7.33,10,6.75,74.67,0.12,1700,1700,1700
+Arabica,Guatemala,oriente,AGRIPEC DE LA VEGA Y CIA.,250,Asociacion Nacional Del Café,2013,"June 6th, 2013",Washed / Wet,6.5,6.33,6.5,7.5,7.33,6.83,8.67,10,8.67,6,74.33,0.11,1310.64,1310.64,1310.64
+Arabica,Mexico,"chocaman, veracruz",JORGE OCTAVIO ESCAMILLA PRADO,20,AMECAFE,2012,"September 10th, 2012",Washed / Wet,7,6.58,6.67,6.83,7.08,6.83,10,6.67,10,6.67,74.33,0.14,1140,1140,1140
+Arabica,Mexico,coatepec,EUGENE HOLMAN PEW,20,AMECAFE,2012,"August 1st, 2012",Washed / Wet,7.67,7,7.17,7.58,7.33,7.33,10,2.67,10,7.08,73.83,0.12,1250,1250,1250
+Arabica,Honduras,intibuca,Cooperativa Coaquil,275,Instituto Hondureno del Cafe,2014,"April 26th, 2014",Washed / Wet,7,7.17,6.83,7.17,7,7.17,8,8,8,7.08,73.42,0.11,1350,1350,1350
+Arabica,Mexico,sierra alta mixe y zapoteca,various small producers,280,Specialty Coffee Association,2014,"May 8th, 2014",Washed / Wet,7.08,7.08,6.92,7.08,6.92,6.92,8,8,8,6.92,72.92,0,1200,1200,1200
+Arabica,Costa Rica,occidental,Beneficio la Eva S.A.,250,Specialty Coffee Association of Costa Rica,2014,"February 3rd, 2015",Washed / Wet,6.33,6.5,6.33,6.83,6.33,6.5,10,6.67,10,6.25,71.75,0.11,1200,1200,1200
+Arabica,Mexico,veracruz,RICARDO AARON SAMPIERI MARINI,25,AMECAFE,2012,"July 11th, 2012",Washed / Wet,6.5,6.67,6.42,7.17,7.33,6.5,8,6,10,6.42,71,0.11,1800,1800,1800
+Arabica,Mexico,"sierra norte yajalon, chiapas",various small producers,280,Specialty Coffee Association,2014,"May 5th, 2014",Washed / Wet,6.92,7,6.83,6.92,7.42,6.92,6,6,10,6.75,70.75,0.12,1000,1000,1000
+Arabica,Honduras,marcala,Omar Acosta,275,Instituto Hondureno del Cafe,2014,"May 15th, 2014",Washed / Wet,6.67,6.5,6.17,6.67,6.83,6.17,8,8,8,6.33,69.33,0.1,1450,1450,1450
+Arabica,Honduras,marcala,Omar Acosta,275,Instituto Hondureno del Cafe,2014,"May 15th, 2014",Washed / Wet,7,6.17,6.17,6.67,6.5,6.17,8,8,8,6.5,69.17,0.1,1450,1450,1450
+Arabica,Honduras,marcala,Omar Acosta,275,Instituto Hondureno del Cafe,2014,"May 15th, 2014",Washed / Wet,7,6.33,6.17,6.5,6.67,6.17,8,8,8,6.33,69.17,0.1,1450,1450,1450
+Arabica,Mexico,juchique de ferrer,JUAN CARLOS GARCÍA LOPEZ,12,AMECAFE,2012,"September 17th, 2012",Washed / Wet,7.08,6.83,6.25,7.42,7.25,6.75,10,0,10,6.75,68.33,0.11,900,900,900
+Arabica,Haiti,"department d'artibonite , haiti",COEB Koperativ Ekselsyo Basen,1,Specialty Coffee Association,2012,"May 24th, 2012",Natural / Dry,6.75,6.58,6.42,6.67,7.08,6.67,9.33,6,6,6.42,67.92,0.14,350,350,350
+Arabica,Guatemala,nuevo oriente,WILLIAM ESTUARDO MARTINEZ PACHECO,275,Asociacion Nacional Del Café,2012,"May 24th, 2012",Washed / Wet,7.5,6.67,6.67,7.67,7.33,6.67,8,1.33,1.33,6.67,59.83,0.1,1417.32,1417.32,1417.32
