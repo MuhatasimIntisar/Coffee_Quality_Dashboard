@@ -4,17 +4,18 @@ library(shiny)
 # This file just starts each module, passing in the shared `coffee`
 # dataset (loaded once in global.R). The id here must match ui.R.
 #
-# Cross-tab navigation:
-#   * input$go_tab   — set by the Overview hub cards (plain JS onclick);
-#                      whatever tab name arrives, we switch to it.
-#   * `nav` bus      — the Global tab sets nav$country (and bumps nav$nonce)
-#                      to open Profile with that origin preselected. Profile
-#                      listens; we switch tabs here.
+# Cross-tab navigation uses one shared `nav` bus (a reactiveValues), so the
+# whole app stays pure R with no hand-written JavaScript:
+#   * nav$tab / nav$tab_nonce   — the Overview hub cards (actionLinks) ask to
+#                                 open a named tab; we switch to it here.
+#   * nav$country / nav$nonce   — the Global tab asks to open Profile with a
+#                                 chosen origin preselected. Profile listens
+#                                 for the country; we switch tabs here.
 
 server <- function(input, output, session) {
-  nav <- reactiveValues(country = NULL, nonce = 0)
+  nav <- reactiveValues(country = NULL, nonce = 0, tab = NULL, tab_nonce = 0)
 
-  introductionServer("introduction", coffee)
+  introductionServer("introduction", coffee, nav)
   locationServer("location", coffee, nav)
   toneServer("tone", coffee, nav)
   analysisServer("analysis", coffee)
@@ -22,9 +23,10 @@ server <- function(input, output, session) {
   conclusionServer("conclusion", coffee)
 
   # An Overview hub card was clicked -> jump straight to its tab.
-  observeEvent(input$go_tab, {
-    updateTabsetPanel(session, "tabs", selected = input$go_tab)
-  })
+  observeEvent(nav$tab_nonce, {
+    req(nav$tab)
+    updateTabsetPanel(session, "tabs", selected = nav$tab)
+  }, ignoreInit = TRUE)
 
   # A country was clicked on the Global tab -> jump to its Profile.
   observeEvent(nav$nonce, {

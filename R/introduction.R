@@ -23,7 +23,7 @@ ATTR_DESC <- c(
 introductionUI <- function(id) {
   ns <- NS(id)
   tagList(
-    # Hero: warm welcome beside a cup that slowly fills, steam drifting up.
+    # Hero: warm welcome beside a static cup of coffee.
     div(class = "hero-wrap",
         div(class = "hero-copy",
             h2("What makes a truly great cup of coffee?"),
@@ -34,7 +34,6 @@ introductionUI <- function(id) {
               "No jargon, no spreadsheets to squint at. Just the story of great ",
               "coffee, told with real data. Pick any card below and dive straight in.")),
         div(class = "cup-scene", `aria-hidden` = "true",
-            span(class = "steam s1"), span(class = "steam s2"), span(class = "steam s3"),
             div(class = "cup",
                 div(class = "cup-coffee", div(class = "cup-surface"))),
             div(class = "cup-handle"),
@@ -82,23 +81,25 @@ introductionUI <- function(id) {
   )
 }
 
-introductionServer <- function(id, data) {
+introductionServer <- function(id, data, nav) {
   moduleServer(id, function(input, output, session) {
 
+    ns <- session$ns
     nonblank <- function(x) x[!is.na(x) & x != ""]
     scored   <- data[!is.na(data$Total.Cup.Points) & data$Total.Cup.Points > 0, ]
 
     # ── Hub cards: each one is a clickable gateway into a tab ─────────────────
-    # Clicking sets the top-level input `go_tab`, which server.R uses to switch.
-    hub_card <- function(tab, kicker, big, desc, go, accent) {
-      onclick <- sprintf(
-        "Shiny.setInputValue('go_tab', '%s', {priority:'event'});", tab)
-      tags$a(class = "hub-card", style = paste0("--hub-accent:", accent, ";"),
-             href = "#", onclick = paste0(onclick, " return false;"),
-             div(class = "hub-kicker", kicker),
-             div(class = "hub-big",  big),
-             div(class = "hub-desc", desc),
-             span(class = "hub-go", go, span(class = "chev", HTML("&#8594;"))))
+    # Each card is an actionLink (pure Shiny, no JavaScript). Clicking it fires
+    # its input; the observers below put the target tab on the shared `nav` bus
+    # and server.R switches to it.
+    hub_card <- function(input_id, kicker, big, desc, go, accent) {
+      actionLink(ns(input_id),
+        label = tagList(
+          div(class = "hub-kicker", kicker),
+          div(class = "hub-big",  big),
+          div(class = "hub-desc", desc),
+          span(class = "hub-go", go, span(class = "chev", HTML("&#8594;")))),
+        class = "hub-card", style = paste0("--hub-accent:", accent, ";"))
     }
 
     output$hub <- renderUI({
@@ -108,27 +109,42 @@ introductionServer <- function(id, data) {
       top_country <- by_country$group[which.max(by_country$avg_score)]
 
       div(class = "hub-grid",
-        hub_card("Global", "Spin the globe",
+        hub_card("hub_global", "Spin the globe",
                  sprintf("%d countries", n_countries),
                  "Every cup starts somewhere. Rotate a living 3D planet and see where the world grows its best beans.",
                  "Explore the world", CAT_COLS[1]),
-        hub_card("Profile", "Taste an origin",
+        hub_card("hub_profile", "Taste an origin",
                  sprintf("%s leads", top_country),
                  "Meet the flavours behind each origin and pop open the charts, one delicious slice at a time.",
                  "See the flavours", CAT_COLS[4]),
-        hub_card("Attributing Factors", "The why",
+        hub_card("hub_factors", "The why",
                  "Altitude matters",
                  "Mountains, moisture and method all leave fingerprints on flavour. See which ones matter most.",
                  "Find the drivers", CAT_COLS[2]),
-        hub_card("Sensory Analysis", "Play barista",
+        hub_card("hub_sensory", "Play barista",
                  "Build your cup",
                  "Tell us what you love with a few sliders and we will match you to your perfect coffee.",
                  "Make my coffee", CAT_COLS[3]),
-        hub_card("Summary", "The big picture",
+        hub_card("hub_summary", "The big picture",
                  "6 takeaways",
                  "Short on time? The whole story, its winners and its lessons, on one beautiful page.",
                  "Read the story", CAT_COLS[6])
       )
+    })
+
+    # Each hub card -> put its target tab on the shared nav bus (see server.R).
+    hub_nav <- c(hub_global  = "Global",
+                 hub_profile = "Profile",
+                 hub_factors = "Attributing Factors",
+                 hub_sensory = "Sensory Analysis",
+                 hub_summary = "Summary")
+    for (nm in names(hub_nav)) local({
+      id     <- nm
+      tabval <- hub_nav[[nm]]
+      observeEvent(input[[id]], {
+        nav$tab       <- tabval
+        nav$tab_nonce <- nav$tab_nonce + 1
+      })
     })
 
     # ── Headline evidence counts ──────────────────────────────────────────────

@@ -1,11 +1,10 @@
 # Global tab — the 3D globe
 # --------------------------
-# A spinning, draggable 3D planet (plotly orthographic choropleth) shaded by
-# the chosen quality measure. It rotates gently on its own, stops the moment
-# the cursor hovers a country (so the tooltip is easy to read), and zooms with
-# the mouse wheel. The tooltip stays deliberately clean: the score and the
-# region, nothing more. Clicking a country (globe or table) opens the Profile
-# tab with that origin loaded. A ranking table, headline numbers and a
+# A draggable 3D planet (plotly orthographic choropleth) shaded by the chosen
+# quality measure. Drag to rotate, scroll to zoom, hover a country for its
+# score. The tooltip stays deliberately clean: the score and the region,
+# nothing more. Clicking a country (globe or table) opens the Profile tab with
+# that origin loaded. A ranking table, headline numbers and a
 # trust-the-evidence bubble chart complete the page.
 #
 # Cross-tab navigation uses the shared `nav` reactiveValues (see server.R).
@@ -25,40 +24,14 @@ GLOBE_RENAME <- c(
 GLOBE_SCALE <- list(list(0, "#F3E7D3"), list(0.25, "#E8C99A"), list(0.5, "#C68642"),
                     list(0.75, "#9C5A20"), list(1, "#3A2417"))
 
-# Auto-rotation: spin gently, and STOP the instant the cursor hovers a country
-# so the tooltip can be read in comfort. Resume once the cursor leaves. Drags
-# and wheel zooms also grant a short rest.
-GLOBE_SPIN_JS <- "
-function(el, x){
-  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var hovering = false, pausedUntil = 0;
-  function rest(ms){ pausedUntil = Date.now() + ms; }
-  el.on('plotly_hover',   function(){ hovering = true;  });
-  el.on('plotly_unhover', function(){ hovering = false; });
-  el.addEventListener('mousedown', function(){ rest(5000); });
-  el.addEventListener('wheel',     function(){ rest(5000); });
-  setInterval(function(){
-    if (hovering || Date.now() < pausedUntil) return;
-    if (!el.layout || !el.layout.geo || !document.body.contains(el)) return;
-    var rot = (el.layout.geo.projection || {}).rotation || {lon: 0};
-    Plotly.relayout(el, {'geo.projection.rotation.lon': (((rot.lon || 0) + 0.35) + 180) % 360 - 180});
-  }, 50);
-}"
-
-# Build the onclick that asks Shiny to navigate to a country's profile.
-go_onclick <- function(input_id, country) {
-  sprintf("Shiny.setInputValue(\"%s\", \"%s\", {priority:\"event\"}); return false;",
-          input_id, country)
-}
-
 locationUI <- function(id) {
   ns <- NS(id)
   tagList(
     h2("Where your coffee comes from"),
     p(style = "max-width:860px; font-size:17px; color:#444; line-height:1.6;",
-      "Give the planet a spin. Drag it to explore, scroll to zoom, and hover over ",
-      "any shaded country to see its score and its best known region. The globe ",
-      "politely stops turning while you read. Darker roast tones mean higher ",
+      "Drag the planet to explore, scroll to zoom, and hover over ",
+      "any shaded country to see its score and its best known region. ",
+      "Darker roast tones mean higher ",
       "scores on the measure you pick below, and clicking a country takes you ",
       "straight to its full profile."),
 
@@ -111,9 +84,9 @@ locationUI <- function(id) {
     hr(),
 
     p(style = "font-size:17px; color:#2B2018; max-width:860px;",
-      "Found an origin you like the look of? ", strong("Click its name"),
-      " on the globe or in the table, or head to the ", strong("Profile"),
-      " tab, to taste it up close.")
+      "Found an origin you like the look of? ", strong("Click it on the globe"),
+      " or ", strong("select its row"), " in the table, or head to the ",
+      strong("Profile"), " tab, to taste it up close.")
   )
 }
 
@@ -160,11 +133,7 @@ locationServer <- function(id, data, nav) {
       do.call(rbind, out)
     })
 
-    # A country was clicked (ranking table or globe) -> open its Profile.
-    observeEvent(input$go_country, {
-      nav$country <- input$go_country
-      nav$nonce   <- nav$nonce + 1
-    })
+    # A country was clicked on the globe -> open its Profile.
     observeEvent(event_data("plotly_click", source = "globe"), {
       ev <- event_data("plotly_click", source = "globe")
       req(ev$customdata)
@@ -172,7 +141,7 @@ locationServer <- function(id, data, nav) {
       nav$nonce   <- nav$nonce + 1
     })
 
-    # ── The 3D globe: orthographic choropleth, auto-spin, drag + scroll zoom ────
+    # ── The 3D globe: orthographic choropleth, drag to rotate + scroll zoom ────
     output$globe <- renderPlotly({
       cm <- country_metric()
       validate(need(!is.null(cm), "No coffees match this harvest range."))
@@ -213,28 +182,39 @@ locationServer <- function(id, data, nav) {
           hoverlabel = list(bgcolor = "#FFFFFF", bordercolor = "#C68642",
                             font = list(color = "#2B2018", size = 13))) |>
         config(scrollZoom = TRUE, displayModeBar = FALSE) |>
-        event_register("plotly_click") |>
-        onRender(GLOBE_SPIN_JS)
+        event_register("plotly_click")
     })
 
-    # ── Ranking table: Country + score (>= 5 coffees), country links onward ────
+    # ── Ranking table: Country + score (>= 5 coffees) ──────────────────────────
+    # Ordered rows shared by the table and its click handler, so selecting row i
+    # always maps to the right country (no JavaScript links needed).
+    rank_data <- reactive({
+      cm <- country_metric()
+      if (is.null(cm)) return(NULL)
+      cm <- cm[cm$n >= 5, ]
+      cm[order(-cm$value), ]
+    })
     output$rank_title <- renderText(
       sprintf("Top countries by %s", tolower(measure_label(input$metric))))
     output$rank_table <- renderDT({
-      cm <- country_metric()
+      cm <- rank_data()
       if (is.null(cm)) return(datatable(data.frame(), rownames = FALSE))
-      cm <- cm[cm$n >= 5, ]
-      cm <- cm[order(-cm$value), ]
-      links <- sprintf(
-        "<a href='#' onclick='%s' style='color:#7B4F2E; font-weight:600;'>%s</a>",
-        vapply(cm$country, function(g) go_onclick(ns("go_country"), g), character(1)),
-        cm$country)
-      tab <- data.frame(Country = links, Score = round(cm$value, 1),
+      tab <- data.frame(Country = cm$country, Score = round(cm$value, 1),
                         check.names = FALSE, stringsAsFactors = FALSE)
       names(tab)[2] <- measure_label(input$metric)
-      datatable(tab, rownames = FALSE, escape = FALSE,
+      datatable(tab, rownames = FALSE,
+                selection = list(mode = "single", target = "row"),
                 options = list(pageLength = 12, order = list(), dom = "tp"),
                 class = "stripe hover compact")
+    })
+
+    # Click a table row -> open that country's Profile.
+    observeEvent(input$rank_table_rows_selected, {
+      cm <- rank_data(); req(cm)
+      i <- input$rank_table_rows_selected
+      req(i >= 1, i <= nrow(cm))
+      nav$country <- cm$country[i]
+      nav$nonce   <- nav$nonce + 1
     })
 
     # ── Reliability bubble: score (y) vs number of coffees (x), sized by bags ──

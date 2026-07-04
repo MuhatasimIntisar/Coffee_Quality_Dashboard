@@ -1,93 +1,52 @@
-# Sensory Analysis tab — feel the scores, then build your own coffee
-# -------------------------------------------------------------------
+# Sensory Analysis tab — what drives the score, then build your own coffee
+# -------------------------------------------------------------------------
 # Two halves:
-#   1. Sensory bars — Acidity, Body, Balance and Sweetness as clean animated
-#      bars that ease up from zero when the tab opens. Pick any origin to see
-#      its character against the world average (the dark tick on each bar).
-#   2. Make your own coffee — fluid word-labelled sliders for what you love,
+#   1. Feature importance — every sensory attribute ranked by how closely it
+#      tracks the score (total score or the grader's overall mark).
+#   2. Make your own coffee — word-labelled sliders for what you love,
 #      a preparation style, and one big button. We match your palate against
 #      every graded coffee and pour out the closest real cup, with reasons.
 
 library(bslib)
-
-# Fluid taste dials: swap the sliders' numeric read-outs for friendly words,
-# so they feel like taste choices rather than a 0 to 10 school ruler.
-# (ionRangeSlider `prettify` is updated in place once Shiny connects.)
-TASTE_WORDS_JS <- "
-$(document).on('shiny:connected', function(){
-  function wordify(id, words){
-    var el = $('#' + id).data('ionRangeSlider');
-    if (!el) return;
-    el.update({ prettify: function(v){
-      var i = Math.min(words.length - 1, Math.floor((v - 1) / 9.0001 * words.length));
-      return words[i];
-    }});
-  }
-  wordify('flavor-p_bright', ['Soft and mellow', 'Gently bright', 'Lively', 'Zingy']);
-  wordify('flavor-p_body',   ['Feather light', 'Easy going', 'Rounded', 'Full and bold']);
-  wordify('flavor-p_rich',   ['Delicate', 'Gentle', 'Flavourful', 'Intense']);
-  wordify('flavor-p_smooth', ['A little edgy', 'Balanced', 'Smooth', 'Silky']);
-});
-"
-
-# The four sensory dials shown as glowing bars, each with its own hue.
-SENSE_BARS <- data.frame(
-  attr  = c("Acidity", "Body", "Balance", "Sweetness"),
-  label = c("Acidity", "Body", "Balance", "Sweetness"),
-  hue   = c("#0E8A63", "#9C5A20", "#3E7CB1", "#AE7A0F"),
-  stringsAsFactors = FALSE
-)
 
 # The dials the coffee builder matches on (Sweetness is near-identical across
 # the dataset, so Flavor richness separates coffees far better).
 BUILD_ATTRS <- c(Brightness = "Acidity", Body = "Body",
                  Richness = "Flavor", Smoothness = "Balance")
 
-hex_rgba <- function(hex, a) {
-  m <- col2rgb(hex)
-  sprintf("rgba(%d,%d,%d,%.2f)", m[1], m[2], m[3], a)
-}
-
-# One sensory bar row: clean gradient fill (no glow), world-average tick.
-# The fill animates up from zero (~0.7s) whenever the tab opens; see ui.R.
-glow_bar <- function(label, value, hue, world = NULL) {
-  pct  <- max(0, min(100, value / 10 * 100))
-  tick <- if (!is.null(world))
-    div(class = "glowbar-avg", style = sprintf("left:%.1f%%;", world / 10 * 100),
-        title = sprintf("World average %.1f", world))
-  div(class = "glowbar-row",
-      div(class = "glowbar-label", label),
-      div(class = "glowbar-track",
-          style = sprintf("--bar-from:%s; --bar-to:%s;", hex_rgba(hue, 0.75), hue),
-          div(class = "glowbar-fill", style = sprintf("width:%.1f%%;", pct)),
-          tick),
-      div(class = "glowbar-val", sprintf("%.1f", value)))
+# A slider label with a plain-word scale beneath it, so the 1-10 dials read as
+# taste choices (low -> high) without any JavaScript.
+dial_label <- function(title, low, high) {
+  tagList(strong(title),
+          span(style = "color:#8A7965; font-weight:400; font-size:12px;",
+               sprintf(" (%s → %s)", low, high)))
 }
 
 flavorUI <- function(id) {
   ns <- NS(id)
   tagList(
     h2("Sensory Analysis"),
-    tags$script(HTML(TASTE_WORDS_JS)),
     p(style = "max-width:860px; font-size:17px; color:#444; line-height:1.6;",
-      "Numbers on a page cannot tell you how a coffee feels. These bars can. ",
-      "Pick an origin to see its character take shape, then scroll down, tell ",
-      "us what you love, and we will build you a coffee to match."),
+      "Which tasting notes actually decide a coffee's score? This ranks every ",
+      "sensory attribute by how closely it tracks the score — the longer the bar, ",
+      "the more it drives quality. Switch between the final total score and the ",
+      "grader's own overall mark; the ranking barely changes, which is how you know ",
+      "the scoring is consistent. Then scroll down to build your own cup."),
 
-    # ── 1. Glowing sensory bars ─────────────────────────────────────────────
+    # ── 1. Feature importance of the sensory attributes ─────────────────────
     card(
-      card_header("How it feels in the cup"),
+      card_header(textOutput(ns("imp_title"))),
       card_body(
-        layout_columns(
-          col_widths = c(5, 7),
-          selectInput(ns("sense_origin"), "Light up an origin",
-                      choices = "All origins", selected = "All origins"),
-          uiOutput(ns("sense_caption"))),
-        uiOutput(ns("sense_bars")),
-        p(class = "card-note", style = "margin-top:8px;",
-          "Each bar fills to its average score out of 10. The dark tick marks ",
-          "the world average, so you can see at a glance where an origin ",
-          "runs brighter, heavier or sweeter than the crowd."))),
+        radioButtons(ns("target"), "Measured against",
+                     choices = c("Total score"           = "Total.Cup.Points",
+                                 "Grader's overall mark"  = "Cupper.Points"),
+                     selected = "Total.Cup.Points", inline = TRUE),
+        plotOutput(ns("importance"), height = "420px"),
+        p(class = "card-note",
+          "How closely each attribute tracks the chosen score. Aftertaste and ",
+          "flavour lead by a distance; the near-perfect attributes (sweetness, ",
+          "clean cup, uniformity) barely move it, because almost every coffee ",
+          "scores top marks on those."))),
 
     hr(),
 
@@ -101,16 +60,16 @@ flavorUI <- function(id) {
     layout_columns(
       col_widths = c(4, 8),
 
-      # Left sidebar: the preference dials (fluid, word-labelled sliders).
+      # Left sidebar: the preference dials (1-10, low -> high word scale).
       wellPanel(class = "taste-dials",
         h5(style = "margin-top:0; font-weight:600;", "Your taste"),
-        sliderInput(ns("p_bright"), "Brightness",
+        sliderInput(ns("p_bright"), dial_label("Brightness", "soft and mellow", "zingy"),
                     min = 1, max = 10, value = 7, step = 0.5, ticks = FALSE),
-        sliderInput(ns("p_body"), "Body",
+        sliderInput(ns("p_body"), dial_label("Body", "feather light", "full and bold"),
                     min = 1, max = 10, value = 6, step = 0.5, ticks = FALSE),
-        sliderInput(ns("p_rich"), "Flavour richness",
+        sliderInput(ns("p_rich"), dial_label("Flavour richness", "delicate", "intense"),
                     min = 1, max = 10, value = 7, step = 0.5, ticks = FALSE),
-        sliderInput(ns("p_smooth"), "Smoothness",
+        sliderInput(ns("p_smooth"), dial_label("Smoothness", "a little edgy", "silky"),
                     min = 1, max = 10, value = 6, step = 0.5, ticks = FALSE),
         radioButtons(ns("p_style"), "How your beans are prepared",
                      choices = c("Bright and clean (washed)"   = "Washed / Wet",
@@ -138,38 +97,27 @@ flavorServer <- function(id, data) {
 
     scored <- data[!is.na(data$Total.Cup.Points) & data$Total.Cup.Points > 0, ]
 
-    countries <- names(which(table(
-      scored$Country.of.Origin[scored$Country.of.Origin != ""]) >= 5))
-    updateSelectInput(session, "sense_origin",
-                      choices = c("All origins", sort(countries)),
-                      selected = "All origins")
-
-    # ── Glowing bars ──────────────────────────────────────────────────────────
-    sense_pick <- reactive({
-      if (is.null(input$sense_origin) || input$sense_origin == "All origins") scored
-      else scored[scored$Country.of.Origin == input$sense_origin, ]
-    })
-
-    output$sense_caption <- renderUI({
-      d <- sense_pick()
-      who <- if (input$sense_origin %||% "All origins" == "All origins")
-        "every graded coffee in the dataset" else
-        sprintf("%d coffees from %s", nrow(d), input$sense_origin)
-      div(style = "padding-top:30px; font-size:15px; color:#6F5C49;",
-          sprintf("Averaged across %s.", who))
-    })
-
-    output$sense_bars <- renderUI({
-      d <- sense_pick()
-      show_world <- (input$sense_origin %||% "All origins") != "All origins"
-      rows <- lapply(seq_len(nrow(SENSE_BARS)), function(i) {
-        a <- SENSE_BARS$attr[i]
-        glow_bar(SENSE_BARS$label[i],
-                 mean(d[[a]], na.rm = TRUE),
-                 SENSE_BARS$hue[i],
-                 world = if (show_world) mean(scored[[a]], na.rm = TRUE))
-      })
-      div(rows)
+    # ── Feature importance: each attribute's correlation with the chosen score ──
+    target_lab <- reactive(
+      if ((input$target %||% "Total.Cup.Points") == "Cupper.Points")
+        "the grader's overall mark" else "the total score")
+    output$imp_title <- renderText(sprintf("What drives %s", target_lab()))
+    output$importance <- renderPlot({
+      tgt  <- input$target %||% "Total.Cup.Points"
+      cors <- sapply(FLAVOR_ATTRS, function(a)
+        suppressWarnings(cor(scored[[a]], scored[[tgt]], use = "complete.obs")))
+      cc <- data.frame(attr = gsub("\\.", " ", FLAVOR_ATTRS), r = as.numeric(cors))
+      cc <- cc[order(cc$r), ]
+      cc$attr <- factor(cc$attr, levels = cc$attr)
+      cc$top  <- cc$r == max(cc$r)
+      ggplot(cc, aes(r, attr, fill = top)) +
+        geom_col(width = 0.72) +
+        geom_text(aes(label = sprintf("%.2f", r)), hjust = -0.18, size = 4,
+                  colour = LATTE$subtext) +
+        scale_fill_manual(values = c(`FALSE` = COFFEE_COLS$blue,
+                                     `TRUE`  = COFFEE_COLS$green), guide = "none") +
+        scale_x_continuous(limits = c(0, 1), expand = expansion(mult = c(0, 0.06))) +
+        labs(x = "How closely it tracks the score", y = NULL) + theme_coffee()
     })
 
     # ── The coffee builder ────────────────────────────────────────────────────
