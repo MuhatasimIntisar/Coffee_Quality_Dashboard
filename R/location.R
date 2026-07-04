@@ -84,9 +84,8 @@ locationUI <- function(id) {
     hr(),
 
     p(style = "font-size:17px; color:#2B2018; max-width:860px;",
-      "Found an origin you like the look of? ", strong("Click it on the globe"),
-      " or ", strong("select its row"), " in the table, or head to the ",
-      strong("Profile"), " tab, to taste it up close.")
+      "Selecting a country on the globe, or a row in the table, opens its ",
+      "detailed breakdown in the ", strong("Profile"), " tab.")
   )
 }
 

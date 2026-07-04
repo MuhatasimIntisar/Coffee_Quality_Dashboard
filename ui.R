@@ -6,7 +6,7 @@ library(bslib)
 # slots each module's UI in. Flow: welcome hub (Overview) -> spin the world
 # (Global) -> taste one origin (Profile) -> what shapes the score
 # (Attributing Factors) -> feel it and build your own (Sensory Analysis) ->
-# the big picture (Summary).
+# the big picture (Conclusion).
 
 # ── Brand palette ─────────────────────────────────────────────────────────────
 # Shared with R/helpers.R (COFFEE_COLS). Defined here too so the theme can use it.
@@ -64,24 +64,6 @@ ui <- fluidPage(
 
     a, a:hover{ text-decoration:none; }
 
-    /* ── Overview hero: a static cup of coffee ── */
-    .hero-wrap{ display:flex; align-items:center; gap:34px; flex-wrap:wrap; margin:4px 0 10px; }
-    .hero-copy{ flex:1 1 480px; }
-    .cup-scene{ flex:0 0 190px; height:210px; position:relative; margin:0 auto; }
-    .cup{ position:absolute; left:30px; bottom:26px; width:118px; height:96px;
-          background:#FFFFFF; border:4px solid #3A2417; border-top-width:5px;
-          border-radius:6px 6px 46px 46px; overflow:hidden;
-          box-shadow:0 10px 22px rgba(58,36,23,.18); }
-    .cup-coffee{ position:absolute; left:0; right:0; bottom:0; height:78%;
-                 background:linear-gradient(180deg,#8A5A2B 0%, #5C3A1E 55%, #3A2417 100%); }
-    .cup-surface{ position:absolute; left:0; right:0; top:0; height:9px; border-radius:50%;
-                  background:radial-gradient(ellipse at 50% 40%, #C68642 0%, #7B4A22 70%);
-                  opacity:.9; }
-    .cup-handle{ position:absolute; right:8px; bottom:48px; width:42px; height:52px;
-                 border:4px solid #3A2417; border-left:none; border-radius:0 26px 26px 0; }
-    .cup-saucer{ position:absolute; left:12px; bottom:10px; width:154px; height:16px;
-                 background:#FFFFFF; border:3px solid #3A2417; border-radius:50%;
-                 box-shadow:0 6px 14px rgba(58,36,23,.15); }
 
     /* ── Overview hub cards (clickable gateways into the tabs) ── */
     .hub-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
@@ -108,27 +90,7 @@ ui <- fluidPage(
                     letter-spacing:.08em; text-transform:uppercase; color:var(--accent); font-weight:600; }
     .explain .xtxt{ font-size:14.5px; color:var(--ink); line-height:1.55; }
 
-    /* ── Taste dials: fluid sliders, not a school ruler ──────── */
-    .taste-dials .irs-min, .taste-dials .irs-max,
-    .taste-dials .irs-grid, .taste-dials .irs-grid-text{ display:none!important; }
-    .taste-dials .irs--shiny .irs-line{ height:10px; border-radius:6px; top:30px; }
-    .taste-dials .irs--shiny .irs-bar{ height:10px; border-radius:6px; top:30px;
-        background:linear-gradient(90deg,#C68642,#9C5A20); border:none; }
-    .taste-dials .irs--shiny .irs-handle{ width:26px; height:26px; top:22px; border-radius:50%;
-        background:#FFFFFF; border:3px solid var(--accent); box-shadow:0 2px 8px rgba(58,36,23,.25);
-        cursor:grab; }
-    .taste-dials .irs--shiny .irs-handle:hover{ box-shadow:0 4px 12px rgba(58,36,23,.3); }
-    .taste-dials .irs--shiny .irs-handle.state_hover, .taste-dials .irs--shiny .irs-handle:active{ cursor:grabbing; }
-    .taste-dials .irs--shiny .irs-single{ background:var(--accent); border-radius:8px;
-        font-size:13px; font-weight:600; padding:3px 12px; }
-
-    /* ── Make My Coffee button ──────────────────────────────── */
-    .btn-brew{ width:100%; padding:14px 18px; font-size:17px; font-weight:700; color:#fff;
-               background:linear-gradient(120deg,#9C5A20,#C68642); border:none; border-radius:14px;
-               box-shadow:0 6px 18px rgba(156,90,32,.35); letter-spacing:.02em; }
-    .btn-brew:hover{ color:#fff; box-shadow:0 10px 26px rgba(156,90,32,.45); }
-
-    /* ── Summary takeaway cards ──────────────────────────────── */
+    /* ── Conclusion finding cards ────────────────────────────── */
     .takeaway-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(270px, 1fr));
                     gap:18px; margin:8px 0 6px; }
     .takeaway-card{ position:relative; background:var(--surface); border:1px solid var(--line);
@@ -205,7 +167,7 @@ ui <- fluidPage(
   "))),
 
   div(style = "display:flex; align-items:center; justify-content:space-between; margin:8px 2px 2px;",
-      h1("The World in Your Cup", class = "app-title"),
+      h1("Global Coffee Quality Assessment Platform", class = "app-title"),
       actionLink("about_btn", "About", icon = icon("circle-info"))),
 
   tabsetPanel(
@@ -217,6 +179,6 @@ ui <- fluidPage(
     tabPanel("Profile",             value = "Profile",             toneUI("tone")),
     tabPanel("Attributing Factors", value = "Attributing Factors", analysisUI("analysis")),
     tabPanel("Sensory Analysis",    value = "Sensory Analysis",    flavorUI("flavor")),
-    tabPanel("Summary",             value = "Summary",             conclusionUI("conclusion"))
+    tabPanel("Conclusion",          value = "Conclusion",          conclusionUI("conclusion"))
   )
 )

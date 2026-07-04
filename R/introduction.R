@@ -26,29 +26,27 @@ introductionUI <- function(id) {
     # Hero: warm welcome beside a static cup of coffee.
     div(class = "hero-wrap",
         div(class = "hero-copy",
-            h2("What makes a truly great cup of coffee?"),
+            h2("Introduction"),
             p(style = "max-width:720px; font-size:17px; color:#444; line-height:1.6;",
-              "Somewhere between a hillside in Ethiopia and your kitchen, a coffee ",
-              "earns its character. This dashboard follows that journey using ",
-              "hundreds of independent quality gradings from professional tasters. ",
-              "No jargon, no spreadsheets to squint at. Just the story of great ",
-              "coffee, told with real data. Pick any card below and dive straight in.")),
+              "This dashboard examines what distinguishes a high-scoring coffee, ",
+              "drawing on a large set of independent quality gradings produced by ",
+              "professional tasters. It considers where coffee is grown, the ",
+              "conditions under which it is produced, and the sensory attributes by ",
+              "which it is judged, in order to identify the factors most closely ",
+              "associated with quality.")),
         div(class = "cup-scene", `aria-hidden` = "true",
             div(class = "cup",
                 div(class = "cup-coffee", div(class = "cup-surface"))),
             div(class = "cup-handle"),
             div(class = "cup-saucer"))),
 
-    # ── The five gateways: one clickable card per tab ─────────────────────────
-    uiOutput(ns("hub")),
-
     hr(),
 
-    # ── Why you can trust the findings ────────────────────────────────────────
-    h4("Why you can trust what you see here"),
+    # ── Dataset overview ──────────────────────────────────────────────────────
+    h4("Dataset Overview"),
     p(style = "max-width:820px; font-size:14px; color:#444;",
-      "None of this is opinion. Every insight is drawn from a large, independent ",
-      "body of professional cup scores:"),
+      "Each record is a professionally graded coffee, capturing its origin, ",
+      "growing conditions and ten component scores. In total, the dataset covers:"),
     layout_columns(
       col_widths = c(-1, 2, 2, 2, 2, 2, -1),
       uiOutput(ns("kpi_coffees")),
@@ -60,13 +58,13 @@ introductionUI <- function(id) {
 
     hr(),
 
-    # ── How coffee is rated ───────────────────────────────────────────────────
-    h4("How a coffee earns its score"),
+    # ── Scoring criteria ──────────────────────────────────────────────────────
+    h4("Scoring Criteria"),
     p(style = "max-width:820px; font-size:14px; color:#444; line-height:1.6;",
-      "Every coffee here has been tasted and scored by certified graders. Each ",
-      "one gets a mark ", strong("out of 100"), ", built from ten parts scored ",
-      "out of 10. Nine describe how the coffee tastes and feels (explained ",
-      "below), and the tenth is the grader's own overall impression. ",
+      "Each coffee is assessed by certified graders and receives a mark ",
+      strong("out of 100"), ", comprising ten components scored out of 10. Nine ",
+      "describe the coffee's sensory characteristics (defined below), and the ",
+      "tenth is the grader's overall impression. ",
       textOutput(ns("scale_note"), inline = TRUE)),
     scorecard_card(plotOutput(ns("scorecard_ring"), height = "300px"),
                    uiOutput(ns("scorecard_legend"))),
@@ -74,10 +72,15 @@ introductionUI <- function(id) {
     uiOutput(ns("glossary")),
 
     hr(),
-    p(style = "font-size:17px; color:#2B2018; max-width:860px;",
-      "Now you know how coffee is scored. A good place to begin is ",
-      strong("where"), " the best of it grows: spin the globe on the ",
-      strong("Global"), " tab.")
+
+    # ── Navigation: how to explore the dashboard ──────────────────────────────
+    h4("Navigating the Dashboard"),
+    p(style = "max-width:820px; font-size:14px; color:#444;",
+      "The dashboard continues across five further tabs, each opening one part ",
+      "of the analysis. Select a card below, or the matching tab above, to begin. ",
+      "The intended order runs from left to right, though the tabs may be read in ",
+      "any sequence."),
+    uiOutput(ns("hub"))
   )
 }
 
@@ -126,7 +129,7 @@ introductionServer <- function(id, data, nav) {
                  "Tell us what you love with a few sliders and we will match you to your perfect coffee.",
                  "Make my coffee", CAT_COLS[3]),
         hub_card("hub_summary", "The big picture",
-                 "6 takeaways",
+                 "Key findings",
                  "Short on time? The whole story, its winners and its lessons, on one beautiful page.",
                  "Read the story", CAT_COLS[6])
       )
@@ -137,7 +140,7 @@ introductionServer <- function(id, data, nav) {
                  hub_profile = "Profile",
                  hub_factors = "Attributing Factors",
                  hub_sensory = "Sensory Analysis",
-                 hub_summary = "Summary")
+                 hub_summary = "Conclusion")
     for (nm in names(hub_nav)) local({
       id     <- nm
       tabval <- hub_nav[[nm]]

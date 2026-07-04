@@ -34,35 +34,33 @@ server <- function(input, output, session) {
     updateTabsetPanel(session, "tabs", selected = "Profile")
   }, ignoreInit = TRUE)
 
-  # ── About dialog: team credits + AI acknowledgement ───────────────────────────
-  # TODO: replace the placeholder names/IDs below with the real group members.
+  # ── About dialog: team credits + AI acknowledgement
   observeEvent(input$about_btn, {
     showModal(modalDialog(
-      title = "About this dashboard",
+      title = "About Dashboard",
       easyClose = TRUE,
       footer = modalButton("Close"),
-      tags$p(tags$strong("The World in Your Cup"),
+      tags$p(tags$strong("Global Coffee Quality Assessment Platform"),
              " — DSA8045 Applied Analytics, Assignment 1."),
-      tags$h5("Created by"),
+      tags$h5("Group Members"),
       tags$ul(
-        tags$li("Student Name 1 — Student ID"),
-        tags$li("Student Name 2 — Student ID"),
-        tags$li("Student Name 3 — Student ID"),
+        tags$li("Muhatasim Intisar — 40497957"),
+        tags$li("Siri Taranganahalli Gowda — 40503709 "),
+        tags$li("Ishit Maheshbhai Patel — 40503430"),
         tags$li("Student Name 4 — Student ID"),
         tags$li("Student Name 5 — Student ID"),
-        tags$li("Student Name 6 — Student ID")
       ),
       tags$hr(),
-      tags$h5("Use of generative AI"),
+      tags$h5("AI Acknowledgement"),
       tags$p(
-        "This dashboard was developed with assistance from a generative AI ",
-        "assistant (Anthropic's Claude). It was used to help write and debug the ",
-        "R and Shiny code, design and refine the visualisations, and draft ",
+        "Generative AI (Claude) was used to assist in this assignment. The tool was",
+        "used mainly for reviewing and debugging code and refining visualisations",
+        "during the drafting phase. AI was also used to fix grammatical errors and refining ",
         "explanatory text. All analytical decisions, the interpretation of the ",
-        "Coffee Quality Institute data, and the final content were directed and ",
-        "reviewed by the group members listed above."),
+        "data, and the final content were written and ",
+        "reviewed by the group members listed."),
       tags$p(style = "font-size:12px; color:#6F5C49;",
-             "Data: Coffee Quality Institute (Group5_coffee.csv). Built in R with ",
+             "Data: (Group5_coffee.csv). Built in R with ",
              "shiny, bslib, ggplot2, plotly, DT and maps.")
     ))
   })

@@ -1,26 +1,21 @@
-# Sensory Analysis tab — what drives the score, then build your own coffee
-# -------------------------------------------------------------------------
-# Two halves:
+# Sensory Analysis tab: Used to figure out how score
+# relates to attributes
+# We have 3 segments:
 #   1. Feature importance — every sensory attribute ranked by how closely it
 #      tracks the score (total score or the grader's overall mark).
-#   2. Make your own coffee — word-labelled sliders for what you love,
-#      a preparation style, and one big button. We match your palate against
-#      every graded coffee and pour out the closest real cup, with reasons.
+#   2. Scatter Plot -  scatter plot for attribute vs score. With click to find 
+#      overall score for a single point.
+#   2. Make your own coffee — one 1-10 slider per flavor attribute and a
+#      button. Find most matching coffee.
 
 library(bslib)
 
-# The dials the coffee builder matches on (Sweetness is near-identical across
-# the dataset, so Flavor richness separates coffees far better).
-BUILD_ATTRS <- c(Brightness = "Acidity", Body = "Body",
-                 Richness = "Flavor", Smoothness = "Balance")
+# The coffee builder lets the user dial in a full flavour profile: one slider
+# per scored attribute (FLAVOR_ATTRS). builder_ids() maps each attribute to
+# its slider inputId
 
-# A slider label with a plain-word scale beneath it, so the 1-10 dials read as
-# taste choices (low -> high) without any JavaScript.
-dial_label <- function(title, low, high) {
-  tagList(strong(title),
-          span(style = "color:#8A7965; font-weight:400; font-size:12px;",
-               sprintf(" (%s → %s)", low, high)))
-}
+builder_ids <- function()
+  setNames(paste0("p_", gsub("\\.", "_", FLAVOR_ATTRS)), FLAVOR_ATTRS)
 
 flavorUI <- function(id) {
   ns <- NS(id)
@@ -31,7 +26,8 @@ flavorUI <- function(id) {
       "sensory attribute by how closely it tracks the score — the longer the bar, ",
       "the more it drives quality. Switch between the final total score and the ",
       "grader's own overall mark; the ranking barely changes, which is how you know ",
-      "the scoring is consistent. Then scroll down to build your own cup."),
+      "the scoring is consistent. Then see how any note tracks the score, and ",
+      "build your own cup."),
 
     # ── 1. Feature importance of the sensory attributes ─────────────────────
     card(
@@ -50,35 +46,54 @@ flavorUI <- function(id) {
 
     hr(),
 
-    # ── 2. Make your own coffee ─────────────────────────────────────────────
-    h4("Make your own coffee"),
+    # 2. scatter plot to identify how close it tracks 
+    card(
+      card_header("Relationship Between Attribute and Score"),
+      card_body(
+        radioButtons(ns("funnel_attr"), "Select Attribute",
+                     choices  = setNames(FLAVOR_ATTRS, gsub("\\.", " ", FLAVOR_ATTRS)),
+                     selected = "Aftertaste", inline = TRUE),
+        layout_columns(
+          col_widths = c(7, 5),
+          plotOutput(ns("funnel"), height = "440px", click = ns("funnel_click")),
+          plotOutput(ns("funnel_pick"), height = "440px")),
+        div(class = "card-note",
+          tags$ol(style = "margin:0; padding-left:20px;",
+            tags$li("The distribution narrows towards the top: as the selected ",
+                    "attribute's score rises, the spread of total scores contracts, ",
+                    "indicating that higher-scoring coffees converge on a similar ",
+                    "profile while lower-scoring coffees vary widely."),
+            tags$li("Sweetness, uniformity and clean cup are effectively binary: ",
+                    "almost every coffee is awarded full marks, so their points bank ",
+                    "against the right-hand edge and the attribute distinguishes ",
+                    "coffees only when a defect is present."),
+            tags$li("Consequently, low total scores arise chiefly when clean cup or ",
+                    "sweetness collapses, rather than from a uniform decline across ",
+                    "all attributes.")),
+          tags$p(style = "margin:8px 0 0;",
+                 "Select any point to view that coffee's full component breakdown ",
+                 "to the right.")))),
+
+    hr(),
+
+    # ── 3. Make your own coffee ─────────────────────────────────────────────
+    h4("Select a Coffee"),
     p(style = "max-width:860px; font-size:15px; color:#444; line-height:1.6;",
-      "Play barista. Set the four dials to your taste, choose how you like your ",
-      "beans prepared, and press the button. We compare your palate against ",
-      "every professionally graded coffee here and pour out your closest match."),
+      "Set a value from 1 to 10 for each part of the flavour profile, then press ",
+      "the button. We compare your profile against every graded coffee here and ",
+      "list the closest matches."),
 
     layout_columns(
       col_widths = c(4, 8),
 
-      # Left sidebar: the preference dials (1-10, low -> high word scale).
-      wellPanel(class = "taste-dials",
-        h5(style = "margin-top:0; font-weight:600;", "Your taste"),
-        sliderInput(ns("p_bright"), dial_label("Brightness", "soft and mellow", "zingy"),
-                    min = 1, max = 10, value = 7, step = 0.5, ticks = FALSE),
-        sliderInput(ns("p_body"), dial_label("Body", "feather light", "full and bold"),
-                    min = 1, max = 10, value = 6, step = 0.5, ticks = FALSE),
-        sliderInput(ns("p_rich"), dial_label("Flavour richness", "delicate", "intense"),
-                    min = 1, max = 10, value = 7, step = 0.5, ticks = FALSE),
-        sliderInput(ns("p_smooth"), dial_label("Smoothness", "a little edgy", "silky"),
-                    min = 1, max = 10, value = 6, step = 0.5, ticks = FALSE),
-        radioButtons(ns("p_style"), "How your beans are prepared",
-                     choices = c("Bright and clean (washed)"   = "Washed / Wet",
-                                 "Fruity and bold (natural)"   = "Natural / Dry",
-                                 "Smooth and mellow (semi washed)" = "Semi-washed / Semi-pulped",
-                                 "Surprise me"                  = "any"),
-                     selected = "any"),
-        actionButton(ns("brew"), "Make My Coffee", class = "btn-brew",
-                     icon = icon("mug-hot"))
+      # Left: one plain slider per flavour-profile attribute, then the button.
+      wellPanel(
+        h5(style = "margin-top:0; font-weight:600;", "Your flavour profile"),
+        lapply(FLAVOR_ATTRS, function(a)
+          sliderInput(ns(paste0("p_", gsub("\\.", "_", a))),
+                      gsub("\\.", " ", a),
+                      min = 1, max = 10, value = 7, step = 0.5, ticks = FALSE)),
+        actionButton(ns("brew"), "Find Coffee")
       ),
 
       # Right: the pour.
@@ -87,8 +102,8 @@ flavorUI <- function(id) {
 
     hr(),
     p(style = "font-size:17px; color:#2B2018; max-width:860px;",
-      "Found your match? The ", strong("Summary"), " tab wraps the whole story ",
-      "up in one page.")
+      "The ", strong("Conclusion"), " tab consolidates these findings into the ",
+      "study's overall conclusions.")
   )
 }
 
@@ -120,44 +135,93 @@ flavorServer <- function(id, data) {
         labs(x = "How closely it tracks the score", y = NULL) + theme_coffee()
     })
 
-    # ── The coffee builder ────────────────────────────────────────────────────
-    # Map a 1-10 dial onto each attribute's real 5th-95th percentile range, so
-    # dial 1 means "as mellow as coffees actually get" rather than an impossible
-    # zero, and dial 10 means "as intense as the very top of the field".
-    attr_range <- lapply(BUILD_ATTRS, function(a) {
-      v <- scored[[a]]; v <- v[!is.na(v) & v > 0]
-      quantile(v, c(0.05, 0.95), names = FALSE)
+    # ── One attribute vs total score: a plain scatter you flip through, one note at ──
+    # a time. With a single attribute the points don't overlap into mush, so the funnel
+    # shows itself — the cloud fans wide at low notes and tightens to the top-right.
+    # A light trend line just guides the eye. Clicking a point shows that coffee's
+    # full breakdown on the right (see output$funnel_pick). 
+    funnel_df <- reactive({
+      a    <- input$funnel_attr %||% "Aftertaste"
+      keep <- !is.na(scored[[a]]) & scored[[a]] > 0 &
+              !is.na(scored$Total.Cup.Points) & scored$Total.Cup.Points > 0
+      d <- scored[keep, , drop = FALSE]
+      d$x <- d[[a]]; d$y <- d$Total.Cup.Points
+      d
     })
-    dial_to_target <- function(dial, rng) rng[1] + (dial - 1) / 9 * (rng[2] - rng[1])
 
+    output$funnel <- renderPlot({
+      d <- funnel_df()
+      a <- input$funnel_attr %||% "Aftertaste"
+      if (nrow(d) == 0)
+        return(gg_no_data("No coffees to plot for that note."))
+      ggplot(d, aes(x, y)) +
+        geom_point(colour = COFFEE_COLS$blue, alpha = 0.35, size = 1.8) +
+        geom_smooth(method = "lm", formula = y ~ x, se = FALSE,
+                    colour = COFFEE_COLS$green, linewidth = 1.1) +
+        labs(x = sprintf("%s score (out of 10)", gsub("\\.", " ", a)),
+             y = "Total cup score (out of 100)") +
+        theme_coffee()
+    })
+
+    # Remember the clicked point; forget it when the note (and so the layout) changes.
+    sel_click <- reactiveVal(NULL)
+    observeEvent(input$funnel_click, sel_click(input$funnel_click))
+    observeEvent(input$funnel_attr,  sel_click(NULL), ignoreInit = TRUE)
+
+    # The clicked coffee's full breakdown: its nine notes + the grader's mark,
+    # as a labelled bar chart with the total in the title.
+    output$funnel_pick <- renderPlot({
+      cl <- sel_click()
+      if (is.null(cl))
+        return(gg_no_data("Click a point to see that coffee's full scores."))
+      row <- nearPoints(funnel_df(), cl, xvar = "x", yvar = "y",
+                        maxpoints = 1, threshold = 20)
+      if (nrow(row) == 0)
+        return(gg_no_data("No coffee there — click closer to a point."))
+      r      <- row[1, ]
+      comps  <- c(FLAVOR_ATTRS, "Cupper.Points")
+      labels <- ifelse(comps == "Cupper.Points", "Grader overall", gsub("\\.", " ", comps))
+      pick   <- data.frame(comp = factor(labels, levels = rev(labels)),
+                           val  = vapply(comps, function(c) as.numeric(r[[c]]), numeric(1)))
+      # Keep long producer names from shoving the total off the edge: cap the
+      # length, wrap onto a couple of lines, and give the total its own line.
+      nm <- cup_name(r)
+      if (nchar(nm) > 48) nm <- paste0(substr(nm, 1, 47), "…")
+      nm <- paste(strwrap(nm, width = 26), collapse = "\n")
+      ggplot(pick, aes(val, comp)) +
+        geom_col(fill = COFFEE_COLS$blue, width = 0.7) +
+        geom_text(aes(label = sprintf("%.2f", val)), hjust = -0.15,
+                  size = 4, colour = LATTE$subtext) +
+        scale_x_continuous(limits = c(0, 10.8), expand = expansion(mult = c(0, 0.02))) +
+        labs(title = nm, subtitle = sprintf("Total %.1f / 100", r$Total.Cup.Points),
+             x = "Score (out of 10)", y = NULL) +
+        theme_coffee()
+    })
+
+    # ── The coffee builder ────────────────────────────────────────────────────
+    # Straightforward matching: each slider is a target score out of 10, and every
+    # coffee already has a real score out of 10 on each attribute, so they compare
+    # directly — no rescaling. A coffee's match is how close, on average, its
+    # scores sit to the sliders.
     match_result <- eventReactive(input$brew, {
-      dials <- c(Brightness = input$p_bright, Body = input$p_body,
-                 Richness = input$p_rich, Smoothness = input$p_smooth)
-      targets <- mapply(function(nm, a) dial_to_target(dials[[nm]], attr_range[[nm]]),
-                        names(BUILD_ATTRS), BUILD_ATTRS)
-      names(targets) <- names(BUILD_ATTRS)
+      ids   <- builder_ids()
+      dials <- setNames(
+        vapply(FLAVOR_ATTRS, function(a) input[[ids[[a]]]] %||% 7, numeric(1)),
+        FLAVOR_ATTRS)
 
-      d <- scored
-      if (input$p_style != "any") d <- d[d$Processing.Method == input$p_style, ]
-      cols <- unname(BUILD_ATTRS)
-      ok <- Reduce(`&`, lapply(cols, function(a) !is.na(d[[a]]) & d[[a]] > 0))
-      d <- d[ok, ]
+      d  <- scored
+      ok <- Reduce(`&`, lapply(FLAVOR_ATTRS, function(a) !is.na(d[[a]]) & d[[a]] > 0))
+      d  <- d[ok, ]
       if (nrow(d) == 0) return(NULL)
 
-      # Distance in units of each attribute's spread, so no dial dominates.
-      sds <- vapply(cols, function(a) sd(scored[[a]], na.rm = TRUE), numeric(1))
-      gap <- mapply(function(nm, a, s) ((d[[a]] - targets[[nm]]) / s)^2,
-                    names(BUILD_ATTRS), BUILD_ATTRS, sds)
+      # Average points a coffee sits away from the sliders, across the 9 attributes.
+      gap <- vapply(FLAVOR_ATTRS, function(a) abs(d[[a]] - dials[[a]]), numeric(nrow(d)))
       if (is.null(dim(gap))) gap <- matrix(gap, nrow = 1)   # single-row edge case
-      dist <- rowSums(gap)
-      d$fit <- 100 * exp(-dist / 2)               # 100 = spot on, fades with distance
-      d <- d[order(-d$fit, -d$Total.Cup.Points), ]
+      d$gap <- rowMeans(gap)
+      d$fit <- 100 * (1 - d$gap / 9)          # 100% = an exact match on every attribute
+      d <- d[order(d$gap, -d$Total.Cup.Points), ]
 
-      # Popularity: how this coffee's shipped bags compare with the whole field.
-      pop_pct <- function(bags) round(100 * mean(scored$Number.of.Bags <= bags, na.rm = TRUE))
-      picks <- head(d, 3)
-      picks$pop <- vapply(picks$Number.of.Bags, pop_pct, numeric(1))
-      list(picks = picks, targets = targets, dials = dials)
+      list(picks = head(d, 3), dials = dials)
     })
 
     # Friendly display name for one coffee row.
@@ -174,35 +238,25 @@ flavorServer <- function(id, data) {
         return(card(card_body(
           div(style = "text-align:center; padding:70px 30px; color:#6F5C49;",
               icon("mug-hot", style = "font-size:44px; color:#C68642;"),
-              h4(style = "margin-top:16px;", "Your cup is waiting"),
+              h4(style = "margin-top:16px;", "Set your flavour profile"),
               p(style = "max-width:400px; margin:0 auto; font-size:15px;",
-                "Set the dials to your taste and press Make My Coffee. ",
-                "We will find the real graded coffee that fits your palate best.")))))
+                "Move the dials to the profile you want and press Make My Coffee ",
+                "to see the graded coffees closest to it.")))))
       }
       res <- match_result()
       if (is.null(res)) {
         return(card(card_body(
           div(style = "text-align:center; padding:60px 30px; color:#6F5C49;",
-              h4("No beans match that combination"),
-              p("Try a different preparation style, or choose Surprise me.")))))
+              h4("No coffee to match"),
+              p("No graded coffee has a value for every attribute.")))))
       }
       best <- res$picks[1, ]
-      dial_words <- c(Brightness = "brightness", Body = "body",
-                      Richness = "flavour richness", Smoothness = "smoothness")
 
-      why <- lapply(names(BUILD_ATTRS), function(nm) {
-        a <- BUILD_ATTRS[[nm]]
+      compare <- lapply(FLAVOR_ATTRS, function(a) {
         tags$li(style = "margin-bottom:6px;",
-          sprintf("You set %s to %.1f, which means a score near %.1f. This cup pours %.1f.",
-                  dial_words[[nm]], res$dials[[nm]], res$targets[[nm]], best[[a]]))
+          sprintf("%s: you set %.1f, this coffee scores %.1f.",
+                  gsub("\\.", " ", a), res$dials[[a]], best[[a]]))
       })
-
-      pop_line <- if (best$pop >= 70)
-        sprintf("A proven crowd pleaser: more bags of this coffee shipped than %d%% of every coffee here.", best$pop)
-      else if (best$pop >= 40)
-        sprintf("Comfortably popular: it out-ships %d%% of the coffees in this dataset.", best$pop)
-      else
-        sprintf("A hidden gem: only a small harvest (more bags shipped by %d%% of the field), so consider it a connoisseur's pick.", 100 - best$pop)
 
       runner_card <- function(row) {
         div(style = paste0("flex:1; min-width:200px; background:#FBF6EE; border:1px solid #EADDCB;",
@@ -211,15 +265,15 @@ flavorServer <- function(id, data) {
             div(style = "font-size:13.5px; color:#6F5C49; margin-top:2px;",
                 paste0(row$Country.of.Origin, " · ", row$Processing.Method)),
             div(style = "font-size:13.5px; color:#9C5A20; font-weight:600; margin-top:6px;",
-                sprintf("%.0f%% fit · scored %.1f", row$fit, row$Total.Cup.Points)))
+                sprintf("%.0f%% match · scored %.1f", row$fit, row$Total.Cup.Points)))
       }
 
       card(
         card_header(div(style = "display:flex; justify-content:space-between; align-items:center;",
-                        span("Your custom blend match"),
+                        span("Closest match"),
                         span(style = paste0("background:linear-gradient(120deg,#9C5A20,#C68642); color:#fff;",
                                             "border-radius:999px; padding:4px 14px; font-size:14px; font-weight:700;"),
-                             sprintf("%.0f%% fit", best$fit)))),
+                             sprintf("%.0f%% match", best$fit)))),
         card_body(
           div(style = "font-size:26px; font-weight:700; color:#2B2018;", cup_name(best)),
           div(style = "font-size:15.5px; color:#6F5C49; margin:2px 0 14px;",
@@ -229,14 +283,10 @@ flavorServer <- function(id, data) {
                      " · prepared ", tolower(best$Processing.Method), " style",
                      " · graded ", sprintf("%.1f", best$Total.Cup.Points), " out of 100")),
 
-          h5(style = "font-weight:650;", "Why this fits your palate"),
-          tags$ul(style = "font-size:14.5px; color:#2B2018; line-height:1.55; padding-left:20px;", why),
+          h5(style = "font-weight:650;", "Your profile vs this coffee"),
+          tags$ul(style = "font-size:14.5px; color:#2B2018; line-height:1.55; padding-left:20px;", compare),
 
-          div(style = paste0("background:#FBF6EE; border-left:4px solid #C68642; border-radius:8px;",
-                             "padding:10px 14px; font-size:14.5px; color:#2B2018; margin:8px 0 16px;"),
-              pop_line),
-
-          h5(style = "font-weight:650;", "Two more cups worth a try"),
+          h5(style = "font-weight:650;", "Other close matches"),
           div(style = "display:flex; gap:14px; flex-wrap:wrap;",
               lapply(seq_len(min(2, nrow(res$picks) - 1)),
                      function(i) runner_card(res$picks[i + 1, ])))

@@ -90,9 +90,8 @@ analysisUI <- function(id) {
 
     hr(),
     p(style = "font-size:17px; color:#2B2018; max-width:860px;",
-      "That is the growing side of the story. Ready to trust your own palate? ",
-      "Head to ", strong("Sensory Analysis"), " to feel these scores and build ",
-      "a coffee that fits you.")
+      "Growing conditions set the ceiling; the ", strong("Sensory Analysis"),
+      " tab examines the tasting attributes that determine the final grade.")
   )
 }
 

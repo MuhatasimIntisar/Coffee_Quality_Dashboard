@@ -105,9 +105,8 @@ toneUI <- function(id) {
 
     hr(),
     p(style = "font-size:17px; color:#2B2018; max-width:860px;",
-      "So that is what an origin tastes like. Curious ", strong("why"),
-      " it tastes that way? The ", strong("Attributing Factors"),
-      " tab digs into the growing conditions behind the scores.")
+      "The ", strong("Attributing Factors"), " tab turns from an origin's ",
+      "profile to the growing conditions that shape its scores.")
   )
 }
 
