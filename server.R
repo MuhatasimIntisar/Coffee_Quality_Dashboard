@@ -4,21 +4,29 @@ library(shiny)
 # This file just starts each module, passing in the shared `coffee`
 # dataset (loaded once in global.R). The id here must match ui.R.
 #
-# `nav` is a tiny shared bus for cross-tab navigation: the Global tab sets
-# nav$country (and bumps nav$nonce) to ask the app to open the Profile tab with
-# that country preselected. Profile listens for it; we switch tabs here.
+# Cross-tab navigation:
+#   * input$go_tab   — set by the Overview hub cards (plain JS onclick);
+#                      whatever tab name arrives, we switch to it.
+#   * `nav` bus      — the Global tab sets nav$country (and bumps nav$nonce)
+#                      to open Profile with that origin preselected. Profile
+#                      listens; we switch tabs here.
 
 server <- function(input, output, session) {
   nav <- reactiveValues(country = NULL, nonce = 0)
 
   introductionServer("introduction", coffee)
   locationServer("location", coffee, nav)
-  profileServer("profile", coffee, nav)
+  toneServer("tone", coffee, nav)
   analysisServer("analysis", coffee)
   flavorServer("flavor", coffee)
   conclusionServer("conclusion", coffee)
 
-  # A country was clicked on the Global tab -> jump to Profile.
+  # An Overview hub card was clicked -> jump straight to its tab.
+  observeEvent(input$go_tab, {
+    updateTabsetPanel(session, "tabs", selected = input$go_tab)
+  })
+
+  # A country was clicked on the Global tab -> jump to its Profile.
   observeEvent(nav$nonce, {
     req(nav$country)
     updateTabsetPanel(session, "tabs", selected = "Profile")
@@ -31,7 +39,7 @@ server <- function(input, output, session) {
       title = "About this dashboard",
       easyClose = TRUE,
       footer = modalButton("Close"),
-      tags$p(tags$strong("Coffee Quality Dashboard"),
+      tags$p(tags$strong("The World in Your Cup"),
              " — DSA8045 Applied Analytics, Assignment 1."),
       tags$h5("Created by"),
       tags$ul(
@@ -53,7 +61,7 @@ server <- function(input, output, session) {
         "reviewed by the group members listed above."),
       tags$p(style = "font-size:12px; color:#6F5C49;",
              "Data: Coffee Quality Institute (Group5_coffee.csv). Built in R with ",
-             "shiny, bslib, ggplot2, DT, fmsb and maps.")
+             "shiny, bslib, ggplot2, plotly, DT and maps.")
     ))
   })
 }

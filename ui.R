@@ -2,19 +2,21 @@ library(shiny)
 library(bslib)
 
 # Each tab is a Shiny module defined in its own file under R/ (auto-sourced).
-# This file lays out the overall page, applies the coffee theme, and slots each
-# module's UI in. Flow: orient (Introduction) -> explore the world (Global) ->
-# dig into a slice (Profile) -> analyse drivers (Analysis) -> conclude.
+# This file lays out the overall page, applies the coffee design system, and
+# slots each module's UI in. Flow: welcome hub (Overview) -> spin the world
+# (Global) -> taste one origin (Profile) -> what shapes the score
+# (Attributing Factors) -> feel it and build your own (Sensory Analysis) ->
+# the big picture (Summary).
 
 # ── Brand palette ─────────────────────────────────────────────────────────────
 # Shared with R/helpers.R (COFFEE_COLS). Defined here too so the theme can use it.
 coffee_colours <- c(
   espresso = "#3A2417",  # near-black warm ink
-  roast    = "#8A5A2B",  # roasted brown  (primary data colour)
+  roast    = "#9C5A20",  # roasted brown  (primary data colour)
   caramel  = "#C68642",  # caramel        (highlight)
   latte    = "#E8C99A",  # latte
   cream    = "#F7F1E7",  # page background
-  green    = "#2E8B74"   # fresh green    (positive highlights)
+  green    = "#0E8A63"   # fresh green    (positive highlights)
 )
 
 # Coffee palette mapped onto Bootstrap's semantic colours. Typography uses the
@@ -22,14 +24,13 @@ coffee_colours <- c(
 coffee_theme <- bs_theme(
   version      = 5,
   bg           = "#F7F1E7",                # light cream base
-  fg           = "#2B2018",                # higher-contrast ink (was #4E2A04)
+  fg           = "#2B2018",                # high-contrast warm ink
   primary      = coffee_colours[["roast"]],
   secondary    = coffee_colours[["espresso"]],
   success      = coffee_colours[["green"]],
   info         = coffee_colours[["caramel"]],
   warning      = coffee_colours[["caramel"]],
   danger       = "#9E2B25",
-  # Fonts: native system-font stack (no download), sized up a notch overall.
   "font-size-base"    = "1.05rem",
   "border-radius"     = "12px",
   "card-border-color" = "#EADDCB"
@@ -42,7 +43,8 @@ ui <- fluidPage(
   tags$head(tags$style(HTML("
     :root{
       --cream:#F7F1E7; --surface:#FFFFFF; --line:#EADDCB;
-      --ink:#2B2018; --muted:#6F5C49; --accent:#8A5A2B; --caramel:#C68642;
+      --ink:#2B2018; --muted:#6F5C49; --accent:#9C5A20; --caramel:#C68642;
+      --glowshadow: 0 10px 26px rgba(58,36,23,.12);
     }
     body{ background:var(--cream); color:var(--ink); }
     .container-fluid{ max-width:100%; padding-left:max(2rem,3%); padding-right:max(2rem,3%); }
@@ -61,15 +63,171 @@ ui <- fluidPage(
         margin-top:6px; color:var(--ink); }
     .tab-pane > p:first-of-type{ color:var(--muted); max-width:72ch; font-size:17px; line-height:1.6; }
 
-    /* ── Tabs: underline style (replaces filled active tab) ─── */
+    /* ── Micro-interactions: fluid tab fade, card lift, link glide ── */
+    .tab-pane.active{ animation:fadeUp .38s cubic-bezier(.2,.7,.3,1); }
+    @keyframes fadeUp{ from{ opacity:0; transform:translateY(10px);} to{ opacity:1; transform:none;} }
+    .card, .well{ transition:transform .25s ease, box-shadow .25s ease; }
+    .card:hover{ transform:translateY(-3px); box-shadow:var(--glowshadow); }
+    .btn{ transition:transform .18s ease, box-shadow .18s ease, filter .18s ease; }
+    .btn:hover{ transform:translateY(-1px); filter:brightness(1.05); }
+    .btn:active{ transform:translateY(0); }
+    a{ transition:color .15s ease; text-decoration:none; }
+    a:hover{ text-decoration:none; }
+    @media (prefers-reduced-motion: reduce){
+      *, *::before, *::after{ animation:none!important; transition:none!important; }
+    }
+
+    /* ── Chart load animations: every chart eases up from zero (~0.7s) ──
+       Replays on page load AND on every tab switch, because the animation
+       re-fires whenever the pane regains its .active class. */
+    @keyframes riseIn{ from{ clip-path:inset(100% 0 0 0); opacity:.3; }
+                       to{ clip-path:inset(0 0 0 0); opacity:1; } }
+    @keyframes chartIn{ from{ opacity:0; transform:scale(.94) translateY(8px); }
+                        to{ opacity:1; transform:none; } }
+    @keyframes growbar{ from{ width:0; } }
+    .tab-pane.active .shiny-plot-output img{ animation:riseIn .7s cubic-bezier(.2,.7,.3,1) both; }
+    .tab-pane.active .js-plotly-plot{ animation:chartIn .7s cubic-bezier(.2,.7,.3,1) both; }
+    .tab-pane.active .glowbar-fill{ animation:growbar .7s cubic-bezier(.2,.8,.2,1) both; }
+    .tab-pane.active .dataTables_wrapper{ animation:chartIn .7s cubic-bezier(.2,.7,.3,1) both; }
+
+    /* ── Overview hero: a cup filling with coffee, steam drifting up ── */
+    .hero-wrap{ display:flex; align-items:center; gap:34px; flex-wrap:wrap; margin:4px 0 10px; }
+    .hero-copy{ flex:1 1 480px; }
+    .cup-scene{ flex:0 0 190px; height:210px; position:relative; margin:0 auto; }
+    .cup{ position:absolute; left:30px; bottom:26px; width:118px; height:96px;
+          background:#FFFFFF; border:4px solid #3A2417; border-top-width:5px;
+          border-radius:6px 6px 46px 46px; overflow:hidden;
+          box-shadow:0 10px 22px rgba(58,36,23,.18); }
+    .cup-coffee{ position:absolute; left:0; right:0; bottom:0; height:0;
+                 background:linear-gradient(180deg,#8A5A2B 0%, #5C3A1E 55%, #3A2417 100%);
+                 animation:cupFill 3.2s cubic-bezier(.35,.1,.25,1) .4s forwards; }
+    @keyframes cupFill{ to{ height:78%; } }
+    .cup-surface{ position:absolute; left:0; right:0; top:0; height:9px; border-radius:50%;
+                  background:radial-gradient(ellipse at 50% 40%, #C68642 0%, #7B4A22 70%);
+                  opacity:0; animation:surfaceOn .6s ease 2.2s forwards; }
+    @keyframes surfaceOn{ to{ opacity:.9; } }
+    .cup-handle{ position:absolute; right:8px; bottom:48px; width:42px; height:52px;
+                 border:4px solid #3A2417; border-left:none; border-radius:0 26px 26px 0; }
+    .cup-saucer{ position:absolute; left:12px; bottom:10px; width:154px; height:16px;
+                 background:#FFFFFF; border:3px solid #3A2417; border-radius:50%;
+                 box-shadow:0 6px 14px rgba(58,36,23,.15); }
+    .steam{ position:absolute; bottom:130px; width:9px; height:56px; border-radius:50%;
+            background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.85) 45%, rgba(255,255,255,0) 100%);
+            filter:blur(4px); opacity:0; animation:steamRise 3.4s ease-in-out infinite; }
+    .steam.s1{ left:62px;  animation-delay:2.4s; }
+    .steam.s2{ left:86px;  height:66px; animation-delay:3.1s; }
+    .steam.s3{ left:110px; animation-delay:3.8s; }
+    @keyframes steamRise{
+      0%{ opacity:0; transform:translateY(12px) scaleX(1); }
+      30%{ opacity:.75; }
+      60%{ opacity:.4; transform:translateY(-18px) scaleX(1.6) rotate(4deg); }
+      100%{ opacity:0; transform:translateY(-38px) scaleX(2.1) rotate(-4deg); }
+    }
+
+    /* ── Overview hub cards (clickable gateways into the tabs) ── */
+    .hub-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+               gap:18px; margin:8px 0 6px; }
+    .hub-card{ position:relative; display:block; background:var(--surface); border:1px solid var(--line);
+               border-radius:16px; padding:22px 22px 18px; cursor:pointer; overflow:hidden;
+               box-shadow:0 1px 2px rgba(58,36,23,.05); text-decoration:none;
+               transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .hub-card:hover, .hub-card:focus{ text-decoration:none; }
+    .hub-card:hover{ transform:translateY(-5px); box-shadow:0 14px 30px rgba(58,36,23,.14);
+                     border-color:var(--caramel); }
+    .hub-card::after{ content:''; position:absolute; inset:0 0 auto 0; height:4px;
+                      background:var(--hub-accent, var(--accent)); }
+    .hub-kicker{ font-family:ui-monospace,Consolas,'Liberation Mono',monospace; font-size:11px; letter-spacing:.14em;
+                 text-transform:uppercase; color:var(--hub-accent, var(--accent)); margin:2px 0 10px; }
+    .hub-big{ font-size:30px; font-weight:650; line-height:1.05; color:var(--ink); margin:0 0 8px; }
+    .hub-desc{ font-size:14.5px; color:var(--muted); line-height:1.5; margin:0 0 14px; min-height:44px; }
+    .hub-go{ font-size:14px; font-weight:600; color:var(--hub-accent, var(--accent));
+             display:inline-flex; align-items:center; gap:6px; }
+    .hub-go .chev{ transition:transform .25s ease; }
+    .hub-card:hover .chev{ transform:translateX(5px); }
+
+    /* ── Explainer blocks under charts (Attributing Factors) ── */
+    .explain{ background:#FBF6EE; border:1px solid var(--line); border-radius:12px;
+              padding:14px 18px; margin-top:12px; }
+    .explain .xrow{ display:flex; gap:10px; margin:6px 0; align-items:baseline; }
+    .explain .xtag{ flex:none; width:130px; font-family:ui-monospace,Consolas,monospace; font-size:11px;
+                    letter-spacing:.08em; text-transform:uppercase; color:var(--accent); font-weight:600; }
+    .explain .xtxt{ font-size:14.5px; color:var(--ink); line-height:1.55; }
+
+    /* ── Sensory bars (Sensory Analysis): clean fills, no glow ── */
+    .glowbar-row{ display:flex; align-items:center; gap:14px; margin:16px 0; }
+    .glowbar-label{ width:110px; flex:none; font-size:15px; font-weight:600; color:var(--ink); }
+    .glowbar-track{ position:relative; flex:1; height:24px; border-radius:12px;
+                    background:#EFE4D2; }
+    .glowbar-fill{ position:relative; height:100%; border-radius:12px;
+                   background:linear-gradient(90deg, var(--bar-from,#C68642), var(--bar-to,#9C5A20));
+                   transition:width .7s cubic-bezier(.2,.8,.2,1), filter .25s ease; }
+    .glowbar-row:hover .glowbar-fill{ filter:brightness(1.08); }
+    .glowbar-val{ width:52px; flex:none; text-align:right; font-size:15px; font-weight:650; color:var(--ink); }
+    .glowbar-avg{ position:absolute; top:-5px; bottom:-5px; width:2.5px; border-radius:2px;
+                  background:var(--ink); opacity:.45; }
+
+    /* ── Taste dials: fluid sliders, not a school ruler ──────── */
+    .taste-dials .irs-min, .taste-dials .irs-max,
+    .taste-dials .irs-grid, .taste-dials .irs-grid-text{ display:none!important; }
+    .taste-dials .irs--shiny .irs-line{ height:10px; border-radius:6px; top:30px; }
+    .taste-dials .irs--shiny .irs-bar{ height:10px; border-radius:6px; top:30px;
+        background:linear-gradient(90deg,#C68642,#9C5A20); border:none; }
+    .taste-dials .irs--shiny .irs-handle{ width:26px; height:26px; top:22px; border-radius:50%;
+        background:#FFFFFF; border:3px solid var(--accent); box-shadow:0 2px 8px rgba(58,36,23,.25);
+        cursor:grab; transition:transform .15s ease, box-shadow .15s ease; }
+    .taste-dials .irs--shiny .irs-handle:hover{ transform:scale(1.12);
+        box-shadow:0 4px 12px rgba(58,36,23,.3); }
+    .taste-dials .irs--shiny .irs-handle.state_hover, .taste-dials .irs--shiny .irs-handle:active{ cursor:grabbing; }
+    .taste-dials .irs--shiny .irs-single{ background:var(--accent); border-radius:8px;
+        font-size:13px; font-weight:600; padding:3px 12px; }
+
+    /* ── Make My Coffee button ──────────────────────────────── */
+    .btn-brew{ width:100%; padding:14px 18px; font-size:17px; font-weight:700; color:#fff;
+               background:linear-gradient(120deg,#9C5A20,#C68642); border:none; border-radius:14px;
+               box-shadow:0 6px 18px rgba(156,90,32,.35); letter-spacing:.02em; }
+    .btn-brew:hover{ color:#fff; box-shadow:0 10px 26px rgba(156,90,32,.45); }
+
+    /* ── Summary takeaway cards: staggered entrance + hover ──── */
+    .takeaway-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(270px, 1fr));
+                    gap:18px; margin:8px 0 6px; }
+    .takeaway-card{ position:relative; background:var(--surface); border:1px solid var(--line);
+                    border-radius:16px; padding:20px 22px 18px; overflow:hidden;
+                    box-shadow:0 1px 2px rgba(58,36,23,.05);
+                    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .takeaway-card:hover{ transform:translateY(-5px) scale(1.01);
+                    box-shadow:0 14px 30px rgba(58,36,23,.14); border-color:var(--caramel); }
+    .takeaway-card::before{ content:''; position:absolute; inset:0 auto 0 0; width:5px;
+                    background:var(--tk-accent, var(--accent)); }
+    .takeaway-num{ font-family:ui-monospace,Consolas,monospace; font-size:12px; font-weight:700;
+                    letter-spacing:.12em; color:var(--tk-accent, var(--accent)); margin-bottom:8px; }
+    .takeaway-title{ font-size:19px; font-weight:700; color:var(--ink); margin:0 0 8px; line-height:1.25; }
+    .takeaway-body{ font-size:14.5px; color:#4A3B2C; line-height:1.6; margin:0; }
+    @keyframes cardIn{ from{ opacity:0; transform:translateY(18px) scale(.97); }
+                       to{ opacity:1; transform:none; } }
+    .tab-pane.active .takeaway-card{ animation:cardIn .6s cubic-bezier(.2,.7,.3,1) both;
+                                     animation-delay:calc(var(--i, 0) * 90ms); }
+
+    /* ── Pop-out slice callout (Profile) ────────────────────── */
+    .slice-callout{ background:var(--surface); border:1px solid var(--caramel); border-radius:14px;
+                    padding:16px 20px; box-shadow:0 12px 30px rgba(58,36,23,.16);
+                    animation:fadeUp .3s ease; }
+    .slice-pct{ font-size:34px; font-weight:700; color:var(--accent); line-height:1; }
+    .mini-rating{ display:inline-block; background:#FBF6EE; border:1px solid var(--line); border-radius:10px;
+                  padding:8px 14px; margin:6px 8px 0 0; text-align:center; }
+    .mini-rating .mr-name{ font-family:ui-monospace,Consolas,monospace; font-size:10.5px; letter-spacing:.1em;
+                  text-transform:uppercase; color:var(--muted); }
+    .mini-rating .mr-val{ font-size:19px; font-weight:700; color:var(--ink); }
+    .mini-rating .mr-word{ font-size:12px; color:var(--accent); font-weight:600; }
+
+    /* ── Tabs: underline style ──────────────────────────────── */
     .nav-tabs{ border-bottom:1px solid var(--line); gap:4px; margin-bottom:22px; }
     .nav-tabs .nav-link{ color:var(--muted); border:none; border-bottom:2px solid transparent;
-                         font-weight:500; padding:12px 16px; }
+                         font-weight:500; padding:12px 16px; transition:color .2s ease, border-color .2s ease; }
     .nav-tabs .nav-link:hover{ color:var(--ink); border-bottom-color:var(--line); }
     .nav-tabs .nav-link.active{ color:var(--ink); font-weight:600; background:transparent;
                                 border-bottom:2px solid var(--accent); }
 
-    /* ── wellPanel -> clean control card (replaces tan .well) ─ */
+    /* ── wellPanel -> clean control card ────────────────────── */
     .well{ background:var(--surface); border:1px solid var(--line); border-radius:14px;
            box-shadow:0 1px 2px rgba(58,36,23,.05); padding:18px 20px; }
 
@@ -77,7 +235,7 @@ ui <- fluidPage(
     .form-control, .form-select, .selectize-input{ border-color:var(--line)!important;
            border-radius:10px!important; }
     .selectize-input.focus, .form-control:focus, .form-select:focus{
-           border-color:var(--accent)!important; box-shadow:0 0 0 3px rgba(138,90,43,.12)!important; }
+           border-color:var(--accent)!important; box-shadow:0 0 0 3px rgba(156,90,32,.12)!important; }
     label, .control-label{ font-family:ui-monospace,Consolas,'Liberation Mono',monospace; font-size:13px;
            letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
 
@@ -108,23 +266,29 @@ ui <- fluidPage(
     .bslib-sidebar-layout .sidebar-title{ font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
            font-weight:600; color:var(--ink); letter-spacing:0; text-transform:none; font-size:16px; }
 
+    /* ── Summary bean rain canvas ───────────────────────────── */
+    .bean-stage{ position:relative; }
+    .bean-stage > canvas{ position:absolute; inset:0; width:100%; height:100%;
+                          pointer-events:none; z-index:0; }
+    .bean-stage > .bean-content{ position:relative; z-index:1; }
+
     /* ── Misc ───────────────────────────────────────────────── */
     hr{ border-top:1px solid var(--line); opacity:1; margin:26px 0; }
   "))),
 
   div(style = "display:flex; align-items:center; justify-content:space-between; margin:8px 2px 2px;",
-      h1("Coffee Quality Dashboard", class = "app-title"),
+      h1("The World in Your Cup", class = "app-title"),
       actionLink("about_btn", "About", icon = icon("circle-info"))),
 
   tabsetPanel(
     id = "tabs",
     type = "tabs",
 
-    tabPanel("Overview",            introductionUI("introduction")),
-    tabPanel("Global",              locationUI("location")),
-    tabPanel("Profile",             profileUI("profile")),
-    tabPanel("Attributing Factors", analysisUI("analysis")),
-    tabPanel("Sensory Analysis",    flavorUI("flavor")),
-    tabPanel("Summary",             conclusionUI("conclusion"))
+    tabPanel("Overview",            value = "Overview",            introductionUI("introduction")),
+    tabPanel("Global",              value = "Global",              locationUI("location")),
+    tabPanel("Profile",             value = "Profile",             toneUI("tone")),
+    tabPanel("Attributing Factors", value = "Attributing Factors", analysisUI("analysis")),
+    tabPanel("Sensory Analysis",    value = "Sensory Analysis",    flavorUI("flavor")),
+    tabPanel("Summary",             value = "Summary",             conclusionUI("conclusion"))
   )
 )

@@ -13,9 +13,9 @@
 # Keys kept (blue/green/purple/orange/grey/grid) so modules need no changes —
 # each now maps to a refined, higher-contrast coffee tone.
 COFFEE_COLS <- list(
-  blue   = "#8A5A2B", blue_lt  = "#C68642",   # roasted brown / caramel (primary data)
-  green  = "#2E8B74", green_dk = "#1F6B58",   # fresh green
-  purple = "#3A2417", orange   = "#C68642",   # espresso ink / caramel (highlight)
+  blue   = "#9C5A20", blue_lt  = "#C68642",   # roasted brown / caramel (primary data)
+  green  = "#0E8A63", green_dk = "#0B6B4D",   # fresh green
+  purple = "#3A2417", orange   = "#AE7A0F",   # espresso ink / golden roast (highlight)
   grey   = "#9C8F7E", grid     = "#EFE4D2"    # muted brown / soft grid
 )
 
@@ -23,13 +23,15 @@ COFFEE_COLS <- list(
 LATTE <- list(base = "#F7F1E7", mantle = "#F1E4CE", surface = "#FFFFFF",
               line = "#EADDCB", text = "#2B2018", subtext = "#6F5C49")
 
-# Categorical hues for multi-series charts — a unified warm coffee palette.
-CAT_COLS <- c("#8A5A2B",  # roast
-              "#C68642",  # caramel
-              "#2E8B74",  # green
-              "#B5654A",  # clay
-              "#D8B26A",  # tan
-              "#3A2417")  # espresso
+# Categorical hues for multi-series charts — a warm coffee palette, validated
+# for lightness band, chroma floor, colour-vision separation and 3:1 contrast
+# against the cream surface (#F7F1E7). Assigned in this fixed order.
+CAT_COLS <- c("#9C5A20",  # roast brown
+              "#0E8A63",  # fresh green
+              "#AE7A0F",  # golden honey
+              "#B04A38",  # baked clay
+              "#3E7CB1",  # lake blue
+              "#A03A64")  # berry
 
 # Pick n distinct categorical colours: straight from CAT_COLS when there are
 # enough, only interpolating when more than the palette length are needed.
