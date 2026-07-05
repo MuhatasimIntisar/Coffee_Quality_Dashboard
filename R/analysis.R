@@ -1,97 +1,94 @@
-# Attributing Factors tab — what shapes a great cup
-# --------------------------------------------------
-# Three sections that step up gently in depth (no difficulty labels, the
-# progression speaks for itself):
-#   1. One simple bar chart: does preparation change the score?
-#   2. Two correlation views: altitude and moisture against the score
-#   3. A two-factor heatmap: altitude and moisture together (blue scale)
-# Every chart carries a mandatory plain-English explainer directly beneath it:
-# what you are looking at, the highest peak, the lowest dip, and the takeaway.
-# All peak/dip figures are computed live from the current selection.
+# Attributing Factors tab — how growing & processing affect the score
+# -------------------------------------------------------------------
+# One growing-or-processing factor per section, top to bottom, then how two
+# factors interact:
+#   1. Method     — score distribution per processing method
+#   2. Altitude & moisture — score vs each, side by side
+#   3. Interaction — cross any two of altitude / moisture / method; filter by method
+# Which tasting notes drive the score lives on the Sensory Analysis tab;
+# countries live on Global.
 
 library(bslib)
-
-# Monochromatic blue fill for the heatmap: light and airy up to deep navy.
-blue_fill <- function(name = waiver()) {
-  scale_fill_gradientn(
-    colours  = c("#EAF2F9", "#C9DDEE", "#9DC0DE", "#6B9CC7", "#3D6FA5", "#12395E"),
-    na.value = "#EAE0D0", name = name)
-}
-
-# The mandatory explainer block that sits under every single chart.
-explain_block <- function(what, peak, dip, takeaway) {
-  xrow <- function(tag, txt) div(class = "xrow",
-                                 span(class = "xtag", tag),
-                                 span(class = "xtxt", txt))
-  div(class = "explain",
-      xrow("What this shows", what),
-      xrow("Highest peak",    peak),
-      xrow("Lowest dip",      dip),
-      xrow("The takeaway",    takeaway))
-}
 
 analysisUI <- function(id) {
   ns <- NS(id)
   tagList(
-    h2("What shapes a great cup"),
-    p(style = "max-width:860px; font-size:17px; color:#444; line-height:1.6;",
-      "Coffee quality is not luck. Where a coffee grows, how wet its beans are ",
-      "and how they are prepared all leave fingerprints on the final score. This ",
-      "page walks you up three steps, from a chart anyone can read at a glance ",
-      "to one that rewards a closer look. Under every chart you will find a ",
-      "plain-English guide to what it means."),
+    h2("Attributing Factors"),
+    h5("Investigate how coffee is influenced by growing conditions and processing"),
+    p("Each section isolates one growing or processing factor and examines its ",
+      "relationship with the score: processing method, altitude, and moisture, ",
+      "followed by the interaction between altitude and moisture."),
 
-    # ── Section 1: the at-a-glance read ─────────────────────────────────────
-    h4("Does preparation change the taste?"),
-    card(full_screen = TRUE,
-         card_header(textOutput(ns("method_title"))),
-         card_body(
-           selectInput(ns("method_measure"), "Measure",
-                       choices = MEASURE_CHOICES, selected = "Total.Cup.Points"),
-           plotOutput(ns("method_bar"), height = "320px"),
-           uiOutput(ns("method_explain")))),
+    accordion(
+      open = "Method: does processing affect the score?",
+
+        # ── 1. Method ──────────────────────────────────────────────────────────
+        accordion_panel(
+          "Method: does processing affect the score?",
+          card(full_screen = TRUE,
+               card_header(textOutput(ns("method_title"))),
+               card_body(
+                 selectInput(ns("method_measure"), "Measure",
+                             choices = MEASURE_CHOICES, selected = "Total.Cup.Points"),
+                 p(class = "card-note",
+                   "How to read: one box per processing method (methods with at least ",
+                   "five coffees). Each box spans the middle half of the scores and the ",
+                   "line marks the median; higher boxes indicate higher scores."),
+                 plotOutput(ns("method_box"), height = "340px"),
+                 uiOutput(ns("method_theory"))))
+        ),
+
+        # ── 2. Altitude & moisture, side by side ───────────────────────────────
+        accordion_panel(
+          "Growing Conditions: How altitude and moisture affect score.",
+          p(class = "card-note",
+            "How to read: each point is one coffee, positioned by its altitude or ",
+            "moisture content (horizontal axis) against the selected measure ",
+            "(vertical axis); the green line traces the overall trend. Use the ",
+            "measure selector on each chart to compare against the total score or ",
+            "any sensory attribute."),
+          layout_columns(
+            col_widths = c(6, 6),
+            card(full_screen = TRUE,
+                 card_header(textOutput(ns("alt_title"))),
+                 card_body(
+                   selectInput(ns("alt_measure"), "Measure",
+                               choices = MEASURE_CHOICES, selected = "Total.Cup.Points"),
+                   plotOutput(ns("alt_scatter"), height = "340px"),
+                   uiOutput(ns("alt_theory")))),
+            card(full_screen = TRUE,
+                 card_header(textOutput(ns("moist_title"))),
+                 card_body(
+                   selectInput(ns("moist_measure"), "Measure",
+                               choices = MEASURE_CHOICES, selected = "Total.Cup.Points"),
+                   plotOutput(ns("moist_scatter"), height = "340px"),
+                   uiOutput(ns("moist_theory")))))
+        ),
+
+        # ── 3. Interaction ─────────────────────────────────────────────────────
+        accordion_panel(
+          "Combination of Growing Conditions and Processing: How the interaction of the 3 results in the score.",
+          card(full_screen = TRUE,
+               card_header(textOutput(ns("am_title"))),
+               card_body(
+                 layout_columns(
+                   col_widths = c(8, 4),
+                   checkboxGroupInput(ns("am_methods"), "Processing methods",
+                                      choices = character(0), inline = TRUE),
+                   selectInput(ns("am_measure"), "Fill by",
+                               choices = MEASURE_CHOICES, selected = "Total.Cup.Points")),
+                 p(class = "card-note",
+                   "How to read: the mean of the selected measure within each altitude ",
+                   "and moisture cell; brighter cells indicate higher values. Processing ",
+                   "methods may be included or excluded using the checkboxes, and blank ",
+                   "cells contain no coffees."),
+                 plotOutput(ns("altmoist"), height = "380px"),
+                 uiOutput(ns("am_theory"))))
+        )
+      ),
 
     hr(),
-
-    # ── Section 2: a closer look ────────────────────────────────────────────
-    h4("Growing conditions, one at a time"),
-    layout_columns(
-      col_widths = c(6, 6),
-      card(full_screen = TRUE,
-           card_header(textOutput(ns("alt_title"))),
-           card_body(
-             selectInput(ns("alt_measure"), "Measure",
-                         choices = MEASURE_CHOICES, selected = "Total.Cup.Points"),
-             plotOutput(ns("alt_scatter"), height = "320px"),
-             uiOutput(ns("alt_explain")))),
-      card(full_screen = TRUE,
-           card_header(textOutput(ns("moist_title"))),
-           card_body(
-             selectInput(ns("moist_measure"), "Measure",
-                         choices = MEASURE_CHOICES, selected = "Total.Cup.Points"),
-             plotOutput(ns("moist_scatter"), height = "320px"),
-             uiOutput(ns("moist_explain"))))),
-
-    hr(),
-
-    # ── Section 3: the deep end ─────────────────────────────────────────────
-    h4("When two factors meet"),
-    card(full_screen = TRUE,
-         card_header(textOutput(ns("am_title"))),
-         card_body(
-           layout_columns(
-             col_widths = c(8, 4),
-             checkboxGroupInput(ns("am_methods"), "Processing methods",
-                                choices = character(0), inline = TRUE),
-             selectInput(ns("am_measure"), "Fill by",
-                         choices = MEASURE_CHOICES, selected = "Total.Cup.Points")),
-           plotOutput(ns("altmoist"), height = "380px"),
-           uiOutput(ns("am_explain")))),
-
-    hr(),
-    p(style = "font-size:17px; color:#2B2018; max-width:860px;",
-      "Growing conditions set the ceiling; the ", strong("Sensory Analysis"),
-      " tab examines the tasting attributes that determine the final grade.")
+    uiOutput(ns("factor_summary"))
   )
 }
 
@@ -105,192 +102,186 @@ analysisServer <- function(id, data) {
     # All scored coffees — this tab isn't scoped by any filter.
     base <- reactive(data[!is.na(data$Total.Cup.Points) & data$Total.Cup.Points > 0, ])
 
-    # ── Level 1: average score per processing method, as simple bars ──────────
-    method_stats <- reactive({
+    # ── 1. Method: score distribution per processing method ─────────────────────
+    output$method_title <- renderText(
+      sprintf("%s by processing method", measure_label(input$method_measure)))
+    output$method_box <- renderPlot({
+      m <- input$method_measure
+      d <- base(); d <- d[d$Processing.Method != "" & !is.na(d[[m]]), ]
+      if (m == "Total.Cup.Points") d <- d[d[[m]] > 0, ]
+      if (nrow(d) == 0) return(gg_no_data("Not enough data for this slice."))
+      keep <- names(which(table(d$Processing.Method) >= 5))
+      d <- d[d$Processing.Method %in% keep, ]
+      if (nrow(d) == 0) return(gg_no_data("Groups too small to compare."))
+      ggplot(d, aes(reorder(Processing.Method, .data[[m]], FUN = median),
+                    .data[[m]], fill = Processing.Method)) +
+        geom_boxplot(alpha = 0.85, width = 0.5, outlier.size = 0.7,
+                     outlier.alpha = 0.4, linewidth = 0.4) +
+        scale_fill_manual(values = cat_cols(length(unique(d$Processing.Method))),
+                          guide = "none") +
+        labs(x = "Processing method", y = measure_label(m)) +
+        coord_cartesian(ylim = measure_limits(m)) + theme_coffee() +
+        theme(axis.text.x = element_text(angle = 20, hjust = 1))
+    })
+
+    # Finding below the chart: which method records the highest median.
+    output$method_theory <- renderUI({
       m <- input$method_measure
       d <- base(); d <- d[d$Processing.Method != "" & !is.na(d[[m]]), ]
       if (m == "Total.Cup.Points") d <- d[d[[m]] > 0, ]
       keep <- names(which(table(d$Processing.Method) >= 5))
       d <- d[d$Processing.Method %in% keep, ]
       if (nrow(d) == 0) return(NULL)
-      ag <- aggregate(d[[m]], list(method = d$Processing.Method), mean, na.rm = TRUE)
-      names(ag) <- c("method", "value")
-      ag$n <- as.integer(table(d$Processing.Method)[ag$method])
-      ag[order(-ag$value), ]
+      meds <- tapply(d[[m]], d$Processing.Method, median, na.rm = TRUE)
+      p(class = "card-note", sprintf(
+        "%s records the highest median, although the differences between methods are modest.",
+        names(meds)[which.max(meds)]))
     })
 
-    output$method_title <- renderText(
-      sprintf("Average %s for each preparation style",
-              tolower(measure_label(input$method_measure))))
-
-    output$method_bar <- renderPlot({
-      ms <- method_stats()
-      if (is.null(ms)) return(gg_no_data("Not enough data for this measure."))
-      ms$method <- factor(ms$method, levels = rev(ms$method))
-      lo <- floor(min(ms$value) - 1)
-      # One refined hue per method (fixed palette order, no legend needed:
-      # the axis names each bar), so the styles read apart without clashing.
-      pal <- setNames(cat_cols(nlevels(ms$method)), levels(ms$method))
-      ggplot(ms, aes(value, method, fill = method)) +
-        geom_col(width = 0.62) +
-        geom_text(aes(label = sprintf("%.1f", value)), hjust = -0.25,
-                  size = 4.4, colour = LATTE$text, fontface = "bold") +
-        scale_fill_manual(values = pal, guide = "none") +
-        coord_cartesian(xlim = c(lo, max(ms$value) * 1.03)) +
-        labs(x = measure_label(input$method_measure), y = NULL) +
-        theme_coffee()
-    })
-
-    output$method_explain <- renderUI({
-      ms <- method_stats(); req(ms)
-      lab <- tolower(measure_label(input$method_measure))
-      top <- ms[1, ]; low <- ms[nrow(ms), ]
-      explain_block(
-        sprintf("Each bar is one way of preparing coffee beans after picking, and its length is the average %s of every coffee prepared that way (only styles with at least 5 coffees are shown).", lab),
-        sprintf("%s leads with an average of %.1f, across %d coffees.",
-                top$method, top$value, top$n),
-        sprintf("%s sits lowest at %.1f, across %d coffees.",
-                low$method, low$value, low$n),
-        sprintf("The gap between the best and the rest is just %.1f points, so how the beans are prepared nudges the taste rather than transforms it. Your choice of origin matters more than the label on the process.",
-                top$value - low$value))
-    })
-
-    # ── Level 2a: altitude vs score ────────────────────────────────────────────
-    alt_data <- reactive({
+    # ── 2. Altitude: score vs altitude ──────────────────────────────────────────
+    output$alt_title <- renderText(
+      sprintf("%s vs altitude", measure_label(input$alt_measure)))
+    output$alt_scatter <- renderPlot({
       m <- input$alt_measure
       d <- base()
       d <- d[!is.na(d$altitude_mean_meters) & d$altitude_mean_meters > 0 &
              d$altitude_mean_meters < 4000 & !is.na(d[[m]]), ]
       if (m == "Total.Cup.Points") d <- d[d[[m]] > 0, ]
-      d
-    })
-
-    output$alt_title <- renderText(
-      sprintf("%s against growing altitude", measure_label(input$alt_measure)))
-    output$alt_scatter <- renderPlot({
-      m <- input$alt_measure; d <- alt_data()
-      if (nrow(d) < 3) return(gg_no_data("Not enough data for this measure."))
+      if (nrow(d) < 3) return(gg_no_data("Not enough data for this slice."))
       ggplot(d, aes(altitude_mean_meters, .data[[m]])) +
         geom_point(colour = COFFEE_COLS$blue, alpha = 0.35, size = 1.8) +
         geom_smooth(method = "lm", se = TRUE, colour = COFFEE_COLS$green,
                     fill = COFFEE_COLS$green, alpha = 0.15) +
-        labs(x = "Altitude (m)", y = measure_label(m)) + theme_coffee()
+        labs(x = "Altitude (m)", y = measure_label(m)) +
+        coord_cartesian(xlim = ALT_LIMITS, ylim = measure_limits(m)) + theme_coffee()
     })
 
-    # Peak/dip for the scatter: compare altitude bands so the words match a
-    # pattern the eye can actually see in the cloud of points.
-    output$alt_explain <- renderUI({
-      m <- input$alt_measure; d <- alt_data(); req(nrow(d) >= 3)
-      lab <- tolower(measure_label(m))
-      d$band <- cut(d$altitude_mean_meters, c(0, 1000, 1500, 2000, Inf),
-                    c("below 1000 m", "1000 to 1500 m", "1500 to 2000 m", "above 2000 m"))
-      bm <- tapply(d[[m]], d$band, mean, na.rm = TRUE); bm <- bm[!is.na(bm)]
-      r  <- suppressWarnings(cor(d$altitude_mean_meters, d[[m]]))
-      trend <- if (is.na(r)) "no clear direction" else
-               if (r > 0.08) "a gentle climb: higher farms tend to earn higher marks" else
-               if (r < -0.08) "a gentle slide: higher farms tend to earn lower marks" else
-               "an almost flat line: altitude barely moves this measure"
-      explain_block(
-        sprintf("Every dot is one coffee, placed by the altitude of its farm (left to right) and its %s (bottom to top). The green line traces the overall trend.", lab),
-        sprintf("Coffees grown %s average the most, at %.1f.",
-                names(which.max(bm)), max(bm)),
-        sprintf("Coffees grown %s average the least, at %.1f.",
-                names(which.min(bm)), min(bm)),
-        sprintf("The trend line shows %s. Thin mountain air slows the cherry's ripening, which concentrates its sugars and flavour.", trend))
+    # Dynamic reading note: recomputed from the same data as the chart, so the
+    # stated correlation always matches the plotted trend line.
+    output$alt_theory <- renderUI({
+      m <- input$alt_measure
+      d <- base()
+      d <- d[!is.na(d$altitude_mean_meters) & d$altitude_mean_meters > 0 &
+             d$altitude_mean_meters < 4000 & !is.na(d[[m]]), ]
+      if (m == "Total.Cup.Points") d <- d[d[[m]] > 0, ]
+      if (nrow(d) < 3) return(NULL)
+      r <- suppressWarnings(cor(d$altitude_mean_meters, d[[m]]))
+      if (is.na(r)) return(NULL)
+      strength  <- if (abs(r) < 0.1) "negligible" else if (abs(r) < 0.3) "weak"
+                   else if (abs(r) < 0.5) "moderate" else "strong"
+      direction <- if (r >= 0) "positive" else "negative"
+      tendency  <- if (abs(r) < 0.1)
+        "altitude alone has little bearing on this measure"
+      else if (r > 0)
+        paste0("coffees grown at higher altitudes tend to record higher values, ",
+               "although altitude alone explains only a small part of the variation")
+      else
+        paste0("coffees grown at higher altitudes tend to record lower values, ",
+               "although altitude alone explains only a small part of the variation")
+      p(class = "card-note", sprintf(
+        "Altitude shows a %s association with %s: %s.",
+        strength, measure_label(m), tendency))
     })
 
-    # ── Level 2b: moisture vs score ────────────────────────────────────────────
-    moist_data <- reactive({
+    # ── 2. Moisture (paired with altitude): score vs moisture ───────────────────
+    output$moist_title <- renderText(
+      sprintf("%s vs moisture", measure_label(input$moist_measure)))
+    output$moist_scatter <- renderPlot({
       m <- input$moist_measure
       d <- base(); d <- d[!is.na(d$Moisture) & d$Moisture > 0 & !is.na(d[[m]]), ]
       if (m == "Total.Cup.Points") d <- d[d[[m]] > 0, ]
-      d
-    })
-
-    output$moist_title <- renderText(
-      sprintf("%s against bean moisture", measure_label(input$moist_measure)))
-    output$moist_scatter <- renderPlot({
-      m <- input$moist_measure; d <- moist_data()
-      if (nrow(d) < 3) return(gg_no_data("Not enough data for this measure."))
+      if (nrow(d) < 3) return(gg_no_data("Not enough data for this slice."))
       ggplot(d, aes(Moisture * 100, .data[[m]])) +
         geom_point(colour = COFFEE_COLS$blue, alpha = 0.35, size = 1.8) +
         geom_smooth(method = "lm", se = TRUE, colour = COFFEE_COLS$green,
                     fill = COFFEE_COLS$green, alpha = 0.15) +
-        labs(x = "Moisture (%)", y = measure_label(m)) + theme_coffee()
+        labs(x = "Moisture (%)", y = measure_label(m)) +
+        coord_cartesian(xlim = MOIST_LIMITS, ylim = measure_limits(m)) + theme_coffee()
     })
 
-    output$moist_explain <- renderUI({
-      m <- input$moist_measure; d <- moist_data(); req(nrow(d) >= 3)
-      lab <- tolower(measure_label(m))
-      d$band <- cut(d$Moisture, c(0, 0.10, 0.12, Inf),
-                    c("drier than 10%", "between 10% and 12%", "wetter than 12%"))
-      bm <- tapply(d[[m]], d$band, mean, na.rm = TRUE); bm <- bm[!is.na(bm)]
-      r  <- suppressWarnings(cor(d$Moisture, d[[m]]))
-      trend <- if (is.na(r)) "no clear direction" else
-               if (r > 0.08) "wetter beans tending to score a little higher" else
-               if (r < -0.08) "wetter beans tending to score a little lower" else
-               "moisture making almost no difference on its own"
-      explain_block(
-        sprintf("Every dot is one coffee, placed by how much moisture its beans held at grading (left to right) and its %s (bottom to top).", lab),
-        sprintf("Beans %s average the most, at %.1f.", names(which.max(bm)), max(bm)),
-        sprintf("Beans %s average the least, at %.1f.", names(which.min(bm)), min(bm)),
-        sprintf("The trend shows %s. Moisture matters most in combination with altitude, which is exactly what the chart below explores.", trend))
+    # Dynamic reading note for moisture, mirroring the altitude note (below chart).
+    output$moist_theory <- renderUI({
+      m <- input$moist_measure
+      d <- base(); d <- d[!is.na(d$Moisture) & d$Moisture > 0 & !is.na(d[[m]]), ]
+      if (m == "Total.Cup.Points") d <- d[d[[m]] > 0, ]
+      if (nrow(d) < 3) return(NULL)
+      r <- suppressWarnings(cor(d$Moisture, d[[m]]))
+      if (is.na(r)) return(NULL)
+      strength  <- if (abs(r) < 0.1) "negligible" else if (abs(r) < 0.3) "weak"
+                   else if (abs(r) < 0.5) "moderate" else "strong"
+      direction <- if (r >= 0) "positive" else "negative"
+      tendency  <- if (abs(r) < 0.1) "moisture alone has little bearing on this measure"
+                   else if (r > 0) "beans with higher moisture tend to record higher values"
+                   else "beans with higher moisture tend to record lower values"
+      p(class = "card-note", sprintf(
+        "Moisture shows a %s association with %s: %s.",
+        strength, measure_label(m), tendency))
     })
 
-    # ── Level 3: altitude and moisture together ────────────────────────────────
-    am_cells <- reactive({
+    # ── 3. Interaction: altitude × moisture, over the chosen methods ────────────
+    output$am_title <- renderText(
+      sprintf("%s by altitude × moisture", measure_label(input$am_measure)))
+    output$altmoist <- renderPlot({
       m <- input$am_measure
       sel <- input$am_methods
-      if (is.null(sel) || length(sel) == 0) return(NULL)
+      if (is.null(sel) || length(sel) == 0)
+        return(gg_no_data("Tick at least one processing method."))
       d <- base(); d <- d[!is.na(d[[m]]) & d$Processing.Method %in% sel, ]
       if (m == "Total.Cup.Points") d <- d[d[[m]] > 0, ]
       d <- d[!is.na(d$altitude_mean_meters) & d$altitude_mean_meters > 0 &
              d$altitude_mean_meters < 4000 &
              !is.na(d$Moisture) & d$Moisture > 0, ]
-      if (nrow(d) == 0) return(NULL)
-      d$altband <- cut(d$altitude_mean_meters,
-                       c(0, 1000, 1250, 1500, 1750, 2000, Inf),
-                       c("<1000", "1000–1250", "1250–1500", "1500–1750",
-                         "1750–2000", "2000+"), right = FALSE)
-      d$moband  <- cut(d$Moisture, c(0, 0.10, 0.11, 0.12, 0.13, Inf),
-                       c("<10%", "10–11%", "11–12%", "12–13%", "13%+"), right = FALSE)
+      if (nrow(d) == 0) return(gg_no_data("No coffees match this selection."))
+      d$altband <- alt_band(d$altitude_mean_meters)
+      d$moband  <- moist_band(d$Moisture)
       ag <- aggregate(d[[m]], list(alt = d$altband, mo = d$moband), mean, na.rm = TRUE)
       names(ag) <- c("alt", "mo", "val")
-      ag
-    })
-
-    output$am_title <- renderText(
-      sprintf("Average %s across altitude and moisture together",
-              tolower(measure_label(input$am_measure))))
-    output$altmoist <- renderPlot({
-      ag <- am_cells()
-      if (is.null(ag)) {
-        if (is.null(input$am_methods) || length(input$am_methods) == 0)
-          return(gg_no_data("Tick at least one processing method."))
-        return(gg_no_data("No coffees match this selection."))
-      }
       mid <- mean(range(ag$val))
       ggplot(ag, aes(alt, mo, fill = val)) +
         geom_tile(colour = "white") +
         geom_text(aes(label = sprintf("%.1f", val), colour = val > mid),
                   size = 3, show.legend = FALSE) +
         scale_colour_manual(values = c(`TRUE` = "white", `FALSE` = "#222222")) +
-        blue_fill(measure_label(input$am_measure)) +
+        scale_fill_gradientn(
+          colours  = c("#F7FBFF", "#C6DBEF", "#6BAED6", "#2171B5", "#08306B"),
+          na.value = "#EAE0D0", name = measure_label(m)) +
         labs(x = "Altitude band (m)", y = "Moisture") + theme_coffee() +
         theme(axis.text.x = element_text(angle = 25, hjust = 1))
     })
 
-    output$am_explain <- renderUI({
-      ag <- am_cells(); req(ag)
-      lab <- tolower(measure_label(input$am_measure))
-      top <- ag[which.max(ag$val), ]; low <- ag[which.min(ag$val), ]
-      explain_block(
-        sprintf("A grid of every altitude and moisture combination. Each cell's colour is the average %s of the coffees inside it: the deeper the blue, the higher the score. Blank cells simply have no coffees.", lab),
-        sprintf("The sweet spot is the %s m altitude band at %s moisture, averaging %.1f.",
-                top$alt, top$mo, top$val),
-        sprintf("The weakest cell is the %s m band at %s moisture, averaging %.1f.",
-                low$alt, low$mo, low$val),
-        "Neither factor rules alone. The best cups come from the right pairing of mountain height and bean moisture, so a grower chasing quality has two dials to tune, not one.")
+    # Finding below the heatmap: the top-scoring altitude x moisture cell.
+    output$am_theory <- renderUI({
+      m <- input$am_measure; sel <- input$am_methods
+      if (is.null(sel) || length(sel) == 0) return(NULL)
+      d <- base(); d <- d[!is.na(d[[m]]) & d$Processing.Method %in% sel, ]
+      if (m == "Total.Cup.Points") d <- d[d[[m]] > 0, ]
+      d <- d[!is.na(d$altitude_mean_meters) & d$altitude_mean_meters > 0 &
+             d$altitude_mean_meters < 4000 & !is.na(d$Moisture) & d$Moisture > 0, ]
+      if (nrow(d) == 0) return(NULL)
+      d$altband <- alt_band(d$altitude_mean_meters)
+      d$moband  <- moist_band(d$Moisture)
+      ag <- aggregate(d[[m]], list(alt = d$altband, mo = d$moband), mean, na.rm = TRUE)
+      names(ag) <- c("alt", "mo", "val")
+      top <- ag[which.max(ag$val), ]
+      p(class = "card-note", sprintf(
+        "The highest values occur in the %s m altitude band at %s moisture.",
+        as.character(top$alt), as.character(top$mo)))
+    })
+
+    # Closing synthesis: ranks the three factors for Total Cup Points, computed
+    # live so the figures always match the charts above.
+    output$factor_summary <- renderUI({
+      d <- base()
+      dm <- d[d$Processing.Method != "" & !is.na(d$Processing.Method), ]
+      keep <- names(which(table(dm$Processing.Method) >= 5))
+      dm <- dm[dm$Processing.Method %in% keep, ]
+      meds <- tapply(dm$Total.Cup.Points, dm$Processing.Method, median, na.rm = TRUE)
+      p(class = "card-note", style = "max-width:860px;", sprintf(
+        paste0("Taken together, both altitude and moisture show a modest association ",
+               "with the total score, while processing-method medians differ by only ",
+               "%.1f points: growing conditions matter more than post-harvest ",
+               "processing."),
+        max(meds) - min(meds)))
     })
   })
 }

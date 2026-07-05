@@ -1,16 +1,23 @@
-# Overview tab — the welcome hub
-# ------------------------------
-# Greets the reader, then hands them five clickable highlight cards that jump
-# straight into the other five tabs (details on demand). Below the hub: the
-# evidence behind the dashboard (headline counts) and a friendly explainer of
-# how coffee gets its score.
+# Overview tab — question, evidence, method
+# ------------------------------------------
+# Content carried over from the 3-July (Intisar) Overview, re-presented in a
+# cleaner layout. Same flow, top to bottom:
+#   1. What this dashboard is for — the framing question, with the tab
+#      walkthrough shown as a clickable "journey" strip instead of a sentence.
+#   2. Why you can trust the findings — the five headline evidence counts.
+#   3. How coffee is rated — the 0–100 scale, the average scorecard ring, and
+#      a plain-language glossary of the nine flavour attributes (now a grid).
+#   4. A closing call-to-action into the Global tab.
+#
+# All styles for this page live in the tags$style block below (prefixed .ov-),
+# so nothing outside this file needs to change.
 
 library(bslib)
 
 # Plain-language meaning of each of the nine scored flavour attributes.
 ATTR_DESC <- c(
   Aroma      = "How the coffee smells, from the dry grounds to the brewed cup.",
-  Flavor     = "The overall taste character. The coffee's main impression on the palate.",
+  Flavor     = "The overall taste character; the coffee's main impression on the palate.",
   Aftertaste = "The flavour that lingers once the coffee has been swallowed.",
   Acidity    = "Brightness or liveliness. A pleasant tang, not sourness.",
   Body       = "The weight and texture of the coffee in the mouth.",
@@ -20,138 +27,164 @@ ATTR_DESC <- c(
   Sweetness  = "Natural sweetness, free from sour or harsh notes."
 )
 
+# The reading journey through the dashboard (was a prose sentence in the
+# 3-July version: "where... what... origin... conclusions"). Each step is a
+# clickable chip that opens its tab via the existing top-level `go_tab` input.
+OV_STEPS <- list(
+  list(tab = "Global",              word = "Where",       desc = "the geographic distribution of quality"),
+  list(tab = "Profile",             word = "Origin",      desc = "a detailed profile of a single origin"),
+  list(tab = "Attributing Factors", word = "What",        desc = "growing and processing factors associated with quality"),
+  list(tab = "Sensory Analysis",    word = "How",         desc = "the nine sensory attributes compare across origins"),
+  list(tab = "Conclusion",          word = "Conclusions", desc = "the principal findings and conclusions")
+)
+
 introductionUI <- function(id) {
   ns <- NS(id)
   tagList(
-    # Hero: warm welcome beside a static cup of coffee.
-    div(class = "hero-wrap",
-        div(class = "hero-copy",
-            h2("Introduction"),
-            p(style = "max-width:720px; font-size:17px; color:#444; line-height:1.6;",
-              "This dashboard examines what distinguishes a high-scoring coffee, ",
-              "drawing on a large set of independent quality gradings produced by ",
-              "professional tasters. It considers where coffee is grown, the ",
-              "conditions under which it is produced, and the sensory attributes by ",
-              "which it is judged, in order to identify the factors most closely ",
-              "associated with quality.")),
-        div(class = "cup-scene", `aria-hidden` = "true",
-            div(class = "cup",
-                div(class = "cup-coffee", div(class = "cup-surface"))),
-            div(class = "cup-handle"),
-            div(class = "cup-saucer"))),
+    tags$style(HTML("
+      /* ── Overview page styles (self-contained) ─────────────────────── */
+      .ov-hero{ margin:6px 0 4px; max-width:900px; }
+      .ov-hero h2{ font-size:32px; line-height:1.15; margin-bottom:12px; }
+      .ov-lead{ font-size:17px; color:#4A3B2C; line-height:1.65; max-width:820px; }
+
+      /* Journey strip: five clickable steps */
+      .ov-steps{ display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
+                 gap:12px; margin:20px 0 8px; }
+      .ov-step{ display:flex; flex-direction:column; background:#FFFFFF; border:1px solid #EADDCB;
+                border-radius:14px; padding:14px 16px 12px;
+                position:relative; overflow:hidden;
+                box-shadow:0 1px 2px rgba(58,36,23,.05); }
+      .ov-step::before{ content:''; position:absolute; inset:0 auto 0 0; width:4px;
+                        background:var(--ov-accent,#9C5A20); }
+      .ov-step-num{ font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:10.5px;
+                    letter-spacing:.14em; text-transform:uppercase;
+                    color:var(--ov-accent,#9C5A20); margin-bottom:6px; }
+      .ov-step-word{ font-size:19px; font-weight:700; color:#2B2018; line-height:1.1;
+                     margin-bottom:4px; }
+      .ov-step-desc{ font-size:13px; color:#6F5C49; line-height:1.45; }
+      .ov-step-link{ align-self:flex-start; margin-top:auto; padding-top:12px;
+                     font-size:13.5px; font-weight:600; color:var(--ov-accent,#9C5A20);
+                     text-decoration:none; }
+      .ov-step-link:hover{ text-decoration:underline; }
+
+      /* Section kicker + heading */
+      .ov-kicker{ font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-size:11.5px;
+                  letter-spacing:.18em; text-transform:uppercase; color:#9C5A20;
+                  margin:0 0 6px; }
+      .ov-sec{ margin-top:6px; }
+      .ov-sec h4{ margin-bottom:8px; }
+      .ov-note{ font-size:15px; color:#4A3B2C; line-height:1.6; max-width:820px;
+                margin-bottom:16px; }
+
+      /* Glossary grid: nine small definition cards */
+      .ov-gloss{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+                 gap:12px; margin-top:14px; max-width:1100px; }
+      .ov-term{ background:#FFFFFF; border:1px solid #EADDCB; border-radius:12px;
+                padding:12px 14px; box-shadow:0 1px 2px rgba(58,36,23,.04); }
+      .ov-term-name{ display:inline-block; border-radius:6px; padding:2px 10px;
+                     font-size:12.5px; font-weight:700; margin-bottom:7px; }
+      .ov-term-desc{ font-size:13.5px; color:#4A3B2C; line-height:1.5; margin:0; }
+
+      /* Closing call-to-action */
+      .ov-cta{ display:inline-flex; align-items:center; gap:10px; margin:4px 0 10px;
+               background:linear-gradient(120deg,#9C5A20,#C68642); color:#fff;
+               font-size:16px; font-weight:600; padding:12px 22px; border-radius:12px;
+               text-decoration:none; box-shadow:0 5px 16px rgba(156,90,32,.3);
+               transition:box-shadow .2s ease, filter .2s ease; }
+      .ov-cta:hover{ color:#fff; text-decoration:none; filter:brightness(1.05);
+                     box-shadow:0 8px 22px rgba(156,90,32,.4); }
+    ")),
+
+    # ── 1 · The framing question + clickable journey ─────────────────────────
+    div(class = "ov-hero",
+        div(class = "ov-kicker", "Data source · Coffee Quality Institute"),
+        h2("Introduction"),
+        h5("What this dashboard is for."),
+        p(class = "ov-lead",
+          "This dashboard examines the factors that distinguish exceptional ",
+          "coffee from ordinary coffee, and identifies the regions in which the ",
+          "highest-quality beans are produced, using independent quality ",
+          "gradings from the Coffee Quality Institute.")),
 
     hr(),
 
-    # ── Dataset overview ──────────────────────────────────────────────────────
-    h4("Dataset Overview"),
-    p(style = "max-width:820px; font-size:14px; color:#444;",
-      "Each record is a professionally graded coffee, capturing its origin, ",
-      "growing conditions and ten component scores. In total, the dataset covers:"),
-    layout_columns(
-      col_widths = c(-1, 2, 2, 2, 2, 2, -1),
+    # ── 2 · Why you can trust these findings ─────────────────────────────────
+    div(class = "ov-sec",
+        div(class = "ov-kicker", "The evidence"),
+        h4("Dataset Overview"),
+        h5("What the data looks like."),
+        p(class = "ov-note",
+          "All findings are derived from a large, independent body of ",
+          "professional cup scores. For each coffee the dataset also records its ",
+          "growing conditions — altitude, bean moisture and processing method — ",
+          "alongside its origin and harvest year:")),
+    layout_column_wrap(
+      width = 1/4,
       uiOutput(ns("kpi_coffees")),
       uiOutput(ns("kpi_countries")),
       uiOutput(ns("kpi_regions")),
       uiOutput(ns("kpi_producers")),
-      uiOutput(ns("kpi_partners"))
+      uiOutput(ns("kpi_partners")),
+      uiOutput(ns("kpi_years")),
+      uiOutput(ns("kpi_methods"))
     ),
 
     hr(),
 
-    # ── Scoring criteria ──────────────────────────────────────────────────────
-    h4("Scoring Criteria"),
-    p(style = "max-width:820px; font-size:14px; color:#444; line-height:1.6;",
-      "Each coffee is assessed by certified graders and receives a mark ",
-      strong("out of 100"), ", comprising ten components scored out of 10. Nine ",
-      "describe the coffee's sensory characteristics (defined below), and the ",
-      "tenth is the grader's overall impression. ",
-      textOutput(ns("scale_note"), inline = TRUE)),
+    # ── 3 · How coffee is rated ───────────────────────────────────────────────
+    div(class = "ov-sec",
+        div(class = "ov-kicker", "The method"),
+        h4("Scoring methodology"),
+        p(class = "ov-note",
+          "Each coffee in the dataset has been evaluated by certified graders ",
+          "and assigned a Total Cup Points score ", strong("out of 100"),
+          ", comprising ten components each scored out of 10: nine distinct ",
+          "sensory attributes (defined below) and the grader's overall ",
+          "assessment. ",
+          textOutput(ns("scale_note"), inline = TRUE))),
     scorecard_card(plotOutput(ns("scorecard_ring"), height = "300px"),
-                   uiOutput(ns("scorecard_legend"))),
+                   uiOutput(ns("scorecard_legend")), n = N_SCORED),
 
     uiOutput(ns("glossary")),
 
     hr(),
 
-    # ── Navigation: how to explore the dashboard ──────────────────────────────
-    h4("Navigating the Dashboard"),
-    p(style = "max-width:820px; font-size:14px; color:#444;",
-      "The dashboard continues across five further tabs, each opening one part ",
-      "of the analysis. Select a card below, or the matching tab above, to begin. ",
-      "The intended order runs from left to right, though the tabs may be read in ",
-      "any sequence."),
-    uiOutput(ns("hub"))
+    # ── 4 · Navigation: the analysis in five steps ────────────────────────────
+    div(class = "ov-sec",
+        div(class = "ov-kicker", "Navigation"),
+        h4("Explore the analysis"),
+        p(class = "ov-note",
+          "Each stage of the analysis can be opened directly from the cards ",
+          "below, or from the tabs at the top of the page.")),
+    uiOutput(ns("steps"))
   )
 }
 
-introductionServer <- function(id, data, nav) {
+introductionServer <- function(id, data) {
   moduleServer(id, function(input, output, session) {
 
-    ns <- session$ns
     nonblank <- function(x) x[!is.na(x) & x != ""]
-    scored   <- data[!is.na(data$Total.Cup.Points) & data$Total.Cup.Points > 0, ]
 
-    # ── Hub cards: each one is a clickable gateway into a tab ─────────────────
-    # Each card is an actionLink (pure Shiny, no JavaScript). Clicking it fires
-    # its input; the observers below put the target tab on the shared `nav` bus
-    # and server.R switches to it.
-    hub_card <- function(input_id, kicker, big, desc, go, accent) {
-      actionLink(ns(input_id),
-        label = tagList(
-          div(class = "hub-kicker", kicker),
-          div(class = "hub-big",  big),
-          div(class = "hub-desc", desc),
-          span(class = "hub-go", go, span(class = "chev", HTML("&#8594;")))),
-        class = "hub-card", style = paste0("--hub-accent:", accent, ";"))
-    }
-
-    output$hub <- renderUI({
-      n_countries <- length(unique(nonblank(data$Country.of.Origin)))
-      by_country  <- summarise_by(scored, "Country.of.Origin")
-      by_country  <- by_country[by_country$n_coffees >= 5, ]
-      top_country <- by_country$group[which.max(by_country$avg_score)]
-
-      div(class = "hub-grid",
-        hub_card("hub_global", "Spin the globe",
-                 sprintf("%d countries", n_countries),
-                 "Every cup starts somewhere. Rotate a living 3D planet and see where the world grows its best beans.",
-                 "Explore the world", CAT_COLS[1]),
-        hub_card("hub_profile", "Taste an origin",
-                 sprintf("%s leads", top_country),
-                 "Meet the flavours behind each origin and pop open the charts, one delicious slice at a time.",
-                 "See the flavours", CAT_COLS[4]),
-        hub_card("hub_factors", "The why",
-                 "Altitude matters",
-                 "Mountains, moisture and method all leave fingerprints on flavour. See which ones matter most.",
-                 "Find the drivers", CAT_COLS[2]),
-        hub_card("hub_sensory", "Play barista",
-                 "Build your cup",
-                 "Tell us what you love with a few sliders and we will match you to your perfect coffee.",
-                 "Make my coffee", CAT_COLS[3]),
-        hub_card("hub_summary", "The big picture",
-                 "Key findings",
-                 "Short on time? The whole story, its winners and its lessons, on one beautiful page.",
-                 "Read the story", CAT_COLS[6])
-      )
-    })
-
-    # Each hub card -> put its target tab on the shared nav bus (see server.R).
-    hub_nav <- c(hub_global  = "Global",
-                 hub_profile = "Profile",
-                 hub_factors = "Attributing Factors",
-                 hub_sensory = "Sensory Analysis",
-                 hub_summary = "Conclusion")
-    for (nm in names(hub_nav)) local({
-      id     <- nm
-      tabval <- hub_nav[[nm]]
-      observeEvent(input[[id]], {
-        nav$tab       <- tabval
-        nav$tab_nonce <- nav$tab_nonce + 1
-      })
+    # ── Journey strip: one step per tab; only the bottom link opens the tab ────
+    output$steps <- renderUI({
+      accents <- cat_cols(length(OV_STEPS))
+      div(class = "ov-steps",
+        lapply(seq_along(OV_STEPS), function(i) {
+          s <- OV_STEPS[[i]]
+          div(class = "ov-step", style = paste0("--ov-accent:", accents[i], ";"),
+              div(class = "ov-step-num", sprintf("Step %d", i)),
+              div(class = "ov-step-word", s$word),
+              div(class = "ov-step-desc", s$desc),
+              tags$a(class = "ov-step-link", href = "#",
+                     onclick = sprintf(
+                       "Shiny.setInputValue('go_tab','%s',{priority:'event'}); return false;",
+                       s$tab),
+                     paste0(s$tab, " →")))
+        }))
     })
 
     # ── Headline evidence counts ──────────────────────────────────────────────
-    kpi_h <- "120px"   # fixed height so all five cards stay the same size
+    kpi_h <- "120px"   # fixed height so every KPI card stays the same size
     output$kpi_coffees <- renderUI(
       stat_card("Coffees evaluated", format(nrow(data), big.mark = ","),
                 COFFEE_COLS$green, height = kpi_h))
@@ -171,9 +204,17 @@ introductionServer <- function(id, data, nav) {
       stat_card("Grading partners",
                 length(unique(nonblank(data$In.Country.Partner))),
                 COFFEE_COLS$green, height = kpi_h))
+    output$kpi_years <- renderUI({
+      yr <- range(data$harvest_year, na.rm = TRUE)
+      stat_card("Harvest years", sprintf("%d–%d", yr[1], yr[2]),
+                COFFEE_COLS$blue, height = kpi_h)
+    })
+    output$kpi_methods <- renderUI(
+      stat_card("Processing methods",
+                length(unique(nonblank(data$Processing.Method))),
+                COFFEE_COLS$orange, height = kpi_h))
 
-    # The nine attributes, each with a plain-language description. Each chip is
-    # coloured to match its slice in the ring (same cat_cols palette / order).
+    # ── Glossary: nine definition cards, chips coloured to match the ring ─────
     output$glossary <- renderUI({
       pal <- setNames(cat_cols(length(FLAVOR_ATTRS) + 1),
                       c(FLAVOR_ATTRS, "Cupper.Points"))
@@ -183,29 +224,25 @@ introductionServer <- function(id, data, nav) {
         lum <- (0.299 * r[1] + 0.587 * r[2] + 0.114 * r[3]) / 255
         if (lum > 0.6) "#2B2018" else "#FFFFFF"
       }
-      chip <- function(name, bg) tags$span(
-        style = paste0("display:inline-block; background:", bg, "; color:",
-                       text_on(bg), "; border-radius:6px; padding:3px 10px;",
-                       "font-size:13px; font-weight:600; min-width:96px;",
-                       "text-align:center;"), name)
-      div(style = "max-width:820px;",
+      div(class = "ov-gloss",
         lapply(names(ATTR_DESC), function(a)
-          div(style = "display:flex; align-items:baseline; gap:12px; margin-bottom:9px;",
-              chip(gsub("\\.", " ", a), pal[[a]]),
-              tags$span(style = "color:#444; font-size:14px; line-height:1.5;",
-                        ATTR_DESC[[a]])))
-      )
+          div(class = "ov-term",
+              tags$span(class = "ov-term-name",
+                        style = paste0("background:", pal[[a]], "; color:",
+                                       text_on(pal[[a]]), ";"),
+                        gsub("\\.", " ", a)),
+              tags$p(class = "ov-term-desc", ATTR_DESC[[a]]))))
     })
 
     # Where scores actually land in THIS dataset (no external threshold).
     output$scale_note <- renderText({
       d <- data$Total.Cup.Points[!is.na(data$Total.Cup.Points) & data$Total.Cup.Points > 0]
-      sprintf("In this dataset, coffees range from %.0f to %.0f points, averaging %.0f.",
+      sprintf("Within this dataset, scores range from %.0f to %.0f points, with a mean of %.0f.",
               min(d), max(d), mean(d))
     })
 
     # Average scorecard: a ring + a progress-bar legend (shared helpers).
-    sc_df <- scorecard_df(scored)
+    sc_df <- scorecard_df(data[!is.na(data$Total.Cup.Points) & data$Total.Cup.Points > 0, ])
     output$scorecard_ring   <- renderPlot(scorecard_ring(sc_df))
     output$scorecard_legend <- renderUI(scorecard_legend(sc_df))
   })

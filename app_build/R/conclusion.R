@@ -25,12 +25,13 @@ conclusionUI <- function(id) {
   ns <- NS(id)
   tagList(
       h2("Conclusion"),
+      h5("What the data says"),
       p(style = "max-width:860px; font-size:17px; color:#444; line-height:1.6;",
         "This page consolidates the findings of the analysis. It first reports the ",
         "growing conditions associated with the highest average scores, then ",
         "summarises the sensory patterns that determine how coffees are graded."),
 
-      sum_heading("Growing conditions", "What scores highest"),
+      sum_heading("Growing conditions", "Top Performers"),
       p(style = "color:#888; font-size:13px;",
         "The highest-scoring origin, growing altitude and bean moisture, ranked by ",
         "average cup score. Altitude and moisture bands require at least 20 graded ",
@@ -43,7 +44,7 @@ conclusionUI <- function(id) {
 
       hr(),
 
-      sum_heading("Key findings", "What the analysis shows"),
+      sum_heading("Key findings", "What the Analysis Shows"),
       div(class = "takeaway-grid",
         tk_card(1, CAT_COLS[1], "Aftertaste and flavour drive the score",
           paste0("Of the ten scored components, aftertaste and flavour track the ",

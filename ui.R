@@ -48,18 +48,22 @@ ui <- fluidPage(
     body{ background:var(--cream); color:var(--ink); }
     .container-fluid{ max-width:100%; padding-left:max(2rem,3%); padding-right:max(2rem,3%); }
 
-    /* ── App header ──────────────────────────────────────────── */
-    .app-header{ padding:22px 0 18px; border-bottom:1px solid var(--line); margin-bottom:22px; }
-    .app-kicker{ font-family:ui-monospace,Consolas,'Liberation Mono',monospace; font-size:12px; letter-spacing:.2em;
-                 text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
-    .app-title{ font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-weight:600; letter-spacing:-.02em;
-                font-size:34px; margin:0; color:var(--ink); }
+    /* ── App header: a dark bar holding the title, sitting above the tabs ─── */
+    .app-headerbar{ background:#2B2018; margin:0 calc(-1 * max(2rem,3%));
+                    padding:18px max(2rem,3%) 16px; }
+    .app-title{ font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-weight:600; letter-spacing:-.01em;
+                font-size:26px; margin:0; color:#F7F1E7; }
+    .app-headerbar .action-button{ color:#E8C99A; font-weight:600; }
+    .app-headerbar .action-button:hover{ color:#F7F1E7; }
 
     /* ── Headings & lead text ───────────────────────────────── */
     h2{ font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-weight:600; letter-spacing:-.01em;
         font-size:28px; color:var(--ink); }
     h4{ font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-weight:600; font-size:20px;
         margin-top:6px; color:var(--ink); }
+    /* h5 is used as a quiet subtitle / flavour line under a heading, not a heading itself */
+    h5{ font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; font-weight:400;
+        font-size:15.5px; color:var(--muted); letter-spacing:0; margin:-2px 0 16px; }
     .tab-pane > p:first-of-type{ color:var(--muted); max-width:72ch; font-size:17px; line-height:1.6; }
 
     a, a:hover{ text-decoration:none; }
@@ -115,13 +119,16 @@ ui <- fluidPage(
     .mini-rating .mr-val{ font-size:19px; font-weight:700; color:var(--ink); }
     .mini-rating .mr-word{ font-size:12px; color:var(--accent); font-weight:600; }
 
-    /* ── Tabs: underline style ──────────────────────────────── */
-    .nav-tabs{ border-bottom:1px solid var(--line); gap:4px; margin-bottom:22px; }
-    .nav-tabs .nav-link{ color:var(--muted); border:none; border-bottom:2px solid transparent;
-                         font-weight:500; padding:12px 16px; }
-    .nav-tabs .nav-link:hover{ color:var(--ink); border-bottom-color:var(--line); }
-    .nav-tabs .nav-link.active{ color:var(--ink); font-weight:600; background:transparent;
-                                border-bottom:2px solid var(--accent); }
+    /* ── Tabs: a dark full-width bar; each tab fills, active tab fills with colour ─── */
+    .nav-tabs{ background:#2B2018; margin:0 calc(-1 * max(2rem,3%)) 26px;
+               padding:0 max(2rem,3%); border-bottom:none; display:flex; gap:0;
+               box-shadow:0 6px 14px rgba(43,32,24,.16); }
+    .nav-tabs .nav-item{ flex:1 1 0; display:flex; }
+    .nav-tabs .nav-link{ display:flex; align-items:center; justify-content:center; width:100%;
+                         text-align:center; line-height:1.2; color:#D8C7B0; border:none;
+                         border-radius:0; font-weight:500; padding:12px 8px; background:transparent; }
+    .nav-tabs .nav-link:hover{ color:#F7F1E7; background:rgba(247,241,231,.07); border:none; }
+    .nav-tabs .nav-link.active{ color:#2B2018; background:var(--caramel); font-weight:700; border:none; }
 
     /* ── wellPanel -> clean control card ────────────────────── */
     .well{ background:var(--surface); border:1px solid var(--line); border-radius:14px;
@@ -166,9 +173,10 @@ ui <- fluidPage(
     hr{ border-top:1px solid var(--line); opacity:1; margin:26px 0; }
   "))),
 
-  div(style = "display:flex; align-items:center; justify-content:space-between; margin:8px 2px 2px;",
-      h1("Global Coffee Quality Assessment Platform", class = "app-title"),
-      actionLink("about_btn", "About", icon = icon("circle-info"))),
+  div(class = "app-headerbar",
+      div(style = "display:flex; align-items:center; justify-content:space-between;",
+          h1("Global Coffee Quality Assessment Platform", class = "app-title"),
+          actionLink("about_btn", "About", icon = icon("circle-info")))),
 
   tabsetPanel(
     id = "tabs",
@@ -176,7 +184,7 @@ ui <- fluidPage(
 
     tabPanel("Overview",            value = "Overview",            introductionUI("introduction")),
     tabPanel("Global",              value = "Global",              locationUI("location")),
-    tabPanel("Profile",             value = "Profile",             toneUI("tone")),
+    tabPanel("Profile",             value = "Profile",             profileUI("profile")),
     tabPanel("Attributing Factors", value = "Attributing Factors", analysisUI("analysis")),
     tabPanel("Sensory Analysis",    value = "Sensory Analysis",    flavorUI("flavor")),
     tabPanel("Conclusion",          value = "Conclusion",          conclusionUI("conclusion"))

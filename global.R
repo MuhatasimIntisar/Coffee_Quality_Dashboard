@@ -48,6 +48,9 @@ coffee$harvest_year <- suppressWarnings(
 
 YEAR_RANGE <- range(coffee$harvest_year, na.rm = TRUE)
 
+# Number of coffees carrying a valid overall score (the basis for the scorecard).
+N_SCORED <- sum(!is.na(coffee$Total.Cup.Points) & coffee$Total.Cup.Points > 0)
+
 # ── Shared constants ────────────────────────────────────────────────────────
 
 # The 9 sensory attributes scored for every coffee (used by the radar charts).

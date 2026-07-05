@@ -47,7 +47,7 @@ conclusionUI <- function(id) {
       div(class = "takeaway-grid",
         tk_card(1, CAT_COLS[1], "Aftertaste and flavour drive the score",
           paste0("Of the ten scored components, aftertaste and flavour track the ",
-                 "overall grade most closely (r ≈ 0.84). A coffee's mark rests ",
+                 "overall grade most closely. A coffee's mark rests ",
                  "chiefly on its overall impression rather than on any single ",
                  "characteristic.")),
         tk_card(2, CAT_COLS[2], "The best coffees score consistently",
@@ -105,10 +105,7 @@ conclusionServer <- function(id, data) {
       d <- scored[!is.na(scored$altitude_mean_meters) &
                   scored$altitude_mean_meters > 0 &
                   scored$altitude_mean_meters < 4000, ]
-      d$band <- cut(d$altitude_mean_meters,
-                    c(0, 1000, 1250, 1500, 1750, 2000, Inf),
-                    c("under 1000 m", "1000–1250 m", "1250–1500 m",
-                      "1500–1750 m", "1750–2000 m", "2000 m+"), right = FALSE)
+      d$band <- alt_band(d$altitude_mean_meters)
       agg  <- tapply(d$Total.Cup.Points, d$band, mean, na.rm = TRUE)
       keep <- names(table(d$band))[table(d$band) >= 20]
       agg  <- agg[keep]; agg <- agg[!is.na(agg)]
@@ -118,9 +115,7 @@ conclusionServer <- function(id, data) {
     # Highest-scoring bean-moisture band (>= 20 graded coffees).
     best_moist_band <- reactive({
       d <- scored[!is.na(scored$Moisture) & scored$Moisture > 0, ]
-      d$band <- cut(d$Moisture, c(0, 0.10, 0.11, 0.12, 0.13, Inf),
-                    c("under 10%", "10–11%", "11–12%", "12–13%", "13%+"),
-                    right = FALSE)
+      d$band <- moist_band(d$Moisture)
       agg  <- tapply(d$Total.Cup.Points, d$band, mean, na.rm = TRUE)
       keep <- names(table(d$band))[table(d$band) >= 20]
       agg  <- agg[keep]; agg <- agg[!is.na(agg)]
@@ -136,7 +131,7 @@ conclusionServer <- function(id, data) {
     })
     output$lift_altitude <- renderUI({
       b <- best_alt_band()
-      v <- if (is.null(b)) "—" else paste0(b$band, " at ", sprintf("%.1f", b$score))
+      v <- if (is.null(b)) "—" else paste0(b$band, " m at ", sprintf("%.1f", b$score))
       stat_card("Highest scoring altitude", v, COFFEE_COLS$blue)
     })
     output$lift_moisture <- renderUI({

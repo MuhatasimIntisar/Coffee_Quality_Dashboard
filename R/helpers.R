@@ -75,31 +75,50 @@ scorecard_ring <- function(df) {
     theme_void()
 }
 
-scorecard_legend <- function(df) {
+scorecard_legend <- function(df, ref = NULL) {
+  # ref: optional vector of comparison values (same order/length as df$val) — the
+  # dataset-wide component averages — drawn as a vertical tick on each bar.
   fmt <- function(v) sub("\\.0$", "", sprintf("%.1f", v))
   rows <- lapply(seq_len(nrow(df)), function(i) {
     pct <- max(0, min(100, df$val[i] / 10 * 100))
+    marker <- if (!is.null(ref))
+      div(title = sprintf("Dataset average %s", fmt(ref[i])),
+          style = paste0("position:absolute; top:-3px; bottom:-3px; width:2px;",
+                         " left:", max(0, min(100, ref[i] / 10 * 100)), "%;",
+                         " background:#2B2018; opacity:.55;"))
     div(style = "display:flex; align-items:center; gap:10px; margin-bottom:9px;",
         tags$span(style = paste0("width:14px; height:14px; border-radius:3px; flex:none;",
                                  " background:", df$col[i], ";")),
         tags$span(style = "width:120px; flex:none; font-size:15px; color:#2B2018;",
                   as.character(df$label[i])),
-        div(style = "flex:1; height:10px; border-radius:5px; background:#EFE4D2;",
+        div(style = paste0("position:relative; flex:1; height:10px; border-radius:5px;",
+                           " background:#EFE4D2;"),
             div(style = paste0("width:", pct, "%; height:100%; border-radius:5px;",
-                               " background:", df$col[i], ";"))),
+                               " background:", df$col[i], ";")),
+            marker),
         tags$span(style = "width:40px; text-align:right; flex:none; font-size:15px; color:#2B2018;",
                   fmt(df$val[i])))
   })
-  div(rows)
+  note <- if (!is.null(ref))
+    div(style = "font-size:12px; color:#6F5C49; margin-top:8px;",
+        "The vertical line on each bar marks the dataset-wide average.")
+  div(rows, note)
 }
 
-scorecard_card <- function(ring, legend) {
+scorecard_card <- function(ring, legend, n = NULL) {
+  # n may be NULL (no count), a number (static count), or a shiny tag such as a
+  # textOutput (a dynamic, reactive count — used by the per-country Profile card).
+  base <- "Total out of 100, split into its ten components"
+  sub <- if (is.null(n)) base
+         else if (is.numeric(n))
+           paste0(base, " · ", format(n, big.mark = ","), " coffees evaluated")
+         else list(base, " · ", n)
   card(
     card_header(
       div(style = "display:flex; justify-content:space-between; align-items:baseline; gap:12px;",
           tags$span("Average scorecard"),
           tags$span(style = "font-weight:400; color:#6F5C49; font-size:14px;",
-                    "Total out of 100, split into its ten components"))),
+                    sub))),
     card_body(
       layout_columns(
         col_widths = c(5, 7),
@@ -212,6 +231,27 @@ METRIC_CHOICES <- setNames(names(METRIC_LABELS), unname(METRIC_LABELS))
 MEASURE_CHOICES <- setNames(c("Total.Cup.Points", FLAVOR_ATTRS),
                             c("Total Cup Points", gsub("\\.", " ", FLAVOR_ATTRS)))
 measure_label <- function(m) names(MEASURE_CHOICES)[match(m, MEASURE_CHOICES)]
+
+# Fixed axis limits so ranges stay constant across selections (easier to read):
+#   Total Cup Points 60-90; clean cup & sweetness 0-10; other sensory attributes
+#   5-10; altitude 0-4000 m; moisture 5-20 %.
+measure_limits <- function(m)
+  if (identical(m, "Total.Cup.Points")) c(60, 90)
+  else if (m %in% c("Clean.Cup", "Sweetness")) c(0, 10)
+  else c(5, 10)
+ALT_LIMITS   <- c(0, 4000)
+MOIST_LIMITS <- c(5, 20)
+
+# Shared altitude / moisture bands so every tab groups coffees the same way
+# (used by the Attributing-Factors heatmap and the Conclusion "what scores
+# highest" cards). Change the breaks here and every tab updates together.
+ALT_BREAKS        <- c(0, 1000, 1250, 1500, 1750, 2000, Inf)
+ALT_BAND_LABELS   <- c("<1000", "1000–1250", "1250–1500", "1500–1750",
+                       "1750–2000", "2000+")
+MOIST_BREAKS      <- c(0, 0.10, 0.11, 0.12, 0.13, Inf)
+MOIST_BAND_LABELS <- c("<10%", "10–11%", "11–12%", "12–13%", "13%+")
+alt_band   <- function(x) cut(x, ALT_BREAKS,   ALT_BAND_LABELS,   right = FALSE)
+moist_band <- function(x) cut(x, MOIST_BREAKS, MOIST_BAND_LABELS, right = FALSE)
 
 # Radar charts are drawn with the fmsb package directly inside the Attributing-
 # Factors and Profile modules, so the old hand-drawn base-R radar helpers that
